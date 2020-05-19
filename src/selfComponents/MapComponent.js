@@ -5,14 +5,14 @@ import 'leaflet-defaulticon-compatibility';
 
 import {Icon} from "leaflet";
 import * as pkuData from "../data/tRouteTrackPointsKarabash.json"
+
 console.log(pkuData);
 
 class MapComponent extends React.Component {
     render() {
 
         return (
-            <div>
-                <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
+
             <LeafletMap center={[54.730922, 55.962198]} zoom={12}>
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -20,9 +20,8 @@ class MapComponent extends React.Component {
                 />
 
                 {pkuData.pkuInfo.map(pku =>
-                    <Marker key ={pku.ID} position = {[pku.Latitude, pku.Longitude]}/>)}
+                    <Marker key={pku.ID} position={[pku.Latitude, pku.Longitude]}/>)}
             </LeafletMap>
-            </div>
         )
     }
 }
