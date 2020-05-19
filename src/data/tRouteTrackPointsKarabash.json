@@ -1,0 +1,172 @@
+{
+  "pkuInfo": [
+    {
+      "ID": 1,
+      "RouteID": 2,
+      "Latitude": 54.891577,
+      "Longitude": 52.35456,
+      "SubjectID": 3,
+      "Area": "-"
+    },
+    {
+      "ID": 2,
+      "RouteID": 2,
+      "Latitude": 54.974302,
+      "Longitude": 52.43683,
+      "SubjectID": 1,
+      "Area": "-"
+    },
+    {
+      "ID": 3,
+      "RouteID": 2,
+      "Latitude": 54.90291,
+      "Longitude": 52.269912,
+      "SubjectID": 2,
+      "Area": "-"
+    },
+    {
+      "ID": 4,
+      "RouteID": 2,
+      "Latitude": 54.692578,
+      "Longitude": 52.58267,
+      "SubjectID": 4,
+      "Area": "-"
+    },
+    {
+      "ID": 5,
+      "RouteID": 2,
+      "Latitude": 54.596535,
+      "Longitude": 52.445829,
+      "SubjectID": 5,
+      "Area": "-"
+    },
+    {
+      "ID": 6,
+      "RouteID": 2,
+      "Latitude": 54.531528,
+      "Longitude": 52.73912,
+      "SubjectID": 6,
+      "Area": "-"
+    },
+    {
+      "ID": 7,
+      "RouteID": 2,
+      "Latitude": 54.598444,
+      "Longitude": 52.450752,
+      "SubjectID": 15,
+      "Area": "-"
+    },
+    {
+      "ID": 8,
+      "RouteID": 1,
+      "Latitude": 55.337352,
+      "Longitude": 63.912042,
+      "SubjectID": 18,
+      "Area": "-"
+    },
+    {
+      "ID": 9,
+      "RouteID": 1,
+      "Latitude": 55.31821121,
+      "Longitude": 64.24214687,
+      "SubjectID": 19,
+      "Area": "Мишкино - Юргамыш"
+    },
+    {
+      "ID": 10,
+      "RouteID": 1,
+      "Latitude": 55.33558196,
+      "Longitude": 64.50131264,
+      "SubjectID": 20,
+      "Area": "-"
+    },
+    {
+      "ID": 11,
+      "RouteID": 1,
+      "Latitude": 54.560283,
+      "Longitude": 53.879172,
+      "SubjectID": 21,
+      "Area": "Субханкулово - Языково"
+    },
+    {
+      "ID": 12,
+      "RouteID": 1,
+      "Latitude": 54.571789,
+      "Longitude": 53.969142,
+      "SubjectID": 22,
+      "Area": "Субханкулово - Языково"
+    },
+    {
+      "ID": 13,
+      "RouteID": 1,
+      "Latitude": 54.572781,
+      "Longitude": 53.979442,
+      "SubjectID": 23,
+      "Area": "Субханкулово - Языково"
+    },
+    {
+      "ID": 14,
+      "RouteID": 1,
+      "Latitude": 54.573892,
+      "Longitude": 53.989722,
+      "SubjectID": 24,
+      "Area": "Субханкулово - Языково"
+    },
+    {
+      "ID": 15,
+      "RouteID": 1,
+      "Latitude": 54.601142,
+      "Longitude": 54.206247,
+      "SubjectID": 25,
+      "Area": "Субханкулово - Языково"
+    },
+    {
+      "ID": 16,
+      "RouteID": 1,
+      "Latitude": 54.678611,
+      "Longitude": 54.781942,
+      "SubjectID": 26,
+      "Area": "Калмаш - Языково"
+    },
+    {
+      "ID": 17,
+      "RouteID": 1,
+      "Latitude": 54.800831,
+      "Longitude": 55.542222,
+      "SubjectID": 27,
+      "Area": "Языково - Нурлино"
+    },
+    {
+      "ID": 18,
+      "RouteID": 1,
+      "Latitude": 54.903528,
+      "Longitude": 56.079583,
+      "SubjectID": 28,
+      "Area": "Нурлино - Черкассы"
+    },
+    {
+      "ID": 19,
+      "RouteID": 1,
+      "Latitude": 55.0875,
+      "Longitude": 58.631111,
+      "SubjectID": 29,
+      "Area": "Кропачево - Бердяуш"
+    },
+    {
+      "ID": 20,
+      "RouteID": 1,
+      "Latitude": 55.089722,
+      "Longitude": 58.640556,
+      "SubjectID": 30,
+      "Area": "Кропачево - Бердяуш"
+    },
+    {
+      "ID": 21,
+      "RouteID": 1,
+      "Latitude": 55.200561,
+      "Longitude": 59.076111,
+      "SubjectID": 31,
+      "Area": "Кропачево - Бердяуш"
+    }
+  ]
+}
