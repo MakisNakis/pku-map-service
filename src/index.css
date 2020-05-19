@@ -14,9 +14,9 @@ code {
 
 h1 {
   /*font-family: 'Merriweather', serif;*/
-  font-size: 20px;
+  font-size: 25px;
   letter-spacing: 1px;
-  max-width: 320px;
+  max-width: 1020px;
   width: 100%;
   position: relative;
   display: inline-block;
@@ -28,18 +28,19 @@ h1 {
   width: auto;
   margin: 35px auto;
   letter-spacing: 3px;
-  color: #4132fb;
+  color: rgb(0, 0, 0);
 }
 .mainHeader h1:before {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -25px;
+  top: -45%;
+  left: -95px;
   z-index: -1;
-  background: #fed57b;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  background: #a6f4fe;
+  background-image: url("omegaIcon.svg");
+  width: 60px;
+  height: 60px;
+  border-radius: 10%;
 }
 
 /*.map{*/
