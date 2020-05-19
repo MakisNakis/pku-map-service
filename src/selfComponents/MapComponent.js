@@ -22,7 +22,7 @@ export default function MapComponent() {
 
     return (
 
-        <LeafletMap center={[54.730922, 55.962198]} zoom={12}>
+        <LeafletMap center={[54.730922, 55.962198]} zoom={7}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"

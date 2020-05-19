@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/markers/blueM.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/markers/gbM.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/markers/greenM.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/markers/rbM.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/markers/redM.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/markers/rgM.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/markers/rgbM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/omegaIcon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shape.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +53,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editorconfig.notification" value="lf;" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/markers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/selfComponents" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -71,13 +66,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/selfComponents" />
       <recent name="$PROJECT_DIR$/public/markers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/markers" />
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/public/markers" />
+      <recent name="$PROJECT_DIR$/src/selfComponents" />
       <recent name="$PROJECT_DIR$/public/data" />
-      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -120,7 +117,7 @@
       <workItem from="1589881100213" duration="4095000" />
       <workItem from="1589886747344" duration="10000" />
       <workItem from="1589887480694" duration="12660000" />
-      <workItem from="1589916854091" duration="3001000" />
+      <workItem from="1589916854091" duration="4745000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -157,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589919334012</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="- Добавил возможность кастомизировать маркеры&#10;TODO: Вывод информации о ПКУ по нажатии на точку">
+      <created>1589920117726</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1589920117726</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,7 +184,8 @@
     <MESSAGE value="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)" />
     <MESSAGE value="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)&#10;- Добавил заголовок. Подправил размеры карты&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
     <MESSAGE value="- Добавил popup по нажатии на маркер&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Добавил popup по нажатии на маркер&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
+    <MESSAGE value="- Добавил возможность кастомизировать маркеры&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Добавил возможность кастомизировать маркеры&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
