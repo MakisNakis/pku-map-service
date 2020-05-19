@@ -8,6 +8,14 @@ import * as pkuData from "../data/tRouteTrackPointsKarabash.json"
 
 console.log(pkuData);
 
+const pkuMarkerIcon = new Icon({
+    iconUrl: '/markers/greenM.png',
+    iconSize: [30,50],
+    shadowSize: [15, 15],
+    iconAnchor: [15, 50],
+    popupAnchor: [0, 0]
+});
+
 export default function MapComponent() {
 
     const [activePku, setActivePku] = React.useState(null);
@@ -28,7 +36,7 @@ export default function MapComponent() {
                             setActivePku(pku); // переводит в состояние активного ПКУ, описание которого ниже
                         }
                         }
-
+                        icon = {pkuMarkerIcon}
                 />)
             };
 
