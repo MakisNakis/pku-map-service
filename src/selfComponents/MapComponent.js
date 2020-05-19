@@ -8,22 +8,49 @@ import * as pkuData from "../data/tRouteTrackPointsKarabash.json"
 
 console.log(pkuData);
 
-class MapComponent extends React.Component {
-    render() {
+export default function MapComponent() {
 
-        return (
+    const [activePku, setActivePku] = React.useState(null);
 
-            <LeafletMap center={[54.730922, 55.962198]} zoom={12}>
-                <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-                />
+    return (
 
-                {pkuData.pkuInfo.map(pku =>
-                    <Marker key={pku.ID} position={[pku.Latitude, pku.Longitude]}/>)}
-            </LeafletMap>
-        )
-    }
+        <LeafletMap center={[54.730922, 55.962198]} zoom={12}>
+            <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+            />
+
+            {pkuData.pkuInfo.map(pku =>
+                <Marker key={pku.ID} position={ // строит маркеры на карте
+                    [pku.Latitude, pku.Longitude]
+                }
+                        onClick={() => {
+                            setActivePku(pku); // переводит в состояние активного ПКУ, описание которого ниже
+                        }
+                        }
+
+                />)
+            };
+
+            {activePku && <Popup
+                position={ // строит маркеры на карте
+                    [activePku.Latitude, activePku.Longitude]
+                }
+                onClose={() =>{
+                    setActivePku(null);
+                }}
+            >
+
+                <div>
+                    <h2>Маршрут: {activePku.RouteID}</h2>
+                    <p>{activePku.Area}</p>
+
+                </div>
+            </Popup>}
+
+        </LeafletMap>
+    )
+
 }
 
-export default MapComponent;
+// export default MapComponent;
