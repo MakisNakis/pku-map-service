@@ -18,6 +18,14 @@ const pkuMarkerIcon = new Icon({
     popupAnchor: [0, 0]
 });
 
+const pkuMarkerIcon2 = new Icon({
+    iconUrl: '/markers/redM.png',
+    iconSize: [30, 50],
+    shadowSize: [15, 15],
+    iconAnchor: [15, 50],
+    popupAnchor: [0, 0]
+});
+
 export default function MapComponent() {
 
     const [activePku, setActivePku] = React.useState(null);
@@ -39,8 +47,8 @@ export default function MapComponent() {
                     />
 
                 </LayersControl.BaseLayer>
-                <LayersControl.Overlay checked name="Объекты">
-                    <LayerGroup name = "pkuMarkers" >
+                <LayersControl.Overlay checked name="Уфа">
+                    <LayerGroup name = "pkuMarkersUfa" >
                     {pkuDataUfa.pkuInfo.map(pku =>
                         <Marker key={pku.Id} position={ // строит маркеры на карте
                             [pku.Latitude, pku.Longitude]
@@ -70,6 +78,39 @@ export default function MapComponent() {
                     </Popup>}
                     </LayerGroup>
                 </LayersControl.Overlay>
+
+            <LayersControl.Overlay checked name = "Карабаш">
+                    <LayerGroup name = "pkuMarkersKarabash" >
+                        {pkuData.pkuInfo.map(pku =>
+                            <Marker key={pku.ID} position={ // строит маркеры на карте
+                                [pku.Latitude, pku.Longitude]
+                            }
+                                    onClick={() => {
+                                        setActivePku(pku); // переводит в состояние активного ПКУ, описание которого ниже
+                                    }
+                                    }
+                                    icon={pkuMarkerIcon2}
+                            />)
+                        };
+
+                        {activePku && <Popup
+                            position={ // строит маркеры на карте
+                                [activePku.Latitude, activePku.Longitude]
+                            }
+                            onClose={() => {
+                                setActivePku(null);
+                            }}
+                        >
+
+                            <div>
+                                <h2>{activePku.RouteId}</h2>
+                                <h3>Зона обслуживания УС: {activePku.Area}</h3>
+
+                            </div>
+                        </Popup>}
+                    </LayerGroup>
+                </LayersControl.Overlay>
+
                 <LayersControl.Overlay name="Области городов">
                     <FeatureGroup color="purple">
                         <Popup>

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -116,7 +115,7 @@
       <workItem from="1589886747344" duration="10000" />
       <workItem from="1589887480694" duration="12660000" />
       <workItem from="1589916854091" duration="4982000" />
-      <workItem from="1589978696059" duration="8737000" />
+      <workItem from="1589978696059" duration="9094000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -181,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589997832269</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="- Добавлен json файл с координатми по объекту Уфа">
+      <created>1590000932387</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1590000932387</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,7 +213,8 @@
     <MESSAGE value="- Добавил возможность кастомизировать маркеры&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
     <MESSAGE value="- Исправлена разметка страницы, теперь на всех экранах отображается соразмерно&#10;TODO: Создать слои карты" />
     <MESSAGE value="TODO Done: &#10;- Создал слои карты и маркеров" />
-    <option name="LAST_COMMIT_MESSAGE" value="TODO Done: &#10;- Создал слои карты и маркеров" />
+    <MESSAGE value="- Добавлен json файл с координатми по объекту Уфа" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Добавлен json файл с координатми по объекту Уфа" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
