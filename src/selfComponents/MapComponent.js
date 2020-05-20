@@ -5,6 +5,7 @@ import 'leaflet-defaulticon-compatibility';
 
 import {Icon} from "leaflet";
 import * as pkuData from "../data/tRouteTrackPointsKarabash.json"
+import * as pkuDataUfa from "../data/tRouteTrackPointsUfa.json"
 // import {LayerGroup} from "leaflet/dist/leaflet-src.esm";
 
 console.log(pkuData);
@@ -40,8 +41,8 @@ export default function MapComponent() {
                 </LayersControl.BaseLayer>
                 <LayersControl.Overlay checked name="Объекты">
                     <LayerGroup name = "pkuMarkers" >
-                    {pkuData.pkuInfo.map(pku =>
-                        <Marker key={pku.ID} position={ // строит маркеры на карте
+                    {pkuDataUfa.pkuInfo.map(pku =>
+                        <Marker key={pku.Id} position={ // строит маркеры на карте
                             [pku.Latitude, pku.Longitude]
                         }
                                 onClick={() => {
@@ -62,14 +63,14 @@ export default function MapComponent() {
                     >
 
                         <div>
-                            <h2>Маршрут: {activePku.RouteID}</h2>
-                            <p>{activePku.Area}</p>
+                            <h2>{activePku.City}</h2>
+                            <h3>Зона обслуживания УС: {activePku.Zone}</h3>
 
                         </div>
                     </Popup>}
                     </LayerGroup>
                 </LayersControl.Overlay>
-                <LayersControl.Overlay name="Feature group">
+                <LayersControl.Overlay name="Области городов">
                     <FeatureGroup color="purple">
                         <Popup>
                             <span>Popup in FeatureGroup</span>
