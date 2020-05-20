@@ -5,12 +5,13 @@ import 'leaflet-defaulticon-compatibility';
 
 import {Icon} from "leaflet";
 import * as pkuData from "../data/tRouteTrackPointsKarabash.json"
+import {LayerGroup} from "leaflet/dist/leaflet-src.esm";
 
 console.log(pkuData);
 
 const pkuMarkerIcon = new Icon({
     iconUrl: '/markers/greenM.png',
-    iconSize: [30,50],
+    iconSize: [30, 50],
     shadowSize: [15, 15],
     iconAnchor: [15, 50],
     popupAnchor: [0, 0]
@@ -36,7 +37,7 @@ export default function MapComponent() {
                             setActivePku(pku); // переводит в состояние активного ПКУ, описание которого ниже
                         }
                         }
-                        icon = {pkuMarkerIcon}
+                        icon={pkuMarkerIcon}
                 />)
             };
 
@@ -44,7 +45,7 @@ export default function MapComponent() {
                 position={ // строит маркеры на карте
                     [activePku.Latitude, activePku.Longitude]
                 }
-                onClose={() =>{
+                onClose={() => {
                     setActivePku(null);
                 }}
             >
@@ -55,7 +56,6 @@ export default function MapComponent() {
 
                 </div>
             </Popup>}
-
         </LeafletMap>
     )
 
