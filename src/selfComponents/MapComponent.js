@@ -72,9 +72,6 @@ class MapComponent extends Component {
     // }
 
     renderMarkersLayer(pkuData) {
-        // console.log(pkuData.default.pkuInfo);
-        // var icon = this.setMarkerIcon(pkuData.default.pkuInfo.RouteId);
-
         var result = [];
         for (var i = 0; i < pkuData.default.pkuInfo.length; i++) {
             result.push(
@@ -108,7 +105,6 @@ class MapComponent extends Component {
                                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                             />
-
                         </LayersControl.BaseLayer>
 
                         <LayersControl.Overlay checked name="Карабаш">
@@ -124,7 +120,6 @@ class MapComponent extends Component {
                         </LayersControl.Overlay>
 
                     </LayersControl>
-
                 </LeafletMap>
             </div>
         );
