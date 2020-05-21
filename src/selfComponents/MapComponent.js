@@ -21,55 +21,41 @@ import {render} from 'react-dom'
 // console.log(pkuData);
 
 
-class MapComponent extends Component {
-    constructor() {
-        super();
+class MapComponent extends React.Component {
+    constructor(props) {
+        super(props);
         this.state = {
-            // lat: 51.505,
-            // lng: -0.09,
             zoom: 3,
             radius: 0,
-            iconUrl: '/markers/greenM.png'
         };
 
-        // this.onClick1 = this.onClick1.bind(this);
-        // this.onClick2 = this.onClick2.bind(this);
-
-    }
-
-    setMarkerIcon(routeId) {
-        var iconUrl = "";
-        if (routeId === 1) {
-            iconUrl = '/markers/redM.png';
-        } else if (routeId === 2) {
-            iconUrl = '/markers/greenM.png';
-        } else if (routeId === 3) {
-            iconUrl = '/markers/blueM.png';
-        }
-        var pkuMarkerIcon = new Icon({
-            icon: this.zoom,
-            iconUrl: iconUrl,
+        this.pkuMarkerIcon = {
+            iconUrl: '',
             iconSize: [30, 50],
             shadowSize: [15, 15],
             iconAnchor: [15, 50],
             popupAnchor: [0, 0]
-        });
-        return pkuMarkerIcon
+        }
+
     }
 
+    setMarkerIcon(routeId) {
+        switch (routeId) {
+            case 1:
+                this.pkuMarkerIcon.iconUrl = '/markers/redM.png';
+                break;
+            case 2:
+                this.pkuMarkerIcon.iconUrl = '/markers/greenM.png';
+                break;
+            case 3:
+                this.pkuMarkerIcon.iconUrl = '/markers/blueM.png';
+                break;
+            default:
+                break;
+        }
+        return new Icon(this.pkuMarkerIcon)
+    }
 
-    // renderMarkersLayer(pkuData) {
-    //     var result = [];
-    //     for(var i =0; i < 10; i++) {
-    //         result.push(
-    //             <Marker position={[i,i]}>
-    //                 <Popup>
-    //                     <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
-    //                 </Popup>
-    //             </Marker>
-    //         )}
-    //     return result;
-    // }
 
     renderMarkersLayer(pkuData) {
         var result = [];

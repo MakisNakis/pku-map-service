@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/Map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="rusteeck" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -116,7 +119,7 @@
       <workItem from="1589886747344" duration="10000" />
       <workItem from="1589887480694" duration="12660000" />
       <workItem from="1589916854091" duration="4982000" />
-      <workItem from="1589978696059" duration="20286000" />
+      <workItem from="1589978696059" duration="25155000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -202,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590057388899</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="TODO: написать компоненет таблицы">
+      <created>1590058420644</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1590058420644</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +240,8 @@
     <MESSAGE value="TODO Done: &#10;- Создал слои карты и маркеров" />
     <MESSAGE value="- Добавлен json файл с координатми по объекту Уфа" />
     <MESSAGE value="- Теперь для разных маршрутов разные маркеры" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Теперь для разных маршрутов разные маркеры" />
+    <MESSAGE value="TODO: написать компоненет таблицы" />
+    <option name="LAST_COMMIT_MESSAGE" value="TODO: написать компоненет таблицы" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
