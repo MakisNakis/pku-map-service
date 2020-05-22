@@ -9,8 +9,8 @@ import {
     FeatureGroup,
     Circle
 } from "react-leaflet";
-import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css';
-import 'leaflet-defaulticon-compatibility';
+// import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css';
+// import 'leaflet-defaulticon-compatibility';
 
 import {Icon} from "leaflet";
 import * as pkuDataKarabash from "../data/tRouteTrackPointsKarabash.json"
@@ -22,15 +22,18 @@ import {render} from 'react-dom'
 
 
 class MapComponent extends React.Component {
-    constructor(props) {
-        super(props);
+
+
+
+    constructor() {
+        super();
         this.state = {
             zoom: 3,
             radius: 0,
         };
 
         this.pkuMarkerIcon = {
-            iconUrl: '',
+            iconUrl: '/markers/rgM.png',
             iconSize: [30, 50],
             shadowSize: [15, 15],
             iconAnchor: [15, 50],

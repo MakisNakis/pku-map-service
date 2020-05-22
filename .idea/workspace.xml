@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/Map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,8 +70,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/markers" />
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/public/markers" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/selfComponents" />
       <recent name="$PROJECT_DIR$/public/data" />
@@ -119,7 +122,7 @@
       <workItem from="1589886747344" duration="10000" />
       <workItem from="1589887480694" duration="12660000" />
       <workItem from="1589916854091" duration="4982000" />
-      <workItem from="1589978696059" duration="25155000" />
+      <workItem from="1589978696059" duration="27915000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -212,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590058420644</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="- изменен конструткор, добавлено новое состояние, изменена функция setMarkerIcon()&#10;TODO: написать компоненет таблицы">
+      <created>1590076199431</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1590076199431</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +251,8 @@
     <MESSAGE value="- Добавлен json файл с координатми по объекту Уфа" />
     <MESSAGE value="- Теперь для разных маршрутов разные маркеры" />
     <MESSAGE value="TODO: написать компоненет таблицы" />
-    <option name="LAST_COMMIT_MESSAGE" value="TODO: написать компоненет таблицы" />
+    <MESSAGE value="- изменен конструткор, добавлено новое состояние, изменена функция setMarkerIcon()&#10;TODO: написать компоненет таблицы" />
+    <option name="LAST_COMMIT_MESSAGE" value="- изменен конструткор, добавлено новое состояние, изменена функция setMarkerIcon()&#10;TODO: написать компоненет таблицы" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -249,6 +260,11 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/selfComponents/MapComponent.js</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/App.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
