@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="" />
+    <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/request.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/selfComponents/pkuDataFromServer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pku-map-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pku-map-service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,16 +72,16 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/selfComponents" />
-      <recent name="$PROJECT_DIR$/public/markers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/selfComponents" />
       <recent name="$PROJECT_DIR$/backend" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/public/markers" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/selfComponents" />
+      <recent name="$PROJECT_DIR$/public/markers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -84,8 +96,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.npm start">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="client" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="client" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="npm start" type="js.build_tools.npm">
@@ -98,6 +130,23 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="server" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="server" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.client" />
+        <item itemvalue="npm.server" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -115,6 +164,8 @@
       <workItem from="1589916854091" duration="4982000" />
       <workItem from="1589978696059" duration="28685000" />
       <workItem from="1590152892514" duration="511000" />
+      <workItem from="1590167614077" duration="713000" />
+      <workItem from="1590171242776" duration="6985000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>

@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import PkuDataFromServer from './pkuDataFromServer';
+
 import {
     Map as LeafletMap,
     Marker,
@@ -14,6 +16,7 @@ import * as pkuDataKarabash from "../data/tRouteTrackPointsKarabash.json"
 import * as pkuDataUfa from "../data/tRouteTrackPointsUfa.json"
 import {render} from 'react-dom'
 
+console.log(pkuDataUfa);
 
 class MapComponent extends React.Component {
     constructor() {
@@ -78,6 +81,7 @@ class MapComponent extends React.Component {
     render() {
         return (
             <div>
+                <PkuDataFromServer />
                 <LeafletMap center={[54.730922, 55.962198]} zoom={this.state.zoom} minZoom={this.state.minZoom} >
                     <LayersControl position='topright'>
 
