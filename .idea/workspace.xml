@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
-    </list>
+    <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="rusteeck" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,16 +60,16 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/markers" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/selfComponents" />
-      <recent name="$PROJECT_DIR$/public/data" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/selfComponents" />
       <recent name="$PROJECT_DIR$/public/markers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/public/markers" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/selfComponents" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -116,7 +113,8 @@
       <workItem from="1589886747344" duration="10000" />
       <workItem from="1589887480694" duration="12660000" />
       <workItem from="1589916854091" duration="4982000" />
-      <workItem from="1589978696059" duration="20286000" />
+      <workItem from="1589978696059" duration="28685000" />
+      <workItem from="1590152892514" duration="511000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -202,7 +200,35 @@
       <option name="project" value="LOCAL" />
       <updated>1590057388899</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="TODO: написать компоненет таблицы">
+      <created>1590058420644</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1590058420644</updated>
+    </task>
+    <task id="LOCAL-00014" summary="- изменен конструткор, добавлено новое состояние, изменена функция setMarkerIcon()&#10;TODO: написать компоненет таблицы">
+      <created>1590076199431</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1590076199431</updated>
+    </task>
+    <task id="LOCAL-00015" summary="&#10;TODO: &#10;- развернуть бек на Node / Express">
+      <created>1590150369268</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1590150369268</updated>
+    </task>
+    <task id="LOCAL-00016" summary="&#10;TODO: &#10;- развернуть бек на Node / Express">
+      <created>1590153385757</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1590153385758</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,16 +256,9 @@
     <MESSAGE value="TODO Done: &#10;- Создал слои карты и маркеров" />
     <MESSAGE value="- Добавлен json файл с координатми по объекту Уфа" />
     <MESSAGE value="- Теперь для разных маршрутов разные маркеры" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Теперь для разных маршрутов разные маркеры" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/selfComponents/MapComponent.js</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="TODO: написать компоненет таблицы" />
+    <MESSAGE value="- изменен конструткор, добавлено новое состояние, изменена функция setMarkerIcon()&#10;TODO: написать компоненет таблицы" />
+    <MESSAGE value="&#10;TODO: &#10;- развернуть бек на Node / Express" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;TODO: &#10;- развернуть бек на Node / Express" />
   </component>
 </project>
