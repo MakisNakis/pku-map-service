@@ -9,26 +9,18 @@ import {
     FeatureGroup,
     Circle
 } from "react-leaflet";
-// import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css';
-// import 'leaflet-defaulticon-compatibility';
-
 import {Icon} from "leaflet";
 import * as pkuDataKarabash from "../data/tRouteTrackPointsKarabash.json"
 import * as pkuDataUfa from "../data/tRouteTrackPointsUfa.json"
-// import {LayerGroup} from "leaflet/dist/leaflet-src.esm";
 import {render} from 'react-dom'
-
-// console.log(pkuData);
 
 
 class MapComponent extends React.Component {
-
-
-
     constructor() {
         super();
         this.state = {
-            zoom: 3,
+            zoom: 5,
+            minZoom:4,
             radius: 0,
         };
 
@@ -86,7 +78,7 @@ class MapComponent extends React.Component {
     render() {
         return (
             <div>
-                <LeafletMap center={[54.730922, 55.962198]} zoom={this.state.zoom}>
+                <LeafletMap center={[54.730922, 55.962198]} zoom={this.state.zoom} minZoom={this.state.minZoom} >
                     <LayersControl position='topright'>
 
                         <LayersControl.BaseLayer checked name="Гибрид">
@@ -117,222 +109,3 @@ class MapComponent extends React.Component {
 
 export default MapComponent
 
-
-{/*                    // class MyLayer extends Component {*/
-}
-{/*//     constructor(props) {*/
-}
-{/*//         super(props);*/
-}
-{/*//     }*/
-}
-{/*//*/
-}
-{/*//*/
-}
-{/*//     render() {*/
-}
-{/*//         if (this.props.radius === 0) {*/
-}
-{/*//             return <LayerGroup/>;*/
-}
-{/*//         }*/
-}
-{/*//         return (<LayerGroup>*/
-}
-{/*//             <Circle center={this.props.latlng} fillColor="red" radius={this.props.radius}/>*/
-}
-{/*//         </LayerGroup>);*/
-}
-{/*//     }*/
-}
-{/*//*/
-}
-{/*// }*/
-}
-{/*// render(<MapComponent />, document.getElementById('container'));*/
-}
-{/*//*/
-}
-{/*                    export default MapComponent;*/
-}
-
-{/*// class MyLayer extends Component {*/
-}
-{/*//     constructor(props) {*/
-}
-{/*//         super(props);*/
-}
-{/*//     }*/
-}
-{/*//*/
-}
-{/*//*/
-}
-{/*//     render() {*/
-}
-{/*//         if (this.props.radius === 0) {*/
-}
-{/*//             return <LayerGroup/>;*/
-}
-{/*//         }*/
-}
-{/*//         return (<LayerGroup>*/
-}
-{/*//             <Circle center={this.props.latlng} fillColor="red" radius={this.props.radius}/>*/
-}
-{/*//         </LayerGroup>);*/
-}
-{/*//     }*/
-}
-{/*//*/
-}
-{/*// }*/
-}
-{/*//*/
-}
-{/*//*/
-}
-{/*// render(<SimpleExample />, document.getElementById('container'))*/
-}
-
-
-{/*//*/
-}
-{/*// export default function MapComponent() {*/
-}
-{/*//*/
-}
-{/*//     const [activePku, setActivePku] = React.useState(null);*/
-}
-{/*//*/
-}
-{/*//     return (*/
-}
-{/*//*/
-}
-{/*//         <LeafletMap center={[54.730922, 55.962198]} zoom={7}>*/
-}
-{/*//             <LayersControl position="topright">*/
-}
-{/*//                 <LayersControl.BaseLayer checked name="Схема">*/
-}
-{/*//                     <TileLayer*/
-}
-{/*//                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"*/
-}
-{/*//                         attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"*/
-}
-{/*//                     />*/
-}
-{/*//                 </LayersControl.BaseLayer>*/
-}
-{/*//                 <LayersControl.BaseLayer name="Гибрид" >*/
-}
-{/*//                     <TileLayer*/
-}
-{/*//                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'*/
-}
-{/*//                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"*/
-}
-{/*//                     />*/
-}
-{/*//*/
-}
-{/*//                 </LayersControl.BaseLayer>*/
-}
-{/*//                 <LayersControl.Overlay checked name="Объекты">*/
-}
-{/*//                     <LayerGroup name = "pkuMarkers" >*/
-}
-{/*//                         {renderMarkersLayer(pkuData)}*/
-}
-{/*//                     {pkuDataUfa.pkuInfo.map(pku =>*/
-}
-{/*//                         <Marker key={pku.Id} position={ // строит маркеры на карте*/
-}
-{/*//                             [pku.Longitude, pku.Latitude]*/
-}
-{/*//                         }*/
-}
-{/*//                                 onClick={() => {*/
-}
-{/*//                                     setActivePku(pku); // переводит в состояние активного ПКУ, описание которого ниже*/
-}
-{/*//                                 }*/
-}
-{/*//                                 }*/
-}
-{/*//                                 icon={pkuMarkerIcon}*/
-}
-{/*//                         />)*/
-}
-{/*//                     };*/
-}
-{/*//*/
-}
-{/*//                     {activePku && <Popup*/
-}
-{/*//                         position={ // строит маркеры на карте*/
-}
-{/*//                             [activePku.Latitude, activePku.Longitude]*/
-}
-{/*//                         }*/
-}
-{/*//                         onClose={() => {*/
-}
-{/*//                             setActivePku(null);*/
-}
-{/*//                         }}*/
-}
-{/*//                     >*/
-}
-{/*//*/
-}
-{/*//                         <div>*/
-}
-{/*//                             <h2>{activePku.City}</h2>*/
-}
-{/*//                             <h3>Зона обслуживания УС: {activePku.Zone}</h3>*/
-}
-{/*//*/
-}
-{/*//                         </div>*/
-}
-{/*//                     </Popup>}*/
-}
-{/*//                     </LayerGroup>*/
-}
-{/*//                 </LayersControl.Overlay>*/
-}
-{/*//                 <LayersControl.Overlay name="Области городов">*/
-}
-{/*//                     <FeatureGroup color="purple">*/
-}
-{/*//                         <Popup>*/
-}
-{/*//                             <span>Popup in FeatureGroup</span>*/
-}
-{/*//                         </Popup>*/
-}
-{/*//                         <Circle center={[54.730922, 55.962198]} radius={20000} />*/
-}
-{/*//                     </FeatureGroup>*/
-}
-{/*//                 </LayersControl.Overlay>*/
-}
-{/*//             </LayersControl>*/
-}
-{/*//*/
-}
-{/*//         </LeafletMap>*/
-}
-{/*//     )*/
-}
-{/*//*/
-}
-{/*// }*/
-}
-
-{/*// export default MapComponent;*/
-}
