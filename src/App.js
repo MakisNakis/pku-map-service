@@ -10,7 +10,6 @@ import * as pkuData from "./data/tRouteTrackPointsKarabash";
 
 class App extends React.Component {
     render() {
-
         return (
             <div>
                 <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
