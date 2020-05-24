@@ -19,9 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4922610-9019-434d-aacc-6fb8602d515f" name="Default Changelist" comment="+ по нажатию на маркер в консоли имя ПКУ&#10;+ при нажатии на текст в маркере - опускаемся к таблице">
+    <list default="true" id="f4922610-9019-434d-aacc-6fb8602d515f" name="Default Changelist" comment="+ стейт с появлением таблицы при нажатии на ПКУ">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
@@ -93,7 +92,7 @@
       <workItem from="1590241130805" duration="2746000" />
       <workItem from="1590308696191" duration="420000" />
       <workItem from="1590323095513" duration="238000" />
-      <workItem from="1590323348515" duration="9894000" />
+      <workItem from="1590323348515" duration="11124000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1590242134505</created>
@@ -109,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590331937501</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="+ стейт с появлением таблицы при нажатии на ПКУ">
+      <created>1590334628716</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1590334628716</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,7 +137,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="test" />
     <MESSAGE value="+ по нажатию на маркер в консоли имя ПКУ&#10;+ при нажатии на текст в маркере - опускаемся к таблице" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ по нажатию на маркер в консоли имя ПКУ&#10;+ при нажатии на текст в маркере - опускаемся к таблице" />
+    <MESSAGE value="+ стейт с появлением таблицы при нажатии на ПКУ" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ стейт с появлением таблицы при нажатии на ПКУ" />
   </component>
   <component name="WindowStateProjectService">
     <state x="548" y="154" key="FileChooserDialogImpl" timestamp="1590333155174">
@@ -154,10 +161,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="723" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1590244178936" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590332064372">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590334631727">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590332064372" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590334631727" />
     <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590241367633">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -70,7 +70,6 @@ class MapComponent extends React.Component {
                             onClick={this.props.namePKU}
                     >
                         <Popup>
-                            <div>
                                 <Link
                                     // не настраивал
                                     to="TableComp"
@@ -82,9 +81,6 @@ class MapComponent extends React.Component {
                                     <h2>{pkuData.default.pkuInfo[i].City}</h2>
                                     <h3>Зона обслуживания УС: {pkuData.default.pkuInfo[i].Zone}</h3>
                                 </Link>
-
-
-                            </div>
                         </Popup>
                     </Marker>
             );

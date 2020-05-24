@@ -36,9 +36,9 @@ class TableComponent extends Component {
         }
         const cellEditProp = {
             mode: 'dbclick',
-            nonEditableRows: function () {
-                return [3];
-            }
+            // nonEditableRows: function () {      // не работает
+            //     return [1];
+            // }
         }
         return (
             <div id="TableComp">
@@ -63,6 +63,7 @@ class TableComponent extends Component {
                         </BootstrapTable>
                     </div>
                 }
+                <p>{this.props.hide}</p>
             </div>
         );
     }
