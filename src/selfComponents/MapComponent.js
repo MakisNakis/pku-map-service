@@ -13,6 +13,8 @@ import {Icon} from "leaflet";
 import * as pkuDataKarabash from "../data/tRouteTrackPointsKarabash.json"
 import * as pkuDataUfa from "../data/tRouteTrackPointsUfa.json"
 import {render} from 'react-dom'
+import {Link} from "react-scroll";
+
 
 
 class MapComponent extends React.Component {
@@ -52,20 +54,39 @@ class MapComponent extends React.Component {
     }
 
 
+    handleClick = (e) => {
+        console.log(e.target.options.title);
+    }
+
+
     renderMarkersLayer(pkuData) {
         var result = [];
         for (var i = 0; i < pkuData.default.pkuInfo.length; i++) {
             result.push(
-                <Marker key={i} position={[pkuData.default.pkuInfo[i].Latitude, pkuData.default.pkuInfo[i].Longitude]}
-                        icon={this.setMarkerIcon(pkuData.default.pkuInfo[i].RouteID)}
-                >
-                    <Popup>
-                        <div>
-                            <h2>{pkuData.default.pkuInfo[i].City}</h2>
-                            <h3>Зона обслуживания УС: {pkuData.default.pkuInfo[i].Zone}</h3>
-                        </div>
-                    </Popup>
-                </Marker>
+
+                    <Marker key={i}
+                            position={[pkuData.default.pkuInfo[i].Latitude, pkuData.default.pkuInfo[i].Longitude]}
+                            icon={this.setMarkerIcon(pkuData.default.pkuInfo[i].RouteID)}
+                            title={pkuData.default.pkuInfo[i].City}
+                            onClick={this.handleClick}
+                    >
+                        <Popup>
+                            <div>
+                                <Link
+                                    to="TableComp"
+                                    spy={true}
+                                    smooth={true}
+                                    duration= {500}
+
+                                >
+                                    <h2>{pkuData.default.pkuInfo[i].City}</h2>*
+                                    <h3>Зона обслуживания УС: {pkuData.default.pkuInfo[i].Zone}</h3>
+                                </Link>
+
+
+                            </div>
+                        </Popup>
+                    </Marker>
             );
         }
         return result;
