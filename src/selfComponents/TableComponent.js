@@ -11,8 +11,8 @@ function rowClassNameFormat(row, rowIdx) {
 }
 
 function getData() {
-    var data = []
-    for (var i = 0; i < 100; ++i) {
+    let data = []
+    for (let i = 0; i < 100; ++i) {
         data[i] = {id: i, name: 'item_' + i, value: i}
     }
 
@@ -42,22 +42,27 @@ class TableComponent extends Component {
         }
         return (
             <div id="TableComp">
-                <BootstrapTable data={getData()}
-                                trClassName={rowClassNameFormat}
-                                pagination={true}
-                                options={options}
-                                cellEdit={cellEditProp}
-                >
-                    <TableHeaderColumn isKey dataField='id'>
-                        ID
-                    </TableHeaderColumn>
-                    <TableHeaderColumn dataField='name'>
-                        Name
-                    </TableHeaderColumn>
-                    <TableHeaderColumn dataField='value'>
-                        Value
-                    </TableHeaderColumn>
-                </BootstrapTable>
+                {this.props.show &&
+                    <div>
+                        <p className="Table-header">Basic Table</p>
+                        <BootstrapTable data={getData()}
+                                        trClassName={rowClassNameFormat}
+                                        pagination={true}
+                                        options={options}
+                                        cellEdit={cellEditProp}
+                        >
+                            <TableHeaderColumn isKey dataField='id'>
+                                ID
+                            </TableHeaderColumn>
+                            <TableHeaderColumn dataField='name'>
+                                Name
+                            </TableHeaderColumn>
+                            <TableHeaderColumn dataField='value'>
+                                Value
+                            </TableHeaderColumn>
+                        </BootstrapTable>
+                    </div>
+                }
             </div>
         );
     }

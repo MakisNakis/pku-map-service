@@ -35,7 +35,6 @@ class MapComponent extends React.Component {
         }
 
     }
-
     setMarkerIcon(routeId) {
         switch (routeId) {
             case 1:
@@ -54,32 +53,33 @@ class MapComponent extends React.Component {
     }
 
 
-    handleClick = (e) => {
-        console.log(e.target.options.title);
-    }
+    // handleClick = (e) => {
+    //     console.log(e.target.options.title);
+    // }
 
 
     renderMarkersLayer(pkuData) {
-        var result = [];
-        for (var i = 0; i < pkuData.default.pkuInfo.length; i++) {
+        let result = [];
+        for (let i = 0; i < pkuData.default.pkuInfo.length; i++) {
             result.push(
 
                     <Marker key={i}
                             position={[pkuData.default.pkuInfo[i].Latitude, pkuData.default.pkuInfo[i].Longitude]}
                             icon={this.setMarkerIcon(pkuData.default.pkuInfo[i].RouteID)}
                             title={pkuData.default.pkuInfo[i].City}
-                            onClick={this.handleClick}
+                            onClick={this.props.namePKU}
                     >
                         <Popup>
                             <div>
                                 <Link
+                                    // не настраивал
                                     to="TableComp"
                                     spy={true}
                                     smooth={true}
                                     duration= {500}
 
                                 >
-                                    <h2>{pkuData.default.pkuInfo[i].City}</h2>*
+                                    <h2>{pkuData.default.pkuInfo[i].City}</h2>
                                     <h3>Зона обслуживания УС: {pkuData.default.pkuInfo[i].Zone}</h3>
                                 </Link>
 
