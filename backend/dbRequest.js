@@ -21,11 +21,15 @@ class MyRepository {
         } catch(e) {
             console.log('Error', e)
         }
-
         return this.client.query("select * from sp_ngetroutetrackpointsbyid(1)");
     }
 
+
+
+
 }
+
+
 
 
 module.exports = MyRepository;

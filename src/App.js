@@ -41,16 +41,6 @@ class App extends React.Component {
 
     }
 
-    // async fetchPkuData() {
-    //     // запрашиваем JSON с данными пользователя
-    //     let response = await fetch('/api/pkuDataServer');
-    //     let user = await response.json();
-    //     this.setState({pkuData: user.rows});
-    //
-    //     // this.huy(user)
-    //     // this.state.pkuData = user;
-    //     // return user;
-    // }
 
 
     render() {
@@ -60,41 +50,7 @@ class App extends React.Component {
 
             <div>
                 <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
-                <MapComponent dataServer={this.state.data}/>
-
-
-                                    {/*<table className="table">*/}
-                                    {/*    <thead>*/}
-                                    {/*    <tr>*/}
-                                    {/*        <th>*/}
-                                    {/*            Id*/}
-                                    {/*        </th>*/}
-                                    {/*        <th>*/}
-                                    {/*            Lat*/}
-                                    {/*        </th>*/}
-                                    {/*        <th>*/}
-                                    {/*            Long*/}
-                                    {/*        </th>*/}
-
-                                    {/*    </tr>*/}
-                                    {/*    </thead>*/}
-                                    {/*    <tbody>*/}
-                                    {/*    /!*{this.state.data[0].map(item => {*!/*/}
-                                    {/*    */}
-                                    {/*    /!*    console.log(this.state.data[0])*!/*/}
-                                    {/*    /!*    return (*!/*/}
-                                    {/*    /!*        <tr key={item.ID}>*!/*/}
-                                    {/*    /!*            <td>{item.ID}</td>*!/*/}
-                                    {/*    /!*            <td>{item.Latitude}</td>*!/*/}
-                                    {/*    /!*            <td>{item.Longitude}</td>*!/*/}
-                                    {/*    /!*            /!*<td dangerouslySetInnerHTML={{__html: item.Ban ? '<input checked="checked" class="check-box" disabled="disabled" type="checkbox">' : '<input class="check-box" disabled="disabled" type="checkbox">'}}></td>*!/*!/*/}
-                                    {/*    /!*        </tr>*!/*/}
-                                    {/*    /!*    );*!/*/}
-                                    {/*    /!*})*!/*/}
-                                    {/*    /!*}*!/*/}
-                                    {/*    </tbody>*/}
-                                    {/*</table>*/}
-
+                <MapComponent />
 
                 {/*<MapComponent dataServer={this.state.data}/>*/}
                 {/*<TableComponent/>*/}
