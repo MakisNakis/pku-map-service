@@ -1,74 +1,71 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import './css/TableComponent.css';
+import '../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css';
 
+
+function rowClassNameFormat(row, rowIdx) {
+    // console.log(row);
+    return row['name'] === 'George Michael' ?
+        'GeorgeMichael-Row' : 'Other-Row';
+}
+
+function getData() {
+    let data = []
+    for (let i = 0; i < 100; ++i) {
+        data[i] = {id: i, name: 'item_' + i, value: i}
+    }
+
+    return data
+}
+
+
+function showTotal() {
+    return <p>There are 100 items total</p>
+}
 
 class TableComponent extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            users: [],
-        };
-        this.props = {
-            requestAddress: '/api/pkuDataServer',
-        };
-    }
-
-
-    loadData() {
-        fetch(this.props.requestAddress).then(results => {
-            return results.json()
-        }).then(data => {
-            this.setState({users: data});
-        }).catch(() => {
-            alert('Ошибка!');
-        });
-    }
-
-    refreshData() {
-        this.loadData();
-    }
-
-    componentWillMount() {
-        this.loadData();
-    }
-
     render() {
+        const options = {
+            page: 4,
+            prePage:  '⟵',
+            nextPage: '⟶',
+            firstPage: '⟸',
+            lastPage: '⟹',
+            paginationShowsTotal: showTotal
+        }
+        const cellEditProp = {
+            mode: 'dbclick',
+            // nonEditableRows: function () {      // не работает
+            //     return [1];
+            // }
+        }
         return (
-            <div>
-                <a className="btn btn-success" onClick={() => this.refreshData()}>Обновить</a>
-                <table className="table">
-                    <thead>
-                    <tr>
-                        <th>
-                            Имя пользователя
-                        </th>
-                        <th>
-                            Ф.И.О.
-                        </th>
-                        <th>
-                            Роль
-                        </th>
-                        <th>
-                            Заблокирован
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {this.state.users.map(item => {
-                        return (
-                            <tr key={item.id}>
-                                <td>{item.Login}</td>
-                                <td>{item.FIO}</td>
-                                <td>{item.UserRole}</td>
-                                {/*<td dangerouslySetInnerHTML={{__html: item.Ban ? '<input checked="checked" class="check-box" disabled="disabled" type="checkbox">' : '<input class="check-box" disabled="disabled" type="checkbox">'}}></td>*/}
-                            </tr>
-                        );
-                    })
-                    }
-                    </tbody>
-                </table>
-            </div>);
-
+            <div id="TableComp">
+                {this.props.show &&
+                    <div>
+                        <p className="Table-header">Basic Table</p>
+                        <BootstrapTable data={getData()}
+                                        trClassName={rowClassNameFormat}
+                                        pagination={true}
+                                        options={options}
+                                        cellEdit={cellEditProp}
+                        >
+                            <TableHeaderColumn isKey dataField='id'>
+                                ID
+                            </TableHeaderColumn>
+                            <TableHeaderColumn dataField='name'>
+                                Name
+                            </TableHeaderColumn>
+                            <TableHeaderColumn dataField='value'>
+                                Value
+                            </TableHeaderColumn>
+                        </BootstrapTable>
+                    </div>
+                }
+                <p>{this.props.hide}</p>
+            </div>
+        );
     }
 }
 

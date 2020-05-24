@@ -1,60 +1,48 @@
 import React, {Component} from 'react';
 import MapComponent from './selfComponents/MapComponent';
 import TableComponent from './selfComponents/TableComponent';
-// import PkuDataFromServer from './selfComponents/PkuDataFromServer';
 
 import {Map as LeafletMap, Marker, TileLayer} from "react-leaflet";
 import * as pkuData from "./data/tRouteTrackPointsKarabash";
 
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            data: [],
-            data2: [
-                {id: 3, name: "Peter", lastName: "Griffin"},
-                {id: 4, name: "Jack", lastName: "Sparrow"},
-                {id: 5, name: "Steve", lastName: "Smith"}]
-        };
-
+    state = {
+        show: false,        //показать таблицу
+        hide: undefined
     }
 
+    gettingNamePKU = (e) => {
+        // e.preventDefault();
+        console.log(e.target.options.title);
+        const name = e.target.options.title;
 
-    loadData() {
-        // console.log(this.state.data)
-        fetch('/api/pkuDataServer').then(results => {
-            return results.json()
-        }).then(data => {
-            this.setState({data: data.rows});
-            console.log(this.state.data)
 
-        }).catch(() => {
-            alert('Ошибка!');
-        });
+        if (name) {
+            this.setState({
+                show: true,
+                hide: false
+            });
+        } else {
+            this.setState({
+                show: false,
+                hide: "Нажмите на ПКУ для вывода таблицы" // TODO не выводится надпись про ПКУ
+            });
+        }
+
     }
-
-
-    componentWillMount() {
-      this.loadData();
-
-    }
-
-
 
     render() {
-        // console.log(this.state.data)
-
         return (
-
             <div>
                 <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
-                <MapComponent />
+                <MapComponent namePKU={this.gettingNamePKU}/>
+                <TableComponent
+                    show={this.state.show}
+                    hide={this.state.hide}
+                />
 
-                {/*<MapComponent dataServer={this.state.data}/>*/}
-                {/*<TableComponent/>*/}
-                {/*<PkuDataFromServer />*/}
             </div>
         )
     }
