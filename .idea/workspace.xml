@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="makeBackOnNodeJS" />
+        <entry key="$PROJECT_DIR$" value="rusteeck" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,7 +53,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editorconfig.notification" value="lf;" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/selfComponents" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -62,16 +65,16 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/selfComponents" />
-      <recent name="$PROJECT_DIR$/public/markers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/selfComponents" />
       <recent name="$PROJECT_DIR$/backend" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/public/markers" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/selfComponents" />
+      <recent name="$PROJECT_DIR$/public/markers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -86,8 +89,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.npm start">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="client" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="client" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="npm start" type="js.build_tools.npm">
@@ -100,6 +123,23 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="server" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="server" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.client" />
+        <item itemvalue="npm.server" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -117,6 +157,13 @@
       <workItem from="1589916854091" duration="4982000" />
       <workItem from="1589978696059" duration="28685000" />
       <workItem from="1590152892514" duration="511000" />
+      <workItem from="1590167614077" duration="713000" />
+      <workItem from="1590171242776" duration="7119000" />
+      <workItem from="1590236115966" duration="7679000" />
+      <workItem from="1590250877212" duration="3823000" />
+      <workItem from="1590260599571" duration="1872000" />
+      <workItem from="1590263450883" duration="1209000" />
+      <workItem from="1590323173568" duration="9533000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -230,7 +277,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590153385758</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="- получил данные с сервера на клиенте &#10;TODO: &#10;- Вывести информацию с сервера на карте&#10;- Привести код к красивому виду">
+      <created>1590190831669</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1590190831669</updated>
+    </task>
+    <task id="LOCAL-00018" summary="- Вывел информацию с сервера на карте&#10;&#10;TODO: &#10;- Привести код к красивому виду">
+      <created>1590342667866</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1590342667866</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +322,8 @@
     <MESSAGE value="TODO: написать компоненет таблицы" />
     <MESSAGE value="- изменен конструткор, добавлено новое состояние, изменена функция setMarkerIcon()&#10;TODO: написать компоненет таблицы" />
     <MESSAGE value="&#10;TODO: &#10;- развернуть бек на Node / Express" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;TODO: &#10;- развернуть бек на Node / Express" />
+    <MESSAGE value="- получил данные с сервера на клиенте &#10;TODO: &#10;- Вывести информацию с сервера на карте&#10;- Привести код к красивому виду" />
+    <MESSAGE value="- Вывел информацию с сервера на карте&#10;&#10;TODO: &#10;- Привести код к красивому виду" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Вывел информацию с сервера на карте&#10;&#10;TODO: &#10;- Привести код к красивому виду" />
   </component>
 </project>

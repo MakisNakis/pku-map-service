@@ -33,7 +33,7 @@ h1 {
 .mainHeader h1:before {
   content: "";
   position: absolute;
-  top: -45%;
+  top: -15%;
   left: -95px;
   z-index: -1;
   background: #a6f4fe;
@@ -45,7 +45,7 @@ h1 {
 .mainHeader h1:after {
   content: "";
   position: absolute;
-  top: -45%;
+  top: -15%;
   right: -95px;
   z-index: -1;
   background: #a6f4fe;
