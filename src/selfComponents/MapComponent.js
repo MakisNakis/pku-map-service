@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import PkuDataFromServer from './pkuDataFromServer';
+// import PkuDataFromServer from './PkuDataFromServer';
 
 import {
     Map as LeafletMap,
@@ -16,15 +16,23 @@ import * as pkuDataKarabash from "../data/tRouteTrackPointsKarabash.json"
 import * as pkuDataUfa from "../data/tRouteTrackPointsUfa.json"
 import {render} from 'react-dom'
 
-console.log(pkuDataUfa);
+
+// let a = fetchPkuData();
+//
+// console.log(a);
+
 
 class MapComponent extends React.Component {
-    constructor() {
-        super();
+
+
+    constructor(props) {
+        super(props);
+
         this.state = {
             zoom: 5,
-            minZoom:4,
+            minZoom: 4,
             radius: 0,
+            pkuData: []
         };
 
         this.pkuMarkerIcon = {
@@ -36,6 +44,71 @@ class MapComponent extends React.Component {
         }
 
     }
+
+    loadData() {
+        // console.log(this.state.data)
+        fetch('/api/pkuDataServer').then(results => {
+            return results.json()
+        }).then(data => {
+            this.setState({pkuData: data.rows});
+            // console.log(this.state.pkuData[0].ID)
+
+        }).catch(() => {
+            alert('Ошибка!');
+        });
+    }
+
+
+    componentWillMount() {
+        this.loadData();
+    }
+
+    // async fetchPkuData() {
+    //     // запрашиваем JSON с данными пользователя
+    //     let response = await fetch('/api/pkuDataServer');
+    //     let user = await response.json();
+    //     this.setState({pkuData: user.rows});
+    //
+    //     // this.huy(user)
+    //     // this.state.pkuData = user;
+    //     // return user;
+    // }
+
+
+    // fillThisStatePkuData() {
+    //     this.setState({pkuData: this.props.dataServer}, () => console.log(this.state.pkuData))
+    // }
+    //
+    // componentWillMount() {
+    //     this.fillThisStatePkuData();
+    //     // console.log(this.props.dataServer)
+    //     // fetch('/api/pkuDataServer')
+    //     //     .then(res => res.json())
+    //     //     .then(pkuDataServer => this.setState({pkuData: pkuDataServer}, () => console.log('We fetched...',
+    //     //         pkuDataServer)))
+    // }
+
+    // huy(pkuData){
+    //     console.log(pkuData);
+    //
+    //     var result = [];
+    //     for (var i = 0; i < pkuData.rows.length; i++) {
+    //         result.push(
+    //             <Marker key={i} position={[pkuData.rows[i].Latitude, pkuData.rows[i].Longitude]}
+    //                     // icon={this.setMarkerIcon(pkuData.rows.RouteID)}
+    //             >
+    //                 {/*<Popup>*/}
+    //                 {/*    <div>*/}
+    //                 {/*        <h2>{pkuData.default.pkuInfo[i].City}</h2>*/}
+    //                 {/*        <h3>Зона обслуживания УС: {pkuData.default.pkuInfo[i].Zone}</h3>*/}
+    //                 {/*    </div>*/}
+    //                 {/*</Popup>*/}
+    //             </Marker>
+    //         );
+    //     }
+    //     return result;
+    // }
+
 
     setMarkerIcon(routeId) {
         switch (routeId) {
@@ -55,34 +128,73 @@ class MapComponent extends React.Component {
     }
 
 
-    renderMarkersLayer(pkuData) {
+    renderMarkersLayer() {
+        // console.log(this.state.pkuData[0].ID)
+
+        // console.log(this.state.pkuData[0].Latitude);
+        // console.log(this.state.pkuData);
+        let pkuData = this.state.pkuData;
+
         var result = [];
-        for (var i = 0; i < pkuData.default.pkuInfo.length; i++) {
+        for (var i = 0; i < pkuData.length; i++) {
             result.push(
-                <Marker key={i} position={[pkuData.default.pkuInfo[i].Latitude, pkuData.default.pkuInfo[i].Longitude]}
-                        icon={this.setMarkerIcon(pkuData.default.pkuInfo[i].RouteID)}
+                <Marker key={i} position={[pkuData[i].Latitude, pkuData[i].Longitude]}
+                        icon={this.setMarkerIcon(pkuData[i].RouteID)}
                 >
-                    <Popup>
-                        <div>
-                            <h2>{pkuData.default.pkuInfo[i].City}</h2>
-                            <h3>Зона обслуживания УС: {pkuData.default.pkuInfo[i].Zone}</h3>
-                        </div>
-                    </Popup>
+                    {/*<Popup>*/}
+                    {/*    <div>*/}
+                    {/*        <h2>{pkuData.default.pkuInfo[i].City}</h2>*/}
+                    {/*        <h3>Зона обслуживания УС: {pkuData.default.pkuInfo[i].Zone}</h3>*/}
+                    {/*    </div>*/}
+                    {/*</Popup>*/}
                 </Marker>
             );
         }
         return result;
     }
 
+
+
+
+
+    // renderMarkersLayer(pkuData) {
+    //     // console.log(this.state.pkuData[0].ID)
+    //
+    //     // console.log(this.state.pkuData[0].Latitude);
+    //     // console.log(this.state.pkuData);
+    //     // let pkuData = this.state.pkuData;
+    //
+    //     var result = [];
+    //     for (var i = 0; i < pkuData.default.pkuInfo.length; i++) {
+    //         result.push(
+    //             <Marker key={i} position={[pkuData.default.pkuInfo[i].Latitude, pkuData.default.pkuInfo[i].Longitude]}
+    //                     icon={this.setMarkerIcon(pkuData.default.pkuInfo[i].RouteID)}
+    //             >
+    //                 <Popup>
+    //                     <div>
+    //                         <h2>{pkuData.default.pkuInfo[i].City}</h2>
+    //                         <h3>Зона обслуживания УС: {pkuData.default.pkuInfo[i].Zone}</h3>
+    //                     </div>
+    //                 </Popup>
+    //             </Marker>
+    //         );
+    //     }
+    //     return result;
+    // }
+
+
+
     // renderSecond() {
     //     return <MyLayer latlng={[1, 10]} radius={this.state.radius}/>
     // }
 
     render() {
+
         return (
             <div>
-                <PkuDataFromServer />
-                <LeafletMap center={[54.730922, 55.962198]} zoom={this.state.zoom} minZoom={this.state.minZoom} >
+                {/*{console.log(this.props.data)}*/}
+                {/*<PkuDataFromServer />*/}
+                <LeafletMap center={[54.730922, 55.962198]} zoom={this.state.zoom} minZoom={this.state.minZoom}>
                     <LayersControl position='topright'>
 
                         <LayersControl.BaseLayer checked name="Гибрид">
@@ -94,15 +206,15 @@ class MapComponent extends React.Component {
 
                         <LayersControl.Overlay checked name="Карабаш">
                             <LayerGroup name="pkuMarkersKarabash">
-                                {this.renderMarkersLayer(pkuDataKarabash)}
+                                {this.renderMarkersLayer()}
                             </LayerGroup>
                         </LayersControl.Overlay>
 
-                        <LayersControl.Overlay checked name="Уфа">
-                            <LayerGroup name="pkuMarkersUfa">
-                                {this.renderMarkersLayer(pkuDataUfa)}
-                            </LayerGroup>
-                        </LayersControl.Overlay>
+                        {/*<LayersControl.Overlay checked name="Уфа">*/}
+                        {/*    <LayerGroup name="pkuMarkersUfa">*/}
+                        {/*        {this.fetchPkuData}*/}
+                        {/*    </LayerGroup>*/}
+                        {/*</LayersControl.Overlay>*/}
 
                     </LayersControl>
                 </LeafletMap>

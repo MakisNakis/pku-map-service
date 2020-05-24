@@ -1,6 +1,4 @@
 const Client= require('pg').Client;
-// const express = require('express');
-// const app = express();
 
 const DBNAME = "PKU_mapService";
 const DBLOG = "postgres";
@@ -19,9 +17,9 @@ class MyRepository {
     async loadData() {
         try {
             await this.client.connect();
-            console.log('connected');
+            console.log('DB has been connected');
         } catch(e) {
-            console.log('error', e)
+            console.log('Error', e)
         }
 
         return this.client.query("select * from sp_ngetroutetrackpointsbyid(1)");
@@ -29,21 +27,7 @@ class MyRepository {
 
 }
 
-// const repository = new MyRepository();
-//
-// app.get('/api/test', async (req, res) => {
-//     const data = await repository.loadData();
-//     res.json(data);
-//
-// });
-//
+
+module.exports = MyRepository;
 
 
-
-module.export = MyRepository;
-
-
-// client.query('select * from sp_ngetroutetrackpointsbyid(1)', (err, res) => {
-//    console.log(err,res);
-//    client.end();
-// });
