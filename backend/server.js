@@ -19,12 +19,16 @@ app.get('/api/test', async (req, res) => {
 
 
 
-app.get('/api/pkuDataServer', async (req, res) => {
-    const data = await repository.loadData();
+app.get('/api/pkuDataServerFirstRoute', async (req, res) => {
+    const data = await repository.loadDataForMarkers(1);
     res.json(data);
-
 });
 
+
+app.get('/api/pkuDataServerSecondRoute', async (req, res) => {
+    const data = await repository.loadDataForMarkers(2);
+    res.json(data);
+});
 
 
 

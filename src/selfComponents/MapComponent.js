@@ -16,9 +16,6 @@ import {render} from 'react-dom'
 import {Link} from "react-scroll";
 
 
-
-
-
 class MapComponent extends React.Component {
 
     constructor() {
@@ -28,7 +25,10 @@ class MapComponent extends React.Component {
             zoom: 5,
             minZoom: 4,
             radius: 0,
-            pkuData: []
+            firstRouteApi: '/api/pkuDataServerFirstRoute',
+            secondRouteApi: '/api/pkuDataServerSecondRoute',
+            pkuDataFirstRoute: [],
+            pkuDataSecondRoute: []
         };
 
         this.pkuMarkerIcon = {
@@ -41,24 +41,42 @@ class MapComponent extends React.Component {
 
     }
 
-    async loadData() {
-        // console.log(this.state.data)
-        await fetch('/api/pkuDataServer').then(results => {
-            return results.json()
-        }).then(data => {
-            this.setState({pkuData: data.rows});
-            // console.log(this.state.pkuData[0].ID)
+    async loadData(routeId) {
+        switch (routeId) {
+            case 1:
+                await fetch('/api/pkuDataServerFirstRoute').then(results => {
+                    return results.json()
+                }).then(data => {
+                    this.setState({pkuDataFirstRoute: data.rows});
+                    // console.log(this.state.pkuData[0].ID)
+                }).catch(() => {
+                    console.log(`Ошибка при извлечении информации о ${routeId}-м маршруте!`);
+                });
 
-        }).catch(() => {
-            alert('Ошибка!');
-        });
+            case 2:
+                await fetch('/api/pkuDataServerSecondRoute').then(results => {
+                    return results.json()
+                }).then(data => {
+                    this.setState({pkuDataSecondRoute: data.rows});
+                    // console.log(this.state.pkuData[0].ID)
+                }).catch(() => {
+                    console.log(`Ошибка при извлечении информации о ${routeId}-м маршруте!`);
+                });
+
+            default:
+                console.log(`Маршрут с номером "${routeId}" отсутствует`);
+
+        }
+
+        // console.log(this.state.data)
+
     }
 
 
     componentWillMount() {
-        this.loadData();
+        this.loadData(1);
+        this.loadData(2);
     }
-
 
 
     setMarkerIcon(routeId) {
@@ -79,70 +97,77 @@ class MapComponent extends React.Component {
     }
 
 
-    renderMarkersLayer() {
-        // console.log(this.state.pkuData[0].ID)
+    // renderMarkersLayer() {
+    //     // console.log(this.state.pkuData[0].ID)
+    //
+    //     // console.log(this.state.pkuData[0].Latitude);
+    //     // console.log(this.state.pkuData);
+    //     let pkuData = this.state.pkuData;
+    //
+    //     var result = [];
+    //     for (var i = 0; i < pkuData.length; i++) {
+    //         result.push(
+    //             <Marker key={i} position={[pkuData[i].Latitude, pkuData[i].Longitude]}
+    //                     icon={this.setMarkerIcon(pkuData[i].RouteID)}
+    //             >
+    //                 {/*<Popup>*/}
+    //                 {/*    <div>*/}
+    //                 {/*        <h2>{pkuData.default.pkuInfo[i].City}</h2>*/}
+    //                 {/*        <h3>Зона обслуживания УС: {pkuData.default.pkuInfo[i].Zone}</h3>*/}
+    //                 {/*    </div>*/}
+    //                 {/*</Popup>*/}
+    //             </Marker>
+    //         );
+    //     }
+    //     return result;
+    // }
 
-        // console.log(this.state.pkuData[0].Latitude);
-        // console.log(this.state.pkuData);
-        let pkuData = this.state.pkuData;
 
-        var result = [];
-        for (var i = 0; i < pkuData.length; i++) {
+//MAXXX CODDDEE
+    // handleClick = (e) => {
+    //     console.log(e.target.options.title);
+    // }
+
+
+    renderMarkersLayer(routeId) {
+        let pkuData = undefined;
+
+        if (routeId === 1) {
+            pkuData = this.state.pkuDataFirstRoute;
+        } else if (routeId === 2) {
+            pkuData = this.state.pkuDataSecondRoute;
+        }
+
+        // console.log(this.state.pkuDataFirstRoute);
+        console.log(this.state.pkuDataSecondRoute.length);
+        console.log(this.state.pkuDataSecondRoute);
+        let result = [];
+        for (let i = 0; i < pkuData.length; i++) {
             result.push(
-                <Marker key={i} position={[pkuData[i].Latitude, pkuData[i].Longitude]}
-                        icon={this.setMarkerIcon(pkuData[i].RouteID)}
+                <Marker key={i}
+                        position={[pkuData[i].Latitude, pkuData[i].Longtitude]}
+                        icon={this.setMarkerIcon(routeId)}
+                        title={pkuData[i].SubjectName}
+                        onClick={this.props.namePKU}
                 >
-                    {/*<Popup>*/}
-                    {/*    <div>*/}
-                    {/*        <h2>{pkuData.default.pkuInfo[i].City}</h2>*/}
-                    {/*        <h3>Зона обслуживания УС: {pkuData.default.pkuInfo[i].Zone}</h3>*/}
-                    {/*    </div>*/}
-                    {/*</Popup>*/}
+                    <Popup>
+                        <Link
+                            // не настраивал
+                            to="TableComp"
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+
+                        >
+                            {/*<h2>{pkuData.SubjectName}</h2>*/}
+                            <h3> {pkuData[i].SubjectName}</h3>
+                        </Link>
+                    </Popup>
                 </Marker>
             );
         }
         return result;
     }
-
-
-//MAXXX CODDDEE
-        // handleClick = (e) => {
-        //     console.log(e.target.options.title);
-        // }
-
-
-            // renderMarkersLayer(pkuData) {
-            //     let result = [];
-            //     for (let i = 0; i < pkuData.default.pkuInfo.length; i++) {
-            //         result.push(
-            //
-            //             <Marker key={i}
-            //                     position={[pkuData.default.pkuInfo[i].Latitude, pkuData.default.pkuInfo[i].Longitude]}
-            //                     icon={this.setMarkerIcon(pkuData.default.pkuInfo[i].RouteID)}
-            //                     title={pkuData.default.pkuInfo[i].City}
-            //                     onClick={this.props.namePKU}
-            //             >
-            //                 <Popup>
-            //                     <Link
-            //                         // не настраивал
-            //                         to="TableComp"
-            //                         spy={true}
-            //                         smooth={true}
-            //                         duration= {500}
-            //
-            //                     >
-            //                         <h2>{pkuData.default.pkuInfo[i].City}</h2>
-            //                         <h3>Зона обслуживания УС: {pkuData.default.pkuInfo[i].Zone}</h3>
-            //                     </Link>
-            //                 </Popup>
-            //             </Marker>
-            //         );
-            //     }
-            //     return result;
-            // }
-            //
-
-
 
 
     render() {
@@ -159,17 +184,17 @@ class MapComponent extends React.Component {
                             />
                         </LayersControl.BaseLayer>
 
-                        <LayersControl.Overlay checked name="Карабаш">
-                            <LayerGroup name="pkuMarkersKarabash">
-                                {this.renderMarkersLayer()}
+                        <LayersControl.Overlay checked name="Уфа">
+                            <LayerGroup name="pkuMarkersUfa">
+                                {this.renderMarkersLayer(1)}
                             </LayerGroup>
                         </LayersControl.Overlay>
 
-                        {/*<LayersControl.Overlay checked name="Уфа">*/}
-                        {/*    <LayerGroup name="pkuMarkersUfa">*/}
-                        {/*        {this.fetchPkuData}*/}
-                        {/*    </LayerGroup>*/}
-                        {/*</LayersControl.Overlay>*/}
+                        <LayersControl.Overlay checked name="Карабаш">
+                            <LayerGroup name="pkuMarkersKarabash">
+                                {this.renderMarkersLayer(2)}
+                            </LayerGroup>
+                        </LayersControl.Overlay>
 
                     </LayersControl>
                 </LeafletMap>
