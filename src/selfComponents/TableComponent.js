@@ -4,49 +4,74 @@ import './css/TableComponent.css';
 import '../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css';
 
 
-function rowClassNameFormat(row, rowIdx) {
-    // console.log(row);
-    return row['name'] === 'George Michael' ?
-        'GeorgeMichael-Row' : 'Other-Row';
-}
+class TableComponent extends Component {
 
-function getData() {
-    let data = []
-    for (let i = 0; i < 100; ++i) {
-        data[i] = {id: i, name: 'item_' + i, value: i}
+    constructor() {
+        super();
+        this.state = {
+            pkuInfo: []
+        };
     }
 
-    return data
-}
+    getData() {
+        let data = []
+        for (let i = 0; i < 100; ++i) {
+            data[i] = {id: i, name: 'item_' + i, value: i}
+        }
+        // console.log(this.state.pkuInfo);
 
+        return data;
+    }
 
-function showTotal() {
-    return <p>There are 100 items total</p>
-}
+    async loadData(idPKU) {
+        console.log('!!!!!!!!!');
+        await fetch(`/api/pkuDataServerPKUTable${idPKU}`).then(results => {
+            console.log(`/api/pkuDataServerPKUTable${idPKU}`);
+            return results.json()
+        }).then(data => {
+            this.setState({pkuInfo: data.rows});
+            // console.log(this.state.pkuData[0].ID)
+        }).catch(() => {
+            console.log(`aaaaaaaaaaaaaa`);
+        });
+        console.log(this.state.pkuInfo);
+    }
 
-class TableComponent extends Component {
+    componentWillReceiveProps(nextProp) {
+        if(nextProp.idPKU !== undefined) {
+            console.log(nextProp.idPKU);
+            this.loadData(nextProp.idPKU);
+        }
+
+    }
+
+    componentWillMount() {
+        this.getData();
+    }
+
     render() {
+
         const options = {
             page: 4,
             prePage:  '⟵',
             nextPage: '⟶',
             firstPage: '⟸',
             lastPage: '⟹',
-            paginationShowsTotal: showTotal
         }
+
         const cellEditProp = {
             mode: 'dbclick',
             // nonEditableRows: function () {      // не работает
             //     return [1];
             // }
         }
+        console.log(this.props.idPKU);
         return (
             <div id="TableComp">
                 {this.props.show &&
                     <div>
                         <p className="Table-header">Basic Table</p>
-                        <BootstrapTable data={getData()}
-                                        trClassName={rowClassNameFormat}
+                        <BootstrapTable data={this.pkuInfo}
                                         pagination={true}
                                         options={options}
                                         cellEdit={cellEditProp}

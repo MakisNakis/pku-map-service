@@ -96,39 +96,6 @@ class MapComponent extends React.Component {
         return new Icon(this.pkuMarkerIcon)
     }
 
-
-    // renderMarkersLayer() {
-    //     // console.log(this.state.pkuData[0].ID)
-    //
-    //     // console.log(this.state.pkuData[0].Latitude);
-    //     // console.log(this.state.pkuData);
-    //     let pkuData = this.state.pkuData;
-    //
-    //     var result = [];
-    //     for (var i = 0; i < pkuData.length; i++) {
-    //         result.push(
-    //             <Marker key={i} position={[pkuData[i].Latitude, pkuData[i].Longitude]}
-    //                     icon={this.setMarkerIcon(pkuData[i].RouteID)}
-    //             >
-    //                 {/*<Popup>*/}
-    //                 {/*    <div>*/}
-    //                 {/*        <h2>{pkuData.default.pkuInfo[i].City}</h2>*/}
-    //                 {/*        <h3>Зона обслуживания УС: {pkuData.default.pkuInfo[i].Zone}</h3>*/}
-    //                 {/*    </div>*/}
-    //                 {/*</Popup>*/}
-    //             </Marker>
-    //         );
-    //     }
-    //     return result;
-    // }
-
-
-//MAXXX CODDDEE
-    // handleClick = (e) => {
-    //     console.log(e.target.options.title);
-    // }
-
-
     renderMarkersLayer(routeId) {
         let pkuData = undefined;
 
@@ -139,15 +106,15 @@ class MapComponent extends React.Component {
         }
 
         // console.log(this.state.pkuDataFirstRoute);
-        console.log(this.state.pkuDataSecondRoute.length);
-        console.log(this.state.pkuDataSecondRoute);
+        // console.log(this.state.pkuDataSecondRoute.length);
+        // console.log(this.state.pkuDataSecondRoute);
         let result = [];
         for (let i = 0; i < pkuData.length; i++) {
             result.push(
                 <Marker key={i}
                         position={[pkuData[i].Latitude, pkuData[i].Longtitude]}
                         icon={this.setMarkerIcon(routeId)}
-                        title={pkuData[i].SubjectName}
+                        title={pkuData[i].SubjectID}
                         onClick={this.props.namePKU}
                 >
                     <Popup>
@@ -204,4 +171,3 @@ class MapComponent extends React.Component {
 }
 
 export default MapComponent
-

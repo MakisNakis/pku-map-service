@@ -7,30 +7,36 @@ import * as pkuData from "./data/tRouteTrackPointsKarabash";
 
 
 class App extends React.Component {
+    constructor() {
 
-    state = {
-        show: false,        //показать таблицу
-        hide: undefined
+        super();
+
+        this.state = {
+            show: false,        //показать таблицу
+            hide: undefined,
+            idPKU: undefined,
+        }
     }
 
     gettingNamePKU = (e) => {
         // e.preventDefault();
         console.log(e.target.options.title);
-        const name = e.target.options.title;
+        const id = e.target.options.title;
 
 
-        if (name) {
+        if (id) {
             this.setState({
                 show: true,
-                hide: false
+                hide: false,
+                idPKU: id
             });
         } else {
             this.setState({
                 show: false,
-                hide: "Нажмите на ПКУ для вывода таблицы"
+                hide: "Нажмите на ПКУ для вывода таблицы",
+                idPKU: undefined
             });
         }
-
     }
 
     render() {
@@ -41,6 +47,7 @@ class App extends React.Component {
                 <TableComponent
                     show={this.state.show}
                     hide={this.state.hide}
+                    idPKU={this.state.idPKU}
                 />
 
             </div>
