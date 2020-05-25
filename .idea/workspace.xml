@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
-    </list>
+    <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="rusteeck" />
+        <entry key="$PROJECT_DIR$" value="makeBackOnNodeJS" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -135,9 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.server" />
         <item itemvalue="npm.dev" />
         <item itemvalue="npm.client" />
         <item itemvalue="npm.server" />
+        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -164,6 +161,7 @@
       <workItem from="1590260599571" duration="1872000" />
       <workItem from="1590263450883" duration="1209000" />
       <workItem from="1590323173568" duration="9533000" />
+      <workItem from="1590409469328" duration="3382000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -291,7 +289,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590342667866</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="- Вывел информацию с сервера на карте&#10;&#10;TODO: &#10;- Привести код к красивому виду">
+      <created>1590352676777</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1590352676777</updated>
+    </task>
+    <task id="LOCAL-00020" summary="- Вывел информацию с сервера на карте&#10;&#10;Merged with 'tabolin' branch">
+      <created>1590412969738</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1590412969738</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,6 +336,8 @@
     <MESSAGE value="&#10;TODO: &#10;- развернуть бек на Node / Express" />
     <MESSAGE value="- получил данные с сервера на клиенте &#10;TODO: &#10;- Вывести информацию с сервера на карте&#10;- Привести код к красивому виду" />
     <MESSAGE value="- Вывел информацию с сервера на карте&#10;&#10;TODO: &#10;- Привести код к красивому виду" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Вывел информацию с сервера на карте&#10;&#10;TODO: &#10;- Привести код к красивому виду" />
+    <MESSAGE value="- Вывел информацию с сервера на карте" />
+    <MESSAGE value="- Вывел информацию с сервера на карте&#10;&#10;Merged with 'tabolin' branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Вывел информацию с сервера на карте&#10;&#10;Merged with 'tabolin' branch" />
   </component>
 </project>
