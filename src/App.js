@@ -27,7 +27,7 @@ class App extends React.Component {
         } else {
             this.setState({
                 show: false,
-                hide: "Нажмите на ПКУ для вывода таблицы" // TODO не выводится надпись про ПКУ
+                hide: "Нажмите на ПКУ для вывода таблицы"
             });
         }
 
