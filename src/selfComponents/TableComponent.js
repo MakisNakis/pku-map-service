@@ -71,20 +71,48 @@ class TableComponent extends Component {
                 {this.props.show &&
                     <div>
                         <p className="Table-header">Basic Table</p>
-                        <BootstrapTable data={this.pkuInfo}
+                        <BootstrapTable data={this.state.pkuInfo}
                                         pagination={true}
                                         options={options}
                                         cellEdit={cellEditProp}
                         >
-                            <TableHeaderColumn isKey dataField='id'>
-                                ID
+                            <TableHeaderColumn isKey dataField='HardwareID'>
+                                HardwareID
                             </TableHeaderColumn>
-                            <TableHeaderColumn dataField='name'>
-                                Name
+                            <TableHeaderColumn dataField='WorkName'>
+                                WorkName
                             </TableHeaderColumn>
-                            <TableHeaderColumn dataField='value'>
-                                Value
+                            <TableHeaderColumn dataField='WorkType'>
+                                WorkType
                             </TableHeaderColumn>
+                            <TableHeaderColumn dataField='WorkUnit'>
+                                WorkUnit
+                            </TableHeaderColumn>
+                            <TableHeaderColumn dataField='WorkQuantity'>
+                                WorkQuantity
+                            </TableHeaderColumn>
+                            <TableHeaderColumn dataField='StartDate'>
+                                StartDate
+                            </TableHeaderColumn>
+                            <TableHeaderColumn dataField='EndDate'>
+                                EndDate
+                            </TableHeaderColumn>
+                            <TableHeaderColumn dataField='WorkComment'>
+                                WorkComment
+                            </TableHeaderColumn>
+                            <TableHeaderColumn dataField='HardwareName'>
+                                HardwareName
+                            </TableHeaderColumn>
+                            <TableHeaderColumn dataField='HardwareUnit'>
+                                HardwareUnit
+                            </TableHeaderColumn>
+                            <TableHeaderColumn dataField='HardwareQuantity'>
+                                HardwareQuantity
+                            </TableHeaderColumn>
+                            <TableHeaderColumn dataField='HardwareComment'>
+                                HardwareComment
+                            </TableHeaderColumn>
+
                         </BootstrapTable>
                     </div>
                 }
