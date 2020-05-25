@@ -1,6 +1,6 @@
 const Client= require('pg').Client;
 
-const DBNAME = "PKU_mapService";
+const DBNAME = "PKU_MapService";
 const DBLOG = "postgres";
 const DBPASS = "postgres";
 const DBPORT = "5433";
@@ -14,20 +14,23 @@ class MyRepository {
         });
     }
 
-    async loadData() {
+    async loadDataForMarkers(routeId) {
         try {
             await this.client.connect();
             console.log('DB has been connected');
         } catch(e) {
             console.log('Error', e)
         }
-        return this.client.query("select * from sp_ngetroutetrackpointsbyid(1)");
+
+        let query = this.client.query(`select * from f_select_subject_routeid(${routeId})`);
+        // this.client.end();
+
+        return query
     }
 
-
-
-
 }
+
+
 
 
 
