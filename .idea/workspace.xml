@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="" />
+    <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +165,7 @@
       <workItem from="1590260599571" duration="1872000" />
       <workItem from="1590263450883" duration="1209000" />
       <workItem from="1590323173568" duration="9533000" />
-      <workItem from="1590409469328" duration="4121000" />
+      <workItem from="1590409469328" duration="4963000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -317,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590414361557</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
+      <created>1590422377903</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1590422377903</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

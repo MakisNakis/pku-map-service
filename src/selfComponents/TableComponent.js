@@ -14,7 +14,7 @@ class TableComponent extends Component {
     }
 
     getData() {
-        let data = []
+        let data = [];
         for (let i = 0; i < 100; ++i) {
             data[i] = {id: i, name: 'item_' + i, value: i}
         }
