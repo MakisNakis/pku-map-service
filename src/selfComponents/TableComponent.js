@@ -15,21 +15,70 @@ class TableComponent extends Component {
 
     async loadData(idPKU, depName) {
 
-        console.log('!!!!!!!!!');
-        await fetch(`/api/pkuDataServerPKUTable${idPKU}`).then(results => {
-            console.log(`/api/pkuDataServerPKUTable${idPKU}`);
-            return results.json()
-        }).then(data => {
-            this.setState({pkuInfo: data.rows});
-            // console.log(this.state.pkuData[0].ID)
-        }).catch(() => {
-            console.log(`aaaaaaaaaaaaaa`);
-        });
-        console.log(this.state.pkuInfo);
+        switch (depName) {
+            case "ОМТС":
+                await fetch(`/api/pkuDataServerPKUTable${idPKU + 2}`).then(results => {
+                    console.log(`/api/pkuDataServerPKUTable${idPKU}`);
+                    return results.json()
+                }).then(data => {
+                    this.setState({pkuInfo: data.rows});
+                    // console.log(this.state.pkuData[0].ID)
+                }).catch(() => {
+                    console.log(`aaaaaaaaaaaaaa`);
+                });
+                break;
+            case "Монтажники":
+                await fetch(`/api/pkuDataServerPKUTable${idPKU + 1}`).then(results => {
+                    console.log(`/api/pkuDataServerPKUTable${idPKU}`);
+                    return results.json()
+                }).then(data => {
+                    this.setState({pkuInfo: data.rows});
+                    // console.log(this.state.pkuData[0].ID)
+                }).catch(() => {
+                    console.log(`aaaaaaaaaaaaaa`);
+                });
+                break;
+            case "ПТО":
+                await fetch(`/api/pkuDataServerPKUTable${idPKU + 3}`).then(results => {
+                    console.log(`/api/pkuDataServerPKUTable${idPKU}`);
+                    return results.json()
+                }).then(data => {
+                    this.setState({pkuInfo: data.rows});
+                    // console.log(this.state.pkuData[0].ID)
+                }).catch(() => {
+                    console.log(`aaaaaaaaaaaaaa`);
+                });
+                break;
+
+            case "Отчеты":
+                await fetch(`/api/pkuDataServerPKUTable${idPKU}`).then(results => {
+                    console.log(`/api/pkuDataServerPKUTable${idPKU}`);
+                    return results.json()
+                }).then(data => {
+                    this.setState({pkuInfo: data.rows});
+                    // console.log(this.state.pkuData[0].ID)
+                }).catch(() => {
+                    console.log(`aaaaaaaaaaaaaa`);
+                });
+                break;
+            default:
+                break;
+        }
     }
+        // await fetch(`/api/pkuDataServerPKUTable${idPKU}`).then(results => {
+        //     console.log(`/api/pkuDataServerPKUTable${idPKU}`);
+        //     return results.json()
+        // }).then(data => {
+        //     this.setState({pkuInfo: data.rows});
+        //     // console.log(this.state.pkuData[0].ID)
+        // }).catch(() => {
+        //     console.log(`aaaaaaaaaaaaaa`);
+        // });
+        // console.log(this.state.pkuInfo);
+
 
     componentWillReceiveProps(nextProp) {
-        if(nextProp.depName !== this.props.depName || nextProp.idPKU !== this.props.idPKU) {
+        if (nextProp.depName !== this.props.depName || nextProp.idPKU !== this.props.idPKU) {
             console.log(nextProp.idPKU);
             console.log(nextProp.depName);
             this.loadData(nextProp.idPKU, nextProp.depName);
@@ -40,8 +89,8 @@ class TableComponent extends Component {
     componentWillMount() {
     }
 
-    async onChangeTheTab(a){
-       alert(a);
+    async onChangeTheTab(a) {
+        alert(a);
     }
 
 
@@ -71,29 +120,17 @@ class TableComponent extends Component {
             // }
         };
 
-        // function DeleteUserLink() {
-        //     function onClick(e) {
-        //         e.preventDefault();
-        //         console.log('Пользователь был удален.');
-        //     }
-        //
-        //     return (
-        //         <a href="#" onClick={onClick}>Удалить пользователя</a>
-        //     );
-        // }
-
 
         console.log(this.props.idPKU);
         return (
 
-
             <div id="TableComp">
-                {this.props.show &&
+                {this.props.show  &&
                     <div>
 
                         <p className="Table-header"><h2 align = "center">Перечень оборудования </h2></p>
                         <BootstrapTable data={this.state.pkuInfo}
-                                        exportCSV={ true }
+                                        exportCSV={true}
                                         pagination={true}
                                         options={options}
                                         cellEdit={cellEditProp}
