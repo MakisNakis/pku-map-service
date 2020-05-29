@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import cellEditFactory from 'react-bootstrap-table2-editor';
+import paginationFactory from 'react-bootstrap-table2-paginator';
+import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
+
+import ToolkitProvider, { Search, CSVExport } from 'react-bootstrap-table2-toolkit';
+
 import './css/TableComponent.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+
 class TableComponent extends Component {
 
     constructor() {
@@ -15,17 +21,55 @@ class TableComponent extends Component {
 
     async loadData(idPKU, depName) {
 
-        console.log('!!!!!!!!!');
-        await fetch(`/api/pkuDataServerPKUTable${idPKU}`).then(results => {
-            console.log(`/api/pkuDataServerPKUTable${idPKU}`);
-            return results.json()
-        }).then(data => {
-            this.setState({pkuInfo: data.rows});
-            // console.log(this.state.pkuData[0].ID)
-        }).catch(() => {
-            console.log(`aaaaaaaaaaaaaa`);
-        });
-        console.log(this.state.pkuInfo);
+        switch (depName) {
+            case "ОМТС":
+                await fetch(`/api/pkuDataServerPKUTable${idPKU + 2}`).then(results => {
+                    console.log(`/api/pkuDataServerPKUTable${idPKU}`);
+                    return results.json()
+                }).then(data => {
+                    this.setState({pkuInfo: data.rows});
+                    // console.log(this.state.pkuData[0].ID)
+                }).catch(() => {
+                    console.log(`aaaaaaaaaaaaaa`);
+                });
+                break;
+            case "Монтажники":
+                await fetch(`/api/pkuDataServerPKUTable${idPKU + 1}`).then(results => {
+                    console.log(`/api/pkuDataServerPKUTable${idPKU}`);
+                    return results.json()
+                }).then(data => {
+                    this.setState({pkuInfo: data.rows});
+                    // console.log(this.state.pkuData[0].ID)
+                }).catch(() => {
+                    console.log(`aaaaaaaaaaaaaa`);
+                });
+                break;
+            case "ПТО":
+                await fetch(`/api/pkuDataServerPKUTable${idPKU + 3}`).then(results => {
+                    console.log(`/api/pkuDataServerPKUTable${idPKU}`);
+                    return results.json()
+                }).then(data => {
+                    this.setState({pkuInfo: data.rows});
+                    // console.log(this.state.pkuData[0].ID)
+                }).catch(() => {
+                    console.log(`aaaaaaaaaaaaaa`);
+                });
+                break;
+
+            case "Отчеты":
+                await fetch(`/api/pkuDataServerPKUTable${idPKU}`).then(results => {
+                    console.log(`/api/pkuDataServerPKUTable${idPKU}`);
+                    return results.json()
+                }).then(data => {
+                    this.setState({pkuInfo: data.rows});
+                    // console.log(this.state.pkuData[0].ID)
+                }).catch(() => {
+                    console.log(`aaaaaaaaaaaaaa`);
+                });
+                break;
+            default:
+                break;
+        }
     }
 
     componentWillReceiveProps(nextProp) {
@@ -45,7 +89,6 @@ class TableComponent extends Component {
     }
 
 
-
     render() {
 
         let selectRowProp = {
@@ -56,42 +99,310 @@ class TableComponent extends Component {
         };
 
         let tableHeaders = [];
-        tableHeaders["ОМТС"] = [
-
-        ];
-        tableHeaders["Монтажники"] = [
-
-        ];
-        tableHeaders["ПТО"] = [
-
-        ];
-        tableHeaders["Отчеты"] = [{
-            dataField:'WorkName',
-            text:'Наименование работы',
+        tableHeaders["ОМТС"] = [{
+            dataField: 'WorkName',
+            text: 'Наименование работы',
+            headerStyle: (colum, colIndex) => {
+                return { width: '30%', textAlign: 'center' };
+            }
+        }, {
+            dataField: 'HardwareName',
+            text: 'Название оборудования',
+            headerStyle: (colum, colIndex) => {
+                return { width: '30%', textAlign: 'center' };
+            }
+        },  {
+            dataField: '',
+            text: 'Расшифровка наименования',
+            headerStyle: (colum, colIndex) => {
+                return { width: '25%', textAlign: 'center' };
+            }
+        },  {
+            dataField: '',
+            text: 'Расшифровка (согласованная)',
+            headerStyle: (colum, colIndex) => {
+                return { width: '25%', textAlign: 'center' };
+            }
+        },  {
+            dataField: '',
+            text: 'Дата согласования',
+            headerStyle: (colum, colIndex) => {
+                return { width: '25%', textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Дата размещения в производство',
+            headerStyle: (colum, colIndex) => {
+                return { width: '25%', textAlign: 'center' };
+            }
+        },  {
+            dataField: '',
+            text: 'Дата поставки',
+            headerStyle: (colum, colIndex) => {
+                return { width: '15%', textAlign: 'center' };
+            }
         },{
-            dataField:'HardwareName',
-            text:'Название оборудования',
+            dataField: 'HardwareQuantity',
+            text: 'Количество',
+            headerStyle: (colum, colIndex) => {
+                return { width: '20%', textAlign: 'center' };
+            }
+        }, {
+            dataField: 'HardwareUnit',
+            text: 'Единицы измерения',
+            headerStyle: (colum, colIndex) => {
+                return { width: '20%', textAlign: 'center' };
+            }
         },{
-            dataField:'HardwareQuantity',
-            text:'Количество',
-        },{
-            dataField:'HardwareUnit',
-            text:'Единицы измерения',
-        },{
-            dataField:'StartDate',
-            text:'Начало работ',
-        },{
-            dataField:'EndDate',
-            text:'Конец работ',
-        },{
-            dataField:'HardwareComment',
-            text:'Комментарий',
+            dataField: 'StartDate',
+            text: 'Начало работ',
+            headerStyle: (colum, colIndex) => {
+                return { width: '15%', textAlign: 'center' };
+            }
+        }, {
+            dataField: 'EndDate',
+            text: 'Конец работ',
+            headerStyle: (colum, colIndex) => {
+                return { width: '15%', textAlign: 'center' };
+            }
+        }, {
+            dataField: 'HardwareComment',
+            text: 'Комментарий',
+            headerStyle: (colum, colIndex) => {
+                return { width: '20%', textAlign: 'center' };
+            }
         }];
+
+        tableHeaders["Монтажники"] = [{
+            dataField: 'WorkName',
+            text: 'Наименование работы',
+            headerStyle: (colum, colIndex) => {
+                return { textAlign: 'center' };
+            }
+
+        }, {
+            dataField: 'HardwareName',
+            text: 'Название оборудования',
+            headerStyle: (colum, colIndex) => {
+                return { textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Расшифровка (согласованная)',
+            headerStyle: (colum, colIndex) => {
+                return { textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Дата поставки',
+            headerStyle: (colum, colIndex) => {
+                return { textAlign: 'center' };
+            }
+        }, {
+            dataField: 'HardwareQuantity',
+            text: 'Количество',
+            headerStyle: (colum, colIndex) => {
+                return { textAlign: 'center' };
+            }
+        }, {
+            dataField: 'HardwareUnit',
+            text: 'Единицы измерения',
+            headerStyle: (colum, colIndex) => {
+                return { textAlign: 'center' };
+            }
+        },{
+            dataField: 'StartDate',
+            text: 'Начало работ',
+            headerStyle: (colum, colIndex) => {
+                return { textAlign: 'center' };
+            }
+        }, {
+            dataField: 'EndDate',
+            text: 'Конец работ',
+            headerStyle: (colum, colIndex) => {
+                return { textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Исполнитель',
+            headerStyle: (colum, colIndex) => {
+                return { textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Дата выполнения',
+            headerStyle: (colum, colIndex) => {
+                return { textAlign: 'center' };
+            }
+        }, {
+            dataField: 'HardwareComment',
+            text: 'Комментарий',
+            headerStyle: (colum, colIndex) => {
+                return { textAlign: 'center' };
+            }
+        } ];
+
+
+        tableHeaders["ПТО"] = [{
+            dataField: 'WorkName',
+            text: 'Наименование работы',
+            headerStyle: (colum, colIndex) => {
+                return { width: '40%', textAlign: 'center' };
+            }
+        }, {
+            dataField: 'HardwareName',
+            text: 'Название оборудования',
+            headerStyle: (colum, colIndex) => {
+                return { width: '40%', textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Расшифровка (согласованная)',
+            headerStyle: (colum, colIndex) => {
+                return { width: '30%', textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Дата поставки',
+            headerStyle: (colum, colIndex) => {
+                return { width: '20%', textAlign: 'center' };
+            }
+        }, {
+            dataField: 'HardwareQuantity',
+            text: 'Кол-во',
+            headerStyle: (colum, colIndex) => {
+                return { width: '15%', textAlign: 'center' };
+            }
+        }, {
+            dataField: 'HardwareUnit',
+            text: 'Ед.изм.',
+            headerStyle: (colum, colIndex) => {
+                return { width: '15%', textAlign: 'center' };
+            }
+        },{
+            dataField: 'StartDate',
+            text: 'Начало работ',
+            headerStyle: (colum, colIndex) => {
+                return { width: '20%', textAlign: 'center' };
+            }
+        }, {
+            dataField: 'EndDate',
+            text: 'Конец работ',
+            headerStyle: (colum, colIndex) => {
+                return { width: '20%', textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Исполнитель',
+            headerStyle: (colum, colIndex) => {
+                return { width: '25%', textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Дата выполнения',
+            headerStyle: (colum, colIndex) => {
+                return { width: '25%', textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Закрытие по актам',
+            headerStyle: (colum, colIndex) => {
+                return { width: '20%', textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Подтвержд. монтажа',
+            headerStyle: (colum, colIndex) => {
+                return { width: '25%', textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Списание материалов',
+            headerStyle: (colum, colIndex) => {
+                return { width: '25%', textAlign: 'center' };
+            }
+        }, {
+            dataField: 'HardwareComment',
+            text: 'Комментарий',
+            headerStyle: (colum, colIndex) => {
+                return { width: '25%', textAlign: 'center' };
+            }
+        } ];
+
+        tableHeaders["Отчеты"] = [{
+            dataField: 'WorkName',
+            text: 'Наименование работы',
+            headerStyle: (colum, colIndex) => {
+                return { width: '30%', textAlign: 'center' };
+            }
+
+        }, {
+            dataField: 'HardwareName',
+            text: 'Название оборудования',
+            headerStyle: (colum, colIndex) => {
+                return { width: '20%', textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Расшифровка (согласованная)',
+            headerStyle: (colum, colIndex) => {
+                return { width: '20%', textAlign: 'center' };
+            }
+
+            }, {
+            dataField: '',
+            text: 'Дата размещения в производство',
+            headerStyle: (colum, colIndex) => {
+                return { width: '18%', textAlign: 'center' };
+            }
+        },  {
+            dataField: '',
+            text: 'Дата поставки',
+            headerStyle: (colum, colIndex) => {
+                return { width: '15%', textAlign: 'center' };
+            }
+        },  {
+            dataField: 'StartDate',
+            text: 'Начало работ',
+            headerStyle: (colum, colIndex) => {
+                return { width: '15%', textAlign: 'center' };
+            }
+        }, {
+            dataField: 'EndDate',
+            text: 'Конец работ',
+            headerStyle: (colum, colIndex) => {
+                return { width: '15%', textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Исполнитель монтажа',
+            headerStyle: (colum, colIndex) => {
+                return { width: '18%', textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Дата выполнения',
+            headerStyle: (colum, colIndex) => {
+                return { width: '15%', textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Комментарий исполнителя монтажа',
+            headerStyle: (colum, colIndex) => {
+                return { width: '20%', textAlign: 'center' };
+            }
+        }, {
+            dataField: '',
+            text: 'Факт закрытия по актам',
+            headerStyle: (colum, colIndex) => {
+                return { width: '15%', textAlign: 'center' };
+            }
+        } ];
 
         const options = {
             // size: "sm",
             page: 4,
-            prePage:  '⟵',
+            prePage: '⟵',
             nextPage: '⟶',
             firstPage: '⟸',
             lastPage: '⟹',
@@ -104,37 +415,139 @@ class TableComponent extends Component {
             // }
         };
 
+        const rowStyle = (row, rowIndex) => {
+            row.index = rowIndex;
+            const style = {};
+            if (rowIndex % 2 === 0) {
+                style.backgroundColor = 'transparent';
+            } else {
+                style.backgroundColor = 'rgba(142,238,147,0.13)';
+            }
+            style.borderTop = 'none';
+
+            return style;
+        };
+
+
+
+
+
 
 
         console.log(this.props.idPKU);
         return (
 
             <div id="TableComp">
-                {this.props.show &&
-                    <div>
+                {this.props.show && this.props.depName === "Отчеты" &&
+                <div>
+                    <p className="Table-header"><h2 align="center">Перечень оборудования на {this.props.markerName} </h2></p>
+                    <BootstrapTable keyField='HardwareID'
+                                    data={this.state.pkuInfo}
+                                    columns={tableHeaders["Отчеты"]}
+                                    rowStyle={rowStyle}
+                                    filter={ filterFactory() }
+                                    // defaultSorted={ defaultSorted }
+                        // exportCSV={ true }
+                                    pagination={paginationFactory()}
+                        // options={options}
+                                    cellEdit={cellEditFactory({mode: 'dbclick'})}
+                                    // selectRow={selectRowProp}
+                        // striped
+                        // hover
+                        // condensed
+                        // insertRow
+                        // deleteRow
+                        // search
+                        // responsive
+                    >
+                    </BootstrapTable>
 
-                        <p className="Table-header"><h2 align = "center">Перечень оборудования </h2></p>
-                        <BootstrapTable keyField='HardwareID'
-                                        data={this.state.pkuInfo}
-                                        columns={tableHeaders["Отчеты"]}
-                                        // exportCSV={ true }
-                                        // pagination={true}
-                                        // options={options}
-                                        cellEdit={ cellEditFactory({ mode: 'dbclick' }) }
-                                        // selectRow={selectRowProp}
-                                        // striped
-                                        // hover
-                                        // condensed
-                                        // insertRow
-                                        // deleteRow
-                                        // search
-                                        // responsive
-                        >
-
-                        </BootstrapTable>
-                    </div>
+                </div>
                 }
                 <p>{this.props.hide}</p>
+
+                {this.props.show && this.props.depName === "ОМТС" &&
+                <div>
+                    <p className="Table-header"><h2 align="center">Перечень оборудования на {this.props.markerName} </h2></p>
+                    <BootstrapTable keyField='HardwareID'
+                                    data={this.state.pkuInfo}
+                                    columns={tableHeaders["ОМТС"]}
+                                    rowStyle={rowStyle}
+                                    filter={ filterFactory() }
+                        // defaultSorted={ defaultSorted }
+                        // exportCSV={ true }
+                                    pagination={paginationFactory()}
+                        // options={options}
+                                    cellEdit={cellEditFactory({mode: 'dbclick'})}
+                        // selectRow={selectRowProp}
+                        // striped
+                        // hover
+                        // condensed
+                        // insertRow
+                        // deleteRow
+                        // search
+                        // responsive
+                    >
+                    </BootstrapTable>}
+                </div>
+                }
+                <p>{this.props.hide}</p>
+
+                {this.props.show && this.props.depName === "Монтажники" &&
+                <div>
+                    <p className="Table-header"><h2 align="center">Перечень оборудования на {this.props.markerName}  </h2></p>
+                    <BootstrapTable keyField='HardwareID'
+                                    data={this.state.pkuInfo}
+                                    columns={tableHeaders["Монтажники"]}
+                                    rowStyle={rowStyle}
+                                    filter={ filterFactory() }
+                        // defaultSorted={ defaultSorted }
+                        // exportCSV={ true }
+                                    pagination={paginationFactory()}
+                        // options={options}
+                                    cellEdit={cellEditFactory({mode: 'dbclick'})}
+                        // selectRow={selectRowProp}
+                        // striped
+                        // hover
+                        // condensed
+                        // insertRow
+                        // deleteRow
+                        // search
+                        // responsive
+                    >
+                    </BootstrapTable>}
+                </div>
+                }
+                <p>{this.props.hide}</p>
+
+                {this.props.show && this.props.depName === "ПТО" &&
+                <div>
+                    <p className="Table-header"><h2 align="center">Перечень оборудования на {this.props.markerName}  </h2></p>
+                    <BootstrapTable keyField='HardwareID'
+                                    data={this.state.pkuInfo}
+                                    columns={tableHeaders["ПТО"]}
+                                    rowStyle={rowStyle}
+                                    filter={ filterFactory() }
+                        // defaultSorted={ defaultSorted }
+                        // exportCSV={ true }
+                                    pagination={paginationFactory()}
+                        // options={options}
+                                    cellEdit={cellEditFactory({mode: 'dbclick'})}
+                        // selectRow={selectRowProp}
+                        // striped
+                        // hover
+                        // condensed
+                        // insertRow
+                        // deleteRow
+                        // search
+                        // responsive
+                    >
+                    </BootstrapTable>}
+                </div>
+                }
+                <p>{this.props.hide}</p>
+
+
             </div>
         );
     }

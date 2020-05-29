@@ -18,29 +18,34 @@ class App extends React.Component {
             hide: undefined,
             idPKU: undefined,
             depName: "Отчеты",
-
+            markerName: undefined
         }
     }
 
     gettingNamePKU = (e) => {
         // e.preventDefault();
-        console.log(e.target.options.title);
+        console.log(e.target.options.name);
         const id = e.target.options.title;
+        const name = e.target.options.name;
 
         if (id) {
             this.setState({
                 show: true,
                 hide: false,
                 idPKU: id,
-                depName: "Отчеты"
+                depName: "Отчеты",
+                markerName: name
             });
         } else {
             this.setState({
                 show: false,
                 hide: "Нажмите на ПКУ для вывода таблицы",
-                idPKU: undefined
+                idPKU: undefined,
+                markerName: name
+
             });
         }
+        // return
     };
 
 
@@ -86,6 +91,7 @@ class App extends React.Component {
                     hide={this.state.hide}
                     idPKU={this.state.idPKU}
                     depName={this.state.depName}
+                    markerName={this.state.markerName}
                 />
 
             </div>
