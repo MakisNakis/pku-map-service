@@ -16,7 +16,7 @@ import {render} from 'react-dom'
 import {Link} from "react-scroll";
 
 
-class MapComponent extends React.Component {
+class MapComponent extends Component {
 
     constructor() {
         super();
