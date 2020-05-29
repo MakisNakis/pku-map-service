@@ -28,7 +28,7 @@ app.get('/api/pkuDataServerSecondRoute', async (req, res) => {
     res.json(data);
 });
 
-for (let i = 0; i < 500; i++){
+for (let i = 0; i < 200; i++){
     app.get(`/api/pkuDataServerPKUTable${i}`, async (req, res) => {
         const data = await repository.loadDataForTable(i);
         res.json(data);

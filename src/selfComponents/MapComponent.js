@@ -10,8 +10,8 @@ import {
     Circle
 } from "react-leaflet";
 import {Icon} from "leaflet";
-import * as pkuDataKarabash from "../data/tRouteTrackPointsKarabash.json"
-import * as pkuDataUfa from "../data/tRouteTrackPointsUfa.json"
+// import * as pkuDataKarabash from "../data/tRouteTrackPointsKarabash.json"
+// import * as pkuDataUfa from "../data/tRouteTrackPointsUfa.json"
 import {render} from 'react-dom'
 import {Link} from "react-scroll";
 

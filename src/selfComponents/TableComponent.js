@@ -12,17 +12,9 @@ class TableComponent extends Component {
         };
     }
 
-    getData() {
-        let data = [];
-        for (let i = 0; i < 100; ++i) {
-            data[i] = {id: i, name: 'item_' + i, value: i}
-        }
-        // console.log(this.state.pkuInfo);
 
-        return data;
-    }
+    async loadData(idPKU, depName) {
 
-    async loadData(idPKU) {
         console.log('!!!!!!!!!');
         await fetch(`/api/pkuDataServerPKUTable${idPKU}`).then(results => {
             console.log(`/api/pkuDataServerPKUTable${idPKU}`);
@@ -37,26 +29,29 @@ class TableComponent extends Component {
     }
 
     componentWillReceiveProps(nextProp) {
-        if(nextProp.idPKU !== undefined) {
+        if(nextProp.depName !== this.props.depName || nextProp.idPKU !== this.props.idPKU) {
             console.log(nextProp.idPKU);
-            this.loadData(nextProp.idPKU);
+            console.log(nextProp.depName);
+            this.loadData(nextProp.idPKU, nextProp.depName);
         }
 
     }
 
     componentWillMount() {
-        this.getData();
     }
 
-    //
+    async onChangeTheTab(a){
+       alert(a);
+    }
+
+
+
     render() {
-
-
 
         var selectRowProp = {
             mode: "checkbox",
             clickToSelect: true,
-            bgColor: "rgb(126,238,80)"
+            bgColor: "rgb(206,255,198)"
 
         };
 
@@ -76,15 +71,29 @@ class TableComponent extends Component {
             // }
         };
 
+        // function DeleteUserLink() {
+        //     function onClick(e) {
+        //         e.preventDefault();
+        //         console.log('Пользователь был удален.');
+        //     }
+        //
+        //     return (
+        //         <a href="#" onClick={onClick}>Удалить пользователя</a>
+        //     );
+        // }
+
+
         console.log(this.props.idPKU);
         return (
+
+
             <div id="TableComp">
                 {this.props.show &&
                     <div>
+
                         <p className="Table-header"><h2 align = "center">Перечень оборудования </h2></p>
                         <BootstrapTable data={this.state.pkuInfo}
                                         exportCSV={ true }
-                                        table-reflow
                                         pagination={true}
                                         options={options}
                                         cellEdit={cellEditProp}
@@ -97,10 +106,12 @@ class TableComponent extends Component {
                                         search
                                         responsive
                         >
+
                             {/*<TableHeaderColumn isKey dataField='HardwareID'>*/}
                             {/*    HardwareID*/}
                             {/*</TableHeaderColumn>*/}
-                            <TableHeaderColumn isKey dataField='WorkName'  >
+
+                            <TableHeaderColumn  dataField='WorkName' width = "50%"  tdStyle={ { whiteSpace: 'normal' } } >
                                 Наименование работы
                             </TableHeaderColumn>
                             {/*<TableHeaderColumn width = "380px" dataField='WorkType'>*/}
@@ -115,28 +126,31 @@ class TableComponent extends Component {
                             {/*<TableHeaderColumn dataField='WorkComment'>*/}
                             {/*    WorkComment*/}
                             {/*</TableHeaderColumn>*/}
-                            <TableHeaderColumn dataField='HardwareName' width = "50%" >
+                            <TableHeaderColumn isKey dataField='HardwareName' width = "40%" tdStyle={ { whiteSpace: 'normal' } } dataSort>
                                 Название оборудования
                             </TableHeaderColumn>
-                            <TableHeaderColumn dataField='HardwareQuantity'  width = "100px">
+                            {/*<TableHeaderColumn dataField='HardwareNamek' width = "40%" >*/}
+                            {/*    Расшифровка оборудования*/}
+                            {/*</TableHeaderColumn>*/}
+                            <TableHeaderColumn dataField='HardwareQuantity'  width = "100px" tdStyle={ { whiteSpace: 'normal' } }>
                                 Кол-во
                             </TableHeaderColumn>
-                            <TableHeaderColumn dataField='HardwareUnit' width = "100px">
+                            <TableHeaderColumn dataField='HardwareUnit' width = "100px" tdStyle={ { whiteSpace: 'normal' } }>
                                 Ед.Изм.
                             </TableHeaderColumn>
 
                             {/*<TableHeaderColumn dataField='HardwareComment'>*/}
                             {/*    HardwareComment*/}
                             {/*</TableHeaderColumn>*/}
-                            <TableHeaderColumn dataField='StartDate' width = "130px">
+                            <TableHeaderColumn dataField='StartDate' width = "140px" tdStyle={ { whiteSpace: 'normal' } }>
                                 Начало работ
                             </TableHeaderColumn>
 
-                            <TableHeaderColumn dataField='EndDate' width = "130px">
+                            <TableHeaderColumn dataField='EndDate' width = "140px" tdStyle={ { whiteSpace: 'normal' } }>
                                 Конец работ
                             </TableHeaderColumn>
 
-                            <TableHeaderColumn dataField='HardwareComment' width = "200px">
+                            <TableHeaderColumn dataField='HardwareComment' width = "200px" tdStyle={ { whiteSpace: 'normal' } }>
                                 Комментарий
                             </TableHeaderColumn>
                         </BootstrapTable>
