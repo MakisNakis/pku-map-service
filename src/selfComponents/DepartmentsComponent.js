@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 
-class DepartmentsComponent extends React.Component {
+class DepartmentsComponent extends Component {
     constructor() {
         super();
     }
