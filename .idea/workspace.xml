@@ -1,35 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="+ вывод данных в таблицу при нажатии на ПКУ">
+    <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
       <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution />
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -45,7 +31,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -62,13 +47,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1c7YSXiHtJuV9IBrBwh6h1WirHb" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -96,6 +75,18 @@
       <recent name="$PROJECT_DIR$/src/selfComponents" />
       <recent name="$PROJECT_DIR$/public/markers" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="npm.dev">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -174,9 +165,7 @@
       <workItem from="1590260599571" duration="1872000" />
       <workItem from="1590263450883" duration="1209000" />
       <workItem from="1590323173568" duration="9533000" />
-      <workItem from="1590409469328" duration="3382000" />
-      <workItem from="1590483793652" duration="3952000" />
-      <workItem from="1590510708436" duration="636000" />
+      <workItem from="1590409469328" duration="4963000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -318,44 +307,45 @@
       <option name="project" value="LOCAL" />
       <updated>1590412969738</updated>
     </task>
-    <task id="LOCAL-00021" summary="+ test">
-      <created>1590414418357</created>
+    <task id="LOCAL-00021" summary="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
+      <created>1590413083455</created>
       <option name="number" value="00021" />
       <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
-      <updated>1590414418357</updated>
+      <updated>1590413083455</updated>
     </task>
-    <task id="LOCAL-00022" summary="+ вывод данных по нажатию на ПКУ">
-      <created>1590421137086</created>
+    <task id="LOCAL-00022" summary="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
+      <created>1590414361557</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1590421137086</updated>
+      <updated>1590414361557</updated>
     </task>
-    <task id="LOCAL-00023" summary="+ вывод данных в таблицу при нажатии на ПКУ">
-      <created>1590421823750</created>
+    <task id="LOCAL-00023" summary="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
+      <created>1590422377903</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1590421823750</updated>
+      <updated>1590422377903</updated>
     </task>
     <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)" />
@@ -373,27 +363,7 @@
     <MESSAGE value="- Вывел информацию с сервера на карте&#10;&#10;TODO: &#10;- Привести код к красивому виду" />
     <MESSAGE value="- Вывел информацию с сервера на карте" />
     <MESSAGE value="- Вывел информацию с сервера на карте&#10;&#10;Merged with 'tabolin' branch" />
-    <MESSAGE value="+ test" />
-    <MESSAGE value="+ вывод данных по нажатию на ПКУ" />
-    <MESSAGE value="+ вывод данных в таблицу при нажатии на ПКУ" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ вывод данных в таблицу при нажатии на ПКУ" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="657" y="280" key="MultipleFileMergeDialog" timestamp="1590414436974">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="657" y="280" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1590414436974" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590421826376">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590421826376" />
-    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590487981038">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1590487981038" />
-    <state x="481" y="201" key="git4idea.merge.GitPullDialog" timestamp="1590483869390">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="481" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1590483869390" />
+    <MESSAGE value="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'" />
   </component>
 </project>

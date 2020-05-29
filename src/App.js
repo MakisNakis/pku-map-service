@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import MapComponent from './selfComponents/MapComponent';
+import DepartmentsComponent from './selfComponents/DepartmentsComponent';
 import TableComponent from './selfComponents/TableComponent';
 
 import {Map as LeafletMap, Marker, TileLayer} from "react-leaflet";
 import * as pkuData from "./data/tRouteTrackPointsKarabash";
+import {Icon} from "leaflet";
 
 
 class App extends React.Component {
@@ -15,6 +17,8 @@ class App extends React.Component {
             show: false,        //показать таблицу
             hide: undefined,
             idPKU: undefined,
+            depName: "Отчеты",
+
         }
     }
 
@@ -23,12 +27,12 @@ class App extends React.Component {
         console.log(e.target.options.title);
         const id = e.target.options.title;
 
-
         if (id) {
             this.setState({
                 show: true,
                 hide: false,
-                idPKU: id
+                idPKU: id,
+                depName: "Отчеты"
             });
         } else {
             this.setState({
@@ -37,17 +41,51 @@ class App extends React.Component {
                 idPKU: undefined
             });
         }
-    }
+    };
+
+
+    onClickDep = (e) => {
+        // console.log(e.target.title);
+        // console.log(e.target);
+        const buttonName = e.target.title;
+        console.log(e.target);
+
+        switch (buttonName) {
+            case "ОМТС":
+                this.setState({depName: buttonName});
+                break;
+            case "Монтажники":
+                this.setState({depName: buttonName});
+                break;
+            case "ПТО":
+                this.setState({depName: buttonName});
+                break;
+            case "Отчеты":
+                this.setState({depName: buttonName});
+                break;
+            default:
+                break;
+        }
+    };
+
 
     render() {
         return (
             <div>
                 <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
                 <MapComponent namePKU={this.gettingNamePKU}/>
+                <DepartmentsComponent
+                    show={this.state.show}
+                    hide={this.state.hide}
+                    idPKU={this.state.idPKU}
+                    depNameFunc={this.onClickDep}
+                    depName={this.state.depName}
+                />
                 <TableComponent
                     show={this.state.show}
                     hide={this.state.hide}
                     idPKU={this.state.idPKU}
+                    depName={this.state.depName}
                 />
 
             </div>
