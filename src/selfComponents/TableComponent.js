@@ -8,6 +8,7 @@ import ToolkitProvider, { Search, CSVExport } from 'react-bootstrap-table2-toolk
 
 import './css/TableComponent.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.css';
 
 class TableComponent extends Component {
 
@@ -429,8 +430,7 @@ class TableComponent extends Component {
         };
 
 
-
-
+        const { ExportCSVButton } = CSVExport;
 
 
 
@@ -441,26 +441,28 @@ class TableComponent extends Component {
                 {this.props.show && this.props.depName === "Отчеты" &&
                 <div>
                     <p className="Table-header"><h2 align="center">Перечень оборудования на {this.props.markerName} </h2></p>
-                    <BootstrapTable keyField='HardwareID'
-                                    data={this.state.pkuInfo}
-                                    columns={tableHeaders["Отчеты"]}
-                                    rowStyle={rowStyle}
-                                    filter={ filterFactory() }
-                                    // defaultSorted={ defaultSorted }
-                        // exportCSV={ true }
-                                    pagination={paginationFactory()}
-                        // options={options}
-                                    cellEdit={cellEditFactory({mode: 'dbclick'})}
-                                    // selectRow={selectRowProp}
-                        // striped
-                        // hover
-                        // condensed
-                        // insertRow
-                        // deleteRow
-                        // search
-                        // responsive
+
+                    <ToolkitProvider
+                        keyField="HardwareID"
+                        data={this.state.pkuInfo}
+                        columns={tableHeaders["Отчеты"]}
+                        exportCSV
                     >
-                    </BootstrapTable>
+                        {
+                            props => (
+                                <div>
+                                    <ExportCSVButton { ...props.csvProps }>Экспортировать в CSV</ExportCSVButton>
+                                    <hr />
+                                    <BootstrapTable
+                                        rowStyle={rowStyle}
+                                        pagination={paginationFactory()}
+                                        cellEdit={cellEditFactory({mode: 'dbclick'})}
+                                        filter={ filterFactory() }
+                                        { ...props.baseProps } />
+                                </div>
+                            )
+                        }
+                    </ToolkitProvider>
 
                 </div>
                 }
@@ -469,53 +471,56 @@ class TableComponent extends Component {
                 {this.props.show && this.props.depName === "ОМТС" &&
                 <div>
                     <p className="Table-header"><h2 align="center">Перечень оборудования на {this.props.markerName} </h2></p>
-                    <BootstrapTable keyField='HardwareID'
-                                    data={this.state.pkuInfo}
-                                    columns={tableHeaders["ОМТС"]}
-                                    rowStyle={rowStyle}
-                                    filter={ filterFactory() }
-                        // defaultSorted={ defaultSorted }
-                        // exportCSV={ true }
-                                    pagination={paginationFactory()}
-                        // options={options}
-                                    cellEdit={cellEditFactory({mode: 'dbclick'})}
-                        // selectRow={selectRowProp}
-                        // striped
-                        // hover
-                        // condensed
-                        // insertRow
-                        // deleteRow
-                        // search
-                        // responsive
+                    <ToolkitProvider
+                        keyField="HardwareID"
+                        data={this.state.pkuInfo}
+                        columns={tableHeaders["ОМТС"]}
+                        exportCSV
                     >
-                    </BootstrapTable>}
+                        {
+                            props => (
+                                <div>
+                                    <ExportCSVButton { ...props.csvProps }>Экспортировать в CSV</ExportCSVButton>
+                                    <hr />
+                                    <BootstrapTable
+                                        rowStyle={rowStyle}
+                                        pagination={paginationFactory()}
+                                        cellEdit={cellEditFactory({mode: 'dbclick'})}
+                                        filter={ filterFactory() }
+                                        { ...props.baseProps } />
+                                </div>
+                            )
+                        }
+                    </ToolkitProvider>
                 </div>
                 }
+
                 <p>{this.props.hide}</p>
 
                 {this.props.show && this.props.depName === "Монтажники" &&
                 <div>
                     <p className="Table-header"><h2 align="center">Перечень оборудования на {this.props.markerName}  </h2></p>
-                    <BootstrapTable keyField='HardwareID'
-                                    data={this.state.pkuInfo}
-                                    columns={tableHeaders["Монтажники"]}
-                                    rowStyle={rowStyle}
-                                    filter={ filterFactory() }
-                        // defaultSorted={ defaultSorted }
-                        // exportCSV={ true }
-                                    pagination={paginationFactory()}
-                        // options={options}
-                                    cellEdit={cellEditFactory({mode: 'dbclick'})}
-                        // selectRow={selectRowProp}
-                        // striped
-                        // hover
-                        // condensed
-                        // insertRow
-                        // deleteRow
-                        // search
-                        // responsive
+                    <ToolkitProvider
+                        keyField="HardwareID"
+                        data={this.state.pkuInfo}
+                        columns={tableHeaders["Монтажники"]}
+                        exportCSV
                     >
-                    </BootstrapTable>}
+                        {
+                            props => (
+                                <div>
+                                    <ExportCSVButton { ...props.csvProps }>Экспортировать в CSV</ExportCSVButton>
+                                    <hr />
+                                    <BootstrapTable
+                                        rowStyle={rowStyle}
+                                        pagination={paginationFactory()}
+                                        cellEdit={cellEditFactory({mode: 'dbclick'})}
+                                        filter={ filterFactory() }
+                                        { ...props.baseProps } />
+                                </div>
+                            )
+                        }
+                    </ToolkitProvider>
                 </div>
                 }
                 <p>{this.props.hide}</p>
@@ -523,26 +528,29 @@ class TableComponent extends Component {
                 {this.props.show && this.props.depName === "ПТО" &&
                 <div>
                     <p className="Table-header"><h2 align="center">Перечень оборудования на {this.props.markerName}  </h2></p>
-                    <BootstrapTable keyField='HardwareID'
-                                    data={this.state.pkuInfo}
-                                    columns={tableHeaders["ПТО"]}
-                                    rowStyle={rowStyle}
-                                    filter={ filterFactory() }
-                        // defaultSorted={ defaultSorted }
-                        // exportCSV={ true }
-                                    pagination={paginationFactory()}
-                        // options={options}
-                                    cellEdit={cellEditFactory({mode: 'dbclick'})}
-                        // selectRow={selectRowProp}
-                        // striped
-                        // hover
-                        // condensed
-                        // insertRow
-                        // deleteRow
-                        // search
-                        // responsive
+
+                    <ToolkitProvider
+                        keyField="HardwareID"
+                        data={this.state.pkuInfo}
+                        columns={tableHeaders["ПТО"]}
+                        exportCSV
                     >
-                    </BootstrapTable>}
+                        {
+                            props => (
+                                <div>
+                                    <ExportCSVButton { ...props.csvProps }>Экспортировать в CSV</ExportCSVButton>
+                                    <hr />
+                                    <BootstrapTable
+                                        rowStyle={rowStyle}
+                                        pagination={paginationFactory()}
+                                        cellEdit={cellEditFactory({mode: 'dbclick'})}
+                                        filter={ filterFactory() }
+                                        { ...props.baseProps } />
+                                </div>
+                            )
+                        }
+                    </ToolkitProvider>
+
                 </div>
                 }
                 <p>{this.props.hide}</p>
