@@ -13,7 +13,6 @@ class MyRepository {
             connectionString: connectionString
         });
 
-        
     }
 
     async loadDataForMarkers(routeId) {
