@@ -12,6 +12,8 @@ class MyRepository {
         this.client = new Client({
             connectionString: connectionString
         });
+
+        
     }
 
     async loadDataForMarkers(routeId) {
@@ -38,6 +40,8 @@ class MyRepository {
         // this.client.end();
         return query
     }
+
+
 }
 
 module.exports = MyRepository;
