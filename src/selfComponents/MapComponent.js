@@ -10,13 +10,13 @@ import {
     Circle
 } from "react-leaflet";
 import {Icon} from "leaflet";
-import * as pkuDataKarabash from "../data/tRouteTrackPointsKarabash.json"
-import * as pkuDataUfa from "../data/tRouteTrackPointsUfa.json"
+// import * as pkuDataKarabash from "../data/tRouteTrackPointsKarabash.json"
+// import * as pkuDataUfa from "../data/tRouteTrackPointsUfa.json"
 import {render} from 'react-dom'
 import {Link} from "react-scroll";
 
 
-class MapComponent extends React.Component {
+class MapComponent extends Component {
 
     constructor() {
         super();
@@ -115,6 +115,7 @@ class MapComponent extends React.Component {
                         position={[pkuData[i].Latitude, pkuData[i].Longtitude]}
                         icon={this.setMarkerIcon(routeId)}
                         title={pkuData[i].SubjectID}
+                        name={pkuData[i].SubjectName}
                         onClick={this.props.namePKU}
                 >
                     <Popup>
