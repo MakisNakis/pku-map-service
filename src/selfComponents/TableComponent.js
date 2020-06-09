@@ -122,7 +122,6 @@ class TableComponent extends Component {
             <div id="TableComp">
                 {this.props.show &&
                     <div>
-
                         <p className="Table-header"><h2 align = "center">Перечень оборудования </h2></p>
                         <BootstrapTable keyField='HardwareID'
                                         data={this.state.pkuInfo}
