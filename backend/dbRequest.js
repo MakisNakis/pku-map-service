@@ -5,7 +5,7 @@ const DBLOG = "postgres";
 const DBPASS = "postgres";
 const DBPORT = "5432";
 const connectionString = `postgressql://${DBLOG}:${DBPASS}@localhost:${DBPORT}/${DBNAME}`;
-
+//если вносишь изменения, то делаешь commit
 class MyRepository {
 
     constructor() {
