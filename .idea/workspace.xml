@@ -19,7 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="+ test" />
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="+ простая авторизация">
+      <change afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/selfComponents/AuthorisationComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/css/TableComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/css/TableComponent.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../weather/src/comps/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/../weather/src/comps/form.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,6 +71,10 @@
   <component name="ProjectId" id="1c7YSXiHtJuV9IBrBwh6h1WirHb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -167,7 +182,6 @@
       <workItem from="1590263450883" duration="1209000" />
       <workItem from="1590323173568" duration="9533000" />
       <workItem from="1590409469328" duration="4963000" />
-      <workItem from="1591704808469" duration="512000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -330,25 +344,11 @@
       <option name="project" value="LOCAL" />
       <updated>1590422377903</updated>
     </task>
-    <task id="LOCAL-00024" summary="+ нормальные колонки">
-      <created>1590766550940</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1590766550940</updated>
-    </task>
-    <task id="LOCAL-00025" summary="+ test">
-      <created>1591705316935</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1591705316935</updated>
-    </task>
-    <option name="localTasksCounter" value="26" />
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -379,14 +379,84 @@
     <MESSAGE value="- Вывел информацию с сервера на карте" />
     <MESSAGE value="- Вывел информацию с сервера на карте&#10;&#10;Merged with 'tabolin' branch" />
     <MESSAGE value="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'" />
-    <MESSAGE value="+ нормальные колонки" />
-    <MESSAGE value="+ test" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ test" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590766552283">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1592916497324">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590766552283" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592916497324" />
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom" timestamp="1592915044294">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592915044294" />
+    <state width="1493" height="261" key="GridCell.Tab.2.center" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.2.left" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.2.right" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.3.bottom" timestamp="1592915044294">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592915044294" />
+    <state width="1493" height="261" key="GridCell.Tab.3.center" timestamp="1592915044294">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1592915044294" />
+    <state width="1493" height="261" key="GridCell.Tab.3.left" timestamp="1592915044294">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1592915044294" />
+    <state width="1493" height="261" key="GridCell.Tab.3.right" timestamp="1592915044294">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1592915044294" />
+    <state x="147" y="65" key="MergeDialog" timestamp="1592919320469">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320469" />
+    <state x="407" y="174" key="MultipleFileMergeDialog" timestamp="1592919320476">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
   </component>
 </project>

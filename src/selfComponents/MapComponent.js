@@ -115,6 +115,7 @@ class MapComponent extends Component {
                         position={[pkuData[i].Latitude, pkuData[i].Longtitude]}
                         icon={this.setMarkerIcon(routeId)}
                         title={pkuData[i].SubjectID}
+                        name={pkuData[i].SubjectName}
                         onClick={this.props.namePKU}
                 >
                     <Popup>
