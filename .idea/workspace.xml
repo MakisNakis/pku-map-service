@@ -1,26 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="+ простая авторизация">
+      <change afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/selfComponents/AuthorisationComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/css/TableComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/css/TableComponent.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../weather/src/comps/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/../weather/src/comps/form.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -32,7 +49,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="makeBackOnNodeJS" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,7 +69,13 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1c7YSXiHtJuV9IBrBwh6h1WirHb" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -65,27 +88,21 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/selfComponents" />
+      <recent name="$PROJECT_DIR$/backend" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/public/data" />
-      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/public/markers" />
+      <recent name="$PROJECT_DIR$" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/selfComponents" />
+      <recent name="$PROJECT_DIR$/public/markers" />
+    </key>
   </component>
   <component name="RunManager" selected="npm.dev">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -136,6 +153,8 @@
         <item itemvalue="npm.server" />
         <item itemvalue="npm.dev" />
         <item itemvalue="npm.client" />
+        <item itemvalue="npm.server" />
+        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -151,14 +170,18 @@
       <updated>1589881098874</updated>
       <workItem from="1589881100213" duration="4095000" />
       <workItem from="1589886747344" duration="10000" />
-      <workItem from="1589887480694" duration="10951000" />
-      <workItem from="1591190461840" duration="120000" />
-      <workItem from="1592808565888" duration="212000" />
-      <workItem from="1592808818769" duration="36000" />
-      <workItem from="1592808872316" duration="173000" />
-      <workItem from="1592809665352" duration="105000" />
-      <workItem from="1592809935385" duration="7175000" />
-      <workItem from="1593004754388" duration="437000" />
+      <workItem from="1589887480694" duration="12660000" />
+      <workItem from="1589916854091" duration="4982000" />
+      <workItem from="1589978696059" duration="28685000" />
+      <workItem from="1590152892514" duration="511000" />
+      <workItem from="1590167614077" duration="713000" />
+      <workItem from="1590171242776" duration="7119000" />
+      <workItem from="1590236115966" duration="7679000" />
+      <workItem from="1590250877212" duration="3823000" />
+      <workItem from="1590260599571" duration="1872000" />
+      <workItem from="1590263450883" duration="1209000" />
+      <workItem from="1590323173568" duration="9533000" />
+      <workItem from="1590409469328" duration="4963000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -167,21 +190,161 @@
       <option name="project" value="LOCAL" />
       <updated>1589908848848</updated>
     </task>
-    <task id="LOCAL-00002" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
-      <created>1591081507851</created>
+    <task id="LOCAL-00002" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)&#10;- Добавил заголовок. Подправил размеры карты&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку">
+      <created>1589909502228</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1591081507851</updated>
+      <updated>1589909502228</updated>
     </task>
-    <task id="LOCAL-00003" summary="- initial commit">
-      <created>1592809998357</created>
+    <task id="LOCAL-00003" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)&#10;- Добавил заголовок. Подправил размеры карты&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку">
+      <created>1589909617295</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1592809998357</updated>
+      <updated>1589909617295</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)&#10;- Добавил заголовок. Подправил размеры карты&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку">
+      <created>1589910314194</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1589910314194</updated>
+    </task>
+    <task id="LOCAL-00005" summary="- Добавил popup по нажатии на маркер&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку">
+      <created>1589919334012</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1589919334012</updated>
+    </task>
+    <task id="LOCAL-00006" summary="- Добавил возможность кастомизировать маркеры&#10;TODO: Вывод информации о ПКУ по нажатии на точку">
+      <created>1589920117726</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1589920117726</updated>
+    </task>
+    <task id="LOCAL-00007" summary="- Добавил возможность кастомизировать маркеры&#10;TODO: Вывод информации о ПКУ по нажатии на точку">
+      <created>1589922736170</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1589922736171</updated>
+    </task>
+    <task id="LOCAL-00008" summary="- Исправлена разметка страницы, теперь на всех экранах отображается соразмерно&#10;TODO: Создать слои карты">
+      <created>1589986466920</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1589986466920</updated>
+    </task>
+    <task id="LOCAL-00009" summary="TODO Done: &#10;- Создал слои карты и маркеров">
+      <created>1589997832269</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1589997832269</updated>
+    </task>
+    <task id="LOCAL-00010" summary="- Добавлен json файл с координатми по объекту Уфа">
+      <created>1590000932387</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1590000932387</updated>
+    </task>
+    <task id="LOCAL-00011" summary="- Теперь для разных маршрутов разные маркеры">
+      <created>1590001404517</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1590001404517</updated>
+    </task>
+    <task id="LOCAL-00012" summary="- Теперь для разных маршрутов разные маркеры">
+      <created>1590057388899</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1590057388899</updated>
+    </task>
+    <task id="LOCAL-00013" summary="TODO: написать компоненет таблицы">
+      <created>1590058420644</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1590058420644</updated>
+    </task>
+    <task id="LOCAL-00014" summary="- изменен конструткор, добавлено новое состояние, изменена функция setMarkerIcon()&#10;TODO: написать компоненет таблицы">
+      <created>1590076199431</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1590076199431</updated>
+    </task>
+    <task id="LOCAL-00015" summary="&#10;TODO: &#10;- развернуть бек на Node / Express">
+      <created>1590150369268</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1590150369268</updated>
+    </task>
+    <task id="LOCAL-00016" summary="&#10;TODO: &#10;- развернуть бек на Node / Express">
+      <created>1590153385757</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1590153385758</updated>
+    </task>
+    <task id="LOCAL-00017" summary="- получил данные с сервера на клиенте &#10;TODO: &#10;- Вывести информацию с сервера на карте&#10;- Привести код к красивому виду">
+      <created>1590190831669</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1590190831669</updated>
+    </task>
+    <task id="LOCAL-00018" summary="- Вывел информацию с сервера на карте&#10;&#10;TODO: &#10;- Привести код к красивому виду">
+      <created>1590342667866</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1590342667866</updated>
+    </task>
+    <task id="LOCAL-00019" summary="- Вывел информацию с сервера на карте&#10;&#10;TODO: &#10;- Привести код к красивому виду">
+      <created>1590352676777</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1590352676777</updated>
+    </task>
+    <task id="LOCAL-00020" summary="- Вывел информацию с сервера на карте&#10;&#10;Merged with 'tabolin' branch">
+      <created>1590412969738</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1590412969738</updated>
+    </task>
+    <task id="LOCAL-00021" summary="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
+      <created>1590413083455</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1590413083455</updated>
+    </task>
+    <task id="LOCAL-00022" summary="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
+      <created>1590414361557</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1590414361557</updated>
+    </task>
+    <task id="LOCAL-00023" summary="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
+      <created>1590422377903</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1590422377903</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,17 +355,108 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)" />
-    <MESSAGE value="- initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="- initial commit" />
+    <MESSAGE value="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)&#10;- Добавил заголовок. Подправил размеры карты&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
+    <MESSAGE value="- Добавил popup по нажатии на маркер&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
+    <MESSAGE value="- Добавил возможность кастомизировать маркеры&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
+    <MESSAGE value="- Исправлена разметка страницы, теперь на всех экранах отображается соразмерно&#10;TODO: Создать слои карты" />
+    <MESSAGE value="TODO Done: &#10;- Создал слои карты и маркеров" />
+    <MESSAGE value="- Добавлен json файл с координатми по объекту Уфа" />
+    <MESSAGE value="- Теперь для разных маршрутов разные маркеры" />
+    <MESSAGE value="TODO: написать компоненет таблицы" />
+    <MESSAGE value="- изменен конструткор, добавлено новое состояние, изменена функция setMarkerIcon()&#10;TODO: написать компоненет таблицы" />
+    <MESSAGE value="&#10;TODO: &#10;- развернуть бек на Node / Express" />
+    <MESSAGE value="- получил данные с сервера на клиенте &#10;TODO: &#10;- Вывести информацию с сервера на карте&#10;- Привести код к красивому виду" />
+    <MESSAGE value="- Вывел информацию с сервера на карте&#10;&#10;TODO: &#10;- Привести код к красивому виду" />
+    <MESSAGE value="- Вывел информацию с сервера на карте" />
+    <MESSAGE value="- Вывел информацию с сервера на карте&#10;&#10;Merged with 'tabolin' branch" />
+    <MESSAGE value="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1592916497324">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592916497324" />
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom" timestamp="1592915044294">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592915044294" />
+    <state width="1493" height="261" key="GridCell.Tab.2.center" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.2.left" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.2.right" timestamp="1592915044293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1592915044293" />
+    <state width="1493" height="261" key="GridCell.Tab.3.bottom" timestamp="1592915044294">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592915044294" />
+    <state width="1493" height="261" key="GridCell.Tab.3.center" timestamp="1592915044294">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1592915044294" />
+    <state width="1493" height="261" key="GridCell.Tab.3.left" timestamp="1592915044294">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1592915044294" />
+    <state width="1493" height="261" key="GridCell.Tab.3.right" timestamp="1592915044294">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1592915044294" />
+    <state x="147" y="65" key="MergeDialog" timestamp="1592919320469">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320469" />
+    <state x="407" y="174" key="MultipleFileMergeDialog" timestamp="1592919320476">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
   </component>
 </project>

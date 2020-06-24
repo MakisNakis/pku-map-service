@@ -134,7 +134,6 @@ class TableComponent extends Component {
 
                 </div>
                 }
-                <p>{this.props.hide}</p>
 
                 {this.props.show && this.props.depName === "ОМТС" &&
                 <div>
@@ -164,7 +163,6 @@ class TableComponent extends Component {
                 </div>
                 }
 
-                <p>{this.props.hide}</p>
 
                 {this.props.show && this.props.depName === "Монтажники" &&
                 <div>
@@ -193,7 +191,6 @@ class TableComponent extends Component {
                     </ToolkitProvider>
                 </div>
                 }
-                <p>{this.props.hide}</p>
 
                 {this.props.show && this.props.depName === "ПТО" &&
                 <div>
@@ -224,7 +221,7 @@ class TableComponent extends Component {
 
                 </div>
                 }
-                <p>{this.props.hide}</p>
+                <p>{!this.props.hide}</p>
 
 
             </div>
