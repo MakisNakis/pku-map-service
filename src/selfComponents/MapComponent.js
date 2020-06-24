@@ -68,8 +68,6 @@ class MapComponent extends Component {
 
         }
 
-        // console.log(this.state.data)
-
     }
 
 

@@ -17,6 +17,7 @@ class App extends React.Component {
             show: false,        //показать таблицу
             hide: undefined,
             idPKU: undefined,
+            // routeId: undefined,
             depName: "Отчеты",
             markerName: undefined
         }
@@ -36,6 +37,7 @@ class App extends React.Component {
                 depName: "Отчеты",
                 markerName: name
             });
+
         } else {
             this.setState({
                 show: false,
@@ -45,7 +47,6 @@ class App extends React.Component {
 
             });
         }
-        // return
     };
 
 

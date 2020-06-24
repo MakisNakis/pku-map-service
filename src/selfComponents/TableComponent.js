@@ -20,7 +20,7 @@ class TableComponent extends Component {
     }
 
     async fetchFromApi(apiRoute, idPKU) {                                   // функция подгрузки данных для таблиц, на вход принимает
-        await fetch(`${apiRoute}${idPKU + 2}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
+        await fetch(`${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
             console.log(`/api/pkuDataServerPKUTable${idPKU}`);              // apiRoute - api адрес, откуда нужно получить данные
             return results.json()
         }).then(data => {
