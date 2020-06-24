@@ -138,6 +138,7 @@ class App extends React.Component {
                         depName={this.state.depName}
                     />
                     }
+                    {this.state.idPKU && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} </h2></p>}
                     <TableComponent
                     show={this.state.show}
                     hide={this.state.hide}
