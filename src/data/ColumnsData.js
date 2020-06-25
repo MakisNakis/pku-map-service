@@ -262,14 +262,14 @@ export function ColumnsData() {
         dataField: 'SubjectName',
         text: 'Название участка',
         headerStyle: (colum, colIndex) => {
-            return {width: 950, textAlign: 'center'};
+            return {width: 750, textAlign: 'center'};
         }
 
     }, {
         dataField: 'DatePlan',
         text: 'Плановая дата поставки',
         headerStyle: (colum, colIndex) => {
-            return {width: 800, textAlign: 'center'};
+            return {width: 200, textAlign: 'center'};
         }
     }, {
         dataField: 'DateFact',
@@ -294,13 +294,13 @@ export function ColumnsData() {
         dataField: 'StartDatePlan',
         text: 'Дата нач. (план.)',
         headerStyle: (colum, colIndex) => {
-            return {width: 300, textAlign: 'center'};
+            return {width: 200, textAlign: 'center'};
         }
     }, {
         dataField: 'EndDatePlan',
         text: 'Дата кон. (план.)',
         headerStyle: (colum, colIndex) => {
-            return {width: 300, textAlign: 'center'};
+            return {width: 200, textAlign: 'center'};
         }
     }, {
         dataField: 'DateWork',

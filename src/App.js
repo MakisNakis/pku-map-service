@@ -21,7 +21,8 @@ class App extends React.Component {
             hide: "Нажмите на ПКУ для вывода таблицы",
             idPKU: undefined,
             depName: "Отчеты",
-            markerName: undefined
+            markerName: undefined,
+            rootPriv: false,
         }
     }
 
@@ -57,11 +58,12 @@ class App extends React.Component {
                 authorisation: true,
                 authorisationErr: false,
                 depName: "Отчеты",
-            });
+                rootPriv: true
+        });
         }else {
             this.setState({
                 authorisation: false,
-                authorisationErr: "Неправильный логин или пороль",
+                authorisationErr: "Неправильный логин или пароль",
             });
         }
     }
@@ -128,7 +130,7 @@ class App extends React.Component {
                 <div>
                     <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
                     <MapComponent namePKU={this.gettingNamePKU}/>
-                    {this.state.depName === "Отчеты" && <DepartmentsComponent
+                    {this.state.rootPriv === true && <DepartmentsComponent
                         show={this.state.show}
                         hide={this.state.hide}
                         idPKU={this.state.idPKU}
