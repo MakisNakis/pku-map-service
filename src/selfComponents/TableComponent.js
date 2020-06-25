@@ -140,7 +140,7 @@ class TableComponent extends Component {
                 }
 
                 {this.props.show && this.props.depName === "ОМТС" &&
-                <div>
+                <div class="table-horiz-scroll">
                     <ToolkitProvider
                         keyField="HardwareID"
                         data={this.state.pkuInfo}
@@ -167,7 +167,7 @@ class TableComponent extends Component {
 
 
                 {this.props.show && this.props.depName === "Монтажники" &&
-                <div>
+                <div class="table-horiz-scroll">
                     <ToolkitProvider
                         keyField="HardwareID"
                         data={this.state.pkuInfo}
@@ -193,7 +193,7 @@ class TableComponent extends Component {
                 }
 
                 {this.props.show && this.props.depName === "ПТО" &&
-                <div>
+                <div class="table-horiz-scroll">
 
                     <ToolkitProvider
                         keyField="HardwareID"
