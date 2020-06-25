@@ -32,49 +32,40 @@ class TableComponent extends Component {
     }
 
 
-    async loadData(idPKU, depName/*, typeTable*/) { // функция для выгрузки соотвествующих для отдела depName данных
-        switch (depName) {
+    async loadData(idPKU, /*depName, */typeTable) { // функция для выгрузки соотвествующих для отдела depName данных
+        switch (typeTable) {
             case "ОМТС":
                 this.fetchFromApi('/api/pkuDataServerPKUTable/OMTS/', idPKU);
                 break;
-            case "Монтажники":
-                this.fetchFromApi('/api/pkuDataServerPKUTable/Montazhniki/', idPKU);
+            case "Монтажники1":
+                this.fetchFromApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/', idPKU);
                 break;
-            // case "Монтажники1":
-            //     this.fetchFromApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/', idPKU);
-            //     break;
-            // case "Монтажники2":
-            //     this.fetchFromApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki2/', idPKU);
-            //     break;
-            case "ПТО":
-                this.fetchFromApi('/api/pkuDataServerPKUTable/PTO/', idPKU);
+            case "Монтажники2":
+                this.fetchFromApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki2/', idPKU);
                 break;
-            // case "ПТО1":
-            //     this.fetchFromApi('/api/pkuDataServerPKUTable/PTO/PTO1/', idPKU);
-            //     break;
-            // case "ПТО2":
-            //     this.fetchFromApi('/api/pkuDataServerPKUTable/PTO/PTO2/', idPKU);
-            //     break;
-            case "Отчеты":
-                this.fetchFromApi('/api/pkuDataServerPKUTable/Otchety/', idPKU);
+            case "ПТО1":
+                this.fetchFromApi('/api/pkuDataServerPKUTable/PTO/PTO1/', idPKU);
                 break;
-            // case "Отчеты1":
-            //     this.fetchFromApi('/api/pkuDataServerPKUTable/Otchety/Otchety1/', idPKU);
-            //     break;
-            // case "Отчеты2":
-            //     this.fetchFromApi('/api/pkuDataServerPKUTable/Otchety/Otchety2/', idPKU);
-            //     break;
+            case "ПТО2":
+                this.fetchFromApi('/api/pkuDataServerPKUTable/PTO/PTO2/', idPKU);
+                break;
+            case "Отчеты1":
+                this.fetchFromApi('/api/pkuDataServerPKUTable/Otchety/Otchety1/', idPKU);
+                break;
+            case "Отчеты2":
+                this.fetchFromApi('/api/pkuDataServerPKUTable/Otchety/Otchety2/', idPKU);
+                break;
             default:
                 break;
         }
     }
 
     componentWillReceiveProps(nextProp) { // если получаем новые пропсы, то перерисовыает таблицу
-        if (nextProp.depName !== this.props.depName || nextProp.idPKU !== this.props.idPKU) {
+        if (nextProp.typeTable !== this.props.typeTable || nextProp.idPKU !== this.props.idPKU) {
             // console.log(nextProp.idPKU);
             // console.log(nextProp.depName);
-            this.loadData(nextProp.idPKU, nextProp.depName);
-            // this.loadData(nextProp.idPKU, nextProp.typeTable);
+            // this.loadData(nextProp.idPKU, nextProp.depName);
+            this.loadData(nextProp.idPKU, nextProp.typeTable);
         }
 
     }

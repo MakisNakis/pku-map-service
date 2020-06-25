@@ -48,15 +48,13 @@ class MyRepository {
                 break;
             case "Монтажники2":
                 // query = this.client.query(`select * from f_s_subwork_perf_subid(${pkuId});`);
-                query.secondQuery = this.client.query(`select * from f_s_subhw_subid(pkuId);`);
+                query = this.client.query(`select * from f_s_subhw_subid(${pkuId});`);
                 break;
             case "ПТО1":
                 query = this.client.query(`select * from f_s_subwork_pto_subid(${pkuId});`);
-                // query.secondQuery = this.client.query(`select * from f_s_subhw_subid(pkuId);`);
                 break;
             case "ПТО2":
-                // query = this.client.query(`select * from f_s_subwork_pto_subid(${pkuId});`);
-                query.secondQuery = this.client.query(`select * from f_s_subhw_subid(pkuId);`);
+                query = this.client.query(`select * from f_s_subhw_subid(${pkuId});`);
                 break;
             case "Отчеты1":
                 query = this.client.query(`select * from f_s_report_general_routeid(2);`);

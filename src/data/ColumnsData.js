@@ -92,7 +92,7 @@ export function ColumnsData() {
 
 
     // Монтажники
-    tableHeaders["Монтажники"] = [{
+    tableHeaders["Монтажники1"] = [{
         dataField: 'WorkName',
         text: 'Наименование работы',
         headerStyle: (colum, colIndex) => {
@@ -163,7 +163,7 @@ export function ColumnsData() {
 
 
     // ПТО
-    tableHeaders["ПТО"] = [{
+    tableHeaders["ПТО1"] = [{
         dataField: 'WorkName',
         text: 'Наименование работы',
         headerStyle: (colum, colIndex) => {
@@ -329,18 +329,18 @@ export function ColumnsData() {
 
 
     // Перечень оборудования ПТО
-    tableHeaders["ПТО1"] = [{
+    tableHeaders["ПТО2"] = [{
         dataField: 'HardwareModel',
         text: 'Модель оборудования',
         headerStyle: (colum, colIndex) => {
-            return {width: 750, textAlign: 'center'};
+            return {width: 400, textAlign: 'center'};
         }
 
     }, {
         dataField: 'QuantityHW',
         text: 'Кол-во',
         headerStyle: (colum, colIndex) => {
-            return {width: 150, textAlign: 'center'};
+            return {width: 100, textAlign: 'center'};
         }
     }, {
         dataField: 'HardwareUnit',
@@ -352,7 +352,7 @@ export function ColumnsData() {
         dataField: 'NomGroupName',
         text: 'Наименование',
         headerStyle: (colum, colIndex) => {
-            return {width: 200, textAlign: 'center'};
+            return {width: 800, textAlign: 'center'};
         }
     }, {
         dataField: 'QuantityNG',
@@ -364,7 +364,7 @@ export function ColumnsData() {
         dataField: 'WorkName',
         text: 'Наименование работы',
         headerStyle: (colum, colIndex) => {
-            return {width: 200, textAlign: 'center'};
+            return {width: 700, textAlign: 'center'};
         }
     }, {
         dataField: 'Comment',
@@ -382,7 +382,7 @@ export function ColumnsData() {
         dataField: 'DateUp',
         text: 'Дата внес. изм.',
         headerStyle: (colum, colIndex) => {
-            return {width: 200, textAlign: 'center'};
+            return {width: 300, textAlign: 'center'};
         }
     }];
 
@@ -391,14 +391,14 @@ export function ColumnsData() {
         dataField: 'HardwareModel',
         text: 'Модель оборудования',
         headerStyle: (colum, colIndex) => {
-            return {width: 750, textAlign: 'center'};
+            return {width: 400, textAlign: 'center'};
         }
 
     }, {
         dataField: 'QuantityHW',
         text: 'Кол-во',
         headerStyle: (colum, colIndex) => {
-            return {width: 150, textAlign: 'center'};
+            return {width: 100, textAlign: 'center'};
         }
     }, {
         dataField: 'HardwareUnit',
@@ -410,7 +410,7 @@ export function ColumnsData() {
         dataField: 'NomGroupName',
         text: 'Наименование',
         headerStyle: (colum, colIndex) => {
-            return {width: 200, textAlign: 'center'};
+            return {width: 800, textAlign: 'center'};
         }
     }, {
         dataField: 'QuantityNG',
@@ -422,7 +422,7 @@ export function ColumnsData() {
         dataField: 'WorkName',
         text: 'Наименование работы',
         headerStyle: (colum, colIndex) => {
-            return {width: 200, textAlign: 'center'};
+            return {width: 700, textAlign: 'center'};
         }
     }, {
         dataField: 'Comment',
@@ -440,7 +440,7 @@ export function ColumnsData() {
         dataField: 'DateUp',
         text: 'Дата внес. изм.',
         headerStyle: (colum, colIndex) => {
-            return {width: 200, textAlign: 'center'};
+            return {width: 300, textAlign: 'center'};
         }
     }];
 

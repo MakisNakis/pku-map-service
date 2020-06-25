@@ -184,8 +184,9 @@ class App extends React.Component {
                         depName={this.state.depName}
                         typeTable={this.state.typeTable}
                     />
-                    {this.state.idPKU && (this.state.depName === "Монтажники" || this.state.depName === "ПТО") && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} </h2></p>}
-                    {this.state.idPKU && (this.state.depName === "ОМТС" || this.state.depName === "Отчеты") && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Карабаш</h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "Монтажники1" || this.state.typeTable === "ПТО1") && <p className="Table-header"><h2 align="center">Перечень работ на {this.state.markerName} </h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "Монтажники2" || this.state.typeTable === "ПТО2") && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} </h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "ОМТС" || this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Карабаш</h2></p>}
                     <TableComponent
                     show={this.state.show}
                     hide={this.state.hide}

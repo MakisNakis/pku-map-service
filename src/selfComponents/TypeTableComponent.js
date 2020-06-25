@@ -64,7 +64,6 @@ class TypeTableComponent extends Component {
                     </div>}
                 </div>
                 }
-                {this.props.hide}
             </div>
         )
     }
