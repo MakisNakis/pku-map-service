@@ -282,13 +282,13 @@ export function ColumnsData() {
         dataField: 'StartDateCon',
         text: 'Дата нач. (контр.)',
         headerStyle: (colum, colIndex) => {
-            return {width: 200, textAlign: 'center'};
+            return {width: 300, textAlign: 'center'};
         }
     }, {
         dataField: 'EndDateCon',
         text: 'Дата кон. (контр.)',
         headerStyle: (colum, colIndex) => {
-            return {width: 200, textAlign: 'center'};
+            return {width: 300, textAlign: 'center'};
         }
     }, {
         dataField: 'StartDatePlan',
