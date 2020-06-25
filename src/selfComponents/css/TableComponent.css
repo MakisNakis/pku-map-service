@@ -5,11 +5,12 @@
     text-align: left;
 }
 
-
-.GeorgeMichael-Row {
-    background-color: plum;
+.auth {
+    margin-top: 20%;
 }
 
-.Other-Row {
-    background-color: greenyellow;
+.table-horiz-scroll {
+    /*height: 100px;*/
+    overflow-x: auto;
+    overflow-y: auto;
 }
