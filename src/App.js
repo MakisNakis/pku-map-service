@@ -22,7 +22,7 @@ class App extends React.Component {
             idPKU: undefined,
             depName: "Отчеты",
             markerName: undefined,
-            rootPriv: false,
+            rootPriv: "Отчеты",
         }
     }
 
@@ -40,25 +40,28 @@ class App extends React.Component {
                 authorisation: true,
                 authorisationErr: false,
                 depName: "ОМТС",
+                rootPriv: "ОМТС"
             });
         }else if(login === "Монтажники" && password === "Монтажники"){
             this.setState({
                 authorisation: true,
                 authorisationErr: false,
                 depName: "Монтажники",
+                rootPriv: "Монтажники"
             });
         }else if(login === "ПТО" && password === "ПТО"){
             this.setState({
                 authorisation: true,
                 authorisationErr: false,
                 depName: "ПТО",
+                rootPriv: "ПТО"
             });
         }else if(login === "Отчеты" && password === "Отчеты"){
             this.setState({
                 authorisation: true,
                 authorisationErr: false,
                 depName: "Отчеты",
-                rootPriv: true
+                rootPriv: "Отчеты"
         });
         }else {
             this.setState({
@@ -73,7 +76,7 @@ class App extends React.Component {
         console.log(e.target.options.name);
         const id = e.target.options.title;
         const name = e.target.options.name;
-
+        console.log();
         if (id) {
             this.setState({
                 show: true,
@@ -130,7 +133,7 @@ class App extends React.Component {
                 <div>
                     <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
                     <MapComponent namePKU={this.gettingNamePKU}/>
-                    {this.state.rootPriv === true && <DepartmentsComponent
+                    {this.state.rootPriv === "Отчеты" && <DepartmentsComponent
                         show={this.state.show}
                         hide={this.state.hide}
                         idPKU={this.state.idPKU}
@@ -138,7 +141,8 @@ class App extends React.Component {
                         depName={this.state.depName}
                     />
                     }
-                    {this.state.idPKU && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} </h2></p>}
+                    {this.state.idPKU && (this.state.depName === "Монтажники" || this.state.depName === "ПТО") && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} </h2></p>}
+                    {this.state.idPKU && (this.state.depName === "ОМТС" || this.state.depName === "Отчеты") && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Карабаш</h2></p>}
                     <TableComponent
                     show={this.state.show}
                     hide={this.state.hide}

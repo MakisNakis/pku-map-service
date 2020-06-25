@@ -9,17 +9,8 @@
     margin-top: 20%;
 }
 
-.GeorgeMichael-Row {
-    background-color: plum;
-}
-
-.Other-Row {
-    background-color: greenyellow;
-}
-
-
 .table-horiz-scroll {
-    height: 800px;
+    /*height: 100px;*/
     overflow-x: auto;
     overflow-y: auto;
 }
