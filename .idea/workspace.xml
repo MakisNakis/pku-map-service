@@ -19,7 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="" />
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/selfComponents/TypeTableComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/ColumnsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -398,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593083093605</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="+ просто commit">
+      <created>1593083430530</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1593083430530</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,10 +454,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="+ просто commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2" timestamp="1593083093509">
+    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2" timestamp="1593083430472">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
-    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1593083093509" />
+    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1593083430472" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1592916497324">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -520,11 +534,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
-    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1593083102219">
+    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1593083435125">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593016893395" />
-    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1593083102219" />
+    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1593083435125" />
     <state x="550" y="125" key="git4idea.branch.GitSmartOperationDialog" timestamp="1592919376093">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

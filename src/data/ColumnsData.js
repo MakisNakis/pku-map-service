@@ -252,7 +252,7 @@ export function ColumnsData() {
     }];
 
 
-    tableHeaders["Отчеты"] = [{
+    tableHeaders["Отчеты1"] = [{
         dataField: 'SubjectName',
         text: 'Название участка',
         headerStyle: (colum, colIndex) => {
