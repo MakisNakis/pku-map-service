@@ -15,7 +15,7 @@ class App extends React.Component {
         super();
 
         this.state = {
-            authorisation: false,
+            authorisation: true,
             authorisationErr: false,
             show: false,        //показать таблицу
             hide: "Нажмите на ПКУ для вывода таблицы",
@@ -116,6 +116,12 @@ class App extends React.Component {
             case "Отчеты":
                 this.setState({depName: buttonName});
                 break;
+            case "Перечень работ":
+                this.setState({depName: buttonName});
+                break;
+            case "Перечень оборудования":
+                this.setState({depName: buttonName});
+                break;
             default:
                 break;
         }
@@ -133,7 +139,7 @@ class App extends React.Component {
                 <div>
                     <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
                     <MapComponent namePKU={this.gettingNamePKU}/>
-                    {this.state.rootPriv === "Отчеты" && <DepartmentsComponent
+                    {this.state.rootPriv === "Отчеты" && <DepartmentsComponent // выводим вкладки таблиц других отделов для суперпользователя
                         show={this.state.show}
                         hide={this.state.hide}
                         idPKU={this.state.idPKU}
