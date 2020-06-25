@@ -19,7 +19,7 @@
 
 
 .table-horiz-scroll {
-    height: 800px;
+    /*height: 100px;*/
     overflow-x: auto;
     overflow-y: auto;
 }
