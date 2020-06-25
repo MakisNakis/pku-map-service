@@ -21,8 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/ColumnsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -395,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593071362416</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="- добавил состояние ROOT пользователя в App.js">
+      <created>1593072352251</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1593072352251</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +440,8 @@
     <MESSAGE value="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'" />
     <MESSAGE value="+ простая авторизация" />
     <MESSAGE value="+ scroll&#10;- не доделан скролл" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ scroll&#10;- не доделан скролл" />
+    <MESSAGE value="- добавил состояние ROOT пользователя в App.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="- добавил состояние ROOT пользователя в App.js" />
   </component>
   <component name="WindowStateProjectService">
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1592916497324">
