@@ -19,13 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/ColumnsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/TypeTableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TypeTableComponent.js" afterDir="false" />
-    </list>
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,7 +187,7 @@
       <workItem from="1590323173568" duration="9533000" />
       <workItem from="1590409469328" duration="4963000" />
       <workItem from="1593005035040" duration="14575000" />
-      <workItem from="1593090771130" duration="2115000" />
+      <workItem from="1593090771130" duration="3324000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -419,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593088888895</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="+ вкладки для отделов">
+      <created>1593093157343</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1593093157343</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,13 +460,14 @@
     <MESSAGE value="- добавил состояние ROOT пользователя в App.js" />
     <MESSAGE value="+ просто commit" />
     <MESSAGE value="+ добавлен выбор под вкладок для отделов" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ добавлен выбор под вкладок для отделов" />
+    <MESSAGE value="+ вкладки для отделов" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ вкладки для отделов" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2" timestamp="1593088888822">
+    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2" timestamp="1593093157161">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
-    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1593088888822" />
+    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1593093157161" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1592916497324">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -542,11 +544,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
-    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1593088892419">
+    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1593094099550">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593016893395" />
-    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1593088892419" />
+    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1593094099550" />
     <state x="764" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593090182755">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
