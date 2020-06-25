@@ -1,6 +1,6 @@
 const Client= require('pg').Client;
 
-const DBNAME = "PKU_MapService2";
+const DBNAME = "PKU_MapService";
 const DBLOG = "postgres";
 const DBPASS = "postgres";
 const DBPORT = "5432";
