@@ -2,79 +2,92 @@
 export function ColumnsData() {
 
     let tableHeaders = [];
-    tableHeaders["ОМТС"] = [{
-        dataField: 'WorkName',
-        text: 'Наименование работы',
-        headerStyle: (colum, colIndex) => {
-            return {width: '30%', textAlign: 'center'};
-        }
-    }, {
-        dataField: 'HardwareName',
+    tableHeaders["ОМТС"] = [ {
+        dataField: 'NomGroupName',
         text: 'Название оборудования',
         headerStyle: (colum, colIndex) => {
-            return {width: '30%', textAlign: 'center'};
+            return { textAlign: 'center'};
         }
     }, {
-        dataField: '',
-        text: 'Расшифровка наименования',
-        headerStyle: (colum, colIndex) => {
-            return {width: '25%', textAlign: 'center'};
-        }
-    }, {
-        dataField: '',
+        dataField: 'HardwareModel',
         text: 'Расшифровка (согласованная)',
         headerStyle: (colum, colIndex) => {
-            return {width: '25%', textAlign: 'center'};
+            return { textAlign: 'center'};
         }
     }, {
-        dataField: '',
+        dataField: 'Date',
         text: 'Дата согласования',
         headerStyle: (colum, colIndex) => {
-            return {width: '25%', textAlign: 'center'};
+            return { textAlign: 'center'};
         }
     }, {
-        dataField: '',
-        text: 'Дата размещения в производство',
+        dataField: 'ProviderName',
+        text: 'Контрагент',
         headerStyle: (colum, colIndex) => {
-            return {width: '25%', textAlign: 'center'};
+            return { textAlign: 'center'};
         }
     }, {
-        dataField: '',
-        text: 'Дата поставки',
+        dataField: 'DateContract',
+        text: 'Дата договора с контрагентом',
         headerStyle: (colum, colIndex) => {
-            return {width: '15%', textAlign: 'center'};
+            return { textAlign: 'center'};
         }
     }, {
-        dataField: 'HardwareQuantity',
-        text: 'Количество',
+        dataField: 'DatePlan',
+        text: 'Плановая дата поставки',
         headerStyle: (colum, colIndex) => {
-            return {width: '20%', textAlign: 'center'};
+            return { textAlign: 'center'};
         }
     }, {
-        dataField: 'HardwareUnit',
+        dataField: 'DateFact',
+        text: 'Фактическая дата поставки',
+        headerStyle: (colum, colIndex) => {
+            return { textAlign: 'center'};
+        }
+    }, {
+        dataField: 'Unit',
         text: 'Единицы измерения',
         headerStyle: (colum, colIndex) => {
-            return {width: '20%', textAlign: 'center'};
+            return { textAlign: 'center'};
+        }
+    }, {
+        dataField: 'Quantity',
+        text: 'Количество',
+        headerStyle: (colum, colIndex) => {
+            return { textAlign: 'center'};
+        }
+    }, {
+        dataField: 'QuantityAll',
+        text: 'Общее количество',
+        headerStyle: (colum, colIndex) => {
+            return { textAlign: 'center'};
         }
     }, {
         dataField: 'StartDate',
         text: 'Начало работ',
         headerStyle: (colum, colIndex) => {
-            return {width: '15%', textAlign: 'center'};
+            return { textAlign: 'center'};
         }
-    }, {
-        dataField: 'EndDate',
-        text: 'Конец работ',
-        headerStyle: (colum, colIndex) => {
-            return {width: '15%', textAlign: 'center'};
-        }
-    }, {
-        dataField: 'HardwareComment',
+    },  {
+        dataField: 'Comment',
         text: 'Комментарий',
         headerStyle: (colum, colIndex) => {
-            return {width: '20%', textAlign: 'center'};
+            return { textAlign: 'center'};
         }
-    }];
+    }, {
+        dataField: 'UserName',
+        text: 'Пользователь',
+        headerStyle: (colum, colIndex) => {
+            return { textAlign: 'center'};
+        }
+    },{
+        dataField: 'DateUp',
+        text: 'Дата внесения изменений',
+        headerStyle: (colum, colIndex) => {
+            return { textAlign: 'center'};
+        }
+    }
+    ];
 
     tableHeaders["Монтажники"] = [{
         dataField: 'WorkName',
@@ -84,62 +97,62 @@ export function ColumnsData() {
         }
 
     }, {
-        dataField: 'HardwareName',
-        text: 'Название оборудования',
+        dataField: 'Quantity',
+        text: 'Кол-во',
         headerStyle: (colum, colIndex) => {
             return {textAlign: 'center'};
         }
     }, {
-        dataField: '',
-        text: 'Расшифровка (согласованная)',
+        dataField: 'Unit',
+        text: 'Ед. изм.',
         headerStyle: (colum, colIndex) => {
             return {textAlign: 'center'};
         }
     }, {
-        dataField: '',
-        text: 'Дата поставки',
+        dataField: 'StartDatePlan',
+        text: 'Дата нач. (план.)',
         headerStyle: (colum, colIndex) => {
             return {textAlign: 'center'};
         }
     }, {
-        dataField: 'HardwareQuantity',
-        text: 'Количество',
+        dataField: 'EndDatePlan',
+        text: 'Дата кон. (план.)',
         headerStyle: (colum, colIndex) => {
             return {textAlign: 'center'};
         }
     }, {
-        dataField: 'HardwareUnit',
-        text: 'Единицы измерения',
+        dataField: 'DateWork',
+        text: 'Дата пров. работ',
         headerStyle: (colum, colIndex) => {
             return {textAlign: 'center'};
         }
     }, {
-        dataField: 'StartDate',
-        text: 'Начало работ',
+        dataField: 'Fact',
+        text: 'Факт выполнения',
         headerStyle: (colum, colIndex) => {
             return {textAlign: 'center'};
         }
     }, {
-        dataField: 'EndDate',
-        text: 'Конец работ',
-        headerStyle: (colum, colIndex) => {
-            return {textAlign: 'center'};
-        }
-    }, {
-        dataField: '',
+        dataField: 'PerformerName',
         text: 'Исполнитель',
         headerStyle: (colum, colIndex) => {
             return {textAlign: 'center'};
         }
     }, {
-        dataField: '',
-        text: 'Дата выполнения',
+        dataField: 'Comment',
+        text: 'Комментарий',
         headerStyle: (colum, colIndex) => {
             return {textAlign: 'center'};
         }
     }, {
-        dataField: 'HardwareComment',
-        text: 'Комментарий',
+        dataField: 'UserName',
+        text: 'Проверил(-а)',
+        headerStyle: (colum, colIndex) => {
+            return {textAlign: 'center'};
+        }
+    }, {
+        dataField: 'DateUp',
+        text: 'Дата внес. изм.',
         headerStyle: (colum, colIndex) => {
             return {textAlign: 'center'};
         }
@@ -150,153 +163,166 @@ export function ColumnsData() {
         dataField: 'WorkName',
         text: 'Наименование работы',
         headerStyle: (colum, colIndex) => {
-            return {width: '40%', textAlign: 'center'};
+            return {textAlign: 'center'};
         }
     }, {
-        dataField: 'HardwareName',
-        text: 'Название оборудования',
-        headerStyle: (colum, colIndex) => {
-            return {width: '40%', textAlign: 'center'};
-        }
-    }, {
-        dataField: '',
-        text: 'Расшифровка (согласованная)',
-        headerStyle: (colum, colIndex) => {
-            return {width: '30%', textAlign: 'center'};
-        }
-    }, {
-        dataField: '',
-        text: 'Дата поставки',
-        headerStyle: (colum, colIndex) => {
-            return {width: '20%', textAlign: 'center'};
-        }
-    }, {
-        dataField: 'HardwareQuantity',
+        dataField: 'Quantity',
         text: 'Кол-во',
         headerStyle: (colum, colIndex) => {
-            return {width: '15%', textAlign: 'center'};
+            return {textAlign: 'center'};
+        }
+    }, {
+        dataField: 'Unit',
+        text: 'Ед. изм.',
+        headerStyle: (colum, colIndex) => {
+            return {textAlign: 'center'};
+        }
+    }, {
+        dataField: 'StartDateCon',
+        text: 'Дата нач. (контр.)',
+        headerStyle: (colum, colIndex) => {
+            return {textAlign: 'center'};
+        }
+    }, {
+        dataField: 'EndDateCon',
+        text: 'Дата кон. (контр.)',
+        headerStyle: (colum, colIndex) => {
+            return {textAlign: 'center'};
+        }
+    }, {
+        dataField: 'StartDatePlan',
+        text: 'Дата нач. (план.)',
+        headerStyle: (colum, colIndex) => {
+            return {textAlign: 'center'};
+        }
+    }, {
+        dataField: 'EndDatePlan',
+        text: 'Дата кон. (план.)',
+        headerStyle: (colum, colIndex) => {
+            return {textAlign: 'center'};
+        }
+    }, {
+        dataField: 'DateWork',
+        text: 'Дата пров. работ',
+        headerStyle: (colum, colIndex) => {
+            return {textAlign: 'center'};
+        }
+    }, {
+        dataField: 'Fact',
+        text: 'Факт выполнения',
+        headerStyle: (colum, colIndex) => {
+            return {textAlign: 'center'};
         }
     }, {
         dataField: 'HardwareUnit',
         text: 'Ед.изм.',
         headerStyle: (colum, colIndex) => {
-            return {width: '15%', textAlign: 'center'};
+            return {textAlign: 'center'};
         }
     }, {
-        dataField: 'StartDate',
-        text: 'Начало работ',
-        headerStyle: (colum, colIndex) => {
-            return {width: '20%', textAlign: 'center'};
-        }
-    }, {
-        dataField: 'EndDate',
-        text: 'Конец работ',
-        headerStyle: (colum, colIndex) => {
-            return {width: '20%', textAlign: 'center'};
-        }
-    }, {
-        dataField: '',
+        dataField: 'PerformerName',
         text: 'Исполнитель',
         headerStyle: (colum, colIndex) => {
-            return {width: '25%', textAlign: 'center'};
+            return {textAlign: 'center'};
         }
     }, {
-        dataField: '',
-        text: 'Дата выполнения',
+        dataField: 'EndDateAkt',
+        text: 'Месяц закр. по актам',
         headerStyle: (colum, colIndex) => {
-            return {width: '25%', textAlign: 'center'};
+            return {textAlign: 'center'};
         }
     }, {
-        dataField: '',
-        text: 'Закрытие по актам',
+        dataField: 'MaterialDate',
+        text: 'Дата списания материалов',
         headerStyle: (colum, colIndex) => {
-            return {width: '20%', textAlign: 'center'};
+            return {textAlign: 'center'};
         }
     }, {
-        dataField: '',
-        text: 'Подтвержд. монтажа',
-        headerStyle: (colum, colIndex) => {
-            return {width: '25%', textAlign: 'center'};
-        }
-    }, {
-        dataField: '',
-        text: 'Списание материалов',
-        headerStyle: (colum, colIndex) => {
-            return {width: '25%', textAlign: 'center'};
-        }
-    }, {
-        dataField: 'HardwareComment',
+        dataField: 'Comment',
         text: 'Комментарий',
         headerStyle: (colum, colIndex) => {
-            return {width: '25%', textAlign: 'center'};
+            return {textAlign: 'center'};
+        }
+    }, {
+        dataField: 'UserName',
+        text: 'Подтвердил(-а)',
+        headerStyle: (colum, colIndex) => {
+            return {textAlign: 'center'};
+        }
+    }, {
+        dataField: 'DateUp',
+        text: 'Дата внес. изменений',
+        headerStyle: (colum, colIndex) => {
+            return {textAlign: 'center'};
         }
     }];
 
+
     tableHeaders["Отчеты"] = [{
-        dataField: 'WorkName',
-        text: 'Наименование работы',
+        dataField: 'SubjectName',
+        text: 'Название участка',
         headerStyle: (colum, colIndex) => {
             return {width: '30%', textAlign: 'center'};
         }
 
     }, {
-        dataField: 'HardwareName',
-        text: 'Название оборудования',
+        dataField: 'DatePlan',
+        text: 'Плановая дата поставки',
         headerStyle: (colum, colIndex) => {
             return {width: '20%', textAlign: 'center'};
         }
     }, {
-        dataField: '',
-        text: 'Расшифровка (согласованная)',
+        dataField: 'DateFact',
+        text: 'Фактическая дата поставки',
         headerStyle: (colum, colIndex) => {
             return {width: '20%', textAlign: 'center'};
         }
 
     }, {
-        dataField: '',
-        text: 'Дата размещения в производство',
+        dataField: 'StartDateCon',
+        text: 'Дата нач. (контр.)',
         headerStyle: (colum, colIndex) => {
             return {width: '18%', textAlign: 'center'};
         }
     }, {
-        dataField: '',
-        text: 'Дата поставки',
+        dataField: 'EndDateCon',
+        text: 'Дата кон. (контр.)',
         headerStyle: (colum, colIndex) => {
             return {width: '15%', textAlign: 'center'};
         }
     }, {
-        dataField: 'StartDate',
-        text: 'Начало работ',
+        dataField: 'StartDatePlan',
+        text: 'Дата нач. (план.)',
         headerStyle: (colum, colIndex) => {
             return {width: '15%', textAlign: 'center'};
         }
     }, {
-        dataField: 'EndDate',
-        text: 'Конец работ',
+        dataField: 'EndDatePlan',
+        text: 'Дата кон. (план.)',
         headerStyle: (colum, colIndex) => {
             return {width: '15%', textAlign: 'center'};
         }
     }, {
-        dataField: '',
-        text: 'Исполнитель монтажа',
+        dataField: 'DateWork',
+        text: 'Дата пров. работ',
         headerStyle: (colum, colIndex) => {
             return {width: '18%', textAlign: 'center'};
         }
     }, {
-        dataField: '',
-        text: 'Дата выполнения',
+        dataField: 'Fact',
+        text: 'Факт выполнения',
         headerStyle: (colum, colIndex) => {
             return {width: '15%', textAlign: 'center'};
         }
     }, {
-        dataField: '',
-        text: 'Комментарий исполнителя монтажа',
+        dataField: 'EndDateAkt',
+        text: 'Месяц закр. по актам',
         headerStyle: (colum, colIndex) => {
             return {width: '20%', textAlign: 'center'};
         }
     }, {
-        dataField: '',
-        text: 'Факт закрытия по актам',
+        dataField: 'MaterialDate',
+        text: 'Дата списания материалов',
         headerStyle: (colum, colIndex) => {
             return {width: '15%', textAlign: 'center'};
         }

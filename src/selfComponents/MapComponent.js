@@ -117,6 +117,7 @@ class MapComponent extends Component {
                         onClick={this.props.namePKU}
                 >
                     <Popup>
+
                         <Link
                             // не настраивал
                             to="TableComp"

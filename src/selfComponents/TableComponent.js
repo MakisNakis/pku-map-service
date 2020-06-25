@@ -21,7 +21,7 @@ class TableComponent extends Component {
 
     async fetchFromApi(apiRoute, idPKU) {                                   // функция подгрузки данных для таблиц, на вход принимает
         await fetch(`${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
-            console.log(`/api/pkuDataServerPKUTable${idPKU}`);              // apiRoute - api адрес, откуда нужно получить данные
+           // console.log(`/api/pkuDataServerPKUTable${idPKU}`);              // apiRoute - api адрес, откуда нужно получить данные
             return results.json()
         }).then(data => {
             this.setState({pkuInfo: data.rows});
@@ -35,16 +35,16 @@ class TableComponent extends Component {
     async loadData(idPKU, depName) { // функция для выгрузки соотвествующих для отдела depName данных
         switch (depName) {
             case "ОМТС":
-                this.fetchFromApi('/api/pkuDataServerPKUTable', idPKU);
+                this.fetchFromApi('/api/pkuDataServerPKUTable/OMTS/', idPKU);
                 break;
             case "Монтажники":
-                this.fetchFromApi('/api/pkuDataServerPKUTable', idPKU);
+                this.fetchFromApi('/api/pkuDataServerPKUTable/Montazhniki/', idPKU);
                 break;
             case "ПТО":
                 this.fetchFromApi('/api/pkuDataServerPKUTable', idPKU);
                 break;
             case "Отчеты":
-                this.fetchFromApi('/api/pkuDataServerPKUTable', idPKU);
+                this.fetchFromApi('/api/pkuDataServerPKUTable/Otchety/', idPKU);
                 break;
             default:
                 break;

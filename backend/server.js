@@ -29,14 +29,25 @@ app.get('/api/pkuDataServerSecondRoute', async (req, res) => {
 });
 
 
+for (let i = 0; i < 40; i++) {
+    app.get(`/api/pkuDataServerPKUTable/OMTS/${i}`, async (req, res) => {
+        const data = await repository.loadDataForTable(i, "ОМТС");
+        res.json(data);
+    });
+    app.get(`/api/pkuDataServerPKUTable/Otchety/${i}`, async (req, res) => {
+        const data = await repository.loadDataForTable(i, "Отчеты");
+        res.json(data);
+    });
+    app.get(`/api/pkuDataServerPKUTable/Montazhniki/${i}`, async (req, res) => {
+        const data = await repository.loadDataForTable(i, "Монтажники");
+        res.json(data);
+    });
+    app.get(`/api/pkuDataServerPKUTable/PTO/${i}`, async (req, res) => {
+        const data = await repository.loadDataForTable(i, "ПТО");
+        res.json(data);
+    });
+}
 
-
-// for (let i = 0; i < 40; i++){
-//     app.get(`/api/pkuDataServerPKUTable/OMTS/${i}`, async (req, res) => {
-//         const data = await repository.loadDataForTable(i, "ОМТС");
-//         res.json(data);
-//     });
-// }
 //
 // for (let i = 0; i < 40; i++){
 //     app.get(`/api/pkuDataServerPKUTable/PTO/${i}`, async (req, res) => {
@@ -45,6 +56,7 @@ app.get('/api/pkuDataServerSecondRoute', async (req, res) => {
 //     });
 // }
 //
+
 // for (let i = 0; i < 40; i++){
 //     app.get(`/api/pkuDataServerPKUTable/Montazhniki/${i}`, async (req, res) => {
 //         const data = await repository.loadDataForTable(i, "Монтажники");
@@ -52,12 +64,12 @@ app.get('/api/pkuDataServerSecondRoute', async (req, res) => {
 //     });
 // }
 
-for (let i = 0; i < 40; i++){
-    app.get(`/api/pkuDataServerPKUTable/Otchety/${i}`, async (req, res) => {
-        const data = await repository.loadDataForTable(i, "Отчеты");
-        res.json(data);
-    });
-}
+// for (let i = 0; i < 40; i++){
+//     app.get(`/api/pkuDataServerPKUTable/Otchety/${i}`, async (req, res) => {
+//         const data = await repository.loadDataForTable(i, "Отчеты");
+//         res.json(data);
+//     });
+// }
 
 
 

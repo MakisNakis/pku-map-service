@@ -15,7 +15,7 @@ class App extends React.Component {
         super();
 
         this.state = {
-            authorisation: false,
+            authorisation: true,
             authorisationErr: false,
             show: false,        //показать таблицу
             hide: "Нажмите на ПКУ для вывода таблицы",
@@ -130,13 +130,15 @@ class App extends React.Component {
                 <div>
                     <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
                     <MapComponent namePKU={this.gettingNamePKU}/>
-                    <DepartmentsComponent
-                    show={this.state.show}
-                    hide={this.state.hide}
-                    idPKU={this.state.idPKU}
-                    depNameFunc={this.onClickDep}
-                    depName={this.state.depName}
-                    />
+                    {/*{this.state.depName === "Отчеты" &&*/}
+                        <DepartmentsComponent
+                            show={this.state.show}
+                            hide={this.state.hide}
+                            idPKU={this.state.idPKU}
+                            depNameFunc={this.onClickDep}
+                            depName={this.state.depName}
+                        />
+                    {/*}*/}
                     <TableComponent
                     show={this.state.show}
                     hide={this.state.hide}
