@@ -22,10 +22,7 @@
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/ColumnsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/DepartmentsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/DepartmentsComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -419,7 +416,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593083093605</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="- добавил заголовки для подтаблиц ПТО и Монтажников">
+      <created>1593090306650</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1593090306650</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,7 +463,8 @@
     <MESSAGE value="+ scroll&#10;- не доделан скролл" />
     <MESSAGE value="- добавил состояние ROOT пользователя в App.js" />
     <MESSAGE value="+ просто commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ просто commit" />
+    <MESSAGE value="- добавил заголовки для подтаблиц ПТО и Монтажников" />
+    <option name="LAST_COMMIT_MESSAGE" value="- добавил заголовки для подтаблиц ПТО и Монтажников" />
   </component>
   <component name="WindowStateProjectService">
     <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2" timestamp="1593083093509">
