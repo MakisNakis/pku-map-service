@@ -32,19 +32,28 @@ class TableComponent extends Component {
     }
 
 
-    async loadData(idPKU, depName) { // функция для выгрузки соотвествующих для отдела depName данных
-        switch (depName) {
+    async loadData(idPKU, /*depName, */typeTable) { // функция для выгрузки соотвествующих для отдела depName данных
+        switch (typeTable) {
             case "ОМТС":
                 this.fetchFromApi('/api/pkuDataServerPKUTable/OMTS/', idPKU);
                 break;
-            case "Монтажники":
-                this.fetchFromApi('/api/pkuDataServerPKUTable/Montazhniki/', idPKU);
+            case "Монтажники1":
+                this.fetchFromApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/', idPKU);
                 break;
-            case "ПТО":
-                this.fetchFromApi('/api/pkuDataServerPKUTable/PTO/', idPKU);
+            case "Монтажники2":
+                this.fetchFromApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki2/', idPKU);
                 break;
-            case "Отчеты":
-                this.fetchFromApi('/api/pkuDataServerPKUTable/Otchety/', idPKU);
+            case "ПТО1":
+                this.fetchFromApi('/api/pkuDataServerPKUTable/PTO/PTO1/', idPKU);
+                break;
+            case "ПТО2":
+                this.fetchFromApi('/api/pkuDataServerPKUTable/PTO/PTO2/', idPKU);
+                break;
+            case "Отчеты1":
+                this.fetchFromApi('/api/pkuDataServerPKUTable/Otchety/Otchety1/', idPKU);
+                break;
+            case "Отчеты2":
+                this.fetchFromApi('/api/pkuDataServerPKUTable/Otchety/Otchety2/', idPKU);
                 break;
             default:
                 break;
@@ -52,10 +61,11 @@ class TableComponent extends Component {
     }
 
     componentWillReceiveProps(nextProp) { // если получаем новые пропсы, то перерисовыает таблицу
-        if (nextProp.depName !== this.props.depName || nextProp.idPKU !== this.props.idPKU) {
+        if (nextProp.typeTable !== this.props.typeTable || nextProp.idPKU !== this.props.idPKU) {
             // console.log(nextProp.idPKU);
             // console.log(nextProp.depName);
-            this.loadData(nextProp.idPKU, nextProp.depName);
+            // this.loadData(nextProp.idPKU, nextProp.depName);
+            this.loadData(nextProp.idPKU, nextProp.typeTable);
         }
 
     }
@@ -105,14 +115,49 @@ class TableComponent extends Component {
 
         return (
             <div id="TableComp">
-                {this.props.show && this.props.depName === "Отчеты" &&
+                {/*{this.props.show && this.props.depName === "Отчеты" &&*/}
+                {/*<div class="table-horiz-scroll">*/}
+
+
+                {/*    <ToolkitProvider*/}
+                {/*        keyField="HardwareID"*/}
+                {/*        data={this.state.pkuInfo}*/}
+                {/*        columns={tableHeaders["Отчеты"]}*/}
+
+                {/*        exportCSV*/}
+
+                {/*    >*/}
+                {/*        {*/}
+                {/*            props => (*/}
+                {/*                <div>*/}
+                {/*                    <ExportCSVButton {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>*/}
+                {/*                    <hr/>*/}
+                {/*                    <BootstrapTable*/}
+                {/*                        rowStyle={rowStyle}*/}
+                {/*                        // rowStyle={ {height: '200px'} }*/}
+                {/*                        pagination={paginationFactory()}*/}
+                {/*                        cellEdit={cellEditFactory({mode: 'dbclick'})}*/}
+                {/*                        filter={filterFactory()}*/}
+                {/*                        {...props.baseProps}*/}
+
+                {/*                    />*/}
+                {/*                </div>*/}
+                {/*            )*/}
+                {/*        }*/}
+                {/*    </ToolkitProvider>*/}
+
+                {/*</div>*/}
+                {/*}*/}
+
+
+                {this.props.show && this.props.typeTable === "Отчеты1" &&
                 <div class="table-horiz-scroll">
 
 
                     <ToolkitProvider
                         keyField="HardwareID"
                         data={this.state.pkuInfo}
-                        columns={tableHeaders["Отчеты"]}
+                        columns={tableHeaders["Отчеты1"]}
 
                         exportCSV
 
@@ -139,7 +184,70 @@ class TableComponent extends Component {
                 </div>
                 }
 
-                {this.props.show && this.props.depName === "ОМТС" &&
+
+                {this.props.show && this.props.typeTable === "Отчеты2" &&
+                <div class="table-horiz-scroll">
+
+
+                    <ToolkitProvider
+                        keyField="HardwareID"
+                        data={this.state.pkuInfo}
+                        columns={tableHeaders["Отчеты2"]}
+
+                        exportCSV
+
+                    >
+                        {
+                            props => (
+                                <div>
+                                    <ExportCSVButton {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>
+                                    <hr/>
+                                    <BootstrapTable
+                                        rowStyle={rowStyle}
+                                        // rowStyle={ {height: '200px'} }
+                                        pagination={paginationFactory()}
+                                        cellEdit={cellEditFactory({mode: 'dbclick'})}
+                                        filter={filterFactory()}
+                                        {...props.baseProps}
+
+                                    />
+                                </div>
+                            )
+                        }
+                    </ToolkitProvider>
+
+                </div>
+                }
+
+
+                {/*{this.props.show && this.props.depName === "ОМТС" &&*/}
+                {/*<div class="table-horiz-scroll">*/}
+                {/*    <ToolkitProvider*/}
+                {/*        keyField="HardwareID"*/}
+                {/*        data={this.state.pkuInfo}*/}
+                {/*        columns={tableHeaders["ОМТС"]}*/}
+                {/*        exportCSV*/}
+                {/*    >*/}
+                {/*        {*/}
+                {/*            props => (*/}
+                {/*                <div>*/}
+                {/*                    <ExportCSVButton {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>*/}
+                {/*                    <hr/>*/}
+                {/*                    <BootstrapTable*/}
+                {/*                        rowStyle={rowStyle}*/}
+                {/*                        pagination={paginationFactory()}*/}
+                {/*                        cellEdit={cellEditFactory({mode: 'dbclick'})}*/}
+                {/*                        filter={filterFactory()}*/}
+                {/*                        {...props.baseProps} />*/}
+                {/*                </div>*/}
+                {/*            )*/}
+                {/*        }*/}
+                {/*    </ToolkitProvider>*/}
+                {/*</div>*/}
+                {/*}*/}
+
+
+                {this.props.show && this.props.typeTable === "ОМТС" &&
                 <div class="table-horiz-scroll">
                     <ToolkitProvider
                         keyField="HardwareID"
@@ -166,12 +274,39 @@ class TableComponent extends Component {
                 }
 
 
-                {this.props.show && this.props.depName === "Монтажники" &&
+                {/*{this.props.show && this.props.depName === "Монтажники" &&*/}
+                {/*<div class="table-horiz-scroll">*/}
+                {/*    <ToolkitProvider*/}
+                {/*        keyField="HardwareID"*/}
+                {/*        data={this.state.pkuInfo}*/}
+                {/*        columns={tableHeaders["Монтажники"]}*/}
+                {/*        exportCSV*/}
+                {/*    >*/}
+                {/*        {*/}
+                {/*            props => (*/}
+                {/*                <div>*/}
+                {/*                    <ExportCSVButton {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>*/}
+                {/*                    <hr/>*/}
+                {/*                    <BootstrapTable*/}
+                {/*                        rowStyle={rowStyle}*/}
+                {/*                        pagination={paginationFactory()}*/}
+                {/*                        cellEdit={cellEditFactory({mode: 'dbclick'})}*/}
+                {/*                        filter={filterFactory()}*/}
+                {/*                        {...props.baseProps} />*/}
+                {/*                </div>*/}
+                {/*            )*/}
+                {/*        }*/}
+                {/*    </ToolkitProvider>*/}
+                {/*</div>*/}
+                {/*}*/}
+
+
+                {this.props.show && this.props.typeTable === "Монтажники1" &&
                 <div class="table-horiz-scroll">
                     <ToolkitProvider
                         keyField="HardwareID"
                         data={this.state.pkuInfo}
-                        columns={tableHeaders["Монтажники"]}
+                        columns={tableHeaders["Монтажники1"]}
                         exportCSV
                     >
                         {
@@ -192,13 +327,98 @@ class TableComponent extends Component {
                 </div>
                 }
 
-                {this.props.show && this.props.depName === "ПТО" &&
+
+                {this.props.show && this.props.typeTable === "Монтажники2" &&
+                <div class="table-horiz-scroll">
+                    <ToolkitProvider
+                        keyField="HardwareID"
+                        data={this.state.pkuInfo}
+                        columns={tableHeaders["Монтажники2"]}
+                        exportCSV
+                    >
+                        {
+                            props => (
+                                <div>
+                                    <ExportCSVButton {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>
+                                    <hr/>
+                                    <BootstrapTable
+                                        rowStyle={rowStyle}
+                                        pagination={paginationFactory()}
+                                        cellEdit={cellEditFactory({mode: 'dbclick'})}
+                                        filter={filterFactory()}
+                                        {...props.baseProps} />
+                                </div>
+                            )
+                        }
+                    </ToolkitProvider>
+                </div>
+                }
+
+                {/*{this.props.show && this.props.depName === "ПТО" &&*/}
+                {/*<div class="table-horiz-scroll">*/}
+
+                {/*    <ToolkitProvider*/}
+                {/*        keyField="HardwareID"*/}
+                {/*        data={this.state.pkuInfo}*/}
+                {/*        columns={tableHeaders["ПТО"]}*/}
+                {/*        exportCSV*/}
+                {/*    >*/}
+                {/*        {*/}
+                {/*            props => (*/}
+                {/*                <div>*/}
+                {/*                    <ExportCSVButton {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>*/}
+                {/*                    <hr/>*/}
+                {/*                    <BootstrapTable*/}
+                {/*                        rowStyle={rowStyle}*/}
+                {/*                        pagination={paginationFactory()}*/}
+                {/*                        cellEdit={cellEditFactory({mode: 'dbclick'})}*/}
+                {/*                        filter={filterFactory()}*/}
+                {/*                        {...props.baseProps} />*/}
+                {/*                </div>*/}
+                {/*            )*/}
+                {/*        }*/}
+                {/*    </ToolkitProvider>*/}
+
+                {/*</div>*/}
+                {/*}*/}
+
+
+                {this.props.show && this.props.typeTable === "ПТО1" &&
                 <div class="table-horiz-scroll">
 
                     <ToolkitProvider
                         keyField="HardwareID"
                         data={this.state.pkuInfo}
-                        columns={tableHeaders["ПТО"]}
+                        columns={tableHeaders["ПТО1"]}
+                        exportCSV
+                    >
+                        {
+                            props => (
+                                <div>
+                                    <ExportCSVButton {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>
+                                    <hr/>
+                                    <BootstrapTable
+                                        rowStyle={rowStyle}
+                                        pagination={paginationFactory()}
+                                        cellEdit={cellEditFactory({mode: 'dbclick'})}
+                                        filter={filterFactory()}
+                                        {...props.baseProps} />
+                                </div>
+                            )
+                        }
+                    </ToolkitProvider>
+
+                </div>
+                }
+
+
+                {this.props.show && this.props.typeTable === "ПТО2" &&
+                <div class="table-horiz-scroll">
+
+                    <ToolkitProvider
+                        keyField="HardwareID"
+                        data={this.state.pkuInfo}
+                        columns={tableHeaders["ПТО2"]}
                         exportCSV
                     >
                         {

@@ -28,7 +28,7 @@ class MyRepository {
         return query
     }
 
-    async loadDataForTable(pkuId, depName) {
+    async loadDataForTable(pkuId, typeTable) {
         try {
             await this.client.connect();
             console.log('DB has been connected');
@@ -38,19 +38,28 @@ class MyRepository {
 
         let query = undefined;
 
-        switch (depName) {
+        switch (typeTable) {
             case "ОМТС":
                 query = this.client.query(`select * from f_s_equipment_routeid(2);`);
                 break;
-            case "Монтажники":
+            case "Монтажники1":
                 query = this.client.query(`select * from f_s_subwork_perf_subid(${pkuId});`);
                 // query.secondQuery = this.client.query(`select * from f_s_subhw_subid(pkuId);`);
                 break;
-            case "ПТО":
-                query = this.client.query(`select * from f_s_subwork_pto_subid(${pkuId});`);
-                // query.secondQuery = this.client.query(`select * from f_s_subhw_subid(pkuId);`);
+            case "Монтажники2":
+                // query = this.client.query(`select * from f_s_subwork_perf_subid(${pkuId});`);
+                query = this.client.query(`select * from f_s_subhw_subid(${pkuId});`);
                 break;
-            case "Отчеты":
+            case "ПТО1":
+                query = this.client.query(`select * from f_s_subwork_pto_subid(${pkuId});`);
+                break;
+            case "ПТО2":
+                query = this.client.query(`select * from f_s_subhw_subid(${pkuId});`);
+                break;
+            case "Отчеты1":
+                query = this.client.query(`select * from f_s_report_general_routeid(2);`);
+                break;
+            case "Отчеты2":
                 query = this.client.query(`select * from f_s_report_general_routeid(2);`);
                 break;
             default:

@@ -3,6 +3,7 @@ import MapComponent from './selfComponents/MapComponent';
 import DepartmentsComponent from './selfComponents/DepartmentsComponent';
 import TableComponent from './selfComponents/TableComponent';
 import AuthorisationComponent from './selfComponents/AuthorisationComponent';
+import TypeTableComponent from './selfComponents/TypeTableComponent';
 
 import {Map as LeafletMap, Marker, TileLayer} from "react-leaflet";
 import * as pkuData from "./data/tRouteTrackPointsKarabash";
@@ -21,6 +22,7 @@ class App extends React.Component {
             hide: "Нажмите на ПКУ для вывода таблицы",
             idPKU: undefined,
             depName: "Отчеты",
+            typeTable: "Отчеты1",
             markerName: undefined,
             rootPriv: "Отчеты",
         }
@@ -103,18 +105,20 @@ class App extends React.Component {
         const buttonName = e.target.title;
         console.log(e.target);
 
+        this.setState({depName: buttonName});
+
         switch (buttonName) {
             case "ОМТС":
-                this.setState({depName: buttonName});
+                this.setState({typeTable: "ОМТС"});
                 break;
             case "Монтажники":
-                this.setState({depName: buttonName});
+                this.setState({typeTable: "Монтажники1"});
                 break;
             case "ПТО":
-                this.setState({depName: buttonName});
+                this.setState({typeTable: "ПТО1"});
                 break;
             case "Отчеты":
-                this.setState({depName: buttonName});
+                this.setState({typeTable: "Отчеты1"});
                 break;
             case "Перечень работ":
                 this.setState({depName: buttonName});
@@ -125,6 +129,37 @@ class App extends React.Component {
             default:
                 break;
         }
+    };
+
+
+    onClickTypeTable = (e) => {
+        // console.log(e.target.title);
+        // console.log(e.target);
+        const buttonName = e.target.title;
+        console.log(e.target);
+        this.setState({typeTable: buttonName});
+        // switch (buttonName) {
+        //     case "Отчеты1":
+        //         this.setState({typeTable: buttonName});
+        //         break;
+        //     case "Отчеты2":
+        //         this.setState({typeTable: buttonName});
+        //         break;
+        //     case "ПТО1":
+        //         this.setState({typeTable: buttonName});
+        //         break;
+        //     case "ПТО2":
+        //         this.setState({typeTable: buttonName});
+        //         break;
+        //     case "Монтажники1":
+        //         this.setState({typeTable: buttonName});
+        //         break;
+        //     case "Монтажники2":
+        //         this.setState({typeTable: buttonName});
+        //         break;
+        //     default:
+        //         break;
+        // }
     };
 
 
@@ -147,13 +182,23 @@ class App extends React.Component {
                         depName={this.state.depName}
                     />
                     }
-                    {this.state.idPKU && (this.state.depName === "Монтажники" || this.state.depName === "ПТО") && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} </h2></p>}
-                    {this.state.idPKU && (this.state.depName === "ОМТС" || this.state.depName === "Отчеты") && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Карабаш</h2></p>}
+                    <TypeTableComponent
+                        show={this.state.show}
+                        hide={this.state.hide}
+                        idPKU={this.state.idPKU}
+                        typeTableFunc={this.onClickTypeTable}
+                        depName={this.state.depName}
+                        typeTable={this.state.typeTable}
+                    />
+                    {this.state.idPKU && (this.state.typeTable === "Монтажники1" || this.state.typeTable === "ПТО1") && <p className="Table-header"><h2 align="center">Перечень работ на {this.state.markerName} </h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "Монтажники2" || this.state.typeTable === "ПТО2") && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} </h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "ОМТС" || this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Карабаш</h2></p>}
                     <TableComponent
                     show={this.state.show}
                     hide={this.state.hide}
                     idPKU={this.state.idPKU}
                     depName={this.state.depName}
+                    typeTable={this.state.typeTable}
                     markerName={this.state.markerName}
                     />
                 </div>}
