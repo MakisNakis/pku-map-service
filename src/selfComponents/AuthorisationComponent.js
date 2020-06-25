@@ -16,6 +16,15 @@ class AuthorisationComponent extends Component {
                     <br/>
                     <br/>
                     <button>Авторизоваться</button>
+                    <br/>
+                    <br/>
+                    ОМТС
+                    <br/>
+                    Монтажники
+                    <br/>
+                    ПТО
+                    <br/>
+                    Отчеты
                 </form>
                 {this.props.authErr}
             </div>

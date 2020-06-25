@@ -25,7 +25,7 @@ class TableComponent extends Component {
             return results.json()
         }).then(data => {
             this.setState({pkuInfo: data.rows});
-            // console.log(this.state.pkuData[0].ID)
+            console.log(this.state.pkuInfo)
         }).catch(() => {
             console.log(`Ошибка при выполнении запроса с ${apiRoute}${idPKU}`);
         });
@@ -41,7 +41,7 @@ class TableComponent extends Component {
                 this.fetchFromApi('/api/pkuDataServerPKUTable/Montazhniki/', idPKU);
                 break;
             case "ПТО":
-                this.fetchFromApi('/api/pkuDataServerPKUTable', idPKU);
+                this.fetchFromApi('/api/pkuDataServerPKUTable/PTO/', idPKU);
                 break;
             case "Отчеты":
                 this.fetchFromApi('/api/pkuDataServerPKUTable/Otchety/', idPKU);
@@ -99,7 +99,7 @@ class TableComponent extends Component {
                 style.backgroundColor = 'rgba(142,238,147,0.13)';
             }
             style.borderTop = 'none';
-            style.height = '70';
+            // style.height = '70';
             return style;
         };
 

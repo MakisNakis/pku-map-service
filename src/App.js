@@ -76,7 +76,7 @@ class App extends React.Component {
         console.log(e.target.options.name);
         const id = e.target.options.title;
         const name = e.target.options.name;
-
+        console.log();
         if (id) {
             this.setState({
                 show: true,

@@ -48,13 +48,13 @@ export function ColumnsData() {
         dataField: 'Unit',
         text: 'Единицы измерения',
         headerStyle: (colum, colIndex) => {
-            return {width: 70, textAlign: 'center'};
+            return {width: 100, textAlign: 'center'};
         }
     }, {
         dataField: 'Quantity',
         text: 'Количество',
         headerStyle: (colum, colIndex) => {
-            return {width: 100, textAlign: 'center'};
+            return {width: 120, textAlign: 'center'};
         }
     }, {
         dataField: 'QuantityAll',
@@ -100,13 +100,13 @@ export function ColumnsData() {
         dataField: 'Quantity',
         text: 'Кол-во',
         headerStyle: (colum, colIndex) => {
-            return {width: 70, textAlign: 'center'};
+            return {width: 100, textAlign: 'center'};
         }
     }, {
         dataField: 'Unit',
         text: 'Ед. изм.',
         headerStyle: (colum, colIndex) => {
-            return {width: 70, textAlign: 'center'};
+            return {width: 100, textAlign: 'center'};
         }
     }, {
         dataField: 'StartDatePlan',
