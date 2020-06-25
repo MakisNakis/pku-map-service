@@ -22,7 +22,7 @@ class MapComponent extends Component {
         super();
 
         this.state = {
-            zoom: 5,
+            zoom: 9,
             minZoom: 4,
             radius: 0,
             firstRouteApi: '/api/pkuDataServerFirstRoute',
@@ -141,7 +141,7 @@ class MapComponent extends Component {
 
         return (
             <div>
-                <LeafletMap center={[54.730922, 55.962198]} zoom={this.state.zoom} minZoom={this.state.minZoom}>
+                <LeafletMap center={[54.930922, 53.722198]} zoom={this.state.zoom} minZoom={this.state.minZoom}>
                     <LayersControl position='topright'>
 
                         <LayersControl.BaseLayer checked name="Гибрид">
