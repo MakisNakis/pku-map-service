@@ -37,7 +37,6 @@ class DepartmentsComponent extends Component {
         return (
             <div>
                 {this.props.show &&
-                <div>
                     <div className="tab">
                         <button className={className[0]} title="ОМТС" onClick={this.props.depNameFunc}>ОМТС</button>
                         <button className={className[1]} title="Монтажники"
@@ -46,11 +45,6 @@ class DepartmentsComponent extends Component {
                         <button className={className[2]} title="ПТО" onClick={this.props.depNameFunc}>ПТО</button>
                         <button className={className[3]} title="Отчеты" onClick={this.props.depNameFunc}>Отчеты</button>
                     </div>
-                    <div className="tab">
-                        <button  title="Перечень работ" onClick={this.props.depNameFunc}>Перечень работ</button>
-                        <button  title="Перечень оборудования" onClick={this.props.depNameFunc}>Перечень оборудования</button>
-                    </div>
-                </div>
                 }
                 {this.props.hide}
             </div>

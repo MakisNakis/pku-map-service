@@ -16,7 +16,7 @@ class App extends React.Component {
         super();
 
         this.state = {
-            authorisation: true,
+            authorisation: false,
             authorisationErr: false,
             show: false,        //показать таблицу
             hide: "Нажмите на ПКУ для вывода таблицы",
@@ -120,12 +120,6 @@ class App extends React.Component {
             case "Отчеты":
                 this.setState({typeTable: "Отчеты1"});
                 break;
-            case "Перечень работ":
-                this.setState({depName: buttonName});
-                break;
-            case "Перечень оборудования":
-                this.setState({depName: buttonName});
-                break;
             default:
                 break;
         }
@@ -138,28 +132,7 @@ class App extends React.Component {
         const buttonName = e.target.title;
         console.log(e.target);
         this.setState({typeTable: buttonName});
-        // switch (buttonName) {
-        //     case "Отчеты1":
-        //         this.setState({typeTable: buttonName});
-        //         break;
-        //     case "Отчеты2":
-        //         this.setState({typeTable: buttonName});
-        //         break;
-        //     case "ПТО1":
-        //         this.setState({typeTable: buttonName});
-        //         break;
-        //     case "ПТО2":
-        //         this.setState({typeTable: buttonName});
-        //         break;
-        //     case "Монтажники1":
-        //         this.setState({typeTable: buttonName});
-        //         break;
-        //     case "Монтажники2":
-        //         this.setState({typeTable: buttonName});
-        //         break;
-        //     default:
-        //         break;
-        // }
+
     };
 
 
