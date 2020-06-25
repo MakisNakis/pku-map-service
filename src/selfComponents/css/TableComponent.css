@@ -16,3 +16,10 @@
 .Other-Row {
     background-color: greenyellow;
 }
+
+
+.table-horiz-scroll {
+    height: 800px;
+    overflow-x: auto;
+    overflow-y: auto;
+}

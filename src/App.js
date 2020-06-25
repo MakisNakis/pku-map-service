@@ -20,7 +20,6 @@ class App extends React.Component {
             show: false,        //показать таблицу
             hide: "Нажмите на ПКУ для вывода таблицы",
             idPKU: undefined,
-            // routeId: undefined,
             depName: "Отчеты",
             markerName: undefined
         }
@@ -81,7 +80,6 @@ class App extends React.Component {
                 // depName: "Отчеты",
                 markerName: name
             });
-
         } else {
             this.setState({
                 show: false,
@@ -130,15 +128,15 @@ class App extends React.Component {
                 <div>
                     <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
                     <MapComponent namePKU={this.gettingNamePKU}/>
-                    {/*{this.state.depName === "Отчеты" &&*/}
-                        <DepartmentsComponent
-                            show={this.state.show}
-                            hide={this.state.hide}
-                            idPKU={this.state.idPKU}
-                            depNameFunc={this.onClickDep}
-                            depName={this.state.depName}
-                        />
-                    {/*}*/}
+                    {this.state.depName === "Отчеты" && <DepartmentsComponent
+                        show={this.state.show}
+                        hide={this.state.hide}
+                        idPKU={this.state.idPKU}
+                        depNameFunc={this.onClickDep}
+                        depName={this.state.depName}
+                    />
+                    }
+                    {this.state.idPKU && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} </h2></p>}
                     <TableComponent
                     show={this.state.show}
                     hide={this.state.hide}

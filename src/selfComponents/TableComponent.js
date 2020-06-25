@@ -99,22 +99,23 @@ class TableComponent extends Component {
                 style.backgroundColor = 'rgba(142,238,147,0.13)';
             }
             style.borderTop = 'none';
-
+            style.height = '70';
             return style;
         };
 
         return (
             <div id="TableComp">
                 {this.props.show && this.props.depName === "Отчеты" &&
-                <div>
-                    <p className="Table-header"><h2 align="center">Перечень оборудования
-                        на {this.props.markerName} </h2></p>
+                <div class="table-horiz-scroll">
+
 
                     <ToolkitProvider
                         keyField="HardwareID"
                         data={this.state.pkuInfo}
                         columns={tableHeaders["Отчеты"]}
+
                         exportCSV
+
                     >
                         {
                             props => (
@@ -123,10 +124,13 @@ class TableComponent extends Component {
                                     <hr/>
                                     <BootstrapTable
                                         rowStyle={rowStyle}
+                                        // rowStyle={ {height: '200px'} }
                                         pagination={paginationFactory()}
                                         cellEdit={cellEditFactory({mode: 'dbclick'})}
                                         filter={filterFactory()}
-                                        {...props.baseProps} />
+                                        {...props.baseProps}
+
+                                    />
                                 </div>
                             )
                         }
@@ -137,8 +141,6 @@ class TableComponent extends Component {
 
                 {this.props.show && this.props.depName === "ОМТС" &&
                 <div>
-                    <p className="Table-header"><h2 align="center">Перечень оборудования
-                        на {this.props.markerName} </h2></p>
                     <ToolkitProvider
                         keyField="HardwareID"
                         data={this.state.pkuInfo}
@@ -166,8 +168,6 @@ class TableComponent extends Component {
 
                 {this.props.show && this.props.depName === "Монтажники" &&
                 <div>
-                    <p className="Table-header"><h2 align="center">Перечень оборудования
-                        на {this.props.markerName}  </h2></p>
                     <ToolkitProvider
                         keyField="HardwareID"
                         data={this.state.pkuInfo}
@@ -194,8 +194,6 @@ class TableComponent extends Component {
 
                 {this.props.show && this.props.depName === "ПТО" &&
                 <div>
-                    <p className="Table-header"><h2 align="center">Перечень оборудования
-                        на {this.props.markerName}  </h2></p>
 
                     <ToolkitProvider
                         keyField="HardwareID"
