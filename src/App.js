@@ -42,6 +42,7 @@ class App extends React.Component {
                 authorisation: true,
                 authorisationErr: false,
                 depName: "ОМТС",
+                typeTable: "ОМТС",
                 rootPriv: "ОМТС"
             });
         }else if(login === "Монтажники" && password === "Монтажники"){
@@ -49,6 +50,7 @@ class App extends React.Component {
                 authorisation: true,
                 authorisationErr: false,
                 depName: "Монтажники",
+                typeTable: "Монтажники1",
                 rootPriv: "Монтажники"
             });
         }else if(login === "ПТО" && password === "ПТО"){
@@ -56,6 +58,7 @@ class App extends React.Component {
                 authorisation: true,
                 authorisationErr: false,
                 depName: "ПТО",
+                typeTable: "ПТО1",
                 rootPriv: "ПТО"
             });
         }else if(login === "Отчеты" && password === "Отчеты"){
@@ -63,6 +66,7 @@ class App extends React.Component {
                 authorisation: true,
                 authorisationErr: false,
                 depName: "Отчеты",
+                typeTable: "Отчеты1",
                 rootPriv: "Отчеты"
         });
         }else {
