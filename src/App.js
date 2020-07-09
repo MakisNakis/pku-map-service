@@ -4,11 +4,38 @@ import DepartmentsComponent from './selfComponents/DepartmentsComponent';
 import TableComponent from './selfComponents/TableComponent';
 import AuthorisationComponent from './selfComponents/AuthorisationComponent';
 import TypeTableComponent from './selfComponents/TypeTableComponent';
-
+import BootstrapTable from 'react-bootstrap-table-next';
+import cellEditFactory from 'react-bootstrap-table2-editor';
 import {Map as LeafletMap, Marker, TileLayer} from "react-leaflet";
 import * as pkuData from "./data/tRouteTrackPointsKarabash";
 import {Icon} from "leaflet";
 
+
+// const columns = [{
+//     dataField: 'id',
+//     text: 'Product ID'
+// }, {
+//     dataField: 'name',
+//     text: 'Product Name'
+// }, {
+//     dataField: 'price',
+//     text: 'Product Price'
+// }];
+//
+// const products = [{
+//     id: 1,
+//     name: "item 1",
+//     price: 111
+// },{
+//     id: 2,
+//     name: "item 2",
+//     price: 222
+// },{
+//     id: 3,
+//     name: "item 3",
+//     price: 333
+// },
+// ]
 
 class App extends React.Component {
     constructor() {
@@ -104,8 +131,6 @@ class App extends React.Component {
 
 
     onClickDep = (e) => {
-        // console.log(e.target.title);
-        // console.log(e.target);
         const buttonName = e.target.title;
         console.log(e.target);
 
@@ -130,40 +155,24 @@ class App extends React.Component {
     };
 
 
+
     onClickTypeTable = (e) => {
-        // console.log(e.target.title);
-        // console.log(e.target);
         const buttonName = e.target.title;
         console.log(e.target);
         this.setState({typeTable: buttonName});
-        // switch (buttonName) {
-        //     case "Отчеты1":
-        //         this.setState({typeTable: buttonName});
-        //         break;
-        //     case "Отчеты2":
-        //         this.setState({typeTable: buttonName});
-        //         break;
-        //     case "ПТО1":
-        //         this.setState({typeTable: buttonName});
-        //         break;
-        //     case "ПТО2":
-        //         this.setState({typeTable: buttonName});
-        //         break;
-        //     case "Монтажники1":
-        //         this.setState({typeTable: buttonName});
-        //         break;
-        //     case "Монтажники2":
-        //         this.setState({typeTable: buttonName});
-        //         break;
-        //     default:
-        //         break;
-        // }
     };
 
 
     render() {
         return (
             <div>
+
+                {/*<BootstrapTable*/}
+                {/*    keyField="id"*/}
+                {/*    data={ products }*/}
+                {/*    columns={ columns }*/}
+                {/*    cellEdit={ cellEditFactory({ mode: 'click' }) }*/}
+                {/*/>*/}
                 {!this.state.authorisation && <AuthorisationComponent
                     getPersonName={this.gettingPersonName}
                     authErr={this.state.authorisationErr}
@@ -172,6 +181,7 @@ class App extends React.Component {
                 <div>
                     <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
                     <MapComponent namePKU={this.gettingNamePKU}/>
+                    <div id="start"></div>
                     {this.state.rootPriv === "Отчеты" && <DepartmentsComponent
                         show={this.state.show}
                         hide={this.state.hide}

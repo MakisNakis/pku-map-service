@@ -32,31 +32,31 @@ app.get('/api/pkuDataServerSecondRoute', async (req, res) => {
 for (let i = 0; i < 40; i++) {
     app.get(`/api/pkuDataServerPKUTable/OMTS/${i}`, async (req, res) => {
         const data = await repository.loadDataForTable(i, "ОМТС");
-        res.json(data);
+        res.json(data.rows);
     });
     app.get(`/api/pkuDataServerPKUTable/Otchety/Otchety1/${i}`, async (req, res) => {
         const data = await repository.loadDataForTable(i, "Отчеты1");
-        res.json(data);
+        res.json(data.rows);
     });
     app.get(`/api/pkuDataServerPKUTable/Otchety/Otchety2/${i}`, async (req, res) => {
         const data = await repository.loadDataForTable(i, "Отчеты2");
-        res.json(data);
+        res.json(data.rows);
     });
     app.get(`/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/${i}`, async (req, res) => {
         const data = await repository.loadDataForTable(i, "Монтажники1");
-        res.json(data);
+        res.json(data.rows);
     });
     app.get(`/api/pkuDataServerPKUTable/Montazhniki/Montazhniki2/${i}`, async (req, res) => {
         const data = await repository.loadDataForTable(i, "Монтажники2");
-        res.json(data);
+        res.json(data.rows);
     });
     app.get(`/api/pkuDataServerPKUTable/PTO/PTO1/${i}`, async (req, res) => {
         const data = await repository.loadDataForTable(i, "ПТО1");
-        res.json(data);
+        res.json(data.rows);
     });
     app.get(`/api/pkuDataServerPKUTable/PTO/PTO2/${i}`, async (req, res) => {
         const data = await repository.loadDataForTable(i, "ПТО2");
-        res.json(data);
+        res.json(data.rows);
     });
 }
 
