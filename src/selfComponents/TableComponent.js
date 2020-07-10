@@ -121,13 +121,22 @@ class TableComponent extends Component {
     }
 
     async fetchOnApi(apiRoute, idPKU) {
-        await fetch(`${apiRoute}${idPKU}`, {
+        await fetch(`http://127.0.0.1:5000${apiRoute}${idPKU}`, {
             method: 'POST',
-            body: JSON.stringify(this.state.pkuInfo)
+            headers:{'content-type': 'application/json'},
+            mode:"no-cors",
+            body: JSON.stringify(this.state.pkuInfo),
+            // cache: "no-cache",
+            // proxy: "http://localhost:5000",
         }).then(response => {
-            console.log(`/api/pkuDataServerPKUTable${idPKU}`);
-        }).catch(() => {
-            console.log(`Ошибка при отправке запроса на ${apiRoute}${idPKU}`);
+            console.log(`http://127.0.0.1:5000${apiRoute}${idPKU}`);
+            console.log(response);
+            console.log(JSON.stringify(this.state.pkuInfo));
+            return response;
+        }).then(data => {
+            console.log(data);
+        }).catch((err) => {
+            console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}${idPKU}`);
         });
 
     }

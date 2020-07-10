@@ -17,7 +17,6 @@ app.get('/api/test', async (req, res) => {
 
 });
 
-
 app.get('/api/pkuDataServerFirstRoute', async (req, res) => {
     const data = await repository.loadDataForMarkers(1);
     res.json(data);
