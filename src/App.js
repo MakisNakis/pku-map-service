@@ -43,13 +43,16 @@ class App extends React.Component {
         super();
 
         this.state = {
-            authorisation: false,
+            authorisation: true,
+            // authorisation: false,
             authorisationErr: false,
             show: false,        //показать таблицу
             hide: "Нажмите на ПКУ для вывода таблицы",
             idPKU: undefined,
-            depName: "Отчеты",
-            typeTable: "Отчеты1",
+            // depName: "Отчеты",
+            depName: "ПТО",
+            // typeTable: "Отчеты1",
+            typeTable: "ПТО1",
             markerName: undefined,
             rootPriv: "Отчеты",
         }

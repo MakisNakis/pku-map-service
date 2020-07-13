@@ -35,14 +35,15 @@ class TableComponent extends Component {
     async fetchFromApi(apiRoute, idPKU) {                                   // функция подгрузки данных для таблиц, на вход принимает
         await fetch(`${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
            // console.log(`/api/pkuDataServerPKUTable${idPKU}`);              // apiRoute - api адрес, откуда нужно получить данные
-            return results.json()
+           console.log(results);
+            return results.json();
         }).then(
             data => {
                 let pkuInfoWithID = data.map((val, ix) => {
                     val.tableID = ix+1;
                     return val;
                 });
-                // console.log(pkuInfoWithID);
+                console.log(data);
                 this.setState({
                     pkuInfo: pkuInfoWithID,
             });
@@ -84,29 +85,27 @@ class TableComponent extends Component {
         }
     }
 
-    async uploadData() {
+    async uploadData(rowEdit, newV, column) {
         console.log('Зашел');
+        console.log(rowEdit);
+        console.log(newV);
+        console.log(column);
+
         switch (this.props.typeTable) {
             case "ОМТС":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/OMTS/', this.props.idPKU);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/OMTS/', this.props.idPKU, rowEdit);
                 break;
             case "Монтажники1":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/', this.props.idPKU);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit);
                 break;
             case "Монтажники2":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki2/', this.props.idPKU);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki2/', this.props.idPKU, rowEdit);
                 break;
             case "ПТО1":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO1/', this.props.idPKU);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO1/', this.props.idPKU, rowEdit);
                 break;
             case "ПТО2":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO2/', this.props.idPKU);
-                break;
-            case "Отчеты1":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/Otchety/Otchety1/', this.props.idPKU);
-                break;
-            case "Отчеты2":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/Otchety/Otchety2/', this.props.idPKU);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO2/', this.props.idPKU, rowEdit);
                 break;
             default:
                 break;
@@ -120,25 +119,39 @@ class TableComponent extends Component {
 
     }
 
-    async fetchOnApi(apiRoute, idPKU) {
-        await fetch(`http://127.0.0.1:5000${apiRoute}${idPKU}`, {
+    async fetchOnApi(apiRoute, idPKU, rowEdit) {
+
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        // await fetch(`http://127.0.0.1:5000${apiRoute}${idPKU}`, {
+        // await fetch(`${proxyurl}`+'http://127.0.0.1:5000/api/test1', {
+        await fetch('http://127.0.0.1:5000/api/test1', {
             method: 'POST',
             headers:{'content-type': 'application/json'},
-            mode:"no-cors",
-            body: JSON.stringify(this.state.pkuInfo),
+            // mode:"no-cors",
+            body: JSON.stringify(rowEdit),
+            // body: JSON.stringify(this.state.pkuInfo),
             // cache: "no-cache",
             // proxy: "http://localhost:5000",
-        }).then(response => {
+        }).then(results => {
             console.log(`http://127.0.0.1:5000${apiRoute}${idPKU}`);
-            console.log(response);
-            console.log(JSON.stringify(this.state.pkuInfo));
-            return response;
+            console.log(results);
+            console.log(rowEdit);
+            return results.json()
         }).then(data => {
             console.log(data);
         }).catch((err) => {
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}${idPKU}`);
         });
 
+        // await fetch(`http://127.0.0.1:5000${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
+        //     console.log(`ТЕСТ`);
+        //     return results.json();
+        // }).then(
+        //     data => {
+        //         console.log(data);
+        //     }).catch(() => {
+        //     console.log(`Ошибка при выполнении запроса с http://127.0.0.1:5000${apiRoute}${idPKU}`);
+        // });
     }
 
     render() {
@@ -240,8 +253,7 @@ class TableComponent extends Component {
                                             blurToSave: true,
                                             beforeSaveCell: (oldValue, newValue, row, column) => { console.log('Before Saving Cell!!'); },
                                             afterSaveCell: (oldValue, newValue, row, column) => {
-                                                this.uploadData();
-                                                console.log(this.state.pkuInfo);
+                                                this.uploadData(row, newValue, column);
                                             }
                                         })}
                                         // filter={filterFactory()}
