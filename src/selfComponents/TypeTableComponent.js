@@ -12,31 +12,31 @@ class TypeTableComponent extends Component {
 
         switch (this.props.typeTable) {
             case "Отчеты1":
-                className = ['tablinks','tablinks','tablinks','tablinks'];
+                className = ['tablinks','tablinks','tablinks','tablinks','tablinks','tablinks'];
                 className[0] += classNameActive;
                 break;
             case "Отчеты2":
-                className = ['tablinks','tablinks','tablinks','tablinks'];
+                className = ['tablinks','tablinks','tablinks','tablinks','tablinks','tablinks'];
                 className[1] += classNameActive;
                 break;
             case "ПТО1":
-                className = ['tablinks','tablinks','tablinks','tablinks'];
+                className = ['tablinks','tablinks','tablinks','tablinks','tablinks','tablinks'];
                 className[2] += classNameActive;
                 break;
             case "ПТО2":
-                className = ['tablinks','tablinks','tablinks','tablinks'];
+                className = ['tablinks','tablinks','tablinks','tablinks','tablinks','tablinks'];
                 className[3] += classNameActive;
-                console.log(className[3]);
+                // console.log(className[3]);
                 break;
             case "Монтажники1":
-                className = ['tablinks','tablinks','tablinks','tablinks'];
+                className = ['tablinks','tablinks','tablinks','tablinks','tablinks','tablinks'];
                 className[4] += classNameActive;
-                console.log(className[3]);
+                // console.log(className[4]);
                 break;
             case "Монтажники2":
-                className = ['tablinks','tablinks','tablinks','tablinks'];
+                className = ['tablinks','tablinks','tablinks','tablinks','tablinks','tablinks'];
                 className[5] += classNameActive;
-                console.log(className[3]);
+                // console.log(className[5]);
                 break;
             default:
                 break;
