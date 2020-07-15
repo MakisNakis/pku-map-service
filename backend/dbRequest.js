@@ -1,6 +1,3 @@
-const moment = require('moment');
-const Sequelize = require('sequelize');
-
 const Client= require('pg').Client;
 
 const DBNAME = "PKU_MapService";
