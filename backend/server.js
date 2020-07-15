@@ -52,6 +52,14 @@ app.get('/api/pkuDataServerSecondRoute', async (req, res) => {
     res.json(data);
 });
 
+// app.route('/api/pkuDataServerPKUTable/id')
+//     .get(async (req, res) => {
+//         const data = await repository.loadDataForTable("ОМТС");
+//         res.json(data.rows)
+//     })
+//     .post(async (req, res) => {
+//         res.send(req.body);
+//     });
 
 for (let i = 0; i < 40; i++) {
     app.route(`/api/pkuDataServerPKUTable/OMTS/${i}`)
@@ -80,11 +88,11 @@ for (let i = 0; i < 40; i++) {
     });
     app.route(`/api/pkuDataServerPKUTable/PTO/PTO1/${i}`)
         .get(async (req, res) => {
-            const data = await repository.loadDataForTable(i, "ПТО1", "out");
+            const data = await repository.loadDataForTable(i, "ПТО1");
             res.json(data.rows);
         })
         .post(async (req, res) => {
-            const data = await repository.loadDataForTable(i, "ПТО1", "in");
+            // const data = await repository.loadDataForTable(i, "ПТО1");
             res.send(req.body);
     });
     app.route(`/api/pkuDataServerPKUTable/PTO/PTO2/${i}`)

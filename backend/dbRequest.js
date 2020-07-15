@@ -54,12 +54,12 @@ class MyRepository {
                 query = this.client.query(`select * from f_s_subwork_pto_subid(${pkuId});`);
                 break;
             case "ПТО2":
-                    if (flag === "out"){
+                    // if (flag === "out"){
                         query = this.client.query(`select * from f_s_subhw_subid(${pkuId});`);
-                    }
-                    if (flag === "in") {
-                        query = this.client.query(`select * from ;`);
-                    }
+                    // }
+                    // if (flag === "in") {
+                    //     query = this.client.query(`select * from ;`);
+                    // }
                 break;
             case "Отчеты1":
                 query = this.client.query(`select * from f_s_report_general_routeid(2);`);

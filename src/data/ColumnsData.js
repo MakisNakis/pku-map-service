@@ -422,20 +422,6 @@ export function ColumnsData() {
         }
 
     }, {
-        dataField: 'QuantityHW',
-        text: 'Кол-во',
-        editable: false,
-        headerStyle: (colum, colIndex) => {
-            return {width: 100, textAlign: 'center'};
-        }
-    }, {
-        dataField: 'HardwareUnit',
-        text: 'Ед. изм.',
-        editable: false,
-        headerStyle: (colum, colIndex) => {
-            return {width: 100, textAlign: 'center'};
-        }
-    }, {
         dataField: 'NomGroupName',
         text: 'Наименование',
         editable: false,
@@ -444,8 +430,9 @@ export function ColumnsData() {
         }
     }, {
         dataField: 'QuantityNG',
-        text: 'Кол-во наименований',
-        editable: false,
+        text: 'Количество',
+        // editable: false,
+        type: 'number',
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
         }
@@ -479,6 +466,9 @@ export function ColumnsData() {
         }
     }];
 
+
+
+
     // Перечень оборудования монтажники
     tableHeaders["Монтажники2"] = [{
         dataField: 'HardwareModel',
@@ -488,20 +478,6 @@ export function ColumnsData() {
             return {width: 400, textAlign: 'center'};
         }
 
-    }, {
-        dataField: 'QuantityHW',
-        text: 'Кол-во',
-        editable: false,
-        headerStyle: (colum, colIndex) => {
-            return {width: 100, textAlign: 'center'};
-        }
-    }, {
-        dataField: 'HardwareUnit',
-        text: 'Ед. изм.',
-        editable: false,
-        headerStyle: (colum, colIndex) => {
-            return {width: 100, textAlign: 'center'};
-        }
     }, {
         dataField: 'NomGroupName',
         text: 'Наименование',
