@@ -6,6 +6,7 @@ import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
 import ToolkitProvider, {Search, CSVExport} from 'react-bootstrap-table2-toolkit';
 import {ColumnsData} from "../data/ColumnsData";
 
+
 import './css/TableComponent.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.css';
@@ -41,6 +42,7 @@ class TableComponent extends Component {
             data => {
                 let pkuInfoWithID = data.map((val, ix) => {
                     val.tableID = ix+1;
+                    // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
                     return val;
                 });
                 // console.log(data);
@@ -98,9 +100,6 @@ class TableComponent extends Component {
             case "Монтажники1":
                 this.fetchOnApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit);
                 break;
-            case "Монтажники2":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki2/', this.props.idPKU, rowEdit);
-                break;
             case "ПТО1":
                 this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO1/', this.props.idPKU, rowEdit);
                 break;
@@ -115,16 +114,17 @@ class TableComponent extends Component {
     componentWillReceiveProps(nextProp) { // если получаем новые пропсы, то перерисовыаем таблицу
         if (nextProp.typeTable !== this.props.typeTable || nextProp.idPKU !== this.props.idPKU) {
             this.loadData(nextProp.idPKU, nextProp.typeTable);
+            // this.fetchFromApi( nextProp.idPKU, nextProp.typeTable);
         }
 
     }
 
     async fetchOnApi(apiRoute, idPKU, rowEdit) {
-
+        // console.log(rowEdit);
         // const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        // await fetch(`http://127.0.0.1:5000${apiRoute}${idPKU}`, {
+        await fetch(`http://127.0.0.1:5000${apiRoute}${idPKU}`, {
         // await fetch(`${proxyurl}`+'http://127.0.0.1:5000/api/test1', {
-        await fetch('http://127.0.0.1:5000/api/test1', {
+        // await fetch('http://127.0.0.1:5000/api/test1', {
             method: 'POST',
             headers:{'content-type': 'application/json'},
             // mode:"no-cors",
@@ -136,9 +136,9 @@ class TableComponent extends Component {
             // console.log(`http://127.0.0.1:5000${apiRoute}${idPKU}`);
             // console.log(results);
             // console.log(rowEdit);
-            return results.json()
+            return results.json();
         }).then(data => {
-            // console.log(data);
+            console.log(data);
         }).catch((err) => {
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}${idPKU}`);
         });

@@ -47,7 +47,7 @@ export function ColumnsData() {
         editor: {
             type: Type.DATE
         },
-        editable: false,
+        // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -223,7 +223,7 @@ export function ColumnsData() {
     }, {
         dataField: 'Quantity',
         text: 'Кол-во',
-        editable: false,
+        // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 100, textAlign: 'center'};
         }
@@ -237,28 +237,28 @@ export function ColumnsData() {
     }, {
         dataField: 'StartDateCon',
         text: 'Дата нач. (контр.)',
-        editable: false,
+        // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
     }, {
         dataField: 'EndDateCon',
         text: 'Дата кон. (контр.)',
-        editable: false,
+        // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
     }, {
         dataField: 'StartDatePlan',
         text: 'Дата нач. (план.)',
-        editable: false,
+        // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
     }, {
         dataField: 'EndDatePlan',
         text: 'Дата кон. (план.)',
-        editable: false,
+        // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
