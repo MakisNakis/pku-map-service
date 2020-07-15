@@ -16,6 +16,7 @@ import {render} from 'react-dom'
 import {Link} from "react-scroll";
 
 
+
 class MapComponent extends Component {
 
     constructor() {
@@ -120,7 +121,7 @@ class MapComponent extends Component {
 
                         <Link
                             // не настраивал
-                            to="TableComp"
+                            to="start"
                             spy={true}
                             smooth={true}
                             duration={500}

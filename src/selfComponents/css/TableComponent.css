@@ -9,8 +9,49 @@
     margin-top: 20%;
 }
 
+/*.fixed-header {*/
+th {
+    background-color: rgba(146, 255, 148, 1);
+    /*border: 2px solid yellowgreen !important;*/
+    /*margin-bottom: 75px !important;*/
+
+    position: sticky;
+    top: 0;
+    /*border: 10px solid black; !* Параметры рамки *!*/
+}
+
+.thead {
+    /*border: 2px solid yellowgreen !important;*/
+
+}
+
+.tbody {
+
+}
+
+.dropdown-toggle {
+    color: black;
+    /*background-color: #007bff !important;*/
+}
+
+#pageDropDown, #pageDropDown:hover, #pageDropDown:active {
+    color: black;
+    background-color: rgba(146, 255, 148, 1);
+    box-shadow: none;
+    background-position: 0;
+    /*background-color: #007bff !important;*/
+}
+
 .table-horiz-scroll {
-    /*height: 100px;*/
+    height: 600px;
     overflow-x: auto;
     overflow-y: auto;
+    margin-bottom: 15px;
+    /*border-style:none none dotted;*/
+    border-collapse: collapse;
+    border: none;
+}
+
+.react-bootstrap-table-pagination-total {
+    margin-left: 15px;
 }
