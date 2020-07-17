@@ -1,7 +1,7 @@
 const express = require('express');
 const MyRepository = require('./dbRequest');
 const app = express();
-const cors = require('cors')
+const cors = require('cors');
 
 const port = 5000;
 const repository = new MyRepository();
@@ -52,6 +52,14 @@ app.get('/api/pkuDataServerSecondRoute', async (req, res) => {
     res.json(data);
 });
 
+// app.route('/api/pkuDataServerPKUTable/id')
+//     .get(async (req, res) => {
+//         const data = await repository.loadDataForTable("ОМТС");
+//         res.json(data.rows)
+//     })
+//     .post(async (req, res) => {
+//         res.send(req.body);
+//     });
 
 for (let i = 0; i < 40; i++) {
     app.route(`/api/pkuDataServerPKUTable/OMTS/${i}`)
@@ -60,7 +68,8 @@ for (let i = 0; i < 40; i++) {
             res.json(data.rows)
         })
         .post(async (req, res) => {
-            res.send(req.body);
+            const data = await repository.uploadDataForTable(i, "ОМТС", req.body);
+            res.send(data);
     });
     app.route(`/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/${i}`)
         .get(async (req, res) => {
@@ -68,24 +77,24 @@ for (let i = 0; i < 40; i++) {
             res.json(data.rows);
         })
         .post(async (req, res) => {
-            res.send(req.body);
-    });
+            const data = await repository.uploadDataForTable(i, "Монтажники1", req.body);
+            res.send(data);
+            // res.json(req.body);
+        });
     app.route(`/api/pkuDataServerPKUTable/Montazhniki/Montazhniki2/${i}`)
         .get(async (req, res) => {
             const data = await repository.loadDataForTable(i, "Монтажники2");
             res.json(data.rows);
         })
-        .post(async (req, res) => {
-            res.send(req.body);
-    });
+    ;
     app.route(`/api/pkuDataServerPKUTable/PTO/PTO1/${i}`)
         .get(async (req, res) => {
-            const data = await repository.loadDataForTable(i, "ПТО1", "out");
+            const data = await repository.loadDataForTable(i, "ПТО1");
             res.json(data.rows);
         })
         .post(async (req, res) => {
-            const data = await repository.loadDataForTable(i, "ПТО1", "in");
-            res.send(req.body);
+            const data = await repository.uploadDataForTable(i, "ПТО1", req.body);
+            res.send(data);
     });
     app.route(`/api/pkuDataServerPKUTable/PTO/PTO2/${i}`)
         .get(async (req, res) => {
@@ -93,7 +102,9 @@ for (let i = 0; i < 40; i++) {
             res.json(data.rows);
         })
         .post(async (req, res) => {
-            res.send(req.body);
+            const data = await repository.uploadDataForTable(i, "ПТО2", req.body);
+            // res.send(req.body);
+            res.send(data);
     });
     app.get(`/api/pkuDataServerPKUTable/Otchety/Otchety1/${i}`, async (req, res) => {
         const data = await repository.loadDataForTable(i, "Отчеты1");

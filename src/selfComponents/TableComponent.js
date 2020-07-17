@@ -6,6 +6,7 @@ import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
 import ToolkitProvider, {Search, CSVExport} from 'react-bootstrap-table2-toolkit';
 import {ColumnsData} from "../data/ColumnsData";
 
+
 import './css/TableComponent.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.css';
@@ -35,20 +36,21 @@ class TableComponent extends Component {
     async fetchFromApi(apiRoute, idPKU) {                                   // функция подгрузки данных для таблиц, на вход принимает
         await fetch(`${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатию на маркер в MapComponent и
            // console.log(`/api/pkuDataServerPKUTable${idPKU}`);              // apiRoute - api адрес, откуда нужно получить данные
-           console.log(results);
+           // console.log(results);
             return results.json();
         }).then(
             data => {
                 let pkuInfoWithID = data.map((val, ix) => {
                     val.tableID = ix+1;
+                    // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
                     return val;
                 });
-                console.log(data);
+                // console.log(data);
                 this.setState({
                     pkuInfo: pkuInfoWithID,
             });
 
-            console.log(this.state.pkuInfo);
+            // console.log(this.state.pkuInfo);
             // console.log(Object.keys(data.rows[0])[0]);
         }).catch(() => {
             console.log(`Ошибка при выполнении запроса с ${apiRoute}${idPKU}`);
@@ -86,10 +88,10 @@ class TableComponent extends Component {
     }
 
     async uploadData(rowEdit, newV, column) {
-        console.log('Зашел');
-        console.log(rowEdit);
-        console.log(newV);
-        console.log(column);
+        // console.log('Зашел');
+        // console.log(rowEdit);
+        // console.log(newV);
+        // console.log(column);
 
         switch (this.props.typeTable) {
             case "ОМТС":
@@ -97,9 +99,6 @@ class TableComponent extends Component {
                 break;
             case "Монтажники1":
                 this.fetchOnApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit);
-                break;
-            case "Монтажники2":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki2/', this.props.idPKU, rowEdit);
                 break;
             case "ПТО1":
                 this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO1/', this.props.idPKU, rowEdit);
@@ -115,16 +114,17 @@ class TableComponent extends Component {
     componentWillReceiveProps(nextProp) { // если получаем новые пропсы, то перерисовываем таблицу
         if (nextProp.typeTable !== this.props.typeTable || nextProp.idPKU !== this.props.idPKU) {
             this.loadData(nextProp.idPKU, nextProp.typeTable);
+            // this.fetchFromApi( nextProp.idPKU, nextProp.typeTable);
         }
 
     }
 
     async fetchOnApi(apiRoute, idPKU, rowEdit) {
-
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        // await fetch(`http://127.0.0.1:5000${apiRoute}${idPKU}`, {
+        // console.log(rowEdit);
+        // const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        await fetch(`http://127.0.0.1:5000${apiRoute}${idPKU}`, {
         // await fetch(`${proxyurl}`+'http://127.0.0.1:5000/api/test1', {
-        await fetch('http://127.0.0.1:5000/api/test1', {
+        // await fetch('http://127.0.0.1:5000/api/test1', {
             method: 'POST',
             headers:{'content-type': 'application/json'},
             // mode:"no-cors",
@@ -133,10 +133,10 @@ class TableComponent extends Component {
             // cache: "no-cache",
             // proxy: "http://localhost:5000",
         }).then(results => {
-            console.log(`http://127.0.0.1:5000${apiRoute}${idPKU}`);
-            console.log(results);
-            console.log(rowEdit);
-            return results.json()
+            // console.log(`http://127.0.0.1:5000${apiRoute}${idPKU}`);
+            // console.log(results);
+            // console.log(rowEdit);
+            return results.json();
         }).then(data => {
             console.log(data);
         }).catch((err) => {
