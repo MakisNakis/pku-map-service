@@ -19,8 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="+ чутка подредактировал таблицу&#10;+ добавил id для всех таблиц&#10;+ начал делать загрузку данных на сервер через fetch api">
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/selfComponents/Auth/AuthComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +59,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="makeBackOnNodeJS" />
+        <entry key="$PROJECT_DIR$" value="rusteeck" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -463,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594304982294</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="- Merge с tabolin2">
+      <created>1594722694718</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1594722694718</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,7 +517,8 @@
     <MESSAGE value="+ вкладки для отделов" />
     <MESSAGE value="+ добавил подгрузку таблиц по умолчания для всех отделов&#10;+ скроллинг над вкладками страниц&#10;+ опции для вкладок страниц" />
     <MESSAGE value="+ чутка подредактировал таблицу&#10;+ добавил id для всех таблиц&#10;+ начал делать загрузку данных на сервер через fetch api" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ чутка подредактировал таблицу&#10;+ добавил id для всех таблиц&#10;+ начал делать загрузку данных на сервер через fetch api" />
+    <MESSAGE value="- Merge с tabolin2" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Merge с tabolin2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="376" y="451" width="298" height="217" key="#ESLint" />

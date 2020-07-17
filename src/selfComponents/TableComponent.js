@@ -33,7 +33,7 @@ class TableComponent extends Component {
 
 
     async fetchFromApi(apiRoute, idPKU) {                                   // функция подгрузки данных для таблиц, на вход принимает
-        await fetch(`${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
+        await fetch(`${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатию на маркер в MapComponent и
            // console.log(`/api/pkuDataServerPKUTable${idPKU}`);              // apiRoute - api адрес, откуда нужно получить данные
            console.log(results);
             return results.json();
@@ -112,7 +112,7 @@ class TableComponent extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProp) { // если получаем новые пропсы, то перерисовыаем таблицу
+    componentWillReceiveProps(nextProp) { // если получаем новые пропсы, то перерисовываем таблицу
         if (nextProp.typeTable !== this.props.typeTable || nextProp.idPKU !== this.props.idPKU) {
             this.loadData(nextProp.idPKU, nextProp.typeTable);
         }

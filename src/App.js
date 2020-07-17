@@ -3,6 +3,7 @@ import MapComponent from './selfComponents/MapComponent';
 import DepartmentsComponent from './selfComponents/DepartmentsComponent';
 import TableComponent from './selfComponents/TableComponent';
 import AuthorisationComponent from './selfComponents/AuthorisationComponent';
+import AuthComponent from './selfComponents/Auth/AuthComponent';
 import TypeTableComponent from './selfComponents/TypeTableComponent';
 import BootstrapTable from 'react-bootstrap-table-next';
 import cellEditFactory from 'react-bootstrap-table2-editor';
