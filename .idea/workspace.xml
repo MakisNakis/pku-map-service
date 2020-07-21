@@ -19,12 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="- test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/ColumnsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/TypeTableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TypeTableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +90,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editorconfig.notification" value="lf;" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -194,6 +197,20 @@
       <workItem from="1590409469328" duration="4963000" />
       <workItem from="1593005035040" duration="14575000" />
       <workItem from="1593090771130" duration="2115000" />
+      <workItem from="1594822263475" duration="1403000" />
+      <workItem from="1594879597093" duration="1071000" />
+      <workItem from="1594966926573" duration="1794000" />
+      <workItem from="1594969253040" duration="944000" />
+      <workItem from="1594971517776" duration="1788000" />
+      <workItem from="1594973839916" duration="1650000" />
+      <workItem from="1594982738129" duration="1288000" />
+      <workItem from="1594985113582" duration="1797000" />
+      <workItem from="1594986999545" duration="1716000" />
+      <workItem from="1595317141745" duration="1781000" />
+      <workItem from="1595318964835" duration="2238000" />
+      <workItem from="1595321375152" duration="2225000" />
+      <workItem from="1595323703542" duration="638000" />
+      <workItem from="1595326703453" duration="1290000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -419,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593088888895</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="- test">
+      <created>1594820884789</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1594820884789</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,7 +483,8 @@
     <MESSAGE value="- добавил состояние ROOT пользователя в App.js" />
     <MESSAGE value="+ просто commit" />
     <MESSAGE value="+ добавлен выбор под вкладок для отделов" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ добавлен выбор под вкладок для отделов" />
+    <MESSAGE value="- test" />
+    <option name="LAST_COMMIT_MESSAGE" value="- test" />
   </component>
   <component name="WindowStateProjectService">
     <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2" timestamp="1593088888822">
@@ -470,22 +495,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592916497324" />
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1592952013760">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1223" height="416" key="GridCell.Tab.0.bottom" timestamp="1594821289991">
+      <screen x="67" y="27" width="2493" height="1469" />
     </state>
     <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
-    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1592952013760">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1223" height="416" key="GridCell.Tab.0.bottom/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289991" />
+    <state width="1223" height="416" key="GridCell.Tab.0.center" timestamp="1594821289990">
+      <screen x="67" y="27" width="2493" height="1469" />
     </state>
     <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
-    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1592952013759">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1223" height="416" key="GridCell.Tab.0.center/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289990" />
+    <state width="1223" height="416" key="GridCell.Tab.0.left" timestamp="1594821289989">
+      <screen x="67" y="27" width="2493" height="1469" />
     </state>
     <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592952013759" />
-    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1592952013760">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1223" height="416" key="GridCell.Tab.0.left/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289989" />
+    <state width="1223" height="416" key="GridCell.Tab.0.right" timestamp="1594821289991">
+      <screen x="67" y="27" width="2493" height="1469" />
     </state>
     <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
+    <state width="1223" height="416" key="GridCell.Tab.0.right/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289991" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1592952013760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

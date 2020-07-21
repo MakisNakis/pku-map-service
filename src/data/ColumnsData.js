@@ -237,6 +237,9 @@ export function ColumnsData() {
     }, {
         dataField: 'StartDateCon',
         text: 'Дата нач. (контр.)',
+        editor: {
+            type: Type.DATE
+        },
         // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -244,6 +247,9 @@ export function ColumnsData() {
     }, {
         dataField: 'EndDateCon',
         text: 'Дата кон. (контр.)',
+        editor: {
+            type: Type.DATE
+        },
         // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -251,6 +257,9 @@ export function ColumnsData() {
     }, {
         dataField: 'StartDatePlan',
         text: 'Дата нач. (план.)',
+        editor: {
+            type: Type.DATE
+        },
         // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -258,6 +267,9 @@ export function ColumnsData() {
     }, {
         dataField: 'EndDatePlan',
         text: 'Дата кон. (план.)',
+        editor: {
+            type: Type.DATE
+        },
         // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};

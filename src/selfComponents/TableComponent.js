@@ -29,12 +29,13 @@ class TableComponent extends Component {
         this.state = {
             pkuInfo: [],
         };
+        this.url = window.location.href;
     }
 
 
 
     async fetchFromApi(apiRoute, idPKU) {                                   // функция подгрузки данных для таблиц, на вход принимает
-        await fetch(`${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
+        await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
            // console.log(`/api/pkuDataServerPKUTable${idPKU}`);              // apiRoute - api адрес, откуда нужно получить данные
            // console.log(results);
             return results.json();
@@ -121,20 +122,26 @@ class TableComponent extends Component {
 
     async fetchOnApi(apiRoute, idPKU, rowEdit) {
         // console.log(rowEdit);
+        console.log(window.location.href);
+        // console.log(JSON.stringify(rowEdit));
         // const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        await fetch(`http://127.0.0.1:5000${apiRoute}${idPKU}`, {
-        // await fetch(`${proxyurl}`+'http://127.0.0.1:5000/api/test1', {
-        // await fetch('http://127.0.0.1:5000/api/test1', {
+        // await fetch(`http://127.0.0.1:5000${apiRoute}${idPKU}`, {
+        await fetch(`${this.url}${apiRoute}${idPKU}`, {
+        // await fetch(`${proxyurl}http://127.0.0.1:5000${apiRoute}${idPKU}`, {
+        // await fetch('http://192.168.1.116:5000/api/test1', {
             method: 'POST',
             headers:{'content-type': 'application/json'},
-            // mode:"no-cors",
+            // headers:{'content-type': 'text/plain'},
+            // mode: "cors",
+            // body: '222',
+            // credentials: 'same-origin',
             body: JSON.stringify(rowEdit),
             // body: JSON.stringify(this.state.pkuInfo),
             // cache: "no-cache",
             // proxy: "http://localhost:5000",
         }).then(results => {
             // console.log(`http://127.0.0.1:5000${apiRoute}${idPKU}`);
-            // console.log(results);
+            console.log(results);
             // console.log(rowEdit);
             return results.json();
         }).then(data => {
