@@ -80,6 +80,10 @@ class MyRepository {
         let user = 1; // 1 - Админ
         let user1 = '---';
 
+
+        console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        console.log(pkuId);
+        console.log(typeTable);
         console.log(row);
 
         switch (typeTable) {
@@ -180,6 +184,7 @@ class MyRepository {
                 break;
         }
         // this.client.end();
+        console.log("!!!!!!!!!!!!!!!!!!!!!!1");
         return query
     }
 

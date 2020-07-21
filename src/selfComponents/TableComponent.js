@@ -29,7 +29,9 @@ class TableComponent extends Component {
         this.state = {
             pkuInfo: [],
         };
+        this.url = window.location.href;
     }
+
 
 
 
@@ -120,7 +122,8 @@ class TableComponent extends Component {
     }
 
     async fetchOnApi(apiRoute, idPKU, rowEdit) {
-        // console.log(rowEdit);
+        // console.log(window.location.href);
+        // console.log(JSON.stringify(rowEdit));
         // const proxyurl = "https://cors-anywhere.herokuapp.com/";
         await fetch(`http://127.0.0.1:5000${apiRoute}${idPKU}`, {
         // await fetch(`${proxyurl}`+'http://127.0.0.1:5000/api/test1', {
@@ -128,7 +131,8 @@ class TableComponent extends Component {
             method: 'POST',
             headers:{'content-type': 'application/json'},
             // mode:"no-cors",
-            body: JSON.stringify(rowEdit),
+            body:JSON.stringify(rowEdit),
+            // body:rowEdit,
             // body: JSON.stringify(this.state.pkuInfo),
             // cache: "no-cache",
             // proxy: "http://localhost:5000",

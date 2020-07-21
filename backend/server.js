@@ -6,6 +6,9 @@ const cors = require('cors');
 const port = 5000;
 const repository = new MyRepository();
 var mas = "1111";
+
+
+
 // var mas = [
 //     {id: 1, name: "Peter", lastName: "Griffin"},
 //     {id: 2, name: "Jack", lastName: "Sparrow"},
@@ -28,8 +31,9 @@ app.get('/api/test', async (req, res) => {
 });
 
 
-app.route('/api/test1')
-    .post(async (req, res) => {
+// app.route('/api/test1')
+
+app.post('/api/test1', async (req, res) => {
     mas = req.body;
     // console.log(req.json(mas));
     // console.log(req.json());
@@ -37,7 +41,8 @@ app.route('/api/test1')
     console.log(mas);
     res.send(req.body);
 })
-    .get( async (req, res) => {
+
+app.get('/api/test1', async (req, res) => {
     res.send(mas);
 });
 
@@ -93,6 +98,8 @@ for (let i = 0; i < 40; i++) {
             res.json(data.rows);
         })
         .post(async (req, res) => {
+            console.log("$$$$$$$$$$$$ ", req.body);
+
             const data = await repository.uploadDataForTable(i, "ПТО1", req.body);
             res.send(data);
     });
