@@ -5,6 +5,23 @@ const cors = require('cors');
 
 const port = 5000;
 const repository = new MyRepository();
+
+const types = require('pg').types;
+const moment = require('moment');
+var parseFn = function(val) {
+    return val
+    // return moment(val).format("DD.MM.YYYY")
+}
+
+const  TYPE_TIMESTAMP  =  1114;
+const TYPE_DATESTAMP1 = 1082;
+const  TYPE_TIMESTAMPTZ  =  1184;       //??
+
+types.setTypeParser(TYPE_TIMESTAMP, parseFn)
+types.setTypeParser(TYPE_DATESTAMP1, parseFn)
+// types.setTypeParser(TYPE_TIMESTAMPTZ, parseFn)         //??
+// types.setTypeParser(TYPE_DATESTAMP, date => date);
+
 var mas = "1111";
 
 // var mas = [

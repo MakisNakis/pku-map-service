@@ -18,13 +18,6 @@ const connectionString = `postgressql://${DBLOG}:${DBPASS}@localhost:${DBPORT}/$
 // оба сервера работают, бд подключена, все отлично
 // теперь опять, мы внесли правки в код, хотим их зафиксировать и делаем коммит
 
-const types = require('pg').types;
-const  TYPE_TIMESTAMP  =  1114;
-const TYPE_DATESTAMP1 = 1082;
-const  TYPE_TIMESTAMPTZ  =  1184;       //??
-types.setTypeParser(TYPE_TIMESTAMP, date => date)
-types.setTypeParser(TYPE_DATESTAMP1, date => date)
-types.setTypeParser(TYPE_TIMESTAMPTZ, date => date)         //??
 
 class MyRepository {
 

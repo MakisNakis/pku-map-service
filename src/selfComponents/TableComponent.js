@@ -105,6 +105,7 @@ class TableComponent extends Component {
 
     async fetchOnApi(apiRoute, idPKU, rowEdit) {
         console.log(window.location.href);
+        console.log(rowEdit);
         await fetch(`${this.url}${apiRoute}${idPKU}`, {
         // await fetch('http://192.168.1.116:5000/api/test1', {
             method: 'POST',
