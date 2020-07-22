@@ -42,7 +42,7 @@ class DepartmentsComponent extends Component {
             <div>
                 {this.props.show &&
                 <div className="tab">
-                    <button className={className[0]}  title="ОМТС" onClick={this.props.depNameFunc}>ОМТС</button>
+                    <button className={className[0]}  title="ОМТС" onClick={this.props.depNameFunc}>Комплектация</button>
                     <button className={className[1]} title="Монтажники" onClick={this.props.depNameFunc}>Монтажники</button>
                     <button className={className[2]} title="ПТО" onClick={this.props.depNameFunc}>ПТО</button>
                     <button className={className[3]} title="Отчеты" onClick={this.props.depNameFunc}>Отчеты</button>
