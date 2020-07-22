@@ -1,6 +1,6 @@
 const Client= require('pg').Client;
 
-const DBNAME = "NewBase";
+const DBNAME = "PKU_MapService";
 const DBLOG = "postgres";
 const DBPASS = "postgres";
 const DBPORT = "5432";
@@ -17,6 +17,15 @@ const connectionString = `postgressql://${DBLOG}:${DBPASS}@localhost:${DBPORT}/$
 // пример!
 // оба сервера работают, бд подключена, все отлично
 // теперь опять, мы внесли правки в код, хотим их зафиксировать и делаем коммит
+
+const types = require('pg').types;
+const  TYPE_TIMESTAMP  =  1114;
+const TYPE_DATESTAMP1 = 1082;
+const  TYPE_TIMESTAMPTZ  =  1184;       //??
+types.setTypeParser(TYPE_TIMESTAMP, date => date)
+types.setTypeParser(TYPE_DATESTAMP1, date => date)
+types.setTypeParser(TYPE_TIMESTAMPTZ, date => date)         //??
+
 class MyRepository {
 
     constructor() {
@@ -52,26 +61,30 @@ class MyRepository {
         switch (typeTable) {
             case "ОМТС":
                 query = this.client.query(`select * from f_s_equipment_routeid(2);`);
+
                 break;
             case "Монтажники1":
                 query = this.client.query(`select * from f_s_subwork_perf_subid(${pkuId});`);
-                // query.secondQuery = this.client.query(`select * from f_s_subhw_subid(pkuId);`);
+
                 break;
             case "Монтажники2":
-                // query = this.client.query(`select * from f_s_subwork_perf_subid(${pkuId});`);
                 query = this.client.query(`select * from f_s_subhw_subid(${pkuId});`);
+
                 break;
             case "ПТО1":
                 query = this.client.query(`select * from f_s_subwork_pto_subid(${pkuId});`);
                 break;
             case "ПТО2":
                 query = this.client.query(`select * from f_s_subhw_subid(${pkuId});`);
+
                 break;
             case "Отчеты1":
                 query = this.client.query(`select * from f_s_report_general_routeid(2);`);
+
                 break;
             case "Отчеты2":
                 query = this.client.query(`select * from f_s_report_general_routeid(2);`);
+
                 break;
             default:
                 break;
@@ -79,7 +92,6 @@ class MyRepository {
         // this.client.end();
         return query
     }
-//test commit
 
     convertToPG (data) {
         return '\''+data+'\'';
@@ -89,19 +101,13 @@ class MyRepository {
 
         let query = undefined;
         let user = 1; // 1 - Админ
-        let user1 = '---';
-
-
-        console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        console.log(pkuId);
-        console.log(typeTable);
-        console.log(row);
 
         switch (typeTable) {
             case "ОМТС":
                 let DateContract = null;
                 let DatePlan = null;
                 let DateFact = null;
+                let CommentOMTS = '';
                 if(row.DateContract !== null) {
                     DateContract = this.convertToPG(row.DateContract);
                 }
@@ -112,6 +118,9 @@ class MyRepository {
                 if(row.DateFact !== null) {
                     DateFact = this.convertToPG(row.DateFact);
                 }
+                if(row.Comment !== null) {
+                    CommentOMTS = row.Comment;
+                }
 
                 query = this.client.query(`select * from f_u_equipment(
                     ${row.DeliveryID}, 
@@ -119,22 +128,25 @@ class MyRepository {
                     ${DatePlan}, 
                     ${DateFact}, 
                     ${row.Quantity}, 
-                    ${this.convertToPG(row.Comment)},
+                    ${this.convertToPG(CommentOMTS)},
                     ${user}
                 );`);
                 break;
             case "Монтажники1":
                 let DateWork = null;
+                let CommentMontazhniki1 = '';
                 if(row.DateWork !== null) {
                     DateWork = this.convertToPG(row.DateWork);
                 }
-
+                if(row.Comment !== null) {
+                    CommentMontazhniki1 = row.Comment;
+                }
                 query = this.client.query(`select * from f_u_subwork_perf(
                     ${row.WorkID},
                     ${DateWork},
                     ${this.convertToPG(row.Fact)},
                     ${user},
-                    ${this.convertToPG(row.Comment)},
+                    ${this.convertToPG(CommentMontazhniki1)},
                     ${user}
                 );`);
                 break;
@@ -146,6 +158,8 @@ class MyRepository {
                 let DateWorkPTO = null;
                 let EndDateAkt = null;
                 let MaterialDate = null;
+                let CommentPTO1 = '';
+
                 if(row.StartDateCon !== null) {
                     StartDateCon = this.convertToPG(row.StartDateCon);
                 }
@@ -167,7 +181,9 @@ class MyRepository {
                 if(row.MaterialDate !== null) {
                     MaterialDate = this.convertToPG(row.MaterialDate);
                 }
-
+                if(row.Comment !== null) {
+                    CommentPTO1 = row.Comment;
+                }
                 query = this.client.query(`select * from f_u_subwork_pto(
                     ${row.WorkID},
                     ${row.Quantity},
@@ -180,7 +196,7 @@ class MyRepository {
                     ${user},
                     ${EndDateAkt},
                     ${MaterialDate},
-                    ${this.convertToPG(row.Comment)},
+                    ${this.convertToPG(CommentPTO1)},
                     ${user}
                 );`);
                 break;
@@ -195,7 +211,6 @@ class MyRepository {
                 break;
         }
         // this.client.end();
-        console.log("!!!!!!!!!!!!!!!!!!!!!!1");
         return query
     }
 

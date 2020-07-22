@@ -4,15 +4,8 @@ const app = express();
 const cors = require('cors');
 
 const port = 5000;
-// const corsOptions = {
-//     origin: '*',
-//     optionsSuccessStatus: 200
-//
-// }
 const repository = new MyRepository();
 var mas = "1111";
-
-
 
 // var mas = [
 //     {id: 1, name: "Peter", lastName: "Griffin"},
@@ -21,29 +14,7 @@ var mas = "1111";
 // ];
 
 app.use(cors());
-// app.use(cors(corsOptions));
-// app.use((req,res,next)=>{
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     res.header("Access-Control-Allow-Methods", 'GET,POST,PUT,DELETE,PATCH');
-//     next();
-// });
 app.use(express.json({limit: '1mb'}));
-
-// app.use(function(req, res, next) {
-//     var allowedOrigins = '*';
-//     // var allowedOrigins = ['http://127.0.0.1:8020', 'http://localhost:8020', 'http://127.0.0.1:9000', 'http://localhost:9000'];
-//     // var origin = req.headers.origin;
-//     // if(allowedOrigins.indexOf(origin) > -1) {
-//     //     res.setHeader('Access-Control-Allow-Origin', origin);
-//     // }
-//     res.header('Access-Control-Allow-Origin', '*');
-//     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-//     res.header('Access-Control-Allow-Headers', 'Content-Type');
-//     res.header('Access-Control-Allow-Credentials', true);
-//     return next();
-// });
-
 app.listen(port, () => console.log(`Server started on port ${port}`));
 
 app.get('/api/test', async (req, res) => {
@@ -53,16 +24,12 @@ app.get('/api/test', async (req, res) => {
         {id: 3, name: "Steve", lastName: "Smith"}
     ];
     res.json(pkuDataServer);
-
 });
 
 
 app.route('/api/test1')
     .post(async (req, res) => {
     mas = req.body;
-    // console.log(req.json(mas));
-    // console.log(req.json());
-    // console.log(req);
     console.log(mas);
     console.log(req.headers.origin);
     res.send(req.body);
@@ -82,14 +49,6 @@ app.get('/api/pkuDataServerSecondRoute', async (req, res) => {
     res.json(data);
 });
 
-// app.route('/api/pkuDataServerPKUTable/id')
-//     .get(async (req, res) => {
-//         const data = await repository.loadDataForTable("ОМТС");
-//         res.json(data.rows)
-//     })
-//     .post(async (req, res) => {
-//         res.send(req.body);
-//     });
 
 for (let i = 0; i < 40; i++) {
     app.route(`/api/pkuDataServerPKUTable/OMTS/${i}`)
@@ -123,7 +82,6 @@ for (let i = 0; i < 40; i++) {
             res.json(data.rows);
         })
         .post(async (req, res) => {
-            console.log("!!!!!!!!!!!!!!!!!!!!!");
             console.log(req.headers.origin);
             const data = await repository.uploadDataForTable(i, "ПТО1", req.body);
             res.send(data);
