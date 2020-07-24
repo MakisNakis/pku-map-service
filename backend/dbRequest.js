@@ -1,10 +1,10 @@
-const Client= require('pg').Client;
+const Client= require('pg').Client;                         // подключение модуля для соединения с БД
 
-const DBNAME = "PKU_MapService";
-const DBLOG = "postgres";
-const DBPASS = "postgres";
-const DBPORT = "5432";
-const connectionString = `postgressql://${DBLOG}:${DBPASS}@localhost:${DBPORT}/${DBNAME}`;
+const DBNAME = "PKU_MapService";                            // название БД
+const DBLOG = "postgres";                                   // логин в БД
+const DBPASS = "postgres";                                  // пароль в БД
+const DBPORT = "5432";                                      // порт БД
+const connectionString = `postgressql://${DBLOG}:${DBPASS}@localhost:${DBPORT}/${DBNAME}`; // строка с данными для подключения к БД
 //если вносишь изменения, то делаешь commit
 //коммит логирует и сохраняет все локальные изменения
 
@@ -22,28 +22,28 @@ const connectionString = `postgressql://${DBLOG}:${DBPASS}@localhost:${DBPORT}/$
 class MyRepository {
 
     constructor() {
-        this.client = new Client({
+        this.client = new Client({                              // создание подключения к БД
             connectionString: connectionString
         });
 
     }
 
-    async loadDataForMarkers(routeId) {
+    async loadDataForMarkers(routeId) {                         // функция для считывания данных об объектах на маршруте
         try {
-            await this.client.connect();
+            await this.client.connect();                        // создание подключения
             console.log('DB has been connected');
         } catch(e) {
             console.log('Error', e)
         }
 
-        let query = this.client.query(`select * from f_s_subject_routeid(${routeId})`);
+        let query = this.client.query(`select * from f_s_subject_routeid(${routeId})`); // запрос для получения координат маркеров на маршруте routeId
         // this.client.end();
         return query
     }
 
-    async loadDataForTable(pkuId, typeTable) {
+    async loadDataForTable(pkuId, typeTable) {                  // функция для считывания данных об объектах в зависимости от отдела
         try {
-            await this.client.connect();
+            await this.client.connect();                        // создание подключения
             console.log('DB has been connected');
         } catch(e) {
             console.log('Error', e)
@@ -53,30 +53,30 @@ class MyRepository {
 
         switch (typeTable) {
             case "ОМТС":
-                query = this.client.query(`select * from f_s_equipment_routeid(2);`);
+                query = this.client.query(`select * from f_s_equipment_routeid(2);`);           // запрос на получение информации об оборудовании для отдела комплектации
 
                 break;
             case "Монтажники1":
-                query = this.client.query(`select * from f_s_subwork_perf_subid(${pkuId});`);
+                query = this.client.query(`select * from f_s_subwork_perf_subid(${pkuId});`);   // запрос на получение информации о работах на объекте для отдела монтажников
 
                 break;
             case "Монтажники2":
-                query = this.client.query(`select * from f_s_subhw_subid(${pkuId});`);
+                query = this.client.query(`select * from f_s_subhw_subid(${pkuId});`);          // запрос на получение информации об оборудовании для монтажников
 
                 break;
             case "ПТО1":
-                query = this.client.query(`select * from f_s_subwork_pto_subid(${pkuId});`);
+                query = this.client.query(`select * from f_s_subwork_pto_subid(${pkuId});`);    // запрос на получение информации о работах на объекте для отдела ПТО
                 break;
             case "ПТО2":
-                query = this.client.query(`select * from f_s_subhw_subid(${pkuId});`);
+                query = this.client.query(`select * from f_s_subhw_subid(${pkuId});`);          // запрос на получение информации об оборудовании для отдела ПТО
 
                 break;
             case "Отчеты1":
-                query = this.client.query(`select * from f_s_report_general_routeid(2);`);
+                query = this.client.query(`select * from f_s_report_general_routeid(2);`);      // запрос на получение отчетов
 
                 break;
             case "Отчеты2":
-                query = this.client.query(`select * from f_s_report_general_routeid(2);`);
+                query = this.client.query(`select * from f_s_report_general_routeid(2);`);      // запрос на получение отчетов
 
                 break;
             default:
@@ -86,14 +86,18 @@ class MyRepository {
         return query
     }
 
-    convertToPG (data) {
+    convertToPG (data) {                        // функция для окружения строки символами '' (требуется для передачи данных в postgres)
         return '\''+data+'\'';
     }
 
     async uploadDataForTable(pkuId, typeTable, row) {
 
         let query = undefined;
-        let user = 1; // 1 - Админ
+        let user = 1;                           // 1 - Админ - (временная переменная из за отсутствия регистрации)
+
+
+        // Здесь и далее для всех отделов:
+        //  - if используется для преобразования даты и комментария в тип, пригодный для pg (т.е. данные должны быть окружены '')
 
         switch (typeTable) {
             case "ОМТС":
@@ -101,6 +105,7 @@ class MyRepository {
                 let DatePlan = null;
                 let DateFact = null;
                 let CommentOMTS = '';
+
                 if(row.DateContract !== null) {
                     DateContract = this.convertToPG(row.DateContract);
                 }
@@ -115,7 +120,8 @@ class MyRepository {
                     CommentOMTS = row.Comment;
                 }
 
-                query = this.client.query(`select * from f_u_equipment(
+                                                                 // запрос на внесение данных для отдела комплектации
+                query = this.client.query(`select * from f_u_equipment(        
                     ${row.DeliveryID}, 
                     ${DateContract}, 
                     ${DatePlan}, 
@@ -134,6 +140,8 @@ class MyRepository {
                 if(row.Comment !== null) {
                     CommentMontazhniki1 = row.Comment;
                 }
+
+                                                                // запрос на внесение данных о работах для монтажников
                 query = this.client.query(`select * from f_u_subwork_perf(
                     ${row.WorkID},
                     ${DateWork},
@@ -177,6 +185,8 @@ class MyRepository {
                 if(row.Comment !== null) {
                     CommentPTO1 = row.Comment;
                 }
+
+                                                                // запрос на внесение данных о работах для отдела ПТО
                 query = this.client.query(`select * from f_u_subwork_pto(
                     ${row.WorkID},
                     ${row.Quantity},
@@ -194,6 +204,8 @@ class MyRepository {
                 );`);
                 break;
             case "ПТО2":
+
+                                                                // запрос на внесение данных об оборудовании для отдела ПТО
                 query = this.client.query(`select * from f_u_worknomgr(
                     ${row.WorksNomGroupID},
                     ${row.QuantityNG},
