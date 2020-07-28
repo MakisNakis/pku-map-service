@@ -219,7 +219,46 @@ class MyRepository {
         return query
     }
 
+    async checkAuth(data) { // функция для проверки пароля и логина пользователя
+        try {
+            await this.client.connect();                        // создание подключения
+            console.log('DB has been connected');
+        } catch(e) {
+            console.log('Error', e)
+        }
+        let query = undefined;
+        const logForPG = this.convertToPG(data.login);
+        const passForPG = this.convertToPG(data.password);
+        console.log(data.password)
+        query = this.client.query(`select * from f_s_userid_logpas(${logForPG}, ${passForPG});`);        // this.client.end();
+        return query
+    }
 
+    async getUserRole(data) { // функция для проверки пароля и логина пользователя
+        try{
+            await this.client.connect();                        // создание подключения
+            console.log('DB has been connected');
+        } catch(e) {
+            console.log('Error', e)
+        }
+        const userIdPG = this.convertToPG(data.userId);
+        console.log(userIdPG)
+        let query = this.client.query(`select * from f_s_roleid_userid(${userIdPG});`);        // this.client.end();
+        return query
+    }
+
+    async getUserName(data) { // функция для проверки пароля и логина пользователя
+        try{
+            await this.client.connect();                        // создание подключения
+            console.log('DB has been connected');
+        } catch(e) {
+            console.log('Error', e)
+        }
+        const userIdPG = this.convertToPG(data.userId);
+        console.log(userIdPG)
+        let query = this.client.query(`select * from f_s_username_userid(${userIdPG});`)
+        return query
+    }
 }
 
 module.exports = MyRepository;

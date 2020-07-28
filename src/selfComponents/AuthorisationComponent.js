@@ -18,14 +18,9 @@ class AuthorisationComponent extends Component {
                     <button>Авторизоваться</button>
                     <br/>
                     <br/>
-                    ОМТС
-                    <br/>
-                    Монтажники
-                    <br/>
-                    ПТО
-                    <br/>
-                    Отчеты
+
                 </form>
+                {this.props.incorrectUser === true && <h3>Неверный логин или пароль ;^(</h3>}
                 {this.props.authErr}
             </div>
         )

@@ -124,7 +124,31 @@ for (let i = 0; i < 40; i++) {                                  // цикл, в 
     });
 }
 
+app.route(`/api/auth`) // эндпоинт для получения id пользователя, который логинится
+        .post(async (req, res) => {
+            let data = req.body
+            console.log(data)
+            const dbResponse = await repository.checkAuth(data);
+            // res.send(req.body);
+            res.send(dbResponse);
 
+    });
 
+app.route(`/api/auth/userRole`) // эндпоинт для получения номера роли пользователя, который залогинился
+    .post(async (req, res) => {
+        let data = req.body
+        console.log(data)
+        const dbResponse = await repository.getUserRole(data);
+        // res.send(req.body);
+        res.send(dbResponse);
 
+    });
 
+app.route(`/api/auth/userName`) // эндпоинт для получения имени пользователя, который залогинился
+    .post(async (req, res) => {
+        let data = req.body
+        console.log(data)
+        const dbResponse = await repository.getUserName(data);
+        res.send(dbResponse);
+
+    });

@@ -44,8 +44,6 @@ class App extends React.Component {
 
         this.state = {
             // authorisation: true,
-            authorisation: false,
-            authorisationErr: false,
             show: false,        //показать таблицу
             hide: "Нажмите на ПКУ для вывода таблицы",
             idPKU: undefined,
@@ -55,57 +53,108 @@ class App extends React.Component {
             typeTable: "ПТО1",
             markerName: undefined,
             rootPriv: "Отчеты",
+            // стейты для авторизации
+            authorisation: false,
+            authorisationErr: false,
+            incorrectUser: false,
+            userId: undefined,
+            userRole: undefined,
+            userName: undefined
         }
+        this.url = window.location.href;
     }
+
+    async getUserIdByLogPass(apiRoute, login, pass) { // функция для получения id пользователя
+        console.log(login);
+        console.log(pass);
+        const userData = {login: login, password: pass}
+        // console.log(userData);
+        await fetch(`http://localhost:5000/${apiRoute}`, {
+            // await fetch('http://192.168.1.116:5000/api/test1', {
+            method: 'POST',
+            headers:{'content-type': 'application/json'},
+            mode: "cors",
+            // credentials: 'same-origin',
+            body: JSON.stringify(userData),
+            // cache: "no-cache",
+        }).then(results => {
+            console.log(results);
+            return results.json();
+        }).then(data => {
+            console.log(data.rows[0].f_s_userid_logpas);
+            if (data.rows[0].f_s_userid_logpas !== 0){
+                this.setState({incorrectUser: false})
+                this.setState({authorisation: true})
+                this.setState({userId: data.rows[0].f_s_userid_logpas})
+                console.log("Жабка в очках")
+                this.getUserRoleById(apiRoute, data.rows[0].f_s_userid_logpas)
+                this.getUserNameById(apiRoute, data.rows[0].f_s_userid_logpas)
+            } else this.setState({incorrectUser:true})
+        }).catch((err) => {
+            console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}`);
+        });
+    }
+
+    async getUserRoleById(apiRoute, userId) { // функция для получения номера роли пользователя
+        // console.log(userData);
+        const userIdJson = {userId: userId}
+        await fetch(`http://localhost:5000/${apiRoute}/userRole`, {
+            // await fetch('http://192.168.1.116:5000/api/test1', {
+            method: 'POST',
+            headers:{'content-type': 'application/json'},
+            mode: "cors",
+            // credentials: 'same-origin',
+            body: JSON.stringify(userIdJson),
+            // cache: "no-cache",
+        }).then(results => {
+            console.log(results);
+            return results.json();
+        }).then(data => {
+            console.log(data.rows[0].f_s_roleid_userid);
+            this.setState({userRole: data.rows[0].f_s_roleid_userid})
+            // console.log(data);
+        }).catch((err) => {
+            console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}/userRole`);
+        });
+    }
+
+    async getUserNameById(apiRoute, userId) { // функция для получения номера роли пользователя
+        const userIdJson = {userId: userId}
+        await fetch(`http://localhost:5000/${apiRoute}/userName`, {
+            method: 'POST',
+            headers:{'content-type': 'application/json'},
+            mode: "cors",
+            // credentials: 'same-origin',
+            body: JSON.stringify(userIdJson),
+            // cache: "no-cache",
+        }).then(results => {
+            console.log(results);
+            return results.json();
+        }).then(data => {
+            console.log(data.rows[0].f_s_username_userid);
+            this.setState({userName: data.rows[0].f_s_username_userid})
+            // this.setState()
+            // console.log(data);
+        }).catch((err) => {
+            console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}/userName`);
+        });
+    }
+
+    async checkLoginPass(login, pass) {
+        this.getUserIdByLogPass('api/auth', login, pass);
+    }
+
 
     gettingPersonName = /*async*/ (e) => {
         e.preventDefault();
         const login = e.target.elements.loginPerson.value;
         const password = e.target.elements.passwordPerson.value;
+        return this.checkLoginPass(login, password)
+        // console.log(login);
+        // console.log(password);
 
-        console.log(login);
-        console.log(password);
-
-        if (login === "ОМТС" && password === "ОМТС")
-        {
-            this.setState({
-                authorisation: true,
-                authorisationErr: false,
-                depName: "ОМТС",
-                typeTable: "ОМТС",
-                rootPriv: "ОМТС"
-            });
-        }else if(login === "Монтажники" && password === "Монтажники"){
-            this.setState({
-                authorisation: true,
-                authorisationErr: false,
-                depName: "Монтажники",
-                typeTable: "Монтажники1",
-                rootPriv: "Монтажники"
-            });
-        }else if(login === "ПТО" && password === "ПТО"){
-            this.setState({
-                authorisation: true,
-                authorisationErr: false,
-                depName: "ПТО",
-                typeTable: "ПТО1",
-                rootPriv: "ПТО"
-            });
-        }else if(login === "Отчеты" && password === "Отчеты"){
-            this.setState({
-                authorisation: true,
-                authorisationErr: false,
-                depName: "Отчеты",
-                typeTable: "Отчеты1",
-                rootPriv: "Отчеты"
-        });
-        }else {
-            this.setState({
-                authorisation: false,
-                authorisationErr: "Неправильный логин или пароль",
-            });
-        }
     }
+
 
     gettingNamePKU = (e) => {
         // e.preventDefault();
@@ -179,6 +228,7 @@ class App extends React.Component {
                 {!this.state.authorisation && <AuthorisationComponent
                     getPersonName={this.gettingPersonName}
                     authErr={this.state.authorisationErr}
+                    incorrectUser={this.state.incorrectUser}
                 />}
                 {this.state.authorisation &&
                 <div>
