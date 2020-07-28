@@ -65,8 +65,8 @@ class App extends React.Component {
     }
 
     async getUserIdByLogPass(apiRoute, login, pass) { // функция для получения id пользователя
-        console.log(login);
-        console.log(pass);
+        // console.log(login);
+        // console.log(pass);
         const userData = {login: login, password: pass}
         // console.log(userData);
         await fetch(`http://localhost:5000/${apiRoute}`, {
@@ -78,10 +78,10 @@ class App extends React.Component {
             body: JSON.stringify(userData),
             // cache: "no-cache",
         }).then(results => {
-            console.log(results);
+            // console.log(results);
             return results.json();
         }).then(data => {
-            console.log(data.rows[0].f_s_userid_logpas);
+            // console.log(data.rows[0].f_s_userid_logpas);
             if (data.rows[0].f_s_userid_logpas !== 0){
                 this.setState({incorrectUser: false})
                 this.setState({authorisation: true})
@@ -107,11 +107,31 @@ class App extends React.Component {
             body: JSON.stringify(userIdJson),
             // cache: "no-cache",
         }).then(results => {
-            console.log(results);
+            // console.log(results);
             return results.json();
         }).then(data => {
             console.log(data.rows[0].f_s_roleid_userid);
             this.setState({userRole: data.rows[0].f_s_roleid_userid})
+            switch (this.state.userRole) {
+                case 1:
+                    this.setState({depName: "Отчеты"});
+                    this.setState({typeTable: "Отчеты1"});
+                    break;
+                case 2:
+                    this.setState({depName: "ОМТС"});
+                    this.setState({typeTable: "ОМТС"});
+                    break;
+                case 3:
+                    this.setState({depName: "ПТО"});
+                    this.setState({typeTable: "ПТО1"});
+                    break;
+                case 4:
+                    this.setState({depName: "Монтажники"});
+                    this.setState({typeTable: "Монтажники1"});
+                    break;
+                default:
+                    break;
+            }
             // console.log(data);
         }).catch((err) => {
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}/userRole`);
@@ -128,7 +148,7 @@ class App extends React.Component {
             body: JSON.stringify(userIdJson),
             // cache: "no-cache",
         }).then(results => {
-            console.log(results);
+            // console.log(results);
             return results.json();
         }).then(data => {
             console.log(data.rows[0].f_s_username_userid);
@@ -225,6 +245,7 @@ class App extends React.Component {
                 {/*    columns={ columns }*/}
                 {/*    cellEdit={ cellEditFactory({ mode: 'click' }) }*/}
                 {/*/>*/}
+
                 {!this.state.authorisation && <AuthorisationComponent
                     getPersonName={this.gettingPersonName}
                     authErr={this.state.authorisationErr}
@@ -235,7 +256,8 @@ class App extends React.Component {
                     <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
                     <MapComponent namePKU={this.gettingNamePKU}/>
                     <div id="start"></div>
-                    {this.state.rootPriv === "Отчеты" && <DepartmentsComponent
+                    <h2>Вы вошли как пользователь {this.state.userName}</h2>
+                    {this.state.userRole === 1 && <DepartmentsComponent
                         show={this.state.show}
                         hide={this.state.hide}
                         idPKU={this.state.idPKU}
@@ -261,6 +283,8 @@ class App extends React.Component {
                     depName={this.state.depName}
                     typeTable={this.state.typeTable}
                     markerName={this.state.markerName}
+                    userRole={this.state.userRole}
+                    userName={this.state.userName}
                     />
                 </div>}
 

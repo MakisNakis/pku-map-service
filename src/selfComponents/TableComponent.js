@@ -81,16 +81,16 @@ class TableComponent extends Component {
     async uploadData(rowEdit) {
         switch (this.props.typeTable) {
             case "ОМТС":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/OMTS/', this.props.idPKU, rowEdit);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/OMTS/', this.props.idPKU, rowEdit, this.props.userRole, this.props.userName);
                 break;
             case "Монтажники1":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit, this.props.userRole, this.props.userName);
                 break;
             case "ПТО1":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO1/', this.props.idPKU, rowEdit);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO1/', this.props.idPKU, rowEdit, this.props.userRole, this.props.userName);
                 break;
             case "ПТО2":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO2/', this.props.idPKU, rowEdit);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO2/', this.props.idPKU, rowEdit, this.props.userRole, this.props.userName);
                 break;
             default:
                 break;

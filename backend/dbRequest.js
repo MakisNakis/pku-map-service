@@ -90,10 +90,11 @@ class MyRepository {
         return '\''+data+'\'';
     }
 
-    async uploadDataForTable(pkuId, typeTable, row) {
+    async uploadDataForTable(pkuId, typeTable, row, userRole, userName) {
 
         let query = undefined;
-        let user = 1;                           // 1 - Админ - (временная переменная из за отсутствия регистрации)
+                                  // 1 - Админ - (временная переменная из за отсутствия регистрации)
+                                // 1 - Админ - (временная переменная из за отсутствия регистрации)
 
 
         // Здесь и далее для всех отделов:
@@ -128,7 +129,7 @@ class MyRepository {
                     ${DateFact}, 
                     ${row.Quantity}, 
                     ${this.convertToPG(CommentOMTS)},
-                    ${user}
+                    ${userRole}
                 );`);
                 break;
             case "Монтажники1":
@@ -146,9 +147,9 @@ class MyRepository {
                     ${row.WorkID},
                     ${DateWork},
                     ${this.convertToPG(row.Fact)},
-                    ${user},
+                    ${userRole},
                     ${this.convertToPG(CommentMontazhniki1)},
-                    ${user}
+                    ${userRole}
                 );`);
                 break;
             case "ПТО1":
@@ -196,11 +197,11 @@ class MyRepository {
                     ${EndDatePlan},
                     ${DateWorkPTO},
                     ${this.convertToPG(row.Fact)},
-                    ${user},
+                    ${userRole},
                     ${EndDateAkt},
                     ${MaterialDate},
                     ${this.convertToPG(CommentPTO1)},
-                    ${user}
+                    ${userRole}
                 );`);
                 break;
             case "ПТО2":
@@ -209,7 +210,7 @@ class MyRepository {
                 query = this.client.query(`select * from f_u_worknomgr(
                     ${row.WorksNomGroupID},
                     ${row.QuantityNG},
-                    ${user}
+                    ${userRole}
                 );`);
                 break;
             default:
