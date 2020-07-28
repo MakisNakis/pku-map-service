@@ -43,8 +43,8 @@ class App extends React.Component {
         super();
 
         this.state = {
-            authorisation: true,
-            // authorisation: false,
+            // authorisation: true,
+            authorisation: false,
             authorisationErr: false,
             show: false,        //показать таблицу
             hide: "Нажмите на ПКУ для вывода таблицы",
