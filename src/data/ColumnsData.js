@@ -47,7 +47,7 @@ export function ColumnsData() {
         editor: {
             type: Type.DATE
         },
-        editable: false,
+        // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -176,8 +176,8 @@ export function ColumnsData() {
         text: 'Факт выполнения',
         editor: {
             type: Type.CHECKBOX,
-            value: 'false:true'
-        },
+            value: 'true:false'
+    },
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
         }
@@ -223,7 +223,7 @@ export function ColumnsData() {
     }, {
         dataField: 'Quantity',
         text: 'Кол-во',
-        editable: false,
+        // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 100, textAlign: 'center'};
         }
@@ -237,28 +237,40 @@ export function ColumnsData() {
     }, {
         dataField: 'StartDateCon',
         text: 'Дата нач. (контр.)',
-        editable: false,
+        editor: {
+            type: Type.DATE
+        },
+        // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
     }, {
         dataField: 'EndDateCon',
         text: 'Дата кон. (контр.)',
-        editable: false,
+        editor: {
+            type: Type.DATE
+        },
+        // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
     }, {
         dataField: 'StartDatePlan',
         text: 'Дата нач. (план.)',
-        editable: false,
+        editor: {
+            type: Type.DATE
+        },
+        // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
     }, {
         dataField: 'EndDatePlan',
         text: 'Дата кон. (план.)',
-        editable: false,
+        editor: {
+            type: Type.DATE
+        },
+        // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -276,7 +288,7 @@ export function ColumnsData() {
         text: 'Факт выполнения',
         editor: {
             type: Type.CHECKBOX,
-            value: 'false:true'
+            value: 'true:false'
         },
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
@@ -422,20 +434,6 @@ export function ColumnsData() {
         }
 
     }, {
-        dataField: 'QuantityHW',
-        text: 'Кол-во',
-        editable: false,
-        headerStyle: (colum, colIndex) => {
-            return {width: 100, textAlign: 'center'};
-        }
-    }, {
-        dataField: 'HardwareUnit',
-        text: 'Ед. изм.',
-        editable: false,
-        headerStyle: (colum, colIndex) => {
-            return {width: 100, textAlign: 'center'};
-        }
-    }, {
         dataField: 'NomGroupName',
         text: 'Наименование',
         editable: false,
@@ -444,8 +442,9 @@ export function ColumnsData() {
         }
     }, {
         dataField: 'QuantityNG',
-        text: 'Кол-во наименований',
-        editable: false,
+        text: 'Количество',
+        // editable: false,
+        type: 'number',
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
         }
@@ -479,6 +478,9 @@ export function ColumnsData() {
         }
     }];
 
+
+
+
     // Перечень оборудования монтажники
     tableHeaders["Монтажники2"] = [{
         dataField: 'HardwareModel',
@@ -488,20 +490,6 @@ export function ColumnsData() {
             return {width: 400, textAlign: 'center'};
         }
 
-    }, {
-        dataField: 'QuantityHW',
-        text: 'Кол-во',
-        editable: false,
-        headerStyle: (colum, colIndex) => {
-            return {width: 100, textAlign: 'center'};
-        }
-    }, {
-        dataField: 'HardwareUnit',
-        text: 'Ед. изм.',
-        editable: false,
-        headerStyle: (colum, colIndex) => {
-            return {width: 100, textAlign: 'center'};
-        }
     }, {
         dataField: 'NomGroupName',
         text: 'Наименование',

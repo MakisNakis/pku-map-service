@@ -23,7 +23,7 @@ class MapComponent extends Component {
         super();
 
         this.state = {
-            zoom: 9,
+            zoom: 8,
             minZoom: 4,
             radius: 0,
             firstRouteApi: '/api/pkuDataServerFirstRoute',

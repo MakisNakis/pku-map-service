@@ -19,8 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="+ чутка подредактировал таблицу&#10;+ добавил id для всех таблиц&#10;+ начал делать загрузку данных на сервер через fetch api">
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +31,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -85,18 +86,14 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editorconfig.notification" value="lf;" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -116,18 +113,6 @@
       <recent name="$PROJECT_DIR$/public/markers" />
       <recent name="$PROJECT_DIR$" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="npm.dev">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -208,15 +193,22 @@
       <workItem from="1590323173568" duration="9533000" />
       <workItem from="1590409469328" duration="4963000" />
       <workItem from="1593005035040" duration="14575000" />
-      <workItem from="1593090771130" duration="3324000" />
-      <workItem from="1593156585453" duration="5373000" />
-      <workItem from="1593505165743" duration="768000" />
-      <workItem from="1593506075147" duration="616000" />
-      <workItem from="1594018376127" duration="18303000" />
-      <workItem from="1594042036857" duration="2039000" />
-      <workItem from="1594280531582" duration="21729000" />
-      <workItem from="1594368195476" duration="8189000" />
-      <workItem from="1594625107478" duration="18105000" />
+      <workItem from="1593090771130" duration="2115000" />
+      <workItem from="1594822263475" duration="1403000" />
+      <workItem from="1594879597093" duration="1071000" />
+      <workItem from="1594966926573" duration="1794000" />
+      <workItem from="1594969253040" duration="944000" />
+      <workItem from="1594971517776" duration="1788000" />
+      <workItem from="1594973839916" duration="1650000" />
+      <workItem from="1594982738129" duration="1288000" />
+      <workItem from="1594985113582" duration="1797000" />
+      <workItem from="1594986999545" duration="1716000" />
+      <workItem from="1595317141745" duration="1781000" />
+      <workItem from="1595318964835" duration="2238000" />
+      <workItem from="1595321375152" duration="2225000" />
+      <workItem from="1595323703542" duration="638000" />
+      <workItem from="1595326703453" duration="1290000" />
+      <workItem from="1595417747757" duration="9413000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -442,26 +434,26 @@
       <option name="project" value="LOCAL" />
       <updated>1593088888895</updated>
     </task>
-    <task id="LOCAL-00033" summary="+ вкладки для отделов">
-      <created>1593093157343</created>
+    <task id="LOCAL-00033" summary="- test">
+      <created>1594820884789</created>
       <option name="number" value="00033" />
       <option name="presentableId" value="LOCAL-00033" />
       <option name="project" value="LOCAL" />
-      <updated>1593093157343</updated>
+      <updated>1594820884789</updated>
     </task>
-    <task id="LOCAL-00034" summary="+ добавил подгрузку таблиц по умолчания для всех отделов&#10;+ скроллинг над вкладками страниц&#10;+ опции для вкладок страниц">
-      <created>1593161595863</created>
+    <task id="LOCAL-00034" summary="+ исправил формат даты и времени">
+      <created>1595414311764</created>
       <option name="number" value="00034" />
       <option name="presentableId" value="LOCAL-00034" />
       <option name="project" value="LOCAL" />
-      <updated>1593161595863</updated>
+      <updated>1595414311764</updated>
     </task>
-    <task id="LOCAL-00035" summary="+ чутка подредактировал таблицу&#10;+ добавил id для всех таблиц&#10;+ начал делать загрузку данных на сервер через fetch api">
-      <created>1594304982294</created>
+    <task id="LOCAL-00035" summary="+ исправил формат даты и времени (fix)">
+      <created>1595419516263</created>
       <option name="number" value="00035" />
       <option name="presentableId" value="LOCAL-00035" />
       <option name="project" value="LOCAL" />
-      <updated>1594304982294</updated>
+      <updated>1595419516263</updated>
     </task>
     <option name="localTasksCounter" value="36" />
     <servers />
@@ -474,13 +466,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)" />
@@ -504,66 +495,112 @@
     <MESSAGE value="- добавил состояние ROOT пользователя в App.js" />
     <MESSAGE value="+ просто commit" />
     <MESSAGE value="+ добавлен выбор под вкладок для отделов" />
-    <MESSAGE value="+ вкладки для отделов" />
-    <MESSAGE value="+ добавил подгрузку таблиц по умолчания для всех отделов&#10;+ скроллинг над вкладками страниц&#10;+ опции для вкладок страниц" />
-    <MESSAGE value="+ чутка подредактировал таблицу&#10;+ добавил id для всех таблиц&#10;+ начал делать загрузку данных на сервер через fetch api" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ чутка подредактировал таблицу&#10;+ добавил id для всех таблиц&#10;+ начал делать загрузку данных на сервер через fetch api" />
+    <MESSAGE value="- test" />
+    <MESSAGE value="+ исправил формат даты и времени" />
+    <MESSAGE value="+ исправил формат даты и времени (fix)" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ исправил формат даты и времени (fix)" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="376" y="451" width="298" height="217" key="#ESLint" />
-    <state x="376" y="451" width="298" height="217" key="#ESLint/67.27.1853.1068@67.27.1853.1068" />
-    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2" />
-    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" />
-    <state x="549" y="167" key="FileChooserDialogImpl" />
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" />
-    <state width="881" height="283" key="GridCell.Tab.0.bottom" />
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" />
-    <state width="881" height="283" key="GridCell.Tab.0.bottom/67.27.1853.1068@67.27.1853.1068" />
-    <state width="881" height="283" key="GridCell.Tab.0.center" />
-    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" />
-    <state width="881" height="283" key="GridCell.Tab.0.center/67.27.1853.1068@67.27.1853.1068" />
-    <state width="881" height="283" key="GridCell.Tab.0.left" />
-    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" />
-    <state width="881" height="283" key="GridCell.Tab.0.left/67.27.1853.1068@67.27.1853.1068" />
-    <state width="881" height="283" key="GridCell.Tab.0.right" />
-    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" />
-    <state width="881" height="283" key="GridCell.Tab.0.right/67.27.1853.1068@67.27.1853.1068" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" />
-    <state width="1493" height="261" key="GridCell.Tab.2.bottom" />
-    <state width="1493" height="261" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" />
-    <state width="1493" height="261" key="GridCell.Tab.2.center" />
-    <state width="1493" height="261" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" />
-    <state width="1493" height="261" key="GridCell.Tab.2.left" />
-    <state width="1493" height="261" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" />
-    <state width="1493" height="261" key="GridCell.Tab.2.right" />
-    <state width="1493" height="261" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" />
-    <state width="1493" height="261" key="GridCell.Tab.3.bottom" />
-    <state width="1493" height="261" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" />
-    <state width="1493" height="261" key="GridCell.Tab.3.center" />
-    <state width="1493" height="261" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" />
-    <state width="1493" height="261" key="GridCell.Tab.3.left" />
-    <state width="1493" height="261" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" />
-    <state width="1493" height="261" key="GridCell.Tab.3.right" />
-    <state width="1493" height="261" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" />
-    <state x="147" y="65" key="MergeDialog" />
-    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" />
-    <state x="407" y="174" key="MultipleFileMergeDialog" />
-    <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" />
-    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" />
-    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" />
-    <state x="764" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" />
-    <state x="764" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1068@67.27.1853.1068" />
-    <state x="221" y="270" width="618" height="580" key="find.popup" />
-    <state x="221" y="270" width="618" height="580" key="find.popup/67.27.1853.1068@67.27.1853.1068" />
-    <state x="550" y="125" key="git4idea.branch.GitSmartOperationDialog" />
-    <state x="550" y="125" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" />
+    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2" timestamp="1595419516019">
+      <screen x="67" y="27" width="1853" height="1068" />
+    </state>
+    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1595419516019" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1592916497324">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592916497324" />
+    <state width="1223" height="416" key="GridCell.Tab.0.bottom" timestamp="1594821289991">
+      <screen x="67" y="27" width="2493" height="1469" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
+    <state width="1223" height="416" key="GridCell.Tab.0.bottom/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289991" />
+    <state width="1223" height="416" key="GridCell.Tab.0.center" timestamp="1594821289990">
+      <screen x="67" y="27" width="2493" height="1469" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
+    <state width="1223" height="416" key="GridCell.Tab.0.center/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289990" />
+    <state width="1223" height="416" key="GridCell.Tab.0.left" timestamp="1594821289989">
+      <screen x="67" y="27" width="2493" height="1469" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592952013759" />
+    <state width="1223" height="416" key="GridCell.Tab.0.left/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289989" />
+    <state width="1223" height="416" key="GridCell.Tab.0.right" timestamp="1594821289991">
+      <screen x="67" y="27" width="2493" height="1469" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
+    <state width="1223" height="416" key="GridCell.Tab.0.right/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289991" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1592952013760">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1592952013760">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1592952013760">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1592952013760">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state width="1493" height="261" key="GridCell.Tab.2.center" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state width="1493" height="261" key="GridCell.Tab.2.left" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state width="1493" height="261" key="GridCell.Tab.2.right" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state width="1493" height="261" key="GridCell.Tab.3.bottom" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state width="1493" height="261" key="GridCell.Tab.3.center" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state width="1493" height="261" key="GridCell.Tab.3.left" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state width="1493" height="261" key="GridCell.Tab.3.right" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state x="147" y="65" key="MergeDialog" timestamp="1592919320469">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320469" />
+    <state x="407" y="174" key="MultipleFileMergeDialog" timestamp="1592919320476">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
+    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1595419690006">
+      <screen x="67" y="27" width="1853" height="1068" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593016893395" />
+    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1595419690006" />
+    <state x="764" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593090182755">
+      <screen x="67" y="27" width="1853" height="1068" />
+    </state>
+    <state x="764" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1068@67.27.1853.1068" timestamp="1593090182755" />
+    <state x="550" y="125" key="git4idea.branch.GitSmartOperationDialog" timestamp="1592919376093">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="550" y="125" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919376093" />
+    <state x="656" y="261" width="672" height="678" key="search.everywhere.popup" timestamp="1595424695343">
+      <screen x="67" y="27" width="1853" height="1068" />
+    </state>
+    <state x="656" y="261" width="672" height="678" key="search.everywhere.popup/67.27.1853.1068@67.27.1853.1068" timestamp="1595424695343" />
   </component>
 </project>
