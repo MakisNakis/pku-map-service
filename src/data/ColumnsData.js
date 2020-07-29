@@ -1,5 +1,23 @@
 import { Type } from 'react-bootstrap-table2-editor';
 
+function CellStyle(cell, row, rowIndex, colIndex) {
+    let backgroundColor = '#ffffff';
+
+    let nameColumnColor = Object.keys(row)[colIndex+1];
+
+    // for ()
+
+    // if (row.EndDatePlanColor !== null ) {
+    if (row.nameColumnColor !== null ) {
+        return {
+            backgroundColor: `${row.EndDatePlanColor}`
+        };
+    }
+    return {
+        backgroundColor: '#ffffff'
+    };
+}
+
 export function ColumnsData() {
 
     let tableHeaders = [];
@@ -176,7 +194,7 @@ export function ColumnsData() {
         text: 'Факт выполнения',
         editor: {
             type: Type.CHECKBOX,
-            value: 'true:false'
+            value: 'true:false',
     },
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
@@ -354,6 +372,16 @@ export function ColumnsData() {
         dataField: 'DatePlan',
         text: 'Плановая дата поставки',
         editable: false,
+        style: (cell, row, rowIndex, colIndex) => {
+            let backgroundColor = '#ffffff';
+            let color = row.DatePlanColor;
+            if (color !== null) {
+                backgroundColor =  color;
+            }
+            return {
+                backgroundColor: backgroundColor
+            };
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -361,6 +389,16 @@ export function ColumnsData() {
         dataField: 'DateFact',
         text: 'Фактическая дата поставки',
         editable: false,
+        style: (cell, row, rowIndex, colIndex) => {
+            let backgroundColor = '#ffffff';
+            let color = row.DateFactColor;
+            if (color !== null) {
+                backgroundColor =  color;
+            }
+            return {
+                backgroundColor: backgroundColor
+            };
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -383,6 +421,16 @@ export function ColumnsData() {
         dataField: 'StartDatePlan',
         text: 'Дата нач. (план.)',
         editable: false,
+        style: (cell, row, rowIndex, colIndex) => {
+            let backgroundColor = '#ffffff';
+            let color = row.StartDatePlanColor;
+            if (color !== null) {
+                backgroundColor =  color;
+            }
+            return {
+                backgroundColor: backgroundColor
+            };
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -390,6 +438,17 @@ export function ColumnsData() {
         dataField: 'EndDatePlan',
         text: 'Дата кон. (план.)',
         editable: false,
+        // style: CellStyle,
+        style: (cell, row, rowIndex, colIndex) => {
+            let backgroundColor = '#ffffff';
+            let color = row.EndDatePlanColor;
+            if (color !== null) {
+                backgroundColor =  color;
+            }
+            return {
+                backgroundColor: backgroundColor
+            };
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -397,6 +456,16 @@ export function ColumnsData() {
         dataField: 'DateWork',
         text: 'Дата пров. работ',
         editable: false,
+        style: (cell, row, rowIndex, colIndex) => {
+            let backgroundColor = '#ffffff';
+            let color = row.DateWorkColor;
+            if (color !== null) {
+                backgroundColor =  color;
+            }
+            return {
+                backgroundColor: backgroundColor
+            };
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -404,6 +473,16 @@ export function ColumnsData() {
         dataField: 'Fact',
         text: 'Факт выполнения',
         editable: false,
+        style: (cell, row, rowIndex, colIndex) => {
+            let backgroundColor = '#ffffff';
+            let color = row.FactColor;
+            if (color !== null) {
+                backgroundColor =  color;
+            }
+            return {
+                backgroundColor: backgroundColor
+            };
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -411,6 +490,16 @@ export function ColumnsData() {
         dataField: 'EndDateAkt',
         text: 'Месяц закр. по актам',
         editable: false,
+        style: (cell, row, rowIndex, colIndex) => {
+            let backgroundColor = '#ffffff';
+            let color = row.EndDateAktColor;
+            if (color !== null) {
+                backgroundColor =  color;
+            }
+            return {
+                backgroundColor: backgroundColor
+            };
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -542,12 +631,22 @@ export function ColumnsData() {
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 750, textAlign: 'center'};
-        }
-
+        },
+        headerClasses: 'fixed-header',
     }, {
         dataField: 'DatePlan',
         text: 'Плановая дата поставки',
         editable: false,
+        style: (cell, row, rowIndex, colIndex) => {
+            let backgroundColor = '#ffffff';
+            let color = row.DatePlanColor;
+            if (color !== null) {
+                backgroundColor =  color;
+            }
+            return {
+                backgroundColor: backgroundColor
+            };
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -555,6 +654,16 @@ export function ColumnsData() {
         dataField: 'DateFact',
         text: 'Фактическая дата поставки',
         editable: false,
+        style: (cell, row, rowIndex, colIndex) => {
+            let backgroundColor = '#ffffff';
+            let color = row.DateFactColor;
+            if (color !== null) {
+                backgroundColor =  color;
+            }
+            return {
+                backgroundColor: backgroundColor
+            };
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -577,6 +686,16 @@ export function ColumnsData() {
         dataField: 'StartDatePlan',
         text: 'Дата нач. (план.)',
         editable: false,
+        style: (cell, row, rowIndex, colIndex) => {
+            let backgroundColor = '#ffffff';
+            let color = row.StartDatePlanColor;
+            if (color !== null) {
+                backgroundColor =  color;
+            }
+            return {
+                backgroundColor: backgroundColor
+            };
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -584,6 +703,17 @@ export function ColumnsData() {
         dataField: 'EndDatePlan',
         text: 'Дата кон. (план.)',
         editable: false,
+        // style: CellStyle,
+        style: (cell, row, rowIndex, colIndex) => {
+            let backgroundColor = '#ffffff';
+            let color = row.EndDatePlanColor;
+            if (color !== null) {
+                backgroundColor =  color;
+            }
+            return {
+                backgroundColor: backgroundColor
+            };
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -591,6 +721,16 @@ export function ColumnsData() {
         dataField: 'DateWork',
         text: 'Дата пров. работ',
         editable: false,
+        style: (cell, row, rowIndex, colIndex) => {
+            let backgroundColor = '#ffffff';
+            let color = row.DateWorkColor;
+            if (color !== null) {
+                backgroundColor =  color;
+            }
+            return {
+                backgroundColor: backgroundColor
+            };
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -598,6 +738,16 @@ export function ColumnsData() {
         dataField: 'Fact',
         text: 'Факт выполнения',
         editable: false,
+        style: (cell, row, rowIndex, colIndex) => {
+            let backgroundColor = '#ffffff';
+            let color = row.FactColor;
+            if (color !== null) {
+                backgroundColor =  color;
+            }
+            return {
+                backgroundColor: backgroundColor
+            };
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -605,6 +755,16 @@ export function ColumnsData() {
         dataField: 'EndDateAkt',
         text: 'Месяц закр. по актам',
         editable: false,
+        style: (cell, row, rowIndex, colIndex) => {
+            let backgroundColor = '#ffffff';
+            let color = row.EndDateAktColor;
+            if (color !== null) {
+                backgroundColor =  color;
+            }
+            return {
+                backgroundColor: backgroundColor
+            };
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }

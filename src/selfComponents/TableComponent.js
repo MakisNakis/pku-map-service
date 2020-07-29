@@ -124,6 +124,18 @@ class TableComponent extends Component {
         });
     }
 
+    cellStyle = (cell, row) => {
+        const style = {};
+        switch (this.props.typeTable) {
+            case "Отчеты1":
+                style.background = row.DatePlanColor;
+                break;
+            default:
+                break;
+        }
+        return style;
+    };
+
     render() {
 
         const tableHeaders = ColumnsData(); // подключаем заголовки таблиц из файла ../data/ColumnsData
@@ -184,12 +196,25 @@ class TableComponent extends Component {
             if (rowIndex % 2 === 0) {
                 style.backgroundColor = 'transparent';
             } else {
-                style.backgroundColor = 'rgba(142,238,147,0.13)';
+                style.backgroundColor = 'rgba(142,238,147,0.3)';
             }
+
             // style.borderTop = 'none';
             // style.height = '70';
             return style;
         };
+
+        // const cellStyle = (cell, row) => {
+        //     const style = {};
+        //     switch (this.props.typeTable) {
+        //         case "Отчеты1":
+        //             style.background = row.DatePlanColor;
+        //             break;
+        //         default:
+        //             break;
+        //     }
+        //     return style;
+        // };
 
         const indication = () => {
             return "В таблице нет информации";
