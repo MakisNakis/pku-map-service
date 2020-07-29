@@ -28,6 +28,7 @@ class MyRepository {
 
     }
 
+
     async loadDataForMarkers(routeId) {                         // функция для считывания данных об объектах на маршруте
         try {
             await this.client.connect();                        // создание подключения
@@ -95,11 +96,9 @@ class MyRepository {
         let query = undefined;
                                   // 1 - Админ - (временная переменная из за отсутствия регистрации)
                                 // 1 - Админ - (временная переменная из за отсутствия регистрации)
-
-
         // Здесь и далее для всех отделов:
         //  - if используется для преобразования даты и комментария в тип, пригодный для pg (т.е. данные должны быть окружены '')
-
+        // console.log("!!!!!!!    " + localStorage.getItem('userName'));
         switch (typeTable) {
             case "ОМТС":
                 let DateContract = null;

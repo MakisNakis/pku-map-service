@@ -4,6 +4,7 @@ import DepartmentsComponent from './selfComponents/DepartmentsComponent';
 import TableComponent from './selfComponents/TableComponent';
 import AuthorisationComponent from './selfComponents/AuthorisationComponent';
 import TypeTableComponent from './selfComponents/TypeTableComponent';
+import LogoutComponent from './selfComponents/LogoutComponent';
 import BootstrapTable from 'react-bootstrap-table-next';
 import cellEditFactory from 'react-bootstrap-table2-editor';
 import {Map as LeafletMap, Marker, TileLayer} from "react-leaflet";
@@ -223,6 +224,14 @@ class App extends React.Component {
         }
     };
 
+    logout(){
+        localStorage.removeItem('userRole')
+        localStorage.removeItem('userName')
+        localStorage.removeItem('userId')
+        localStorage.removeItem('rememberMe')
+        document.location.reload()
+        // this.setState({authorisation: false})
+    }
 
     onClickDep = (e) => {
         const buttonName = e.target.title;
@@ -280,7 +289,12 @@ class App extends React.Component {
                     <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
                     <MapComponent namePKU={this.gettingNamePKU}/>
                     <div id="start"></div>
-                    <h2>Вы вошли как пользователь {this.state.userName}</h2>
+                    {/*<h2>Вы вошли как пользователь {this.state.userName}</h2> */}
+                    <LogoutComponent
+                        userName={this.state.userName}
+                        authoristaion={this.state.authorisation}
+                        logout={this.logout}
+                    />
                     {this.state.userRole === 1 && <DepartmentsComponent
                         show={this.state.show}
                         hide={this.state.hide}
