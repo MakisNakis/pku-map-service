@@ -187,6 +187,7 @@ switchDepartment(){
             localStorage.setItem('userName', userName);
             localStorage.setItem('rememberMe', rememberMe);
 
+            // this.switchDepartment()
             switch (localStorage.getItem('userRole')) {
                 case '1':
                     this.setState({depName: "Отчеты"});
