@@ -23,8 +23,8 @@ class MapComponent extends Component {
         super();
 
         this.state = {
-            zoom: 8,
-            minZoom: 4,
+            zoom: 9,
+            minZoom: 6,
             radius: 0,
             firstRouteApi: '/api/pkuDataServerFirstRoute',
             secondRouteApi: '/api/pkuDataServerSecondRoute',
@@ -37,7 +37,7 @@ class MapComponent extends Component {
             iconSize: [30, 50],
             shadowSize: [15, 15],
             iconAnchor: [15, 50],
-            popupAnchor: [0, 0]
+            popupAnchor: [0, -50]
         }
 
     }
@@ -118,7 +118,6 @@ class MapComponent extends Component {
                         onClick={this.props.namePKU}
                 >
                     <Popup>
-
                         <Link
                             // не настраивал
                             to="start"

@@ -18,8 +18,10 @@ class TableComponent extends Component {
         super();
         this.state = {
             pkuInfo: [],
+            filterColor: "rgba(53, 222, 65, 0.87)",
         };
         this.url = window.location.href;
+        this.copyPkuInfo = [];
     }
 
 
@@ -124,6 +126,18 @@ class TableComponent extends Component {
         });
     }
 
+    cellStyle = (cell, row) => {
+        const style = {};
+        switch (this.props.typeTable) {
+            case "Отчеты1":
+                style.background = row.DatePlanColor;
+                break;
+            default:
+                break;
+        }
+        return style;
+    };
+
     render() {
 
         const tableHeaders = ColumnsData(); // подключаем заголовки таблиц из файла ../data/ColumnsData
@@ -184,17 +198,79 @@ class TableComponent extends Component {
             if (rowIndex % 2 === 0) {
                 style.backgroundColor = 'transparent';
             } else {
-                style.backgroundColor = 'rgba(142,238,147,0.13)';
+                style.backgroundColor = 'rgba(142,238,147,0.3)';
             }
+
             // style.borderTop = 'none';
             // style.height = '70';
             return style;
         };
 
+        // const cellStyle = (cell, row) => {
+        //     const style = {};
+        //     switch (this.props.typeTable) {
+        //         case "Отчеты1":
+        //             style.background = row.DatePlanColor;
+        //             break;
+        //         default:
+        //             break;
+        //     }
+        //     return style;
+        // };
+
         const indication = () => {
             return "В таблице нет информации";
         }
         // const indication = "В таблице нет информации";
+
+        const cutData = (color) => {
+            let newData = [];
+            let lenMas = this.copyPkuInfo.length;
+
+            console.log(color);
+
+            for (let i=0; i < lenMas; i++) {
+                let obj = this.copyPkuInfo[i];
+                for (let key in obj) {
+                    if (obj[key] === color) {
+                        newData.push(obj);
+                        break;
+                    }
+                }
+            }
+            return newData;
+        }
+
+        const filterColor = () => {
+            switch(this.state.filterColor) {
+                case "rgba(53, 222, 65, 0.87)":
+                    console.log('###### ' + this.state.filterColor);
+                    this.copyPkuInfo = this.state.pkuInfo;
+                    this.setState({
+                        filterColor: "yellow",
+                        pkuInfo: cutData("yellow"),
+                    });
+                    break;
+                case "yellow":
+                    console.log('###### ' + this.state.filterColor);
+
+                    this.setState({
+                        filterColor: "red",
+                        pkuInfo: cutData("red"),
+                    });
+                    break;
+                case "red":
+                    console.log('###### ' + this.state.filterColor);
+
+                    this.setState({
+                        filterColor: "rgba(53, 222, 65, 0.87)",
+                        pkuInfo: this.copyPkuInfo,
+                    });
+                    break;
+                default:
+                    break;
+            }
+        }
 
         return (
             <div id="TableComp">
@@ -202,14 +278,15 @@ class TableComponent extends Component {
                 <div>
                     <ToolkitProvider
                         keyField={"tableID"}
-                        data={this.state.pkuInfo }
+                        data={this.state.pkuInfo}
                         columns={tableHeaders[this.props.typeTable]}
                         exportCSV
                     >
                         {
                             props => (
                                 <div>
-                                    <ExportCSVButton {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>
+                                    <ExportCSVButton className={"btn"} {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>
+                                    {this.props.depName === "Отчеты" && <button style={{backgroundColor: this.state.filterColor}} onClick={filterColor}>Кнопка</button>}
                                     <hr/>
                                     <BootstrapTable
                                         wrapperClasses="table-horiz-scroll"

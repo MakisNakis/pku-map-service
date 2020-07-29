@@ -49,9 +49,11 @@ class App extends React.Component {
             hide: "Нажмите на ПКУ для вывода таблицы",
             idPKU: undefined,
             // depName: "Отчеты",
-            depName: "ПТО",
+            depName: "ОМТС",
+            // depName: "ПТО",
             // typeTable: "Отчеты1",
-            typeTable: "ПТО1",
+            // typeTable: "ПТО1",
+            typeTable: "ОМТС",
             markerName: undefined,
             rootPriv: "Отчеты",
             // стейты для авторизации
