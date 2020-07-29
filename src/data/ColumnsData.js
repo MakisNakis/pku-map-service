@@ -25,6 +25,7 @@ export function ColumnsData() {
     tableHeaders["ОМТС"] = [{
         dataField: 'NomGroupName',
         text: 'Название оборудования',
+        sort: true,
         editor: {
             type: Type.TEXTAREA
         },
@@ -35,6 +36,7 @@ export function ColumnsData() {
     }, {
         dataField: 'HardwareModel',
         text: 'Расшифровка (согласованная)',
+        sort: true,
         editor: {
             type: Type.TEXTAREA
         },
@@ -45,6 +47,7 @@ export function ColumnsData() {
     }, {
         dataField: 'Date',
         text: 'Дата согласования',
+        sort: true,
         editor: {
             type: Type.DATE
         },
@@ -55,6 +58,7 @@ export function ColumnsData() {
     }, {
         dataField: 'ProviderName',
         text: 'Контрагент',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
@@ -62,6 +66,7 @@ export function ColumnsData() {
     }, {
         dataField: 'DateContract',
         text: 'Дата договора с контрагентом',
+        sort: true,
         editor: {
             type: Type.DATE
         },
@@ -72,6 +77,7 @@ export function ColumnsData() {
     }, {
         dataField: 'DatePlan',
         text: 'Плановая дата поставки',
+        sort: true,
         editor: {
             type: Type.DATE
         },
@@ -81,6 +87,7 @@ export function ColumnsData() {
     }, {
         dataField: 'DateFact',
         text: 'Фактическая дата поставки',
+        sort: true,
         editor: {
             type: Type.DATE
         },
@@ -90,6 +97,7 @@ export function ColumnsData() {
     }, {
         dataField: 'Unit',
         text: 'Единицы измерения',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 100, textAlign: 'center'};
@@ -97,6 +105,7 @@ export function ColumnsData() {
     }, {
         dataField: 'Quantity',
         text: 'Количество',
+        sort: true,
         type: 'number',
         headerStyle: (colum, colIndex) => {
             return {width: 120, textAlign: 'center'};
@@ -104,6 +113,7 @@ export function ColumnsData() {
     }, {
         dataField: 'QuantityAll',
         text: 'Требуемое кол-во',
+        sort: true,
         type: 'number',
         editable: false,
         headerStyle: (colum, colIndex) => {
@@ -112,6 +122,7 @@ export function ColumnsData() {
     }, {
         dataField: 'StartDate',
         text: 'Начало работ',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -119,12 +130,14 @@ export function ColumnsData() {
     },  {
         dataField: 'Comment',
         text: 'Комментарий',
+        sort: true,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
         }
     }, {
         dataField: 'UserName',
         text: 'Пользователь',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
@@ -132,6 +145,7 @@ export function ColumnsData() {
     },{
         dataField: 'DateUp',
         text: 'Дата внесения изменений',
+        sort: true,
         editor: {
             type: Type.DATE
         },
@@ -147,6 +161,7 @@ export function ColumnsData() {
     tableHeaders["Монтажники1"] = [{
         dataField: 'WorkName',
         text: 'Наименование работы',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 750, textAlign: 'center'};
@@ -155,6 +170,7 @@ export function ColumnsData() {
     }, {
         dataField: 'Quantity',
         text: 'Кол-во',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 100, textAlign: 'center'};
@@ -162,6 +178,7 @@ export function ColumnsData() {
     }, {
         dataField: 'Unit',
         text: 'Ед. изм.',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 100, textAlign: 'center'};
@@ -169,6 +186,7 @@ export function ColumnsData() {
     }, {
         dataField: 'StartDatePlan',
         text: 'Дата нач. (план.)',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -176,6 +194,7 @@ export function ColumnsData() {
     }, {
         dataField: 'EndDatePlan',
         text: 'Дата кон. (план.)',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -183,6 +202,7 @@ export function ColumnsData() {
     }, {
         dataField: 'DateWork',
         text: 'Дата пров. работ',
+        sort: true,
         editor: {
             type: Type.DATE
         },
@@ -192,6 +212,7 @@ export function ColumnsData() {
     }, {
         dataField: 'Fact',
         text: 'Факт выполнения',
+        sort: true,
         editor: {
             type: Type.CHECKBOX,
             value: 'true:false',
@@ -202,6 +223,7 @@ export function ColumnsData() {
     }, {
         dataField: 'PerformerName',
         text: 'Исполнитель',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
@@ -209,12 +231,14 @@ export function ColumnsData() {
     }, {
         dataField: 'Comment',
         text: 'Комментарий',
+        sort: true,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
         }
     }, {
         dataField: 'UserName',
         text: 'Пользователь',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
@@ -222,6 +246,7 @@ export function ColumnsData() {
     }, {
         dataField: 'DateUp',
         text: 'Дата внес. изм.',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -233,6 +258,7 @@ export function ColumnsData() {
     tableHeaders["ПТО1"] = [{
         dataField: 'WorkName',
         text: 'Наименование работы',
+        sort: true,
         editable: false,
 
         headerStyle: (colum, colIndex) => {
@@ -241,6 +267,7 @@ export function ColumnsData() {
     }, {
         dataField: 'Quantity',
         text: 'Кол-во',
+        sort: true,
         // editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 100, textAlign: 'center'};
@@ -248,6 +275,7 @@ export function ColumnsData() {
     }, {
         dataField: 'Unit',
         text: 'Ед. изм.',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 100, textAlign: 'center'};
@@ -255,6 +283,7 @@ export function ColumnsData() {
     }, {
         dataField: 'StartDateCon',
         text: 'Дата нач. (контр.)',
+        sort: true,
         editor: {
             type: Type.DATE
         },
@@ -265,6 +294,7 @@ export function ColumnsData() {
     }, {
         dataField: 'EndDateCon',
         text: 'Дата кон. (контр.)',
+        sort: true,
         editor: {
             type: Type.DATE
         },
@@ -275,6 +305,7 @@ export function ColumnsData() {
     }, {
         dataField: 'StartDatePlan',
         text: 'Дата нач. (план.)',
+        sort: true,
         editor: {
             type: Type.DATE
         },
@@ -285,6 +316,7 @@ export function ColumnsData() {
     }, {
         dataField: 'EndDatePlan',
         text: 'Дата кон. (план.)',
+        sort: true,
         editor: {
             type: Type.DATE
         },
@@ -295,6 +327,7 @@ export function ColumnsData() {
     }, {
         dataField: 'DateWork',
         text: 'Дата пров. работ',
+        sort: true,
         editor: {
             type: Type.DATE
         },
@@ -304,6 +337,7 @@ export function ColumnsData() {
     }, {
         dataField: 'Fact',
         text: 'Факт выполнения',
+        sort: true,
         editor: {
             type: Type.CHECKBOX,
             value: 'true:false'
@@ -314,6 +348,7 @@ export function ColumnsData() {
     }, {
         dataField: 'PerformerName',
         text: 'Исполнитель',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
@@ -321,6 +356,7 @@ export function ColumnsData() {
     }, {
         dataField: 'EndDateAkt',
         text: 'Месяц закр. по актам',
+        sort: true,
         editor: {
             type: Type.DATE
         },
@@ -330,6 +366,7 @@ export function ColumnsData() {
     }, {
         dataField: 'MaterialDate',
         text: 'Дата списания материалов',
+        sort: true,
         editor: {
             type: Type.DATE
         },
@@ -339,12 +376,14 @@ export function ColumnsData() {
     }, {
         dataField: 'Comment',
         text: 'Комментарий',
+        sort: true,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
         }
     }, {
         dataField: 'UserName',
         text: 'Пользователь',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
@@ -352,6 +391,7 @@ export function ColumnsData() {
     }, {
         dataField: 'DateUp',
         text: 'Дата внес. изменений',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -363,6 +403,7 @@ export function ColumnsData() {
     tableHeaders["Отчеты1"] = [{
         dataField: 'SubjectName',
         text: 'Название участка',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 750, textAlign: 'center'};
@@ -371,6 +412,7 @@ export function ColumnsData() {
     }, {
         dataField: 'DatePlan',
         text: 'Плановая дата поставки',
+        sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
             let backgroundColor = '#ffffff';
@@ -388,6 +430,7 @@ export function ColumnsData() {
     }, {
         dataField: 'DateFact',
         text: 'Фактическая дата поставки',
+        sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
             let backgroundColor = '#ffffff';
@@ -406,6 +449,7 @@ export function ColumnsData() {
     }, {
         dataField: 'StartDateCon',
         text: 'Дата нач. (контр.)',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
@@ -413,6 +457,7 @@ export function ColumnsData() {
     }, {
         dataField: 'EndDateCon',
         text: 'Дата кон. (контр.)',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
@@ -420,6 +465,7 @@ export function ColumnsData() {
     }, {
         dataField: 'StartDatePlan',
         text: 'Дата нач. (план.)',
+        sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
             let backgroundColor = '#ffffff';
@@ -437,6 +483,7 @@ export function ColumnsData() {
     }, {
         dataField: 'EndDatePlan',
         text: 'Дата кон. (план.)',
+        sort: true,
         editable: false,
         // style: CellStyle,
         style: (cell, row, rowIndex, colIndex) => {
@@ -455,6 +502,7 @@ export function ColumnsData() {
     }, {
         dataField: 'DateWork',
         text: 'Дата пров. работ',
+        sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
             let backgroundColor = '#ffffff';
@@ -472,6 +520,7 @@ export function ColumnsData() {
     }, {
         dataField: 'Fact',
         text: 'Факт выполнения',
+        sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
             let backgroundColor = '#ffffff';
@@ -489,6 +538,7 @@ export function ColumnsData() {
     }, {
         dataField: 'EndDateAkt',
         text: 'Месяц закр. по актам',
+        sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
             let backgroundColor = '#ffffff';
@@ -506,6 +556,7 @@ export function ColumnsData() {
     }, {
         dataField: 'MaterialDate',
         text: 'Дата списания материалов',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -517,6 +568,7 @@ export function ColumnsData() {
     tableHeaders["ПТО2"] = [{
         dataField: 'HardwareModel',
         text: 'Модель оборудования',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 400, textAlign: 'center'};
@@ -525,6 +577,7 @@ export function ColumnsData() {
     }, {
         dataField: 'NomGroupName',
         text: 'Наименование',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 800, textAlign: 'center'};
@@ -532,6 +585,7 @@ export function ColumnsData() {
     }, {
         dataField: 'QuantityNG',
         text: 'Количество',
+        sort: true,
         // editable: false,
         type: 'number',
         headerStyle: (colum, colIndex) => {
@@ -540,6 +594,7 @@ export function ColumnsData() {
     }, {
         dataField: 'WorkName',
         text: 'Наименование работы',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 700, textAlign: 'center'};
@@ -547,6 +602,7 @@ export function ColumnsData() {
     }, {
         dataField: 'Comment',
         text: 'Комментарий',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -554,6 +610,7 @@ export function ColumnsData() {
     }, {
         dataField: 'UserName',
         text: 'Пользователь',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -561,6 +618,7 @@ export function ColumnsData() {
     }, {
         dataField: 'DateUp',
         text: 'Дата внес. изм.',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
@@ -574,6 +632,7 @@ export function ColumnsData() {
     tableHeaders["Монтажники2"] = [{
         dataField: 'HardwareModel',
         text: 'Модель оборудования',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 400, textAlign: 'center'};
@@ -582,6 +641,7 @@ export function ColumnsData() {
     }, {
         dataField: 'NomGroupName',
         text: 'Наименование',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 800, textAlign: 'center'};
@@ -589,6 +649,7 @@ export function ColumnsData() {
     }, {
         dataField: 'QuantityNG',
         text: 'Кол-во наименований',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
@@ -596,6 +657,7 @@ export function ColumnsData() {
     }, {
         dataField: 'WorkName',
         text: 'Наименование работы',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 700, textAlign: 'center'};
@@ -603,6 +665,7 @@ export function ColumnsData() {
     }, {
         dataField: 'Comment',
         text: 'Комментарий',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -610,6 +673,7 @@ export function ColumnsData() {
     }, {
         dataField: 'UserName',
         text: 'Пользователь',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -617,6 +681,7 @@ export function ColumnsData() {
     }, {
         dataField: 'DateUp',
         text: 'Дата внес. изм.',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
@@ -628,6 +693,7 @@ export function ColumnsData() {
     tableHeaders["Отчеты2"] = [{
         dataField: 'SubjectName',
         text: 'Название участка',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 750, textAlign: 'center'};
@@ -636,6 +702,7 @@ export function ColumnsData() {
     }, {
         dataField: 'DatePlan',
         text: 'Плановая дата поставки',
+        sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
             let backgroundColor = '#ffffff';
@@ -653,6 +720,7 @@ export function ColumnsData() {
     }, {
         dataField: 'DateFact',
         text: 'Фактическая дата поставки',
+        sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
             let backgroundColor = '#ffffff';
@@ -671,6 +739,7 @@ export function ColumnsData() {
     }, {
         dataField: 'StartDateCon',
         text: 'Дата нач. (контр.)',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
@@ -678,6 +747,7 @@ export function ColumnsData() {
     }, {
         dataField: 'EndDateCon',
         text: 'Дата кон. (контр.)',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
@@ -685,6 +755,7 @@ export function ColumnsData() {
     }, {
         dataField: 'StartDatePlan',
         text: 'Дата нач. (план.)',
+        sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
             let backgroundColor = '#ffffff';
@@ -702,6 +773,7 @@ export function ColumnsData() {
     }, {
         dataField: 'EndDatePlan',
         text: 'Дата кон. (план.)',
+        sort: true,
         editable: false,
         // style: CellStyle,
         style: (cell, row, rowIndex, colIndex) => {
@@ -720,6 +792,7 @@ export function ColumnsData() {
     }, {
         dataField: 'DateWork',
         text: 'Дата пров. работ',
+        sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
             let backgroundColor = '#ffffff';
@@ -737,6 +810,7 @@ export function ColumnsData() {
     }, {
         dataField: 'Fact',
         text: 'Факт выполнения',
+        sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
             let backgroundColor = '#ffffff';
@@ -754,6 +828,7 @@ export function ColumnsData() {
     }, {
         dataField: 'EndDateAkt',
         text: 'Месяц закр. по актам',
+        sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
             let backgroundColor = '#ffffff';
@@ -771,6 +846,7 @@ export function ColumnsData() {
     }, {
         dataField: 'MaterialDate',
         text: 'Дата списания материалов',
+        sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
