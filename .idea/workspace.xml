@@ -19,11 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="- добавил разделение прав на клиенте в соответствие с логином.паролем&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/AuthorisationComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/AuthorisationComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,6 +213,7 @@
       <workItem from="1595323703542" duration="638000" />
       <workItem from="1595326703453" duration="1290000" />
       <workItem from="1595417747757" duration="9413000" />
+      <workItem from="1596002785488" duration="5886000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -474,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595939329472</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="- добавил разделение прав на клиенте в соответствие с логином.паролем&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей">
+      <created>1595946125576</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1595946125576</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -493,7 +500,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)&#10;- Добавил заголовок. Подправил размеры карты&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
     <MESSAGE value="- Добавил popup по нажатии на маркер&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
     <MESSAGE value="- Добавил возможность кастомизировать маркеры&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
     <MESSAGE value="- Исправлена разметка страницы, теперь на всех экранах отображается соразмерно&#10;TODO: Создать слои карты" />
@@ -518,13 +524,14 @@
     <MESSAGE value="+ исправил формат даты и времени (fix)" />
     <MESSAGE value="TODO: Авторизация" />
     <MESSAGE value="- авторизация, сравнивающая значения логинов и паролей с базой данных, вовзращает данные об id пользователя, номере роли и имени пользователя&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей" />
-    <option name="LAST_COMMIT_MESSAGE" value="- авторизация, сравнивающая значения логинов и паролей с базой данных, вовзращает данные об id пользователя, номере роли и имени пользователя&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей" />
+    <MESSAGE value="- добавил разделение прав на клиенте в соответствие с логином.паролем&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей" />
+    <option name="LAST_COMMIT_MESSAGE" value="- добавил разделение прав на клиенте в соответствие с логином.паролем&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="482" y="91" width="769" height="874" key="CommitChangelistDialog2" timestamp="1595939329306">
+    <state x="482" y="91" width="769" height="874" key="CommitChangelistDialog2" timestamp="1595946129418">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="482" y="91" width="769" height="874" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1595939329306" />
+    <state x="482" y="91" width="769" height="874" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1595946129418" />
     <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1595419516019" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1592916497324">
       <screen x="0" y="0" width="1536" height="824" />
@@ -606,11 +613,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
-    <state x="452" y="211" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1595939950384">
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1595946135521">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593016893395" />
-    <state x="452" y="211" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1595939950384" />
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1595946135521" />
     <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1595419690006" />
     <state x="764" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593090182755">
       <screen x="67" y="27" width="1853" height="1068" />

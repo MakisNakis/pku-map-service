@@ -18,7 +18,9 @@ class AuthorisationComponent extends Component {
                     <button>Авторизоваться</button>
                     <br/>
                     <br/>
-
+                    <label>
+                        <input name="RememberMe" checked={this.props.rememberMe} onChange={this.props.handleChange} type="checkbox"/> Remember me
+                    </label>
                 </form>
                 {this.props.incorrectUser === true && <h3>Неверный логин или пароль ;^(</h3>}
                 {this.props.authErr}

@@ -59,9 +59,19 @@ class App extends React.Component {
             incorrectUser: false,
             userId: undefined,
             userRole: undefined,
-            userName: undefined
+            userName: undefined,
+            rememberMe: false
         }
         this.url = window.location.href;
+    }
+
+    componentDidMount() {
+        const rememberMe = localStorage.getItem('rememberMe') === 'true'
+        const userId = rememberMe ? localStorage.getItem('userId') : ''
+        const userRole = rememberMe ? localStorage.getItem('userRole') : ''
+        const userName = rememberMe ? localStorage.getItem('userName') : ''
+        if (rememberMe) this.setState({authorisation: true})
+        this.setState({userId, userRole, userName, rememberMe})
     }
 
     async getUserIdByLogPass(apiRoute, login, pass) { // функция для получения id пользователя
@@ -153,6 +163,11 @@ class App extends React.Component {
         }).then(data => {
             console.log(data.rows[0].f_s_username_userid);
             this.setState({userName: data.rows[0].f_s_username_userid})
+            const { userId, userRole, userName, rememberMe } = this.state; // пример использования деструктуризации
+            localStorage.setItem('userId', userId);
+            localStorage.setItem('userRole', userRole);
+            localStorage.setItem('userName', userName);
+            localStorage.setItem('rememberMe', rememberMe);
             // this.setState()
             // console.log(data);
         }).catch((err) => {
@@ -172,9 +187,16 @@ class App extends React.Component {
         return this.checkLoginPass(login, password)
         // console.log(login);
         // console.log(password);
-
     }
 
+    handleChange = (e) => { // функция для фиксирования значения поля "Запомнить меня"
+        if (this.state.rememberMe === false){
+            this.setState({rememberMe: true})
+        }
+        else {
+            this.setState({rememberMe: false})
+        }
+    }
 
     gettingNamePKU = (e) => {
         // e.preventDefault();
@@ -250,6 +272,8 @@ class App extends React.Component {
                     getPersonName={this.gettingPersonName}
                     authErr={this.state.authorisationErr}
                     incorrectUser={this.state.incorrectUser}
+                    rememberMe={this.state.rememberMe}
+                    handleChange={this.handleChange}
                 />}
                 {this.state.authorisation &&
                 <div>
