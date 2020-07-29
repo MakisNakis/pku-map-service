@@ -21,7 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/ColumnsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +211,7 @@
       <workItem from="1595323703542" duration="638000" />
       <workItem from="1595326703453" duration="1290000" />
       <workItem from="1595417747757" duration="9413000" />
-      <workItem from="1595583053812" duration="22907000" />
+      <workItem from="1595583053812" duration="32553000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -471,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596016550505</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="+ сортировка в колонках">
+      <created>1596020434389</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1596020434389</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +498,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)" />
     <MESSAGE value="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)&#10;- Добавил заголовок. Подправил размеры карты&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
     <MESSAGE value="- Добавил popup по нажатии на маркер&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
     <MESSAGE value="- Добавил возможность кастомизировать маркеры&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
@@ -515,17 +522,18 @@
     <MESSAGE value="+ исправил формат даты и времени" />
     <MESSAGE value="+ исправил формат даты и времени (fix)" />
     <MESSAGE value="+ сместил название ПКУ при нажатии на маркер" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ сместил название ПКУ при нажатии на маркер" />
+    <MESSAGE value="+ сортировка в колонках" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ сортировка в колонках" />
   </component>
   <component name="WindowStateProjectService">
     <state x="839" y="451" width="298" height="217" key="#ESLint" timestamp="1596010264701">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="839" y="451" width="298" height="217" key="#ESLint/67.27.1853.1068@67.27.1853.1068" timestamp="1596010264701" />
-    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2" timestamp="1596016550384">
+    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2" timestamp="1596020434323">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
-    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1596016550384" />
+    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1596020434323" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1592916497324">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
