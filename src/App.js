@@ -64,6 +64,14 @@ class App extends React.Component {
             rememberMe: false
         }
         this.url = window.location.href;
+        // if (localStorage.getItem('rememberMe') === 'true'){
+        //     const rememberMe =  localStorage.getItem('rememberMe')
+        //     const userId =  localStorage.getItem('userId')
+        //     const userRole =  localStorage.getItem('userRole')
+        //     const userName =  localStorage.getItem('userName')
+        //     this.setState({userId, userRole, userName, rememberMe})
+        //     this.setState({authorisation: true})
+        // }
     }
 
     componentDidMount() {
@@ -73,6 +81,8 @@ class App extends React.Component {
         const userName = rememberMe ? localStorage.getItem('userName') : ''
         if (rememberMe) this.setState({authorisation: true})
         this.setState({userId, userRole, userName, rememberMe})
+        this.switchDepartment()
+
     }
 
     async getUserIdByLogPass(apiRoute, login, pass) { // функция для получения id пользователя
@@ -106,6 +116,31 @@ class App extends React.Component {
         });
     }
 
+switchDepartment(){
+    switch (localStorage.getItem('userRole')) {
+        case '1':
+            this.setState({depName: "Отчеты"});
+            console.log('1111111')
+            this.setState({typeTable: "Отчеты1"});
+            break;
+        case '2':
+            this.setState({depName: "ОМТС"});
+            console.log('22222222')
+            this.setState({typeTable: "ОМТС"});
+            break;
+        case '3':
+            this.setState({depName: "ПТО"});
+            this.setState({typeTable: "ПТО1"});
+            break;
+        case '4':
+            this.setState({depName: "Монтажники"});
+            this.setState({typeTable: "Монтажники1"});
+            break;
+        default:
+            break;
+    }
+}
+
     async getUserRoleById(apiRoute, userId) { // функция для получения номера роли пользователя
         // console.log(userData);
         const userIdJson = {userId: userId}
@@ -123,26 +158,8 @@ class App extends React.Component {
         }).then(data => {
             console.log(data.rows[0].f_s_roleid_userid);
             this.setState({userRole: data.rows[0].f_s_roleid_userid})
-            switch (this.state.userRole) {
-                case 1:
-                    this.setState({depName: "Отчеты"});
-                    this.setState({typeTable: "Отчеты1"});
-                    break;
-                case 2:
-                    this.setState({depName: "ОМТС"});
-                    this.setState({typeTable: "ОМТС"});
-                    break;
-                case 3:
-                    this.setState({depName: "ПТО"});
-                    this.setState({typeTable: "ПТО1"});
-                    break;
-                case 4:
-                    this.setState({depName: "Монтажники"});
-                    this.setState({typeTable: "Монтажники1"});
-                    break;
-                default:
-                    break;
-            }
+           // this.switchDepartment()
+
             // console.log(data);
         }).catch((err) => {
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}/userRole`);
@@ -169,6 +186,29 @@ class App extends React.Component {
             localStorage.setItem('userRole', userRole);
             localStorage.setItem('userName', userName);
             localStorage.setItem('rememberMe', rememberMe);
+
+            switch (localStorage.getItem('userRole')) {
+                case '1':
+                    this.setState({depName: "Отчеты"});
+                    console.log('1111111')
+                    this.setState({typeTable: "Отчеты1"});
+                    break;
+                case '2':
+                    this.setState({depName: "ОМТС"});
+                    console.log('22222222')
+                    this.setState({typeTable: "ОМТС"});
+                    break;
+                case '3':
+                    this.setState({depName: "ПТО"});
+                    this.setState({typeTable: "ПТО1"});
+                    break;
+                case '4':
+                    this.setState({depName: "Монтажники"});
+                    this.setState({typeTable: "Монтажники1"});
+                    break;
+                default:
+                    break;
+            }
             // this.setState()
             // console.log(data);
         }).catch((err) => {
@@ -238,7 +278,8 @@ class App extends React.Component {
         console.log(e.target);
 
         this.setState({depName: buttonName});
-
+        // console.log(localStorage.getItem('userRole'))
+        // console.log(typeof(localStorage.getItem('userRole')))
         switch (buttonName) {
             case "ОМТС":
                 this.setState({typeTable: "ОМТС"});
@@ -292,10 +333,10 @@ class App extends React.Component {
                     {/*<h2>Вы вошли как пользователь {this.state.userName}</h2> */}
                     <LogoutComponent
                         userName={this.state.userName}
-                        authoristaion={this.state.authorisation}
+                        // authorisation={this.state.authorisation}
                         logout={this.logout}
                     />
-                    {this.state.userRole === 1 && <DepartmentsComponent
+                    {localStorage.getItem('userRole') === '1' && <DepartmentsComponent
                         show={this.state.show}
                         hide={this.state.hide}
                         idPKU={this.state.idPKU}
