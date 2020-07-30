@@ -92,7 +92,7 @@ class App extends React.Component {
         // console.log(pass);
         const userData = {login: login, password: pass}
         // console.log(userData);
-        await fetch(`http://localhost:5000/${apiRoute}`, {
+        await fetch(`${this.url}${apiRoute}`, {
             // await fetch('http://192.168.1.116:5000/api/test1', {
             method: 'POST',
             headers:{'content-type': 'application/json'},
@@ -146,7 +146,7 @@ switchDepartment(){
     async getUserRoleById(apiRoute, userId) { // функция для получения номера роли пользователя
         // console.log(userData);
         const userIdJson = {userId: userId}
-        await fetch(`http://localhost:5000/${apiRoute}/userRole`, {
+        await fetch(`${this.url}${apiRoute}/userRole`, {
             // await fetch('http://192.168.1.116:5000/api/test1', {
             method: 'POST',
             headers:{'content-type': 'application/json'},
@@ -170,7 +170,7 @@ switchDepartment(){
 
     async getUserNameById(apiRoute, userId) { // функция для получения номера роли пользователя
         const userIdJson = {userId: userId}
-        await fetch(`http://localhost:5000/${apiRoute}/userName`, {
+        await fetch(`${this.url}${apiRoute}/userName`, {
             method: 'POST',
             headers:{'content-type': 'application/json'},
             mode: "cors",

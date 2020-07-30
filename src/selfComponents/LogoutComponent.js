@@ -8,14 +8,17 @@ class LogoutComponent extends Component {
 
     render() {
         return (
-            <div class="auth">
+            <div>
+                <br/>
                 <table>
                     <tr>
-                        <td><h2>Вы вошли как пользователь {this.props.userName} (выход здесь)</h2></td>
-                        <td>=====></td>
-                        <td><button  onClick={this.props.logout} type="button">Выйти</button></td>
+                        <td><h2>Вы вошли как пользователь {this.props.userName} </h2></td>
+                        {/*<td><tr></tr></td>*/}
                     </tr>
                 </table>
+                <td><button  onClick={this.props.logout} type="button">Выйти</button></td>
+                <br/>
+                {/*<br/>*/}
                 {this.props.incorrectUser === true && <h3>Неверный логин или пароль ;^(</h3>}
                 {this.props.authErr}
             </div>
