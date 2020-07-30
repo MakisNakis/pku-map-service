@@ -46,7 +46,9 @@ th {
 }
 
 .table-horiz-scroll {
-    height: 600px;
+    height: 800px;
+    width: 96%;
+    align: center;
     overflow-x: auto;
     overflow-y: auto;
     margin-bottom: 15px;
@@ -57,4 +59,9 @@ th {
 
 .react-bootstrap-table-pagination-total {
     margin-left: 15px;
+}
+
+
+.TableComp {
+    width: 90%;
 }
