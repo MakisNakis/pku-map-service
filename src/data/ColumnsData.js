@@ -1,5 +1,4 @@
 import { Type } from 'react-bootstrap-table2-editor';
-import Moment from 'react-moment';
 
 function CellStyle(cell, row, rowIndex, colIndex) {
     let backgroundColor = '#ffffff';
