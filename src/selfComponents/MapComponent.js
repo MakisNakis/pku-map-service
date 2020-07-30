@@ -23,8 +23,8 @@ class MapComponent extends Component {
         super();
 
         this.state = {
-            zoom: 8,
-            minZoom: 4,
+            zoom: 9,
+            minZoom: 6,
             radius: 0,
             firstRouteApi: '/api/pkuDataServerFirstRoute',
             secondRouteApi: '/api/pkuDataServerSecondRoute',
@@ -37,7 +37,7 @@ class MapComponent extends Component {
             iconSize: [30, 50],
             shadowSize: [15, 15],
             iconAnchor: [15, 50],
-            popupAnchor: [0, 0]
+            popupAnchor: [0, -50]
         }
 
     }
@@ -118,7 +118,6 @@ class MapComponent extends Component {
                         onClick={this.props.namePKU}
                 >
                     <Popup>
-
                         <Link
                             // не настраивал
                             to="start"
@@ -141,8 +140,8 @@ class MapComponent extends Component {
     render() {
 
         return (
-            <div>
-                <LeafletMap center={[54.930922, 53.722198]} zoom={this.state.zoom} minZoom={this.state.minZoom}>
+            <div align="center">
+                <LeafletMap center={[55.030922, 53.722198]} zoom={this.state.zoom} minZoom={this.state.minZoom}>
                     <LayersControl position='topright'>
 
                         <LayersControl.BaseLayer checked name="Гибрид">

@@ -39,11 +39,16 @@ th {
     background-color: rgba(146, 255, 148, 1);
     box-shadow: none;
     background-position: 0;
+    /*margin-bottom: 20px*/
+
+;
     /*background-color: #007bff !important;*/
 }
 
 .table-horiz-scroll {
-    height: 600px;
+    height: 800px;
+    width: 96%;
+    align: center;
     overflow-x: auto;
     overflow-y: auto;
     margin-bottom: 15px;
@@ -54,4 +59,9 @@ th {
 
 .react-bootstrap-table-pagination-total {
     margin-left: 15px;
+}
+
+
+.TableComp {
+    width: 90%;
 }

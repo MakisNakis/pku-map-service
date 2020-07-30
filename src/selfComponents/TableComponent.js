@@ -18,15 +18,17 @@ class TableComponent extends Component {
         super();
         this.state = {
             pkuInfo: [],
+            filterColor: "white",
         };
         this.url = window.location.href;
+        this.copyPkuInfo = [];
     }
 
 
 
-    async fetchFromApi(apiRoute, idPKU) {                                   // функция подгрузки данных для таблиц, на вход принимает
+    async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
         await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
-           // console.log(`/api/pkuDataServerPKUTable${idPKU}`);              // apiRoute - api адрес, откуда нужно получить данные
+           // console.log(`/api/pkuDataServerPKUTable${idPKU}`);                  // apiRoute - api адрес, откуда нужно получить данные
            // console.log(results);
             return results.json();
         }).then(
@@ -79,6 +81,8 @@ class TableComponent extends Component {
     }
 
     async uploadData(rowEdit) {
+        // let userId = localStorage.getItem('userId')
+        // console.log(userId)
         switch (this.props.typeTable) {
             case "ОМТС":
                 this.fetchOnApi('/api/pkuDataServerPKUTable/OMTS/', this.props.idPKU, rowEdit);
@@ -104,6 +108,7 @@ class TableComponent extends Component {
     }
 
     async fetchOnApi(apiRoute, idPKU, rowEdit) {
+        let jsonObj = {rowEdit: rowEdit, userId: localStorage.getItem('userId')}
         console.log(window.location.href);
         console.log(rowEdit);
         await fetch(`${this.url}${apiRoute}${idPKU}`, {
@@ -112,17 +117,30 @@ class TableComponent extends Component {
             headers:{'content-type': 'application/json'},
             mode: "cors",
             // credentials: 'same-origin',
-            body: JSON.stringify(rowEdit),
+            body: JSON.stringify(jsonObj),
             // cache: "no-cache",
         }).then(results => {
             console.log(results);
             return results.json();
         }).then(data => {
             console.log(data);
+            this.fetchFromApi(apiRoute, idPKU) // вызываем для обновления полей таблицы после апдейта
         }).catch((err) => {
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}${idPKU}`);
         });
     }
+
+    cellStyle = (cell, row) => {
+        const style = {};
+        switch (this.props.typeTable) {
+            case "Отчеты1":
+                style.background = row.DatePlanColor;
+                break;
+            default:
+                break;
+        }
+        return style;
+    };
 
     render() {
 
@@ -184,33 +202,85 @@ class TableComponent extends Component {
             if (rowIndex % 2 === 0) {
                 style.backgroundColor = 'transparent';
             } else {
-                style.backgroundColor = 'rgba(142,238,147,0.13)';
+                style.backgroundColor = 'rgba(142,238,147,0.3)';
             }
+
             // style.borderTop = 'none';
             // style.height = '70';
             return style;
         };
+
 
         const indication = () => {
             return "В таблице нет информации";
         }
         // const indication = "В таблице нет информации";
 
+        const cutData = (color) => {
+            let newData = [];
+            let lenMas = this.copyPkuInfo.length;
+
+            console.log(color);
+
+            for (let i=0; i < lenMas; i++) {
+                let obj = this.copyPkuInfo[i];
+                for (let key in obj) {
+                    if (obj[key] === color) {
+                        newData.push(obj);
+                        break;
+                    }
+                }
+            }
+            return newData;
+        }
+
+        const filterColor = () => {
+            switch(this.state.filterColor) {
+                case "white":
+                    console.log('###### ' + this.state.filterColor);
+                    this.copyPkuInfo = this.state.pkuInfo;
+                    this.setState({
+                        filterColor: "yellow",
+                        pkuInfo: cutData("yellow"),
+                    });
+                    break;
+                case "yellow":
+                    console.log('###### ' + this.state.filterColor);
+
+                    this.setState({
+                        filterColor: "red",
+                        pkuInfo: cutData("red"),
+                    });
+                    break;
+                case "red":
+                    console.log('###### ' + this.state.filterColor);
+
+                    this.setState({
+                        filterColor: "white",
+                        pkuInfo: this.copyPkuInfo,
+                    });
+                    break;
+                default:
+                    break;
+            }
+        }
+
         return (
-            <div id="TableComp">
+            <div id="TableComp" align={'center'}>
                 {this.props.show &&
                 <div>
                     <ToolkitProvider
                         keyField={"tableID"}
-                        data={this.state.pkuInfo }
+                        data={this.state.pkuInfo}
                         columns={tableHeaders[this.props.typeTable]}
                         exportCSV
                     >
                         {
                             props => (
                                 <div>
-                                    <ExportCSVButton {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>
-                                    <hr/>
+                                    <ExportCSVButton className={"btn"} {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>
+                                    {this.props.depName === "Отчеты" && <button style={{backgroundColor: this.state.filterColor}} onClick={filterColor}>Фильтр</button>}
+                                    <br/>
                                     <BootstrapTable
                                         wrapperClasses="table-horiz-scroll"
                                         headerClasses="thead"
@@ -220,10 +290,12 @@ class TableComponent extends Component {
                                         pagination={paginationFactory(optionsPagination)}
                                         cellEdit={cellEditFactory({
                                             mode: 'dbclick',
-                                            blurToSave: true,
+                                            blurToSave: false,
                                             beforeSaveCell: (oldValue, newValue, row, column) => { console.log('Before Saving Cell!!'); },
                                             afterSaveCell: (oldValue, newValue, row, column) => {
-                                                this.uploadData(row, newValue, column);
+                                                if (oldValue !== newValue) {
+                                                    this.uploadData(row, newValue, column);
+                                                }
                                             }
                                         })}
                                         // filter={filterFactory()}

@@ -18,14 +18,11 @@ class AuthorisationComponent extends Component {
                     <button>Авторизоваться</button>
                     <br/>
                     <br/>
-                    ОМТС
-                    <br/>
-                    Монтажники
-                    <br/>
-                    ПТО
-                    <br/>
-                    Отчеты
+                    <label>
+                        <input name="RememberMe" checked={this.props.rememberMe} onChange={this.props.handleChange} type="checkbox"/> Запомнить меня
+                    </label>
                 </form>
+                {this.props.incorrectUser === true && <h3>Неверный логин или пароль ;^(</h3>}
                 {this.props.authErr}
             </div>
         )

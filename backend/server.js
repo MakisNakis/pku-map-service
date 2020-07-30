@@ -1,80 +1,81 @@
-const express = require('express');
-const MyRepository = require('./dbRequest');
+const express = require('express');                             // подключаем фреймворк express
+const MyRepository = require('./dbRequest');                    // подключаем файл dbRequest
 const app = express();
-const cors = require('cors');
+const cors = require('cors');                                   // подключаем cors для устранения ошибок в браузере при подключении к приложению с любого ip
 
 const port = 5000;
 const repository = new MyRepository();
 
-const types = require('pg').types;
-const moment = require('moment');
-var parseFn = function(val) {
+const types = require('pg').types;                              // подключаем pg types для обработки типов данных, считываемых из pg
+const moment = require('moment');                               // подключаем moment js для обработки дат
+
+var parseFn = function(val) {                                   // функция обработчик для обработки типов данных, считываемых из pg
     return val
-    // return moment(val).format("DD.MM.YYYY")
+    // return moment(val).format("DD.MM.YYYY")                  // модификация для преобразования считываемых данных (а именно даты) в нужный формат
 }
 
-const  TYPE_TIMESTAMP  =  1114;
-const TYPE_DATESTAMP1 = 1082;
-const  TYPE_TIMESTAMPTZ  =  1184;       //??
+const TYPE_DATESTAMP1 = 1082;                                   // дата без времени и без часового пояса
+const  TYPE_TIMESTAMP  =  1114;                                 // дата и время без часового пояса
 
 types.setTypeParser(TYPE_TIMESTAMP, parseFn)
 types.setTypeParser(TYPE_DATESTAMP1, parseFn)
-// types.setTypeParser(TYPE_TIMESTAMPTZ, parseFn)         //??
 // types.setTypeParser(TYPE_DATESTAMP, date => date);
 
-var mas = "1111";
+var mas = "1111";                                               // переменная для тестирования на /api/test1
 
-// var mas = [
-//     {id: 1, name: "Peter", lastName: "Griffin"},
-//     {id: 2, name: "Jack", lastName: "Sparrow"},
-//     {id: 3, name: "Steve", lastName: "Smith"}
-// ];
-
-app.use(cors());
-app.use(express.json({limit: '1mb'}));
-app.listen(port, () => console.log(`Server started on port ${port}`));
-
-app.get('/api/test', async (req, res) => {
-    const pkuDataServer = [
-        {id: 1, name: "Peter", lastName: "Griffin"},
-        {id: 2, name: "Jack", lastName: "Sparrow"},
-        {id: 3, name: "Steve", lastName: "Smith"}
-    ];
-    res.json(pkuDataServer);
-});
+app.use(cors());                                                // включение cors политики
+app.use(express.json({limit: '1mb'}));                          // установка лимита (нужна для успешного получения данных из POST запроса)
+app.listen(port, () => console.log(`Server started on port ${port}`));  // cвязывает и прослушивает соединения на указанном хосте и порте
 
 
-app.route('/api/test1')
-    .post(async (req, res) => {
-    mas = req.body;
-    console.log(mas);
-    console.log(req.headers.origin);
-    res.send(req.body);
-})
-    .get( async (req, res) => {
-    res.send(mas);
-});
+
+app.get('/api/test', async (req, res) => {                      // тестовый api
+    const pkuDataServer = [                                     //
+        {id: 1, name: "Peter", lastName: "Griffin"},            //
+        {id: 2, name: "Jack", lastName: "Sparrow"},             //
+        {id: 3, name: "Steve", lastName: "Smith"}               //
+    ];                                                          //
+    res.json(pkuDataServer);                                    //
+});                                                             //
+
+// //Здесь и далее:
+//     app.route('/path') - возвращает экземпляр одного маршрута, который затем можно использовать для обработки методами GET, POST и т.д.
+
+app.route('/api/test1')                                    // тестовый api
+    .post(async (req, res) => {                                 //
+    mas = req.body;                                             //
+    console.log(mas);                                           //
+    console.log(req.headers.origin);                            //
+    res.send(req.body);                                         //
+})                                                              //
+    .get( async (req, res) => {                                 //
+    res.send(mas);                                              //
+});                                                             //
 
 
-app.get('/api/pkuDataServerFirstRoute', async (req, res) => {
-    const data = await repository.loadDataForMarkers(1);
+app.get('/api/pkuDataServerFirstRoute', async (req, res) => {      // api для выгрузки точек из БД для маршрута с номером 1
+    const data = await repository.loadDataForMarkers(1);    // вызов функции для выполнения запроса
     res.json(data);
 });
 
-app.get('/api/pkuDataServerSecondRoute', async (req, res) => {
-    const data = await repository.loadDataForMarkers(2);
+app.get('/api/pkuDataServerSecondRoute', async (req, res) => {     // api для выгрузки точек из БД для маршрута с номером 2
+    const data = await repository.loadDataForMarkers(2);    // вызов функции для выполнения запроса
     res.json(data);
 });
 
 
-for (let i = 0; i < 40; i++) {
+// Здесь и далее:
+//     - функция loadDataForTable используется для генерации запросов на получение данных из БД
+//     - функция uploadDataForTable используется для генерации запросов на внесение данных в БД (req.body - измененная строка, полученная от клиента)
+//
+for (let i = 0; i < 40; i++) {                                  // цикл, в котором создаются api для разных ПКУ
     app.route(`/api/pkuDataServerPKUTable/OMTS/${i}`)
         .get(async (req, res) => {
             const data = await repository.loadDataForTable(i, "ОМТС");
             res.json(data.rows)
         })
         .post(async (req, res) => {
-            const data = await repository.uploadDataForTable(i, "ОМТС", req.body);
+            const data = await repository.uploadDataForTable(i, "ОМТС", req.body.rowEdit, req.body.userId);
             res.send(data);
     });
     app.route(`/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/${i}`)
@@ -83,7 +84,7 @@ for (let i = 0; i < 40; i++) {
             res.json(data.rows);
         })
         .post(async (req, res) => {
-            const data = await repository.uploadDataForTable(i, "Монтажники1", req.body);
+            const data = await repository.uploadDataForTable(i, "Монтажники1", req.body.rowEdit, req.body.userId);
             res.send(data);
             // res.json(req.body);
         });
@@ -100,7 +101,7 @@ for (let i = 0; i < 40; i++) {
         })
         .post(async (req, res) => {
             console.log(req.headers.origin);
-            const data = await repository.uploadDataForTable(i, "ПТО1", req.body);
+            const data = await repository.uploadDataForTable(i, "ПТО1", req.body.rowEdit, req.body.userId);
             res.send(data);
     });
     app.route(`/api/pkuDataServerPKUTable/PTO/PTO2/${i}`)
@@ -109,7 +110,7 @@ for (let i = 0; i < 40; i++) {
             res.json(data.rows);
         })
         .post(async (req, res) => {
-            const data = await repository.uploadDataForTable(i, "ПТО2", req.body);
+            const data = await repository.uploadDataForTable(i, "ПТО2", req.body.rowEdit, req.body.userId);
             // res.send(req.body);
             res.send(data);
     });
@@ -123,29 +124,31 @@ for (let i = 0; i < 40; i++) {
     });
 }
 
-//
-// for (let i = 0; i < 40; i++){
-//     app.get(`/api/pkuDataServerPKUTable/PTO/${i}`, async (req, res) => {
-//         const data = await repository.loadDataForTable(i, "ПТО");
-//         res.json(data);
-//     });
-// }
-//
+app.route(`/api/auth`) // эндпоинт для получения id пользователя, который логинится
+        .post(async (req, res) => {
+            let data = req.body
+            console.log(data)
+            const dbResponse = await repository.checkAuth(data);
+            // res.send(req.body);
+            res.send(dbResponse);
 
-// for (let i = 0; i < 40; i++){
-//     app.get(`/api/pkuDataServerPKUTable/Montazhniki/${i}`, async (req, res) => {
-//         const data = await repository.loadDataForTable(i, "Монтажники");
-//         res.json(data);
-//     });
-// }
+    });
 
-// for (let i = 0; i < 40; i++){
-//     app.get(`/api/pkuDataServerPKUTable/Otchety/${i}`, async (req, res) => {
-//         const data = await repository.loadDataForTable(i, "Отчеты");
-//         res.json(data);
-//     });
-// }
+app.route(`/api/auth/userRole`) // эндпоинт для получения номера роли пользователя, который залогинился
+    .post(async (req, res) => {
+        let data = req.body
+        console.log(data)
+        const dbResponse = await repository.getUserRole(data);
+        // res.send(req.body);
+        res.send(dbResponse);
 
+    });
 
+app.route(`/api/auth/userName`) // эндпоинт для получения имени пользователя, который залогинился
+    .post(async (req, res) => {
+        let data = req.body
+        console.log(data)
+        const dbResponse = await repository.getUserName(data);
+        res.send(dbResponse);
 
-
+    });
