@@ -164,7 +164,7 @@ export function ColumnsData() {
         sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
-            return {width: 750, textAlign: 'center'};
+            return {width: 650, textAlign: 'center'};
         }
 
     }, {
@@ -226,7 +226,7 @@ export function ColumnsData() {
         sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
-            return {width: 300, textAlign: 'center'};
+            return {width: 200, textAlign: 'center'};
         }
     }, {
         dataField: 'Comment',
@@ -241,7 +241,7 @@ export function ColumnsData() {
         sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
-            return {width: 300, textAlign: 'center'};
+            return {width: 200, textAlign: 'center'};
         }
     }, {
         dataField: 'DateUp',
@@ -406,7 +406,7 @@ export function ColumnsData() {
         sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
-            return {width: 750, textAlign: 'center'};
+            return {width: 350, textAlign: 'center'};
         },
         headerClasses: 'fixed-header',
     }, {

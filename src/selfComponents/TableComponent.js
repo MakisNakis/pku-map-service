@@ -83,16 +83,16 @@ class TableComponent extends Component {
     async uploadData(rowEdit) {
         switch (this.props.typeTable) {
             case "ОМТС":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/OMTS/', this.props.idPKU, rowEdit);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/OMTS/', this.props.idPKU, rowEdit, this.props.userRole, this.props.userName);
                 break;
             case "Монтажники1":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit, this.props.userRole, this.props.userName);
                 break;
             case "ПТО1":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO1/', this.props.idPKU, rowEdit);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO1/', this.props.idPKU, rowEdit, this.props.userRole, this.props.userName);
                 break;
             case "ПТО2":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO2/', this.props.idPKU, rowEdit);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO2/', this.props.idPKU, rowEdit, this.props.userRole, this.props.userName);
                 break;
             default:
                 break;
@@ -206,17 +206,6 @@ class TableComponent extends Component {
             return style;
         };
 
-        // const cellStyle = (cell, row) => {
-        //     const style = {};
-        //     switch (this.props.typeTable) {
-        //         case "Отчеты1":
-        //             style.background = row.DatePlanColor;
-        //             break;
-        //         default:
-        //             break;
-        //     }
-        //     return style;
-        // };
 
         const indication = () => {
             return "В таблице нет информации";
@@ -286,8 +275,8 @@ class TableComponent extends Component {
                             props => (
                                 <div>
                                     <ExportCSVButton className={"btn"} {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>
-                                    {this.props.depName === "Отчеты" && <button style={{backgroundColor: this.state.filterColor}} onClick={filterColor}>Кнопка</button>}
-                                    <hr/>
+                                    {this.props.depName === "Отчеты" && <button style={{backgroundColor: this.state.filterColor}} onClick={filterColor}>Фильтр</button>}
+                                    <br/>
                                     <BootstrapTable
                                         wrapperClasses="table-horiz-scroll"
                                         headerClasses="thead"
@@ -297,7 +286,7 @@ class TableComponent extends Component {
                                         pagination={paginationFactory(optionsPagination)}
                                         cellEdit={cellEditFactory({
                                             mode: 'dbclick',
-                                            blurToSave: true,
+                                            blurToSave: false,
                                             beforeSaveCell: (oldValue, newValue, row, column) => { console.log('Before Saving Cell!!'); },
                                             afterSaveCell: (oldValue, newValue, row, column) => {
                                                 this.uploadData(row, newValue, column);

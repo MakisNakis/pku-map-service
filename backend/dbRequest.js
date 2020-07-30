@@ -28,6 +28,7 @@ class MyRepository {
 
     }
 
+
     async loadDataForMarkers(routeId) {                         // функция для считывания данных об объектах на маршруте
         try {
             await this.client.connect();                        // создание подключения
@@ -90,15 +91,14 @@ class MyRepository {
         return '\''+data+'\'';
     }
 
-    async uploadDataForTable(pkuId, typeTable, row) {
+    async uploadDataForTable(pkuId, typeTable, row, userRole, userName) {
 
         let query = undefined;
-        let user = 1;                           // 1 - Админ - (временная переменная из за отсутствия регистрации)
-
-
+                                  // 1 - Админ - (временная переменная из за отсутствия регистрации)
+                                // 1 - Админ - (временная переменная из за отсутствия регистрации)
         // Здесь и далее для всех отделов:
         //  - if используется для преобразования даты и комментария в тип, пригодный для pg (т.е. данные должны быть окружены '')
-
+        // console.log("!!!!!!!    " + localStorage.getItem('userName'));
         switch (typeTable) {
             case "ОМТС":
                 let DateContract = null;
@@ -128,7 +128,7 @@ class MyRepository {
                     ${DateFact}, 
                     ${row.Quantity}, 
                     ${this.convertToPG(CommentOMTS)},
-                    ${user}
+                    ${userRole}
                 );`);
                 break;
             case "Монтажники1":
@@ -146,9 +146,9 @@ class MyRepository {
                     ${row.WorkID},
                     ${DateWork},
                     ${this.convertToPG(row.Fact)},
-                    ${user},
+                    ${userRole},
                     ${this.convertToPG(CommentMontazhniki1)},
-                    ${user}
+                    ${userRole}
                 );`);
                 break;
             case "ПТО1":
@@ -196,11 +196,11 @@ class MyRepository {
                     ${EndDatePlan},
                     ${DateWorkPTO},
                     ${this.convertToPG(row.Fact)},
-                    ${user},
+                    ${userRole},
                     ${EndDateAkt},
                     ${MaterialDate},
                     ${this.convertToPG(CommentPTO1)},
-                    ${user}
+                    ${userRole}
                 );`);
                 break;
             case "ПТО2":
@@ -209,7 +209,7 @@ class MyRepository {
                 query = this.client.query(`select * from f_u_worknomgr(
                     ${row.WorksNomGroupID},
                     ${row.QuantityNG},
-                    ${user}
+                    ${userRole}
                 );`);
                 break;
             default:
@@ -219,7 +219,46 @@ class MyRepository {
         return query
     }
 
+    async checkAuth(data) { // функция для проверки пароля и логина пользователя
+        try {
+            await this.client.connect();                        // создание подключения
+            console.log('DB has been connected');
+        } catch(e) {
+            console.log('Error', e)
+        }
+        let query = undefined;
+        const logForPG = this.convertToPG(data.login);
+        const passForPG = this.convertToPG(data.password);
+        console.log(data.password)
+        query = this.client.query(`select * from f_s_userid_logpas(${logForPG}, ${passForPG});`);        // this.client.end();
+        return query
+    }
 
+    async getUserRole(data) { // функция для проверки пароля и логина пользователя
+        try{
+            await this.client.connect();                        // создание подключения
+            console.log('DB has been connected');
+        } catch(e) {
+            console.log('Error', e)
+        }
+        const userIdPG = this.convertToPG(data.userId);
+        console.log(userIdPG)
+        let query = this.client.query(`select * from f_s_roleid_userid(${userIdPG});`);        // this.client.end();
+        return query
+    }
+
+    async getUserName(data) { // функция для проверки пароля и логина пользователя
+        try{
+            await this.client.connect();                        // создание подключения
+            console.log('DB has been connected');
+        } catch(e) {
+            console.log('Error', e)
+        }
+        const userIdPG = this.convertToPG(data.userId);
+        console.log(userIdPG)
+        let query = this.client.query(`select * from f_s_username_userid(${userIdPG});`)
+        return query
+    }
 }
 
 module.exports = MyRepository;

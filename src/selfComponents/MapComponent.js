@@ -140,8 +140,8 @@ class MapComponent extends Component {
     render() {
 
         return (
-            <div>
-                <LeafletMap center={[54.930922, 53.722198]} zoom={this.state.zoom} minZoom={this.state.minZoom}>
+            <div align="center">
+                <LeafletMap center={[55.030922, 53.722198]} zoom={this.state.zoom} minZoom={this.state.minZoom}>
                     <LayersControl position='topright'>
 
                         <LayersControl.BaseLayer checked name="Гибрид">
