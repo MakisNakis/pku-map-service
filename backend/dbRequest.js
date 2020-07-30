@@ -25,17 +25,23 @@ class MyRepository {
         this.client = new Client({                              // создание подключения к БД
             connectionString: connectionString
         });
+        try {
+            this.client.connect();                        // создание подключения
+            console.log('DB has been connected');
+        } catch(e) {
+            console.log('Error', e)
+        }
 
     }
 
 
     async loadDataForMarkers(routeId) {                         // функция для считывания данных об объектах на маршруте
-        try {
-            await this.client.connect();                        // создание подключения
-            console.log('DB has been connected');
-        } catch(e) {
-            console.log('Error', e)
-        }
+        // try {
+        //     await this.client.connect();                        // создание подключения
+        //     console.log('DB has been connected');
+        // } catch(e) {
+        //     console.log('Error', e)
+        // }
 
         let query = this.client.query(`select * from f_s_subject_routeid(${routeId})`); // запрос для получения координат маркеров на маршруте routeId
         // this.client.end();
@@ -43,12 +49,12 @@ class MyRepository {
     }
 
     async loadDataForTable(pkuId, typeTable) {                  // функция для считывания данных об объектах в зависимости от отдела
-        try {
-            await this.client.connect();                        // создание подключения
-            console.log('DB has been connected');
-        } catch(e) {
-            console.log('Error', e)
-        }
+        // try {
+        //     await this.client.connect();                        // создание подключения
+        //     console.log('DB has been connected');
+        // } catch(e) {
+        //     console.log('Error', e)
+        // }
 
         let query = undefined;
 
@@ -224,13 +230,13 @@ class MyRepository {
         return query
     }
 
-    async checkAuth(data) { // функция для проверки пароля и логина пользователя
-        try {
-            await this.client.connect();                        // создание подключения
-            console.log('DB has been connected');
-        } catch(e) {
-            console.log('Error', e)
-        }
+     async checkAuth(data) { // функция для проверки пароля и логина пользователя
+        // try {
+        //     await this.client.connect();                        // создание подключения
+        //     console.log('DB has been connected');
+        // } catch(e) {
+        //     console.log('Error', e)
+        // }
         let query = undefined;
         const logForPG = this.convertToPG(data.login);
         const passForPG = this.convertToPG(data.password);
@@ -239,26 +245,26 @@ class MyRepository {
         return query
     }
 
-    async getUserRole(data) { // функция для проверки пароля и логина пользователя
-        try{
-            await this.client.connect();                        // создание подключения
-            console.log('DB has been connected');
-        } catch(e) {
-            console.log('Error', e)
-        }
+     getUserRole(data) { // функция для проверки пароля и логина пользователя
+        // try{
+        //     await this.client.connect();                        // создание подключения
+        //     console.log('DB has been connected');
+        // } catch(e) {
+        //     console.log('Error', e)
+        // }
         const userIdPG = this.convertToPG(data.userId);
         console.log(userIdPG)
         let query = this.client.query(`select * from f_s_roleid_userid(${userIdPG});`);        // this.client.end();
         return query
     }
 
-    async getUserName(data) { // функция для проверки пароля и логина пользователя
-        try{
-            await this.client.connect();                        // создание подключения
-            console.log('DB has been connected');
-        } catch(e) {
-            console.log('Error', e)
-        }
+     getUserName(data) { // функция для проверки пароля и логина пользователя
+        // try{
+        //     await this.client.connect();                        // создание подключения
+        //     console.log('DB has been connected');
+        // } catch(e) {
+        //     console.log('Error', e)
+        // }
         const userIdPG = this.convertToPG(data.userId);
         console.log(userIdPG)
         let query = this.client.query(`select * from f_s_username_userid(${userIdPG});`)
