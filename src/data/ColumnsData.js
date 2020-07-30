@@ -1,4 +1,5 @@
 import { Type } from 'react-bootstrap-table2-editor';
+import Moment from 'react-moment';
 
 function CellStyle(cell, row, rowIndex, colIndex) {
     let backgroundColor = '#ffffff';
@@ -49,7 +50,8 @@ export function ColumnsData() {
         text: 'Дата согласования',
         sort: true,
         editor: {
-            type: Type.DATE
+            type: Type.DATE,
+            defaultValue: Date.now()
         },
         editable: false,
         headerStyle: (colum, colIndex) => {
@@ -68,7 +70,8 @@ export function ColumnsData() {
         text: 'Дата договора с контрагентом',
         sort: true,
         editor: {
-            type: Type.DATE
+            type: Type.DATE,
+            defaultValue: Date.now()
         },
         // editable: false,
         headerStyle: (colum, colIndex) => {
@@ -79,7 +82,8 @@ export function ColumnsData() {
         text: 'Плановая дата поставки',
         sort: true,
         editor: {
-            type: Type.DATE
+            type: Type.DATE,
+            defaultValue: Date.now()
         },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -89,7 +93,8 @@ export function ColumnsData() {
         text: 'Фактическая дата поставки',
         sort: true,
         editor: {
-            type: Type.DATE
+            type: Type.DATE,
+            defaultValue: Date.now()
         },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -147,7 +152,8 @@ export function ColumnsData() {
         text: 'Дата внесения изменений',
         sort: true,
         editor: {
-            type: Type.DATE
+            type: Type.DATE,
+            defaultValue: Date.now()
         },
         editable: false,
         headerStyle: (colum, colIndex) => {
@@ -204,7 +210,8 @@ export function ColumnsData() {
         text: 'Дата пров. работ',
         sort: true,
         editor: {
-            type: Type.DATE
+            type: Type.DATE,
+            defaultValue: Date.now()
         },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -285,7 +292,8 @@ export function ColumnsData() {
         text: 'Дата нач. (контр.)',
         sort: true,
         editor: {
-            type: Type.DATE
+            type: Type.DATE,
+            defaultValue: Date.now()
         },
         // editable: false,
         headerStyle: (colum, colIndex) => {
@@ -296,7 +304,8 @@ export function ColumnsData() {
         text: 'Дата кон. (контр.)',
         sort: true,
         editor: {
-            type: Type.DATE
+            type: Type.DATE,
+            defaultValue: Date.now()
         },
         // editable: false,
         headerStyle: (colum, colIndex) => {
@@ -307,7 +316,8 @@ export function ColumnsData() {
         text: 'Дата нач. (план.)',
         sort: true,
         editor: {
-            type: Type.DATE
+            type: Type.DATE,
+            defaultValue: Date.now()
         },
         // editable: false,
         headerStyle: (colum, colIndex) => {
@@ -318,7 +328,8 @@ export function ColumnsData() {
         text: 'Дата кон. (план.)',
         sort: true,
         editor: {
-            type: Type.DATE
+            type: Type.DATE,
+            defaultValue: Date.now()
         },
         // editable: false,
         headerStyle: (colum, colIndex) => {
@@ -329,7 +340,8 @@ export function ColumnsData() {
         text: 'Дата пров. работ',
         sort: true,
         editor: {
-            type: Type.DATE
+            type: Type.DATE,
+            defaultValue: Date.now()
         },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -358,7 +370,8 @@ export function ColumnsData() {
         text: 'Месяц закр. по актам',
         sort: true,
         editor: {
-            type: Type.DATE
+            type: Type.DATE,
+            defaultValue: Date.now()
         },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -368,7 +381,8 @@ export function ColumnsData() {
         text: 'Дата списания материалов',
         sort: true,
         editor: {
-            type: Type.DATE
+            type: Type.DATE,
+            defaultValue: Date.now()
         },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
