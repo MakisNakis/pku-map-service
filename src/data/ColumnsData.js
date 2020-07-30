@@ -215,7 +215,7 @@ export function ColumnsData() {
         sort: true,
         editor: {
             type: Type.CHECKBOX,
-            value: 'true:false',
+            value: 'выполнено:не выполнено',
     },
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
@@ -340,7 +340,7 @@ export function ColumnsData() {
         sort: true,
         editor: {
             type: Type.CHECKBOX,
-            value: 'true:false'
+            value: 'выполнено:не выполнено'
         },
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};

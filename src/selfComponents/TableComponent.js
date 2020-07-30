@@ -18,7 +18,7 @@ class TableComponent extends Component {
         super();
         this.state = {
             pkuInfo: [],
-            filterColor: "rgba(53, 222, 65, 0.87)",
+            filterColor: "white",
         };
         this.url = window.location.href;
         this.copyPkuInfo = [];
@@ -232,7 +232,7 @@ class TableComponent extends Component {
 
         const filterColor = () => {
             switch(this.state.filterColor) {
-                case "rgba(53, 222, 65, 0.87)":
+                case "white":
                     console.log('###### ' + this.state.filterColor);
                     this.copyPkuInfo = this.state.pkuInfo;
                     this.setState({
@@ -252,7 +252,7 @@ class TableComponent extends Component {
                     console.log('###### ' + this.state.filterColor);
 
                     this.setState({
-                        filterColor: "rgba(53, 222, 65, 0.87)",
+                        filterColor: "white",
                         pkuInfo: this.copyPkuInfo,
                     });
                     break;
@@ -289,7 +289,9 @@ class TableComponent extends Component {
                                             blurToSave: false,
                                             beforeSaveCell: (oldValue, newValue, row, column) => { console.log('Before Saving Cell!!'); },
                                             afterSaveCell: (oldValue, newValue, row, column) => {
-                                                this.uploadData(row, newValue, column);
+                                                if (oldValue !== newValue) {
+                                                    this.uploadData(row, newValue, column);
+                                                }
                                             }
                                         })}
                                         // filter={filterFactory()}
