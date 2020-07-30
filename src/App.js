@@ -328,7 +328,6 @@ switchDepartment(){
                 <div>
                     <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
                     <MapComponent namePKU={this.gettingNamePKU}/>
-                    <div id="start"></div>
                     {/*<h2>Вы вошли как пользователь {this.state.userName}</h2> */}
                     <LogoutComponent
                         userName={this.state.userName}
@@ -354,6 +353,7 @@ switchDepartment(){
                     {this.state.idPKU && (this.state.typeTable === "Монтажники1" || this.state.typeTable === "ПТО1") && <p className="Table-header"><h2 align="center">Перечень работ на {this.state.markerName} </h2></p>}
                     {this.state.idPKU && (this.state.typeTable === "Монтажники2" || this.state.typeTable === "ПТО2") && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} </h2></p>}
                     {this.state.idPKU && (this.state.typeTable === "ОМТС" || this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Карабаш</h2></p>}
+                    <div id="start"></div>
                     <TableComponent
                     show={this.state.show}
                     hide={this.state.hide}
