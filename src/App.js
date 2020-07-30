@@ -364,6 +364,7 @@ switchDepartment(){
                     // userRole={this.state.userRole}
                     // userName={this.state.userName}
                     />
+                    <br/>
                 </div>}
 
             </div>
