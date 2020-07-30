@@ -245,7 +245,7 @@ class MyRepository {
         return query
     }
 
-     getUserRole(data) { // функция для проверки пароля и логина пользователя
+     async getUserRole(data) { // функция для проверки пароля и логина пользователя
         // try{
         //     await this.client.connect();                        // создание подключения
         //     console.log('DB has been connected');
@@ -258,7 +258,7 @@ class MyRepository {
         return query
     }
 
-     getUserName(data) { // функция для проверки пароля и логина пользователя
+     async getUserName(data) { // функция для проверки пароля и логина пользователя
         // try{
         //     await this.client.connect();                        // создание подключения
         //     console.log('DB has been connected');

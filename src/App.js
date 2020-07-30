@@ -106,13 +106,17 @@ class App extends React.Component {
         }).then(data => {
             // console.log(data.rows[0].f_s_userid_logpas);
             if (data.rows[0].f_s_userid_logpas !== 0){
-                this.setState({incorrectUser: false})
-                this.setState({authorisation: true})
-                this.setState({userId: data.rows[0].f_s_userid_logpas})
+                this.setState({
+                    incorrectUser: false,
+                    authorisation: true,
+                    userId: data.rows[0].f_s_userid_logpas
+                })
                 console.log("Жабка в очках")
                 this.getUserRoleById(apiRoute, data.rows[0].f_s_userid_logpas)
-                this.getUserNameById(apiRoute, data.rows[0].f_s_userid_logpas)
-            } else this.setState({incorrectUser:true})
+
+            } else this.setState({
+                incorrectUser:true
+            })
         }).catch((err) => {
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}`);
         });
@@ -160,6 +164,7 @@ switchDepartment(){
         }).then(data => {
             console.log(data.rows[0].f_s_roleid_userid);
             this.setState({userRole: data.rows[0].f_s_roleid_userid})
+            this.getUserNameById(apiRoute, userId)
            // this.switchDepartment()
 
             // console.log(data);

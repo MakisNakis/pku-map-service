@@ -266,7 +266,7 @@ class TableComponent extends Component {
         }
 
         return (
-            <div id="TableComp" align={'center'}>
+            <div id="TableComp" >
                 {this.props.show &&
                 <div>
                     <ToolkitProvider
