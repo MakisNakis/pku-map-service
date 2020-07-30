@@ -47,8 +47,8 @@ th {
 
 .table-horiz-scroll {
     height: 800px;
-    width: 96%;
-    align: center;
+    width: 100%;
+    /*align: center;*/
     overflow-x: auto;
     overflow-y: auto;
     margin-bottom: 15px;
