@@ -94,7 +94,8 @@ class MyRepository {
     async uploadDataForTable(pkuId, typeTable, row, userIdString) {
 
         let query = undefined
-        // let userId = parseInt(userIdString)
+        let userId = parseInt(userIdString)
+        let performerId = 1
         // let userId = 3
         console.log(userIdString)
         console.log(userId)
@@ -150,7 +151,7 @@ class MyRepository {
                     ${row.WorkID},
                     ${DateWork},
                     ${this.convertToPG(row.Fact)},
-                    ${userId},
+                    ${performerId},
                     ${this.convertToPG(CommentMontazhniki1)},
                     ${userId}
                 );`);
@@ -200,7 +201,7 @@ class MyRepository {
                     ${EndDatePlan},
                     ${DateWorkPTO},
                     ${this.convertToPG(row.Fact)},
-                    ${userId},
+                    ${performerId},
                     ${EndDateAkt},
                     ${MaterialDate},
                     ${this.convertToPG(CommentPTO1)},

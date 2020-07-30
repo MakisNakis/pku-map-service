@@ -22,10 +22,6 @@
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/LogoutComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/LogoutComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +214,7 @@
       <workItem from="1595417747757" duration="9413000" />
       <workItem from="1596002785488" duration="22215000" />
       <workItem from="1596088922265" duration="1202000" />
-      <workItem from="1596091113590" duration="8702000" />
+      <workItem from="1596091113590" duration="9407000" />
     </task>
     <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
       <created>1589908848848</created>
@@ -528,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596095451357</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="- сделал передачу информации о userId на сервер для заполненния  информации о пользователе в таблице&#10;- TODO:&#10;        1 - хеширование паролей">
+      <created>1596107285308</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1596107285308</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -547,7 +550,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Теперь для разных маршрутов разные маркеры" />
     <MESSAGE value="TODO: написать компоненет таблицы" />
     <MESSAGE value="- изменен конструткор, добавлено новое состояние, изменена функция setMarkerIcon()&#10;TODO: написать компоненет таблицы" />
     <MESSAGE value="&#10;TODO: &#10;- развернуть бек на Node / Express" />
@@ -572,13 +574,14 @@
     <MESSAGE value="- добавил кнопку выхода&#10;- исправил баги&#10;- TODO:&#10;        1 - хеширование паролей" />
     <MESSAGE value="- merge с tabolin2&#10;- TODO:&#10;        1 - хеширование паролей" />
     <MESSAGE value="- подправил стили и разметку&#10;- TODO:&#10;        1 - хеширование паролей" />
-    <option name="LAST_COMMIT_MESSAGE" value="- подправил стили и разметку&#10;- TODO:&#10;        1 - хеширование паролей" />
+    <MESSAGE value="- сделал передачу информации о userId на сервер для заполненния  информации о пользователе в таблице&#10;- TODO:&#10;        1 - хеширование паролей" />
+    <option name="LAST_COMMIT_MESSAGE" value="- сделал передачу информации о userId на сервер для заполненния  информации о пользователе в таблице&#10;- TODO:&#10;        1 - хеширование паролей" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2" timestamp="1596095450999">
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2" timestamp="1596107285161">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596095450999" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596107285161" />
     <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1595419516019" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1592916497324">
       <screen x="0" y="0" width="1536" height="824" />
