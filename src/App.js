@@ -192,22 +192,18 @@ switchDepartment(){
             // this.switchDepartment()
             switch (localStorage.getItem('userRole')) {
                 case '1':
-                    this.setState({depName: "Отчеты"});
+                    this.setState({depName: "Отчеты",typeTable: "Отчеты1"});
                     console.log('1111111')
-                    this.setState({typeTable: "Отчеты1"});
                     break;
                 case '2':
-                    this.setState({depName: "ОМТС"});
+                    this.setState({depName: "ОМТС", typeTable: "ОМТС"});
                     console.log('22222222')
-                    this.setState({typeTable: "ОМТС"});
                     break;
                 case '3':
-                    this.setState({depName: "ПТО"});
-                    this.setState({typeTable: "ПТО1"});
+                    this.setState({depName: "ПТО",typeTable: "ПТО1"});
                     break;
                 case '4':
-                    this.setState({depName: "Монтажники"});
-                    this.setState({typeTable: "Монтажники1"});
+                    this.setState({depName: "Монтажники",typeTable: "Монтажники1"});
                     break;
                 default:
                     break;
@@ -365,8 +361,8 @@ switchDepartment(){
                     depName={this.state.depName}
                     typeTable={this.state.typeTable}
                     markerName={this.state.markerName}
-                    userRole={this.state.userRole}
-                    userName={this.state.userName}
+                    // userRole={this.state.userRole}
+                    // userName={this.state.userName}
                     />
                 </div>}
 

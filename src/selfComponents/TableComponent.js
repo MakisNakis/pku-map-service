@@ -81,18 +81,20 @@ class TableComponent extends Component {
     }
 
     async uploadData(rowEdit) {
+        // let userId = localStorage.getItem('userId')
+        // console.log(userId)
         switch (this.props.typeTable) {
             case "ОМТС":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/OMTS/', this.props.idPKU, rowEdit, this.props.userRole, this.props.userName);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/OMTS/', this.props.idPKU, rowEdit);
                 break;
             case "Монтажники1":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit, this.props.userRole, this.props.userName);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit);
                 break;
             case "ПТО1":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO1/', this.props.idPKU, rowEdit, this.props.userRole, this.props.userName);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO1/', this.props.idPKU, rowEdit);
                 break;
             case "ПТО2":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO2/', this.props.idPKU, rowEdit, this.props.userRole, this.props.userName);
+                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO2/', this.props.idPKU, rowEdit);
                 break;
             default:
                 break;
@@ -106,6 +108,7 @@ class TableComponent extends Component {
     }
 
     async fetchOnApi(apiRoute, idPKU, rowEdit) {
+        let jsonObj = {rowEdit: rowEdit, userId: localStorage.getItem('userId')}
         console.log(window.location.href);
         console.log(rowEdit);
         await fetch(`${this.url}${apiRoute}${idPKU}`, {
@@ -114,13 +117,14 @@ class TableComponent extends Component {
             headers:{'content-type': 'application/json'},
             mode: "cors",
             // credentials: 'same-origin',
-            body: JSON.stringify(rowEdit),
+            body: JSON.stringify(jsonObj),
             // cache: "no-cache",
         }).then(results => {
             console.log(results);
             return results.json();
         }).then(data => {
             console.log(data);
+            this.fetchFromApi(apiRoute, idPKU) // вызываем для обновления полей таблицы после апдейта
         }).catch((err) => {
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}${idPKU}`);
         });

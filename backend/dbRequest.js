@@ -91,9 +91,13 @@ class MyRepository {
         return '\''+data+'\'';
     }
 
-    async uploadDataForTable(pkuId, typeTable, row, userRole, userName) {
+    async uploadDataForTable(pkuId, typeTable, row, userIdString) {
 
-        let query = undefined;
+        let query = undefined
+        // let userId = parseInt(userIdString)
+        // let userId = 3
+        console.log(userIdString)
+        console.log(userId)
                                   // 1 - Админ - (временная переменная из за отсутствия регистрации)
                                 // 1 - Админ - (временная переменная из за отсутствия регистрации)
         // Здесь и далее для всех отделов:
@@ -128,7 +132,7 @@ class MyRepository {
                     ${DateFact}, 
                     ${row.Quantity}, 
                     ${this.convertToPG(CommentOMTS)},
-                    ${userRole}
+                    ${userId}
                 );`);
                 break;
             case "Монтажники1":
@@ -146,9 +150,9 @@ class MyRepository {
                     ${row.WorkID},
                     ${DateWork},
                     ${this.convertToPG(row.Fact)},
-                    ${userRole},
+                    ${userId},
                     ${this.convertToPG(CommentMontazhniki1)},
-                    ${userRole}
+                    ${userId}
                 );`);
                 break;
             case "ПТО1":
@@ -196,11 +200,11 @@ class MyRepository {
                     ${EndDatePlan},
                     ${DateWorkPTO},
                     ${this.convertToPG(row.Fact)},
-                    ${userRole},
+                    ${userId},
                     ${EndDateAkt},
                     ${MaterialDate},
                     ${this.convertToPG(CommentPTO1)},
-                    ${userRole}
+                    ${userId}
                 );`);
                 break;
             case "ПТО2":
@@ -209,7 +213,7 @@ class MyRepository {
                 query = this.client.query(`select * from f_u_worknomgr(
                     ${row.WorksNomGroupID},
                     ${row.QuantityNG},
-                    ${userRole}
+                    ${userId}
                 );`);
                 break;
             default:

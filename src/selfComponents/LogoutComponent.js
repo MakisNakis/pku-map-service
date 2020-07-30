@@ -13,7 +13,6 @@ class LogoutComponent extends Component {
                 <table>
                     <tr>
                         <td><h2>Вы вошли как пользователь {this.props.userName} </h2></td>
-                        {/*<td><tr></tr></td>*/}
                     </tr>
                 </table>
                 <td><button  onClick={this.props.logout} type="button">Выйти</button></td>
