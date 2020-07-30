@@ -214,6 +214,7 @@ class App extends React.Component {
                     typeTable={this.state.typeTable}
                     markerName={this.state.markerName}
                     />
+                    <br/>
                 </div>}
 
             </div>
