@@ -5,6 +5,9 @@ import TableComponent from './selfComponents/TableComponent';
 import AuthorisationComponent from './selfComponents/AuthorisationComponent';
 import TypeTableComponent from './selfComponents/TypeTableComponent';
 import LogoutComponent from './selfComponents/LogoutComponent';
+import logo from './003 Лого Без фона.png';
+
+import PkuListComponent from './selfComponents/PkuListComponent';
 import BootstrapTable from 'react-bootstrap-table-next';
 import cellEditFactory from 'react-bootstrap-table2-editor';
 import {Map as LeafletMap, Marker, TileLayer} from "react-leaflet";
@@ -331,7 +334,13 @@ switchDepartment(){
                 />}
                 {this.state.authorisation &&
                 <div>
-                    <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
+                    <table>
+                        <td><img src={logo}  width="400px"/></td>
+                        <td><div className="mainHeader" align="center"><h1>Карта объектов для монтажа оборудования</h1>
+                        </div></td>
+                    </table>
+
+
                     <MapComponent namePKU={this.gettingNamePKU}/>
                     {/*<h2>Вы вошли как пользователь {this.state.userName}</h2> */}
                     <LogoutComponent
