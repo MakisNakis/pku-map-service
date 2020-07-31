@@ -285,7 +285,7 @@ class TableComponent extends Component {
                                     {this.props.depName === "Отчеты" && <button className="button9" style={{backgroundColor: this.state.filterColor}} onClick={filterColor}>Фильтр</button>}
                                     <br/>
                                     <BootstrapTable
-                                        // wrapperClasses="table-horiz-scroll"
+                                        wrapperClasses="table-horiz-scroll"
                                         headerClasses="thead"
                                         bodyClasses="tbody"
                                         // rowStyle={rowStyle}
