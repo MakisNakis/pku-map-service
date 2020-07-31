@@ -91,8 +91,7 @@ h1 {
 /* Change background color of buttons on hover */
 .tab button:hover {
   /*background-color: rgba(142, 238, 147, 0.61);*/
-  background-color: rgba(3, 85, 150, 0.55);
-}
+  background-color: rgb(65, 128, 177);}
 
 .button8 {
   display: inline-block;
@@ -104,12 +103,12 @@ h1 {
   padding: .5em 2em;
   outline: none;
   border: 2px solid;
-  border-radius: 300px;
+  /*border-radius: 300px;*/
   transition: 0.2s;
 }
 .button8:hover { background: #035593; color: rgb(255, 255, 255)
 }
-.button8:active { background: white; }
+.button8:active { background: #002642; color: #ffffff}
 /* Create an active/current tablink class */
 .tab button.active {
   background-color: rgb(3, 85, 149);
@@ -118,6 +117,22 @@ h1 {
   color: #ffffff;
   font-size: larger;
 }
+.button9 {
+  display: inline-block;
+  background: rgb(255, 255, 255);
+  color: #035593;
+  font-weight: 700;
+  text-decoration: none;
+  user-select: none;
+  padding: .5em 2em;
+  outline: none;
+  border: 2px solid;
+  transition: 0.2s;
+}
+
+.button9:hover { background: #035593; color: rgb(0, 0, 0)
+}
+.button9:active { background: #002642; color: #ffffff}
 
 .btn1 {
   color: #a6f4fe;
