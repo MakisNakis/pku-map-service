@@ -15,7 +15,7 @@ class AuthorisationComponent extends Component {
                     <input type="password" name="passwordPerson" placeholder="Пароль" size="40"></input>
                     <br/>
                     <br/>
-                    <button>Авторизоваться</button>
+                    <button className={"button8"}>Авторизоваться</button>
                     <br/>
                     <br/>
                     <label>
