@@ -334,9 +334,9 @@ switchDepartment(){
                 />}
                 {this.state.authorisation &&
                 <div>
-                    <table>
+                    <table >
                         <td><img src={logo}  width="400px"/></td>
-                        <td><div className="mainHeader" align="center"><h1>Карта объектов для монтажа оборудования</h1>
+                        <td align="center"><div className="mainHeader" ><h1>Карта объектов для монтажа оборудования</h1>
                         </div></td>
                     </table>
 
