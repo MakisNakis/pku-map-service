@@ -1,10 +1,10 @@
 const Client= require('pg').Client;                         // подключение модуля для соединения с БД
 
-const DBNAME = "PKU_MapService";                            // название БД
-const DBLOG = "postgres";                                   // логин в БД
-const DBPASS = "postgres";                                  // пароль в БД
-const DBPORT = "5432";                                      // порт БД
-const connectionString = `postgressql://${DBLOG}:${DBPASS}@localhost:${DBPORT}/${DBNAME}`; // строка с данными для подключения к БД
+const DBNAME = "NewBase";
+const DBLOG = "postgres";
+const DBPASS = "postgres";
+const DBPORT = "5432";
+const connectionString = `postgressql://${DBLOG}:${DBPASS}@localhost:${DBPORT}/${DBNAME}`;
 //если вносишь изменения, то делаешь commit
 //коммит логирует и сохраняет все локальные изменения
 
