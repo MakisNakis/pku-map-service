@@ -4,7 +4,6 @@ import DepartmentsComponent from './selfComponents/DepartmentsComponent';
 import TableComponent from './selfComponents/TableComponent';
 import AuthorisationComponent from './selfComponents/AuthorisationComponent';
 import TypeTableComponent from './selfComponents/TypeTableComponent';
-import LogoutComponent from './selfComponents/LogoutComponent';
 import logo from './003 Лого Без фона.png';
 
 import PkuListComponent from './selfComponents/PkuListComponent';
@@ -316,7 +315,7 @@ switchDepartment(){
 
     render() {
         return (
-            <div>
+            <div >
 
                 {/*<BootstrapTable*/}
                 {/*    keyField="id"*/}
@@ -334,20 +333,21 @@ switchDepartment(){
                 />}
                 {this.state.authorisation &&
                 <div>
-                    <table >
+                    <table width={"100%"} >
                         <td><img src={logo}  width="400px"/></td>
-                        <td align="center"><div className="mainHeader" ><h1>Карта объектов для монтажа оборудования</h1>
-                        </div></td>
+                        <td><div className="mainHeader" ><h1>Карта объектов для монтажа оборудования</h1></div></td>
+                        <td><button className="button8" onClick={this.logout} type="button">Выход</button></td>
                     </table>
 
 
                     <MapComponent namePKU={this.gettingNamePKU}/>
-                    {/*<h2>Вы вошли как пользователь {this.state.userName}</h2> */}
-                    <LogoutComponent
-                        userName={this.state.userName}
-                        // authorisation={this.state.authorisation}
-                        logout={this.logout}
-                    />
+                    <br/>
+                    <h2>Вы вошли как пользователь {this.state.userName}</h2>
+                    {/*<LogoutComponent*/}
+                    {/*    userName={this.state.userName}*/}
+                    {/*    // authorisation={this.state.authorisation}*/}
+                    {/*    logout={this.logout}*/}
+                    {/*/>*/}
                     {localStorage.getItem('userRole') === '1' && <DepartmentsComponent
                         show={this.state.show}
                         hide={this.state.hide}
