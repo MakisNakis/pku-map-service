@@ -217,14 +217,7 @@
       <workItem from="1596002785488" duration="22215000" />
       <workItem from="1596088922265" duration="1202000" />
       <workItem from="1596091113590" duration="3257000" />
-      <workItem from="1596176332880" duration="10026000" />
-    </task>
-    <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
-      <created>1589908848848</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1589908848848</updated>
+      <workItem from="1596176332880" duration="10351000" />
     </task>
     <task id="LOCAL-00002" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)&#10;- Добавил заголовок. Подправил размеры карты&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку">
       <created>1589909502228</created>
@@ -562,7 +555,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596186046272</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="- небольшие правки к стилям&#10;- изменил название выходного CSV файла">
+      <created>1596187685038</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1596187685039</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,7 +581,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TODO: написать компоненет таблицы" />
     <MESSAGE value="- изменен конструткор, добавлено новое состояние, изменена функция setMarkerIcon()&#10;TODO: написать компоненет таблицы" />
     <MESSAGE value="&#10;TODO: &#10;- развернуть бек на Node / Express" />
     <MESSAGE value="- получил данные с сервера на клиенте &#10;TODO: &#10;- Вывести информацию с сервера на карте&#10;- Привести код к красивому виду" />
@@ -606,13 +605,14 @@
     <MESSAGE value="- merge с tabolin2&#10;- TODO:&#10;        1 - хеширование паролей" />
     <MESSAGE value="+ сравнение значений в ячейке на изменение" />
     <MESSAGE value="- изменил стили&#10;- добавил логотип АО &quot;ОМЕГА&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="- изменил стили&#10;- добавил логотип АО &quot;ОМЕГА&quot;" />
+    <MESSAGE value="- небольшие правки к стилям&#10;- изменил название выходного CSV файла" />
+    <option name="LAST_COMMIT_MESSAGE" value="- небольшие правки к стилям&#10;- изменил название выходного CSV файла" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2" timestamp="1596186046110">
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2" timestamp="1596187684874">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596186046110" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596187684874" />
     <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1596104754269" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1592916497324">
       <screen x="0" y="0" width="1536" height="824" />
