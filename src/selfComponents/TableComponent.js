@@ -160,6 +160,7 @@ class TableComponent extends Component {
         let selectRowProp = {
             mode: "checkbox",
             clickToSelect: true,
+            // bgColor: "rgb(206,255,198)"
             bgColor: "rgb(206,255,198)"
 
         };
