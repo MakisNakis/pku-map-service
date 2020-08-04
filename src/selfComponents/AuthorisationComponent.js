@@ -10,6 +10,7 @@ class AuthorisationComponent extends Component {
         return (
             <div class="auth" align='center'>
                 <form method="post" onSubmit={this.props.getPersonName}>
+                {/*<form method="post" onSubmit={this.props.getPersonName}>*/}
                     <input type="text" name="loginPerson" placeholder="Логин" size="40"></input>
                     <br/>
                     <input type="password" name="passwordPerson" placeholder="Пароль" size="40"></input>
