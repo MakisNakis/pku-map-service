@@ -1,15 +1,72 @@
 .Table-header {
-    background-color: rgba(146, 255, 148, 0.57);
-    color: #000000;
+    background-color: rgb(3, 85, 150);
+    /*background-color: rgba(146, 255, 148, 0.57);*/
+    color: #ffffff;
     padding: 10px;
     text-align: left;
 }
 
-
-.GeorgeMichael-Row {
-    background-color: plum;
+.auth {
+    margin-top: 20%;
 }
 
-.Other-Row {
-    background-color: greenyellow;
+/*.fixed-header {*/
+th {
+    /*background-color: rgba(146, 255, 148, 1);*/
+    background-color: rgb(65, 128, 177);
+    color: #ffffff;
+
+    /*border: 2px solid yellowgreen !important;*/
+    /*margin-bottom: 75px !important;*/
+
+    position: sticky;
+    top: 0;
+    /*border: 10px solid black; !* Параметры рамки *!*/
+}
+
+.thead {
+    /*border: 2px solid yellowgreen !important;*/
+
+}
+
+.tbody {
+
+}
+
+.dropdown-toggle {
+    color: black;
+    /*background-color: #007bff !important;*/
+}
+
+#pageDropDown, #pageDropDown:hover, #pageDropDown:active {
+    color: black;
+    /*background-color: rgba(146, 255, 148, 1);*/
+    background-color: rgb(101, 149, 187);
+    box-shadow: none;
+    background-position: 0;
+    /*margin-bottom: 20px*/
+
+;
+    /*background-color: #007bff !important;*/
+}
+
+.table-horiz-scroll {
+    height: 800px;
+    width: 100%;
+    /*align: center;*/
+    overflow-x: auto;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    /*border-style:none none dotted;*/
+    border-collapse: collapse;
+    border: none;
+}
+
+.react-bootstrap-table-pagination-total {
+    margin-left: 15px;
+}
+
+
+.TableComp {
+    width: 100%;
 }

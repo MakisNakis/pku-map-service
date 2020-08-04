@@ -1,21 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+    <execution />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -25,12 +53,18 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Rusteeck" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="makeBackOnNodeJS" />
+        <entry key="$PROJECT_DIR$" value="makingAuth" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -47,9 +81,16 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1c7YSXiHtJuV9IBrBwh6h1WirHb" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editorconfig.notification" value="lf;" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -60,33 +101,21 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/selfComponents" />
+      <recent name="$PROJECT_DIR$/backend" />
+      <recent name="$PROJECT_DIR$/public/markers" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/selfComponents" />
       <recent name="$PROJECT_DIR$/public/markers" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/data" />
-      <recent name="$PROJECT_DIR$/src/selfComponents" />
-      <recent name="$PROJECT_DIR$/backend" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/public/markers" />
-    </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="npm.dev">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -142,12 +171,13 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="729d831c-4e08-414f-891c-7957c10f7873" name="Default Changelist" comment="" />
+      <changelist id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="+ простая авторизация" />
       <created>1589881098874</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -165,73 +195,30 @@
       <workItem from="1590260599571" duration="1872000" />
       <workItem from="1590263450883" duration="1209000" />
       <workItem from="1590323173568" duration="9533000" />
-      <workItem from="1590409469328" duration="9752000" />
-      <workItem from="1590435737042" duration="52000" />
-      <workItem from="1590435790401" duration="61000" />
-      <workItem from="1590435914239" duration="1723000" />
-      <workItem from="1590483029515" duration="2481000" />
-      <workItem from="1590561255261" duration="1757000" />
-      <workItem from="1590583148890" duration="2973000" />
-      <workItem from="1590669638275" duration="26000" />
-      <workItem from="1590670655950" duration="2133000" />
-      <workItem from="1590748932768" duration="20988000" />
-      <workItem from="1590993623666" duration="3356000" />
-    </task>
-    <task id="LOCAL-00001" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)">
-      <created>1589908848848</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1589908848848</updated>
-    </task>
-    <task id="LOCAL-00002" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)&#10;- Добавил заголовок. Подправил размеры карты&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку">
-      <created>1589909502228</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1589909502228</updated>
-    </task>
-    <task id="LOCAL-00003" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)&#10;- Добавил заголовок. Подправил размеры карты&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку">
-      <created>1589909617295</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1589909617295</updated>
-    </task>
-    <task id="LOCAL-00004" summary="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)&#10;- Добавил заголовок. Подправил размеры карты&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку">
-      <created>1589910314194</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1589910314194</updated>
-    </task>
-    <task id="LOCAL-00005" summary="- Добавил popup по нажатии на маркер&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку">
-      <created>1589919334012</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1589919334012</updated>
-    </task>
-    <task id="LOCAL-00006" summary="- Добавил возможность кастомизировать маркеры&#10;TODO: Вывод информации о ПКУ по нажатии на точку">
-      <created>1589920117726</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1589920117726</updated>
-    </task>
-    <task id="LOCAL-00007" summary="- Добавил возможность кастомизировать маркеры&#10;TODO: Вывод информации о ПКУ по нажатии на точку">
-      <created>1589922736170</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1589922736171</updated>
-    </task>
-    <task id="LOCAL-00008" summary="- Исправлена разметка страницы, теперь на всех экранах отображается соразмерно&#10;TODO: Создать слои карты">
-      <created>1589986466920</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1589986466920</updated>
+      <workItem from="1590409469328" duration="4963000" />
+      <workItem from="1593005035040" duration="14575000" />
+      <workItem from="1593090771130" duration="2115000" />
+      <workItem from="1594822263475" duration="1403000" />
+      <workItem from="1594879597093" duration="1071000" />
+      <workItem from="1594966926573" duration="1794000" />
+      <workItem from="1594969253040" duration="944000" />
+      <workItem from="1594971517776" duration="1788000" />
+      <workItem from="1594973839916" duration="1650000" />
+      <workItem from="1594982738129" duration="1288000" />
+      <workItem from="1594985113582" duration="1797000" />
+      <workItem from="1594986999545" duration="1716000" />
+      <workItem from="1595317141745" duration="1781000" />
+      <workItem from="1595318964835" duration="2238000" />
+      <workItem from="1595321375152" duration="2225000" />
+      <workItem from="1595323703542" duration="638000" />
+      <workItem from="1595326703453" duration="1290000" />
+      <workItem from="1595417747757" duration="9413000" />
+      <workItem from="1596002785488" duration="22215000" />
+      <workItem from="1596088922265" duration="1202000" />
+      <workItem from="1596091113590" duration="3257000" />
+      <workItem from="1596176332880" duration="19659000" />
+      <workItem from="1596439483591" duration="2113000" />
+      <workItem from="1596523679103" duration="1711000" />
     </task>
     <task id="LOCAL-00009" summary="TODO Done: &#10;- Создал слои карты и маркеров">
       <created>1589997832269</created>
@@ -338,96 +325,405 @@
       <option name="project" value="LOCAL" />
       <updated>1590422377903</updated>
     </task>
-    <task id="LOCAL-00024" summary="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
-      <created>1590423467767</created>
+    <task id="LOCAL-00024" summary="+ простая авторизация">
+      <created>1592919502768</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1590423467767</updated>
+      <updated>1592919502768</updated>
     </task>
-    <task id="LOCAL-00025" summary="- Внес некоторые визуальные изменения в таблицу">
-      <created>1590437386678</created>
+    <task id="LOCAL-00025" summary="+ scroll&#10;- не доделан скролл">
+      <created>1593016889093</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1590437386678</updated>
+      <updated>1593016889093</updated>
     </task>
-    <task id="LOCAL-00026" summary="- Добавлены вкладки для формирования таблиц для разных отделов&#10;- Настроена логика переключения между вкладками&#10;&#10;TODO: отрисовать заголовки таблицы в зависимости от выбранной вкладки отдела">
-      <created>1590759480657</created>
+    <task id="LOCAL-00026" summary="+ scroll&#10;- не доделан скролл">
+      <created>1593071098353</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1590759480657</updated>
+      <updated>1593071098353</updated>
     </task>
-    <task id="LOCAL-00027" summary="- в зависимости от выбранной вкладки, выполняется нужный для нее запрос">
-      <created>1590765986813</created>
+    <task id="LOCAL-00027" summary="+ scroll&#10;- не доделан скролл">
+      <created>1593071362415</created>
       <option name="number" value="00027" />
       <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
-      <updated>1590765986813</updated>
+      <updated>1593071362416</updated>
     </task>
-    <task id="LOCAL-00028" summary="- в зависимости от выбранной вкладки, выполняется нужный для нее запрос">
-      <created>1590766865558</created>
+    <task id="LOCAL-00028" summary="- добавил состояние ROOT пользователя в App.js">
+      <created>1593072352251</created>
       <option name="number" value="00028" />
       <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1590766865558</updated>
+      <updated>1593072352251</updated>
     </task>
-    <task id="LOCAL-00029" summary="- в зависимости от выбранной вкладки, строится необходимая таблица">
-      <created>1590777096300</created>
+    <task id="LOCAL-00029" summary="+ просто commit">
+      <created>1593075465527</created>
       <option name="number" value="00029" />
       <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
-      <updated>1590777096300</updated>
+      <updated>1593075465527</updated>
     </task>
-    <task id="LOCAL-00030" summary="- добавил экспорт таблиц в CSV">
-      <created>1590997867625</created>
+    <task id="LOCAL-00030" summary="+ просто commit">
+      <created>1593083093605</created>
       <option name="number" value="00030" />
       <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
-      <updated>1590997867625</updated>
+      <updated>1593083093605</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="+ просто commit">
+      <created>1593083430530</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1593083430530</updated>
+    </task>
+    <task id="LOCAL-00032" summary="+ добавлен выбор под вкладок для отделов">
+      <created>1593088888895</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1593088888895</updated>
+    </task>
+    <task id="LOCAL-00033" summary="- test">
+      <created>1594820884789</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1594820884789</updated>
+    </task>
+    <task id="LOCAL-00034" summary="+ исправил формат даты и времени">
+      <created>1595414311764</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1595414311764</updated>
+    </task>
+    <task id="LOCAL-00035" summary="+ исправил формат даты и времени (fix)">
+      <created>1595419516263</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1595419516263</updated>
+    </task>
+    <task id="LOCAL-00036" summary="TODO: Авторизация">
+      <created>1595919193921</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1595919193921</updated>
+    </task>
+    <task id="LOCAL-00037" summary="- авторизация, сравнивающая значения логинов и паролей с базой данных, вовзращает данные об id пользователя, номере роли и имени пользователя&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей">
+      <created>1595939329472</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1595939329472</updated>
+    </task>
+    <task id="LOCAL-00038" summary="- добавил разделение прав на клиенте в соответствие с логином.паролем&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей">
+      <created>1595946125576</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1595946125576</updated>
+    </task>
+    <task id="LOCAL-00039" summary="- сохранение сессии и куки&#10;- TODO:&#10;        1 - хеширование паролей">
+      <created>1596011915453</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1596011915453</updated>
+    </task>
+    <task id="LOCAL-00040" summary="- сохранение сессии и куки&#10;- TODO:&#10;        1 - хеширование паролей">
+      <created>1596021428935</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1596021428935</updated>
+    </task>
+    <task id="LOCAL-00041" summary="- добавил кнопку выхода&#10;- исправил баги&#10;- TODO:&#10;        1 - хеширование паролей">
+      <created>1596030200581</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1596030200581</updated>
+    </task>
+    <task id="LOCAL-00042" summary="- добавил кнопку выхода&#10;- исправил баги&#10;- TODO:&#10;        1 - хеширование паролей">
+      <created>1596030293075</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1596030293075</updated>
+    </task>
+    <task id="LOCAL-00043" summary="- merge с tabolin2&#10;- TODO:&#10;        1 - хеширование паролей">
+      <created>1596030749797</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1596030749797</updated>
+    </task>
+    <task id="LOCAL-00044" summary="+ сравнение значений в ячейке на изменение">
+      <created>1596104754366</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1596104754366</updated>
+    </task>
+    <task id="LOCAL-00045" summary="+ сравнение значений в ячейке на изменение">
+      <created>1596111640467</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1596111640467</updated>
+    </task>
+    <task id="LOCAL-00046" summary="+ сравнение значений в ячейке на изменение">
+      <created>1596113384680</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1596113384680</updated>
+    </task>
+    <task id="LOCAL-00047" summary="+ сравнение значений в ячейке на изменение">
+      <created>1596119038916</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1596119038916</updated>
+    </task>
+    <task id="LOCAL-00048" summary="- изменил стили&#10;- добавил логотип АО &quot;ОМЕГА&quot;">
+      <created>1596184489544</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1596184489544</updated>
+    </task>
+    <task id="LOCAL-00049" summary="- изменил стили&#10;- добавил логотип АО &quot;ОМЕГА&quot;">
+      <created>1596186046272</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1596186046272</updated>
+    </task>
+    <task id="LOCAL-00050" summary="- небольшие правки к стилям&#10;- изменил название выходного CSV файла">
+      <created>1596187685038</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1596187685039</updated>
+    </task>
+    <task id="LOCAL-00051" summary="- небольшие правки к стилям&#10;- изменил название выходного CSV файла">
+      <created>1596187707896</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1596187707896</updated>
+    </task>
+    <task id="LOCAL-00052" summary="- небольшие правки к стилям&#10;- изменил название выходного CSV файла">
+      <created>1596187741869</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1596187741870</updated>
+    </task>
+    <task id="LOCAL-00053" summary="- небольшие правки к стилям [2]">
+      <created>1596190948149</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1596190948149</updated>
+    </task>
+    <task id="LOCAL-00054" summary="- небольшие правки к стилям [3]">
+      <created>1596192127261</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1596192127261</updated>
+    </task>
+    <task id="LOCAL-00055" summary="- немного поменял название заголовков таблицы &quot;Отчет1&quot;">
+      <created>1596194352911</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1596194352911</updated>
+    </task>
+    <task id="LOCAL-00056" summary="- поменял кнопку авторизации">
+      <created>1596194478068</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1596194478068</updated>
+    </task>
+    <task id="LOCAL-00057" summary="- рабочая преАльфа">
+      <created>1596524899748</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1596524899748</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)" />
-    <MESSAGE value="- Инициализация проекта на реакте&#10;- Создал Компонент карты&#10;- Сделал разовую отрисовку маркеров на карте, считав данные из файла в формате JSON (бывшая таблица CSV, импортированная из БД)&#10;- Добавил заголовок. Подправил размеры карты&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
-    <MESSAGE value="- Добавил popup по нажатии на маркер&#10;&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
-    <MESSAGE value="- Добавил возможность кастомизировать маркеры&#10;TODO: Вывод информации о ПКУ по нажатии на точку" />
-    <MESSAGE value="- Исправлена разметка страницы, теперь на всех экранах отображается соразмерно&#10;TODO: Создать слои карты" />
-    <MESSAGE value="TODO Done: &#10;- Создал слои карты и маркеров" />
-    <MESSAGE value="- Добавлен json файл с координатми по объекту Уфа" />
-    <MESSAGE value="- Теперь для разных маршрутов разные маркеры" />
-    <MESSAGE value="TODO: написать компоненет таблицы" />
-    <MESSAGE value="- изменен конструткор, добавлено новое состояние, изменена функция setMarkerIcon()&#10;TODO: написать компоненет таблицы" />
-    <MESSAGE value="&#10;TODO: &#10;- развернуть бек на Node / Express" />
-    <MESSAGE value="- получил данные с сервера на клиенте &#10;TODO: &#10;- Вывести информацию с сервера на карте&#10;- Привести код к красивому виду" />
-    <MESSAGE value="- Вывел информацию с сервера на карте&#10;&#10;TODO: &#10;- Привести код к красивому виду" />
-    <MESSAGE value="- Вывел информацию с сервера на карте" />
     <MESSAGE value="- Вывел информацию с сервера на карте&#10;&#10;Merged with 'tabolin' branch" />
     <MESSAGE value="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'" />
-    <MESSAGE value="- Внес некоторые визуальные изменения в таблицу" />
-    <MESSAGE value="- Добавлены вкладки для формирования таблиц для разных отделов&#10;- Настроена логика переключения между вкладками&#10;&#10;TODO: отрисовать заголовки таблицы в зависимости от выбранной вкладки отдела" />
-    <MESSAGE value="- в зависимости от выбранной вкладки, выполняется нужный для нее запрос" />
-    <MESSAGE value="- в зависимости от выбранной вкладки, строится необходимая таблица" />
-    <MESSAGE value="- добавил экспорт таблиц в CSV" />
-    <option name="LAST_COMMIT_MESSAGE" value="- добавил экспорт таблиц в CSV" />
+    <MESSAGE value="+ простая авторизация" />
+    <MESSAGE value="+ scroll&#10;- не доделан скролл" />
+    <MESSAGE value="- добавил состояние ROOT пользователя в App.js" />
+    <MESSAGE value="+ просто commit" />
+    <MESSAGE value="+ добавлен выбор под вкладок для отделов" />
+    <MESSAGE value="- test" />
+    <MESSAGE value="+ исправил формат даты и времени" />
+    <MESSAGE value="+ исправил формат даты и времени (fix)" />
+    <MESSAGE value="TODO: Авторизация" />
+    <MESSAGE value="- авторизация, сравнивающая значения логинов и паролей с базой данных, вовзращает данные об id пользователя, номере роли и имени пользователя&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей" />
+    <MESSAGE value="- добавил разделение прав на клиенте в соответствие с логином.паролем&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей" />
+    <MESSAGE value="- сохранение сессии и куки&#10;- TODO:&#10;        1 - хеширование паролей" />
+    <MESSAGE value="- добавил кнопку выхода&#10;- TODO:&#10;        1 - хеширование паролей" />
+    <MESSAGE value="- добавил кнопку выхода&#10;- исправил баги&#10;- TODO:&#10;        1 - хеширование паролей" />
+    <MESSAGE value="- merge с tabolin2&#10;- TODO:&#10;        1 - хеширование паролей" />
+    <MESSAGE value="+ сравнение значений в ячейке на изменение" />
+    <MESSAGE value="- изменил стили&#10;- добавил логотип АО &quot;ОМЕГА&quot;" />
+    <MESSAGE value="- небольшие правки к стилям&#10;- изменил название выходного CSV файла" />
+    <MESSAGE value="- небольшие правки к стилям [2]" />
+    <MESSAGE value="- небольшие правки к стилям [3]" />
+    <MESSAGE value="- немного поменял название заголовков таблицы &quot;Отчет1&quot;" />
+    <MESSAGE value="- поменял кнопку авторизации" />
+    <MESSAGE value="- рабочая преАльфа" />
+    <option name="LAST_COMMIT_MESSAGE" value="- рабочая преАльфа" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596188972129">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2" timestamp="1596524899556">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596524899556" />
+    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1596104754269" />
+    <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592916497324" />
+    <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596200212735" />
+    <state width="1223" height="416" key="GridCell.Tab.0.bottom" timestamp="1594821289991">
+      <screen x="67" y="27" width="2493" height="1469" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
+    <state width="1223" height="416" key="GridCell.Tab.0.bottom/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289991" />
+    <state width="1223" height="416" key="GridCell.Tab.0.center" timestamp="1594821289990">
+      <screen x="67" y="27" width="2493" height="1469" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
+    <state width="1223" height="416" key="GridCell.Tab.0.center/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289990" />
+    <state width="1223" height="416" key="GridCell.Tab.0.left" timestamp="1594821289989">
+      <screen x="67" y="27" width="2493" height="1469" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592952013759" />
+    <state width="1223" height="416" key="GridCell.Tab.0.left/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289989" />
+    <state width="1223" height="416" key="GridCell.Tab.0.right" timestamp="1594821289991">
+      <screen x="67" y="27" width="2493" height="1469" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
+    <state width="1223" height="416" key="GridCell.Tab.0.right/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289991" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1592952013760">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1592952013760">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1592952013760">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1592952013760">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592952013760" />
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state width="1493" height="261" key="GridCell.Tab.2.center" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state width="1493" height="261" key="GridCell.Tab.2.left" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state width="1493" height="261" key="GridCell.Tab.2.right" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state width="1493" height="261" key="GridCell.Tab.3.bottom" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state width="1493" height="261" key="GridCell.Tab.3.center" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state width="1493" height="261" key="GridCell.Tab.3.left" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state width="1493" height="261" key="GridCell.Tab.3.right" timestamp="1592952013761">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
+    <state x="147" y="65" key="MergeDialog" timestamp="1592919320469">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320469" />
+    <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog" timestamp="1596113405534">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
+    <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596113405534" />
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1596524905858">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593016893395" />
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596524905858" />
+    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1596104758141" />
+    <state x="722" y="503" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596030309751">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="722" y="503" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596030309751" />
+    <state x="764" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1068@67.27.1853.1068" timestamp="1593090182755" />
+    <state x="550" y="125" key="git4idea.branch.GitSmartOperationDialog" timestamp="1592919376093">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="550" y="125" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919376093" />
+    <state x="665" y="403" width="590" height="415" key="git4idea.merge.GitPullDialog" timestamp="1596184495430">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="665" y="403" width="590" height="415" key="git4idea.merge.GitPullDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596184495430" />
+    <state x="610" y="263" width="697" height="762" key="search.everywhere.popup" timestamp="1596179811728">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="610" y="263" width="697" height="762" key="search.everywhere.popup/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596179811728" />
+    <state x="656" y="261" width="672" height="678" key="search.everywhere.popup/67.27.1853.1068@67.27.1853.1068" timestamp="1595424695343" />
   </component>
 </project>

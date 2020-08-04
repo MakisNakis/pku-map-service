@@ -16,14 +16,15 @@ import {render} from 'react-dom'
 import {Link} from "react-scroll";
 
 
+
 class MapComponent extends Component {
 
     constructor() {
         super();
 
         this.state = {
-            zoom: 5,
-            minZoom: 4,
+            zoom: 9,
+            minZoom: 6,
             radius: 0,
             firstRouteApi: '/api/pkuDataServerFirstRoute',
             secondRouteApi: '/api/pkuDataServerSecondRoute',
@@ -36,7 +37,7 @@ class MapComponent extends Component {
             iconSize: [30, 50],
             shadowSize: [15, 15],
             iconAnchor: [15, 50],
-            popupAnchor: [0, 0]
+            popupAnchor: [0, -50]
         }
 
     }
@@ -67,8 +68,6 @@ class MapComponent extends Component {
                 console.log(`Маршрут с номером "${routeId}" отсутствует`);
 
         }
-
-        // console.log(this.state.data)
 
     }
 
@@ -121,7 +120,7 @@ class MapComponent extends Component {
                     <Popup>
                         <Link
                             // не настраивал
-                            to="TableComp"
+                            to="start"
                             spy={true}
                             smooth={true}
                             duration={500}
@@ -141,8 +140,8 @@ class MapComponent extends Component {
     render() {
 
         return (
-            <div>
-                <LeafletMap center={[54.730922, 55.962198]} zoom={this.state.zoom} minZoom={this.state.minZoom}>
+            <div align="center">
+                <LeafletMap center={[55.030922, 53.722198]} zoom={this.state.zoom} minZoom={this.state.minZoom}>
                     <LayersControl position='topright'>
 
                         <LayersControl.BaseLayer checked name="Гибрид">
@@ -154,7 +153,7 @@ class MapComponent extends Component {
 
                         <LayersControl.Overlay checked name="Уфа">
                             <LayerGroup name="pkuMarkersUfa">
-                                {this.renderMarkersLayer(1)}
+                                {/*{this.renderMarkersLayer(1)}*/}
                             </LayerGroup>
                         </LayersControl.Overlay>
 
