@@ -221,7 +221,7 @@ export function ColumnsData() {
         sort: true,
         editor: {
             type: Type.CHECKBOX,
-            value: 'выполнено:не выполнено',
+            value: 'true:false',
     },
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
@@ -351,7 +351,7 @@ export function ColumnsData() {
         sort: true,
         editor: {
             type: Type.CHECKBOX,
-            value: 'выполнено:не выполнено'
+            value: 'true:false'
         },
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
@@ -424,7 +424,7 @@ export function ColumnsData() {
         headerClasses: 'fixed-header',
     }, {
         dataField: 'DatePlan',
-        text: 'Плановая дата поставки',
+        text: 'Плановая дата поставки (ОМТС)',
         sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
@@ -442,7 +442,7 @@ export function ColumnsData() {
         }
     }, {
         dataField: 'DateFact',
-        text: 'Фактическая дата поставки',
+        text: 'Фактическая дата поставки (ОМТС)',
         sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
@@ -461,7 +461,7 @@ export function ColumnsData() {
 
     }, {
         dataField: 'StartDateCon',
-        text: 'Дата нач. (контр.)',
+        text: 'Дата начала по контракту',
         sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
@@ -469,7 +469,7 @@ export function ColumnsData() {
         }
     }, {
         dataField: 'EndDateCon',
-        text: 'Дата кон. (контр.)',
+        text: 'Дата конца по контракту',
         sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {
@@ -477,7 +477,7 @@ export function ColumnsData() {
         }
     }, {
         dataField: 'StartDatePlan',
-        text: 'Дата нач. (план.)',
+        text: 'Дата начала плановая (ПТО)',
         sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
@@ -495,7 +495,7 @@ export function ColumnsData() {
         }
     }, {
         dataField: 'EndDatePlan',
-        text: 'Дата кон. (план.)',
+        text: 'Дата конца плановая (ПТО)',
         sort: true,
         editable: false,
         // style: CellStyle,
@@ -514,7 +514,7 @@ export function ColumnsData() {
         }
     }, {
         dataField: 'DateWork',
-        text: 'Дата пров. работ',
+        text: 'Дата выполнения работ (Участок)',
         sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
@@ -532,7 +532,7 @@ export function ColumnsData() {
         }
     }, {
         dataField: 'Fact',
-        text: 'Факт выполнения',
+        text: 'Факт выполнения работ (Участок)',
         sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
@@ -550,7 +550,7 @@ export function ColumnsData() {
         }
     }, {
         dataField: 'EndDateAkt',
-        text: 'Месяц закр. по актам',
+        text: 'Дата закрытия по актам (ПТО)',
         sort: true,
         editable: false,
         style: (cell, row, rowIndex, colIndex) => {
@@ -568,7 +568,7 @@ export function ColumnsData() {
         }
     }, {
         dataField: 'MaterialDate',
-        text: 'Дата списания материалов',
+        text: 'Дата списания материалов (ПТО)',
         sort: true,
         editable: false,
         headerStyle: (colum, colIndex) => {

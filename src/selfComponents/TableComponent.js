@@ -160,6 +160,7 @@ class TableComponent extends Component {
         let selectRowProp = {
             mode: "checkbox",
             clickToSelect: true,
+            // bgColor: "rgb(206,255,198)"
             bgColor: "rgb(206,255,198)"
 
         };
@@ -266,20 +267,22 @@ class TableComponent extends Component {
         }
 
         return (
-            <div id="TableComp" align={'center'}>
+            <div id="TableComp" >
                 {this.props.show &&
                 <div>
                     <ToolkitProvider
                         keyField={"tableID"}
                         data={this.state.pkuInfo}
                         columns={tableHeaders[this.props.typeTable]}
-                        exportCSV
+                        exportCSV={{
+                            fileName: 'таблица.csv'
+                        }}
                     >
                         {
                             props => (
                                 <div>
                                     <ExportCSVButton className={"btn"} {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>
-                                    {this.props.depName === "Отчеты" && <button style={{backgroundColor: this.state.filterColor}} onClick={filterColor}>Фильтр</button>}
+                                    {this.props.depName === "Отчеты" && <button className="button9" style={{backgroundColor: this.state.filterColor}} onClick={filterColor}>Фильтр</button>}
                                     <br/>
                                     <BootstrapTable
                                         wrapperClasses="table-horiz-scroll"

@@ -4,7 +4,9 @@ import DepartmentsComponent from './selfComponents/DepartmentsComponent';
 import TableComponent from './selfComponents/TableComponent';
 import AuthorisationComponent from './selfComponents/AuthorisationComponent';
 import TypeTableComponent from './selfComponents/TypeTableComponent';
-import LogoutComponent from './selfComponents/LogoutComponent';
+import logo from './003 Лого Без фона.png';
+
+import PkuListComponent from './selfComponents/PkuListComponent';
 import BootstrapTable from 'react-bootstrap-table-next';
 import cellEditFactory from 'react-bootstrap-table2-editor';
 import {Map as LeafletMap, Marker, TileLayer} from "react-leaflet";
@@ -313,7 +315,7 @@ switchDepartment(){
 
     render() {
         return (
-            <div>
+            <div >
 
                 {/*<BootstrapTable*/}
                 {/*    keyField="id"*/}
@@ -331,14 +333,21 @@ switchDepartment(){
                 />}
                 {this.state.authorisation &&
                 <div>
-                    <div className="mainHeader"><h1>Карта объектов для монтажа оборудования</h1></div>
+                    <table width={"100%"} >
+                        <td><img src={logo}  width="400px"/></td>
+                        <td><div className="mainHeader" ><h1>Карта объектов для монтажа оборудования</h1></div></td>
+                        <td><button className="button8" onClick={this.logout} type="button">Выход</button></td>
+                    </table>
+
+
                     <MapComponent namePKU={this.gettingNamePKU}/>
-                    {/*<h2>Вы вошли как пользователь {this.state.userName}</h2> */}
-                    <LogoutComponent
-                        userName={this.state.userName}
-                        // authorisation={this.state.authorisation}
-                        logout={this.logout}
-                    />
+                    <br/>
+                    <h2>Вы вошли как пользователь {this.state.userName}</h2>
+                    {/*<LogoutComponent*/}
+                    {/*    userName={this.state.userName}*/}
+                    {/*    // authorisation={this.state.authorisation}*/}
+                    {/*    logout={this.logout}*/}
+                    {/*/>*/}
                     {localStorage.getItem('userRole') === '1' && <DepartmentsComponent
                         show={this.state.show}
                         hide={this.state.hide}

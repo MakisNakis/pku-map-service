@@ -1,10 +1,10 @@
 const Client= require('pg').Client;                         // подключение модуля для соединения с БД
 
-const DBNAME = "PKU_MapService";                            // название БД
-const DBLOG = "postgres";                                   // логин в БД
-const DBPASS = "postgres";                                  // пароль в БД
-const DBPORT = "5432";                                      // порт БД
-const connectionString = `postgressql://${DBLOG}:${DBPASS}@localhost:${DBPORT}/${DBNAME}`; // строка с данными для подключения к БД
+const DBNAME = "PKU_MapService";
+const DBLOG = "postgres";
+const DBPASS = "postgres";
+const DBPORT = "5432";
+const connectionString = `postgressql://${DBLOG}:${DBPASS}@localhost:${DBPORT}/${DBNAME}`;
 //если вносишь изменения, то делаешь commit
 //коммит логирует и сохраняет все локальные изменения
 
@@ -245,7 +245,7 @@ class MyRepository {
         return query
     }
 
-     getUserRole(data) { // функция для проверки пароля и логина пользователя
+     async getUserRole(data) { // функция для проверки пароля и логина пользователя
         // try{
         //     await this.client.connect();                        // создание подключения
         //     console.log('DB has been connected');
@@ -258,7 +258,7 @@ class MyRepository {
         return query
     }
 
-     getUserName(data) { // функция для проверки пароля и логина пользователя
+     async getUserName(data) { // функция для проверки пароля и логина пользователя
         // try{
         //     await this.client.connect();                        // создание подключения
         //     console.log('DB has been connected');
