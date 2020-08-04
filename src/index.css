@@ -130,9 +130,10 @@ h1 {
   transition: 0.2s;
 }
 
-.button9:hover { background: #035593; color: rgb(0, 0, 0)
+.button9:hover { background: #035593; color: rgb(16, 2, 2)
 }
-.button9:active { background: #002642; color: #ffffff}
+/*.button9:active { background: #002642; color: #ffffff*/
+/*}*/
 
 .btn1 {
   color: #a6f4fe;
