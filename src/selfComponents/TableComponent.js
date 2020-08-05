@@ -41,7 +41,10 @@ class TableComponent extends Component {
                 // console.log(data);
                 this.setState({
                     pkuInfo: pkuInfoWithID,
-            });
+                    filterColor: "white",
+
+                });
+                this.copyPkuInfo = this.state.pkuInfo;
 
             // console.log(this.state.pkuInfo);
             // console.log(Object.keys(data.rows[0])[0]);
@@ -266,6 +269,16 @@ class TableComponent extends Component {
             }
         }
 
+        const MyExportCSV = (props) => {
+            const handleClick = () => {
+                props.onExport();
+            };
+            return (
+                <button className="button9" onClick={ handleClick }>Экспортировать в CSV</button>
+            );
+        };
+
+
         return (
             <div id="TableComp" >
                 {this.props.show &&
@@ -281,7 +294,8 @@ class TableComponent extends Component {
                         {
                             props => (
                                 <div>
-                                    <ExportCSVButton className={"btn"} {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>
+                                    <MyExportCSV { ...props.csvProps } />
+                                    {/*<ExportCSVButton className={"button8"} {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>*/}
                                     {this.props.depName === "Отчеты" && <button className="button9" style={{backgroundColor: this.state.filterColor}} onClick={filterColor}>Фильтр</button>}
                                     <br/>
                                     <BootstrapTable

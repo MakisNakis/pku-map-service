@@ -245,12 +245,13 @@ switchDepartment(){
         }
     }
 
-    gettingNamePKU = (e) => {
+    gettingNamePKU = (id, name) => {
         // e.preventDefault();
-        console.log(e.target.options.name);
-        const id = e.target.options.title;
-        const name = e.target.options.name;
-        console.log();
+        // console.log(e);
+        // const id = e.target.options.title;
+        // const name = e.target.options.name;
+
+        // console.log(e.target.options);
         if (id) {
             this.setState({
                 show: true,
@@ -269,6 +270,8 @@ switchDepartment(){
             });
         }
     };
+
+
 
     logout(){
         localStorage.removeItem('userRole')
@@ -334,13 +337,18 @@ switchDepartment(){
                 {this.state.authorisation &&
                 <div>
                     <table width={"100%"} >
-                        <td><img src={logo}  width="400px"/></td>
-                        <td><div className="mainHeader" ><h1>Карта объектов для монтажа оборудования</h1></div></td>
-                        <td><button className="button8" onClick={this.logout} type="button">Выход</button></td>
+                        <tr>
+                            <td><img src={logo}  width="400px"/></td>
+                            <td><div className="mainHeader" ><h1>Карта объектов для монтажа оборудования</h1></div></td>
+                            <td><button className="button8" onClick={this.logout} type="button">Выход</button></td>
+                        </tr>
                     </table>
 
 
-                    <MapComponent namePKU={this.gettingNamePKU}/>
+                    <MapComponent
+                        namePKU={this.gettingNamePKU}
+                        selectedId={this.state.idPKU}
+                    />
                     <br/>
                     <h2>Вы вошли как пользователь {this.state.userName}</h2>
                     {/*<LogoutComponent*/}
