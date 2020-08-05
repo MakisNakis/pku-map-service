@@ -315,7 +315,7 @@ switchDepartment(){
 
     render() {
         return (
-            <div >
+            <div id={"mainDiv"}>
 
                 {/*<BootstrapTable*/}
                 {/*    keyField="id"*/}
