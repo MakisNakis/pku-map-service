@@ -153,7 +153,7 @@ class MapComponent extends Component {
 
                         <LayersControl.Overlay checked name="Уфа">
                             <LayerGroup name="pkuMarkersUfa">
-                                {/*{this.renderMarkersLayer(1)}*/}
+                                {this.renderMarkersLayer(1)}
                             </LayerGroup>
                         </LayersControl.Overlay>
 
