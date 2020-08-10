@@ -118,13 +118,13 @@ class MapComponent extends Component {
                         onClick={(e) => this.props.namePKU(pkuData[i].SubjectID, pkuData[i].SubjectName, e)}
                 >
                     <Popup>
+
                         <Link
                             // не настраивал
                             to="start"
                             spy={true}
                             smooth={true}
                             duration={500}
-
                         >
                             {/*<h2>{pkuData.SubjectName}</h2>*/}
                             <h3> {pkuData[i].SubjectName}</h3>

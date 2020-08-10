@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import cellEditFactory from 'react-bootstrap-table2-editor';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
+// import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
 import ToolkitProvider, {Search, CSVExport} from 'react-bootstrap-table2-toolkit';
 import {ColumnsData} from "../data/ColumnsData";
 
@@ -10,6 +10,8 @@ import {ColumnsData} from "../data/ColumnsData";
 import './css/TableComponent.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.css';
+
+const { SearchBar } = Search;
 
 
 class TableComponent extends Component {
@@ -287,6 +289,7 @@ class TableComponent extends Component {
                         keyField={"tableID"}
                         data={this.state.pkuInfo}
                         columns={tableHeaders[this.props.typeTable]}
+                        search
                         exportCSV={{
                             fileName: 'таблица.csv'
                         }}
@@ -294,10 +297,16 @@ class TableComponent extends Component {
                         {
                             props => (
                                 <div>
-                                    <MyExportCSV { ...props.csvProps } />
+                                    <table>
+                                        <tr>
+                                    <td><MyExportCSV { ...props.csvProps } /></td>
                                     {/*<ExportCSVButton className={"button8"} {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>*/}
-                                    {this.props.depName === "Отчеты" && <button className="button9" style={{backgroundColor: this.state.filterColor}} onClick={filterColor}>Фильтр</button>}
-                                    <br/>
+                                        <td>{this.props.depName === "Отчеты" && <button className="button9" style={{backgroundColor: this.state.filterColor}} onClick={filterColor}>Фильтр</button>}</td>
+                                    {/*<br/>*/}
+                                        <td ><SearchBar { ...props.searchProps } /></td>
+                                    {/*<hr />*/}
+                                        </tr>
+                                    </table>
                                     <BootstrapTable
                                         wrapperClasses="table-horiz-scroll"
                                         headerClasses="thead"
