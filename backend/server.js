@@ -140,7 +140,6 @@ app.route(`/api/auth/userRole`) // эндпоинт для получения н
         const dbResponse = await repository.getUserRole(data);
         // res.send(req.body);
         res.send(dbResponse);
-
     });
 
 app.route(`/api/auth/userName`) // эндпоинт для получения имени пользователя, который залогинился
@@ -149,5 +148,11 @@ app.route(`/api/auth/userName`) // эндпоинт для получения и
         const dbResponse = await repository.getUserName(data);
         // console.log(`В авторизовался пользователь ${dbResponse}`)
         res.send(dbResponse);
+    });
 
+app.route(`/api/auth/perfName`) // эндпоинт для получения имени исполнителя
+    .get(async (req, res) => {
+        const dbResponse = await repository.getPerfName();
+        // console.log(`В авторизовался пользователь ${dbResponse}`)
+        res.send(dbResponse);
     });

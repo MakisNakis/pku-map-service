@@ -23,7 +23,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/ColumnsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -227,14 +228,7 @@
       <workItem from="1596627589004" duration="611000" />
       <workItem from="1596712496111" duration="5852000" />
       <workItem from="1596780956974" duration="4168000" />
-      <workItem from="1597040134912" duration="6509000" />
-    </task>
-    <task id="LOCAL-00010" summary="- Добавлен json файл с координатми по объекту Уфа">
-      <created>1590000932387</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1590000932387</updated>
+      <workItem from="1597040134912" duration="15891000" />
     </task>
     <task id="LOCAL-00011" summary="- Теперь для разных маршрутов разные маркеры">
       <created>1590001404517</created>
@@ -572,7 +566,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596527755913</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="- добавил поиск по таблице">
+      <created>1597049618288</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1597049618288</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,7 +592,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="+ простая авторизация" />
     <MESSAGE value="+ scroll&#10;- не доделан скролл" />
     <MESSAGE value="- добавил состояние ROOT пользователя в App.js" />
     <MESSAGE value="+ просто commit" />
@@ -616,17 +616,18 @@
     <MESSAGE value="- рабочая преАльфа" />
     <MESSAGE value="- убрал слайдер снизу" />
     <MESSAGE value="+ убрал слайдер снизу" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ убрал слайдер снизу" />
+    <MESSAGE value="- добавил поиск по таблице" />
+    <option name="LAST_COMMIT_MESSAGE" value="- добавил поиск по таблице" />
   </component>
   <component name="WindowStateProjectService">
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596188972129">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
-    <state x="532" y="108" width="769" height="789" key="CommitChangelistDialog2" timestamp="1596527755852">
-      <screen x="67" y="27" width="1853" height="1068" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2" timestamp="1597049617938">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596524899556" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597049617938" />
     <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1596527755852" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
@@ -710,11 +711,11 @@
     </state>
     <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
     <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596113405534" />
-    <state x="503" y="215" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1596527760144">
-      <screen x="67" y="27" width="1853" height="1068" />
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1597049623493">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593016893395" />
-    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596524905858" />
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597049623493" />
     <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1596527760144" />
     <state x="722" y="503" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596030309751">
       <screen x="0" y="0" width="1920" height="1200" />

@@ -113,7 +113,6 @@ class App extends React.Component {
                     authorisation: true,
                     userId: data.rows[0].f_s_userid_logpas
                 })
-                console.log("Жабка в очках")
                 this.getUserRoleById(apiRoute, data.rows[0].f_s_userid_logpas)
 
             } else this.setState({
@@ -174,6 +173,7 @@ switchDepartment(){
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}/userRole`);
         });
     }
+
 
     async getUserNameById(apiRoute, userId) { // функция для получения номера роли пользователя
         const userIdJson = {userId: userId}

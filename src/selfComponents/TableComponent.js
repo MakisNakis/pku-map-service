@@ -12,7 +12,7 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.css';
 
 const { SearchBar } = Search;
-
+// let performers = [{label: "1"}, {label:"2"}, {label: "3"}]
 
 class TableComponent extends Component {
 
@@ -21,11 +21,12 @@ class TableComponent extends Component {
         this.state = {
             pkuInfo: [],
             filterColor: "white",
+            performers: [] // список всех исполнителей (монтажников)
         };
         this.url = window.location.href;
         this.copyPkuInfo = [];
-    }
 
+    }
 
 
     async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
@@ -85,6 +86,18 @@ class TableComponent extends Component {
         }
     }
 
+    async loadPerformers(){ // функция для выгрузки информации об исполнителе
+          await fetch(`/api/auth/perfName`).then(results => {
+            return results.json();
+        }).then(
+            data => {
+                // console.log(data.rows[0])
+                this.setState({performers: data.rows})
+        }).catch(() => {
+            console.log(`Ошибка при выполнении запроса с /api/auth/perfName`);
+        });
+    }
+
     async uploadData(rowEdit) {
         // let userId = localStorage.getItem('userId')
         // console.log(userId)
@@ -104,6 +117,10 @@ class TableComponent extends Component {
             default:
                 break;
         }
+    }
+
+    componentDidMount() {
+        this.loadPerformers()
     }
 
     componentWillReceiveProps(nextProp) { // если получаем новые пропсы, то перерисовыаем таблицу
@@ -149,26 +166,9 @@ class TableComponent extends Component {
 
     render() {
 
-        const tableHeaders = ColumnsData(); // подключаем заголовки таблиц из файла ../data/ColumnsData
+        const tableHeaders = ColumnsData(this.state.performers); // подключаем заголовки таблиц из файла ../data/ColumnsData
         const {ExportCSVButton} = CSVExport; // кнопка для экспорта таблицы в CSV
 
-
-        const options = {
-            // size: "sm",
-            page: 4,
-            prePage: '⟵',
-            nextPage: '⟶',
-            firstPage: '⟸',
-            lastPage: '⟹',
-        };
-
-        let selectRowProp = {
-            mode: "checkbox",
-            clickToSelect: true,
-            // bgColor: "rgb(206,255,198)"
-            bgColor: "rgb(206,255,198)"
-
-        };
 
 
         const customTotal = (from, to, size) => (

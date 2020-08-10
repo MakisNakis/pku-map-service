@@ -18,7 +18,16 @@ function CellStyle(cell, row, rowIndex, colIndex) {
     };
 }
 
-export function ColumnsData() {
+export function ColumnsData(performers) {
+
+    // let performers = [{label: "1"}, {label:"2"}, {label: "3"}]
+// console.log(performers[0])
+console.log(performers[0])
+
+    // let performersMas = []
+    // for (let i = 0; i < performers.length; i++){
+    //     performersMas[i] = {label: ""}
+    // }
 
     let tableHeaders = [];
     //ОМТС
@@ -230,7 +239,11 @@ export function ColumnsData() {
         dataField: 'PerformerName',
         text: 'Исполнитель',
         sort: true,
-        editable: false,
+        editable: true,
+        editor: {
+            type: Type.SELECT,
+            options: performers
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -360,7 +373,11 @@ export function ColumnsData() {
         dataField: 'PerformerName',
         text: 'Исполнитель',
         sort: true,
-        editable: false,
+        editable: true,
+        editor: {
+            type: Type.SELECT,
+            options: performers
+        },
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
         }
