@@ -18,16 +18,38 @@ function CellStyle(cell, row, rowIndex, colIndex) {
     };
 }
 
+// export async function loadPerformers(){
+//     await fetch(`/api/auth/perfName`).then(results => {
+//         return results.json();
+//     }).then(
+//         data => {
+//             // console.log(data.rows[0])
+//             return data.rows
+//             // this.setState({performers: data.rows})
+//             // localStorage.setItem('performers', data.rows);
+//             // console.log(this.state.performers[0].Name)
+//         }).catch(() => {
+//         console.log(`Ошибка при выполнении запроса с /api/auth/perfName`);
+//     });
+// }
+
 export function ColumnsData(performers) {
 
+        // const performers = localStorage.getItem('performers')
     // let performers = [{label: "1"}, {label:"2"}, {label: "3"}]
-// console.log(performers[0])
-console.log(performers[0])
 
-    // let performersMas = []
-    // for (let i = 0; i < performers.length; i++){
-    //     performersMas[i] = {label: ""}
-    // }
+// console.log()
+// console.log(performers)
+// console.log(JSON.stringify(performers))
+
+
+//     let performersMas = []
+//     let performersMas = [{label: "Бажутов Сергей", value: 1}, {label: "Камалетдинов Рамис", value: 2}, {label: "Шакиров Рашид", value: 3}]
+    let performersMas = [{label: "Бажутов Сергей", value: "Бажутов Сергей"}, {label: "Камалетдинов Рамис", value: "Камалетдинов Рамис"}, {label: "Шакиров Рашид", value: "Шакиров Рашид"}]
+//     for (let i = 0; i < performers.length; i++){
+//         performersMas[i] = {label: performers[i].Surname}
+//     }
+// console.log(performersMas)
 
     let tableHeaders = [];
     //ОМТС
@@ -230,7 +252,9 @@ console.log(performers[0])
         sort: true,
         editor: {
             type: Type.CHECKBOX,
-            value: 'true:false',
+            // label:'pupa:lupa',
+            // value: 'true:false',
+            value: 'Выполнил:Не выполнил',
     },
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
@@ -242,7 +266,7 @@ console.log(performers[0])
         editable: true,
         editor: {
             type: Type.SELECT,
-            options: performers
+            options: performersMas
         },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -364,7 +388,9 @@ console.log(performers[0])
         sort: true,
         editor: {
             type: Type.CHECKBOX,
-            value: 'true:false'
+            // value: 'true:false'
+            value: 'Выполнил:Не выполнил',
+
         },
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
@@ -376,7 +402,7 @@ console.log(performers[0])
         editable: true,
         editor: {
             type: Type.SELECT,
-            options: performers
+            options: performersMas
         },
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};

@@ -21,7 +21,7 @@ class TableComponent extends Component {
         this.state = {
             pkuInfo: [],
             filterColor: "white",
-            performers: [] // список всех исполнителей (монтажников)
+            // performers: [] // список всех исполнителей (монтажников)
         };
         this.url = window.location.href;
         this.copyPkuInfo = [];
@@ -86,17 +86,19 @@ class TableComponent extends Component {
         }
     }
 
-    async loadPerformers(){ // функция для выгрузки информации об исполнителе
-          await fetch(`/api/auth/perfName`).then(results => {
-            return results.json();
-        }).then(
-            data => {
-                // console.log(data.rows[0])
-                this.setState({performers: data.rows})
-        }).catch(() => {
-            console.log(`Ошибка при выполнении запроса с /api/auth/perfName`);
-        });
-    }
+            // async loadPerformers(){ // функция для выгрузки информации об исполнителях (монтаж)
+            //       await fetch(`/api/auth/perfName`).then(results => {
+            //         return results.json();
+            //     }).then(
+            //         data => {
+            //             // console.log(data.rows[0])
+            //             this.setState({performers: data.rows})
+            //             // localStorage.setItem('performers', data.rows);
+            //             // console.log(this.state.performers[0].Name)
+            //     }).catch(() => {
+            //         console.log(`Ошибка при выполнении запроса с /api/auth/perfName`);
+            //     });
+            // }
 
     async uploadData(rowEdit) {
         // let userId = localStorage.getItem('userId')
@@ -117,10 +119,6 @@ class TableComponent extends Component {
             default:
                 break;
         }
-    }
-
-    componentDidMount() {
-        this.loadPerformers()
     }
 
     componentWillReceiveProps(nextProp) { // если получаем новые пропсы, то перерисовыаем таблицу
@@ -166,7 +164,8 @@ class TableComponent extends Component {
 
     render() {
 
-        const tableHeaders = ColumnsData(this.state.performers); // подключаем заголовки таблиц из файла ../data/ColumnsData
+        // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
+        const tableHeaders = ColumnsData(); // подключаем заголовки таблиц из файла ../data/ColumnsData
         const {ExportCSVButton} = CSVExport; // кнопка для экспорта таблицы в CSV
 
 

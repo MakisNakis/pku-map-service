@@ -53,6 +53,7 @@ class MapComponent extends Component {
                 }).catch(() => {
                     console.log(`Ошибка при извлечении информации о ${routeId}-м маршруте!`);
                 });
+                break
 
             case 2:
                 await fetch('/api/pkuDataServerSecondRoute').then(results => {
@@ -63,9 +64,11 @@ class MapComponent extends Component {
                 }).catch(() => {
                     console.log(`Ошибка при извлечении информации о ${routeId}-м маршруте!`);
                 });
+                break
 
             default:
                 console.log(`Маршрут с номером "${routeId}" отсутствует`);
+                break
 
         }
 

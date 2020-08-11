@@ -44,8 +44,8 @@ app.get('/api/test', async (req, res) => {                      // тестов�
 app.route('/api/test1')                                    // тестовый api
     .post(async (req, res) => {                                 //
     mas = req.body;                                             //
-    console.log(mas);                                           //
-    console.log(req.headers.origin);                            //
+    // console.log(mas);                                           //
+    // console.log(req.headers.origin);                            //
     res.send(req.body);                                         //
 })                                                              //
     .get( async (req, res) => {                                 //
@@ -100,7 +100,9 @@ for (let i = 0; i < 40; i++) {                                  // цикл, в 
             res.json(data.rows);
         })
         .post(async (req, res) => {
-            console.log(req.headers.origin);
+            // console.log(req.headers.origin);
+            console.log( req.body.rowEdit);
+            // console.log(req.body.userId);
             const data = await repository.uploadDataForTable(i, "ПТО1", req.body.rowEdit, req.body.userId);
             res.send(data);
     });

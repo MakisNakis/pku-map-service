@@ -89,10 +89,10 @@ class MyRepository {
 
         let query = undefined
         let userId = parseInt(userIdString)
-        let performerId = 1
+        // let performerId = 1
         // let userId = 3
-        console.log(userIdString)
-        console.log(userId)
+        console.log(`Изменения в таблицу внес пользователь с id №${userIdString}`)
+        // console.log(userId)
                                   // 1 - Админ - (временная переменная из за отсутствия регистрации)
                                 // 1 - Админ - (временная переменная из за отсутствия регистрации)
         // Здесь и далее для всех отделов:
@@ -132,6 +132,8 @@ class MyRepository {
                 break;
             case "Монтажники1":
                 let DateWork = null;
+                let PerformerName1 = null;
+                let flag1 = null;
                 let CommentMontazhniki1 = '';
                 if(row.DateWork !== null) {
                     DateWork = this.convertToPG(row.DateWork);
@@ -139,13 +141,23 @@ class MyRepository {
                 if(row.Comment !== null) {
                     CommentMontazhniki1 = row.Comment;
                 }
+                // console.log(row.PerformerName)
 
+                if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
+                    PerformerName1 = '1'
+                }
+                if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
+                    PerformerName1 = '2'
+                }
+                if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
+                    PerformerName1 = '3'
+                }
                                                                 // запрос на внесение данных о работах для монтажников
                 query = this.client.query(`select * from f_u_subwork_perf(
                     ${row.WorkID},
                     ${DateWork},
                     ${this.convertToPG(row.Fact)},
-                    ${performerId},
+                    ${PerformerName1},
                     ${this.convertToPG(CommentMontazhniki1)},
                     ${userId}
                 );`);
@@ -159,6 +171,7 @@ class MyRepository {
                 let EndDateAkt = null;
                 let MaterialDate = null;
                 let CommentPTO1 = '';
+                let PerformerName2 = null;
 
                 if(row.StartDateCon !== null) {
                     StartDateCon = this.convertToPG(row.StartDateCon);
@@ -185,6 +198,15 @@ class MyRepository {
                     CommentPTO1 = row.Comment;
                 }
 
+                if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
+                    PerformerName2 = '1'
+                }
+                if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
+                    PerformerName2 = '2'
+                }
+                if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
+                    PerformerName2 = '3'
+                }
                                                                 // запрос на внесение данных о работах для отдела ПТО
                 query = this.client.query(`select * from f_u_subwork_pto(
                     ${row.WorkID},
@@ -195,7 +217,7 @@ class MyRepository {
                     ${EndDatePlan},
                     ${DateWorkPTO},
                     ${this.convertToPG(row.Fact)},
-                    ${performerId},
+                    ${PerformerName2},
                     ${EndDateAkt},
                     ${MaterialDate},
                     ${this.convertToPG(CommentPTO1)},
@@ -222,23 +244,23 @@ class MyRepository {
         let query = undefined;
         const logForPG = this.convertToPG(data.login);
         const passForPG = this.convertToPG(data.password);
-        console.log(data.password)
+        // console.log(data.password)
         query = this.client.query(`select * from f_s_userid_logpas(${logForPG}, ${passForPG});`);        // this.client.end();
         return query
     }
 
      async getUserRole(data) { // функция для получения роли пользователя
         const userIdPG = this.convertToPG(data.userId);
-        console.log(userIdPG)
+        // console.log(userIdPG)
         let query = this.client.query(`select * from f_s_roleid_userid(${userIdPG});`);        // this.client.end();
         return query
     }
 
      async getUserName(data) { // функция для получения имени пользователя
         const userIdPG = this.convertToPG(data.userId);
-        console.log(userIdPG)
         let query = this.client.query(`select * from f_s_username_userid(${userIdPG});`)
-        return query
+         console.log(`Авторизовался пользователь с id №${data.userId}`)
+         return query
     }
 
     async getPerfName() { // функция для получения имени исполнителя (монтажника)

@@ -25,6 +25,8 @@
       <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/ColumnsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/AuthorisationComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/AuthorisationComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,14 +230,8 @@
       <workItem from="1596627589004" duration="611000" />
       <workItem from="1596712496111" duration="5852000" />
       <workItem from="1596780956974" duration="4168000" />
-      <workItem from="1597040134912" duration="15891000" />
-    </task>
-    <task id="LOCAL-00011" summary="- Теперь для разных маршрутов разные маркеры">
-      <created>1590001404517</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1590001404517</updated>
+      <workItem from="1597040134912" duration="16193000" />
+      <workItem from="1597129145704" duration="25847000" />
     </task>
     <task id="LOCAL-00012" summary="- Теперь для разных маршрутов разные маркеры">
       <created>1590057388899</created>
@@ -573,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597049618288</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="- TODO: выбор исполнителя из списка">
+      <created>1597071322722</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1597071322722</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,7 +595,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="+ scroll&#10;- не доделан скролл" />
     <MESSAGE value="- добавил состояние ROOT пользователя в App.js" />
     <MESSAGE value="+ просто commit" />
     <MESSAGE value="+ добавлен выбор под вкладок для отделов" />
@@ -617,17 +619,18 @@
     <MESSAGE value="- убрал слайдер снизу" />
     <MESSAGE value="+ убрал слайдер снизу" />
     <MESSAGE value="- добавил поиск по таблице" />
-    <option name="LAST_COMMIT_MESSAGE" value="- добавил поиск по таблице" />
+    <MESSAGE value="- TODO: выбор исполнителя из списка" />
+    <option name="LAST_COMMIT_MESSAGE" value="- TODO: выбор исполнителя из списка" />
   </component>
   <component name="WindowStateProjectService">
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596188972129">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2" timestamp="1597049617938">
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2" timestamp="1597071322562">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597049617938" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597071322562" />
     <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1596527755852" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
@@ -730,10 +733,10 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="665" y="403" width="590" height="415" key="git4idea.merge.GitPullDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596184495430" />
-    <state x="611" y="258" key="run.anything.popup" timestamp="1597049225370">
+    <state x="611" y="258" key="run.anything.popup" timestamp="1597157485828">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="611" y="258" key="run.anything.popup/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597049225370" />
+    <state x="611" y="258" key="run.anything.popup/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597157485828" />
     <state x="657" y="257" key="run.anything.popup/67.27.1853.1068@67.27.1853.1068" timestamp="1596621977384" />
     <state x="610" y="263" width="697" height="762" key="search.everywhere.popup" timestamp="1596179811728">
       <screen x="0" y="0" width="1920" height="1200" />
