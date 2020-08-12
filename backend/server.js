@@ -101,7 +101,7 @@ for (let i = 0; i < 40; i++) {                                  // цикл, в 
         })
         .post(async (req, res) => {
             // console.log(req.headers.origin);
-            console.log( req.body.rowEdit);
+            // console.log( req.body.rowEdit);
             // console.log(req.body.userId);
             const data = await repository.uploadDataForTable(i, "ПТО1", req.body.rowEdit, req.body.userId);
             res.send(data);

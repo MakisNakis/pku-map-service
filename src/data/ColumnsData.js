@@ -254,7 +254,7 @@ export function ColumnsData(performers) {
             type: Type.CHECKBOX,
             // label:'pupa:lupa',
             // value: 'true:false',
-            value: 'Выполнил:Не выполнил',
+            value: 'true:false',
     },
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
@@ -389,7 +389,7 @@ export function ColumnsData(performers) {
         editor: {
             type: Type.CHECKBOX,
             // value: 'true:false'
-            value: 'Выполнил:Не выполнил',
+            value: 'true:false',
 
         },
         headerStyle: (colum, colIndex) => {

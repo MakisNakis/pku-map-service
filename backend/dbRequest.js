@@ -1,6 +1,6 @@
 const Client= require('pg').Client;                         // подключение модуля для соединения с БД
 
-const DBNAME = "PKU_MapService3";
+const DBNAME = "PKU_MapService4";
 const DBLOG = "postgres";
 const DBPASS = "postgres";
 const DBPORT = "5432";
@@ -258,10 +258,13 @@ class MyRepository {
 
      async getUserName(data) { // функция для получения имени пользователя
         const userIdPG = this.convertToPG(data.userId);
-        let query = this.client.query(`select * from f_s_username_userid(${userIdPG});`)
+         let query = this.client.query(`select * from f_s_username_userid(${userIdPG});`)
+             // .then(result => {
+             //    console.log(`Авторизовался пользователь ${result.rows[0].f_s_username_userid}`)
+             // })
          console.log(`Авторизовался пользователь с id №${data.userId}`)
-         return query
-    }
+         return query;
+     }
 
     async getPerfName() { // функция для получения имени исполнителя (монтажника)
         let query = this.client.query(`select * from f_s_get_performers();`)
