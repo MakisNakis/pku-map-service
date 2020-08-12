@@ -50,14 +50,11 @@ class App extends React.Component {
             show: false,        //показать таблицу
             hide: "Нажмите на ПКУ для вывода таблицы",
             idPKU: undefined,
-            // depName: "Отчеты",
             depName: "ОМТС",
-            // depName: "ПТО",
-            // typeTable: "Отчеты1",
-            // typeTable: "ПТО1",
             typeTable: "ОМТС",
             markerName: undefined,
             rootPriv: "Отчеты",
+            routeNumber: 2,
             // стейты для авторизации
             authorisation: false,
             authorisationErr: false,
@@ -245,7 +242,7 @@ switchDepartment(){
         }
     }
 
-    gettingNamePKU = (id, name) => {
+    gettingNamePKU = (id, name, routenumber) => {
         // e.preventDefault();
         // console.log(e);
         // const id = e.target.options.title;
@@ -257,6 +254,7 @@ switchDepartment(){
                 show: true,
                 hide: false,
                 idPKU: id,
+                routeNumber: routenumber,
                 // depName: "Отчеты",
                 markerName: name
             });
@@ -265,6 +263,7 @@ switchDepartment(){
                 show: false,
                 hide: "Нажмите на ПКУ для вывода таблицы",
                 idPKU: undefined,
+                routeNumber: routenumber,
                 markerName: name
 
             });
@@ -347,6 +346,7 @@ switchDepartment(){
 
                     <MapComponent
                         namePKU={this.gettingNamePKU}
+                        routeNumber={this.state.routeNumber}
                         selectedId={this.state.idPKU}
                     />
                     <br/>
@@ -372,9 +372,12 @@ switchDepartment(){
                         depName={this.state.depName}
                         typeTable={this.state.typeTable}
                     />
-                    {this.state.idPKU && (this.state.typeTable === "Монтажники1" || this.state.typeTable === "ПТО1") && <p className="Table-header"><h2 align="center">Перечень работ на {this.state.markerName} </h2></p>}
-                    {this.state.idPKU && (this.state.typeTable === "Монтажники2" || this.state.typeTable === "ПТО2") && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} </h2></p>}
-                    {this.state.idPKU && (this.state.typeTable === "ОМТС" || this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Карабаш</h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "Монтажники1" || this.state.typeTable === "ПТО1" ) && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Перечень работ на {this.state.markerName} (Альметьевск - Карабаш) </h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "Монтажники2" || this.state.typeTable === "ПТО2") && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} (Альметьевск - Карабаш) </h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "ОМТС" || this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Карабаш</h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "Монтажники1" || this.state.typeTable === "ПТО1" ) && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Перечень работ на {this.state.markerName} (Альметьевск - Башкултаево)</h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "Монтажники2" || this.state.typeTable === "ПТО2") && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} (Альметьевск - Башкултаево) </h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "ОМТС" || this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Башкултаево</h2></p>}
                     <div id="start"></div>
                     <TableComponent
                     show={this.state.show}

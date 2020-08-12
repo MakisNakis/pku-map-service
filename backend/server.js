@@ -63,6 +63,11 @@ app.get('/api/pkuDataServerSecondRoute', async (req, res) => {     // api для
     res.json(data);
 });
 
+app.get('/api/pkuDataServerThirdRoute', async (req, res) => {     // api для выгрузки точек из БД для маршрута с номером 2
+    const data = await repository.loadDataForMarkers(3);    // вызов функции для выполнения запроса
+    res.json(data);
+});
+
 
 // Здесь и далее:
 //     - функция loadDataForTable используется для генерации запросов на получение данных из БД

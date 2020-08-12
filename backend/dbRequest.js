@@ -37,7 +37,7 @@ class MyRepository {
 
     async loadDataForMarkers(routeId) {                         // функция для считывания данных об объектах на маршруте
 
-        let query = this.client.query(`select * from f_s_subject_routeid(${routeId})`); // запрос для получения координат маркеров на маршруте routeId
+        let query = this.client.query(`select *,${routeId} as routenumber  from f_s_subject_routeid(${routeId})`); // запрос для получения координат маркеров на маршруте routeId
         // this.client.end();
         return query
     }

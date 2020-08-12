@@ -26,10 +26,13 @@ class MapComponent extends Component {
             zoom: 9,
             minZoom: 6,
             radius: 0,
-            firstRouteApi: '/api/pkuDataServerFirstRoute',
-            secondRouteApi: '/api/pkuDataServerSecondRoute',
+            // firstRouteApi: '/api/pkuDataServerFirstRoute',
+            // secondRouteApi: '/api/pkuDataServerSecondRoute',
+            // thirdRouteApi: '/api/pkuDataServerThirdRoute',
             pkuDataFirstRoute: [],
-            pkuDataSecondRoute: []
+            pkuDataSecondRoute: [],
+            pkuDataThirdRoute: [],
+            currentSelectedRouteId: 2 // по умолчанию при первой отрисовке таблицы будет выводиться информация о маршруте Альметьевск - Карабаш
         };
 
         this.pkuMarkerIcon = {
@@ -66,6 +69,16 @@ class MapComponent extends Component {
                 });
                 break
 
+                case 3:
+                await fetch('/api/pkuDataServerThirdRoute').then(results => {
+                    return results.json()
+                }).then(data => {
+                    this.setState({pkuDataThirdRoute: data.rows});
+                    // console.log(this.state.pkuData[0].ID)
+                }).catch(() => {
+                    console.log(`Ошибка при извлечении информации о ${routeId}-м маршруте!`);
+                });
+                break
             default:
                 console.log(`Маршрут с номером "${routeId}" отсутствует`);
                 break
@@ -78,10 +91,11 @@ class MapComponent extends Component {
     componentWillMount() {
         this.loadData(1);
         this.loadData(2);
+        this.loadData(3);
     }
 
 
-    setMarkerIcon(routeId) {
+    setMarkerIcon(routeId) { // свитч для выбора иконки маркера в зависимости от маршрута
         switch (routeId) {
             case 1:
                 this.pkuMarkerIcon.iconUrl = '/markers/redM.png';
@@ -105,6 +119,8 @@ class MapComponent extends Component {
             pkuData = this.state.pkuDataFirstRoute;
         } else if (routeId === 2) {
             pkuData = this.state.pkuDataSecondRoute;
+        } else if (routeId === 3) {
+            pkuData = this.state.pkuDataThirdRoute;
         }
 
         // console.log(this.state.pkuDataFirstRoute);
@@ -112,13 +128,14 @@ class MapComponent extends Component {
         // console.log(this.state.pkuDataSecondRoute);
         let result = [];
         for (let i = 0; i < pkuData.length; i++) {
+            // console.log(pkuData[0].routenumber)
             result.push(
                 <Marker key={i}
                         position={[pkuData[i].Latitude, pkuData[i].Longtitude]}
                         icon={this.setMarkerIcon(routeId)}
-                        title={pkuData[i].SubjectID}
+                        title={`${pkuData[i].routenumber}-й маршрут`}
                         name={pkuData[i].SubjectName}
-                        onClick={(e) => this.props.namePKU(pkuData[i].SubjectID, pkuData[i].SubjectName, e)}
+                        onClick={(e) => this.props.namePKU(pkuData[i].SubjectID, pkuData[i].SubjectName, pkuData[i].routenumber, e)}
                 >
                     <Popup>
 
@@ -171,6 +188,8 @@ class MapComponent extends Component {
             pkuData = this.state.pkuDataFirstRoute;
         } else if (routeId === 2) {
             pkuData = this.state.pkuDataSecondRoute;
+        } else if (routeId === 3) {
+            pkuData = this.state.pkuDataThirdRoute;
         }
 
         console.log(this.props.selectedId);
@@ -190,9 +209,11 @@ class MapComponent extends Component {
                                 <div id={"selectedPku"}>
                                     <button
                                         className={"button8 btnPku buttonSelected"}
-                                        title={pkuData[i].SubjectID}
+                                        title={pkuData[i].routenumber}
                                         name={pkuData[i].SubjectName}
-                                        onClick={(e) => this.props.namePKU(pkuData[i].SubjectID, pkuData[i].SubjectName, e)}
+                                        onClick={(e) => this.props.namePKU(pkuData[i].SubjectID, pkuData[i].SubjectName, pkuData[i].routenumber, e)
+
+                                        }
                                     >
                                         {pkuData[i].SubjectName}
                                     </button>
@@ -209,7 +230,7 @@ class MapComponent extends Component {
                                 className={"button8 btnPku"}
                                 title={pkuData[i].SubjectID}
                                 name={pkuData[i].SubjectName}
-                                onClick={(e) => this.props.namePKU(pkuData[i].SubjectID, pkuData[i].SubjectName, e)}
+                                onClick={(e) => this.props.namePKU(pkuData[i].SubjectID, pkuData[i].SubjectName, pkuData[i].routenumber, e)}
                             >
                                 {pkuData[i].SubjectName}
                             </button>
@@ -253,6 +274,12 @@ class MapComponent extends Component {
                                         </LayerGroup>
                                     </LayersControl.Overlay>
 
+                                    <LayersControl.Overlay checked name="Башкултаево">
+                                        <LayerGroup name="pkuMarkersBashkultaevo">
+                                            {this.renderMarkersLayer(3)}
+                                        </LayerGroup>
+                                    </LayersControl.Overlay>
+
                                 </LayersControl>
                             </LeafletMap>
                         </td>
@@ -264,7 +291,7 @@ class MapComponent extends Component {
                                 {/*</select>*/}
                                 <div className={"tablePkuListScroll"}>
                                     <table className={"tablePkuList"}>
-                                        {this.pkuListGeneration(2)}
+                                        {this.pkuListGeneration(this.props.routeNumber)}
                                     </table>
                                 </div>
 
