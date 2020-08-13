@@ -42,38 +42,39 @@ class MyRepository {
         return query
     }
 
-    async loadDataForTable(pkuId, typeTable) {                  // функция для считывания данных об объектах в зависимости от отдела
-
+    async loadDataForTable(pkuId, typeTable, routeNumber) {                  // функция для считывания данных об объектах в зависимости от отдела
         let query = undefined;
-
+        // console.log(typeof(routeNumber))
+        // console.log(routeNumber)
         switch (typeTable) {
             case "ОМТС":
-                query = this.client.query(`select * from f_s_equipment_routeid(2);`);           // запрос на получение информации об оборудовании для отдела комплектации
-
+                query = this.client.query(`select * from f_s_equipment_routeid(${routeNumber});`);           // запрос на получение информации об оборудовании для отдела комплектации
                 break;
+
             case "Монтажники1":
                 query = this.client.query(`select * from f_s_subwork_perf_subid(${pkuId});`);   // запрос на получение информации о работах на объекте для отдела монтажников
-
                 break;
+
             case "Монтажники2":
                 query = this.client.query(`select * from f_s_subhw_subid(${pkuId});`);          // запрос на получение информации об оборудовании для монтажников
-
                 break;
+
             case "ПТО1":
                 query = this.client.query(`select * from f_s_subwork_pto_subid(${pkuId});`);    // запрос на получение информации о работах на объекте для отдела ПТО
                 break;
+
             case "ПТО2":
                 query = this.client.query(`select * from f_s_subhw_subid(${pkuId});`);          // запрос на получение информации об оборудовании для отдела ПТО
-
                 break;
+
             case "Отчеты1":
-                query = this.client.query(`select * from f_s_report_general_routeid(2);`);      // запрос на получение отчетов
-
+                query = this.client.query(`select * from f_s_report_general_routeid(${routeNumber});`);      // запрос на получение отчетов
                 break;
+
             case "Отчеты2":
-                query = this.client.query(`select * from f_s_report_general_routeid(2);`);      // запрос на получение отчетов
-
+                query = this.client.query(`select * from f_s_report_general_routeid(${routeNumber});`);      // запрос на получение отчетов
                 break;
+
             default:
                 break;
         }

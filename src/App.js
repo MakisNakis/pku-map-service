@@ -124,12 +124,12 @@ switchDepartment(){
     switch (localStorage.getItem('userRole')) {
         case '1':
             this.setState({depName: "Отчеты"});
-            console.log('1111111')
+            // console.log('1111111')
             this.setState({typeTable: "Отчеты1"});
             break;
         case '2':
             this.setState({depName: "ОМТС"});
-            console.log('22222222')
+            // console.log('22222222')
             this.setState({typeTable: "ОМТС"});
             break;
         case '3':
@@ -244,7 +244,7 @@ switchDepartment(){
 
     gettingNamePKU = (id, name, routenumber) => {
         // e.preventDefault();
-        // console.log(e);
+        console.log(routenumber);
         // const id = e.target.options.title;
         // const name = e.target.options.name;
 
@@ -371,6 +371,7 @@ switchDepartment(){
                         typeTableFunc={this.onClickTypeTable}
                         depName={this.state.depName}
                         typeTable={this.state.typeTable}
+                        // routeNumber={this.state.routeNumber}
                     />
                     {this.state.idPKU && (this.state.typeTable === "Монтажники1" || this.state.typeTable === "ПТО1" ) && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Перечень работ на {this.state.markerName} (Альметьевск - Карабаш) </h2></p>}
                     {this.state.idPKU && (this.state.typeTable === "Монтажники2" || this.state.typeTable === "ПТО2") && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} (Альметьевск - Карабаш) </h2></p>}
@@ -386,6 +387,7 @@ switchDepartment(){
                     depName={this.state.depName}
                     typeTable={this.state.typeTable}
                     markerName={this.state.markerName}
+                    routeNumber={this.state.routeNumber}
                     // userRole={this.state.userRole}
                     // userName={this.state.userName}
                     />

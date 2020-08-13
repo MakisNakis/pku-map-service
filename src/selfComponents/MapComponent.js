@@ -89,7 +89,7 @@ class MapComponent extends Component {
 
 
     componentWillMount() {
-        this.loadData(1);
+        // this.loadData(1);
         this.loadData(2);
         this.loadData(3);
     }
@@ -115,9 +115,10 @@ class MapComponent extends Component {
     renderMarkersLayer(routeId) {
         let pkuData = undefined;
 
-        if (routeId === 1) {
-            pkuData = this.state.pkuDataFirstRoute;
-        } else if (routeId === 2) {
+        // if (routeId === 1) {
+        //     pkuData = this.state.pkuDataFirstRoute;
+        // } else
+        if (routeId === 2) {
             pkuData = this.state.pkuDataSecondRoute;
         } else if (routeId === 3) {
             pkuData = this.state.pkuDataThirdRoute;
@@ -184,9 +185,10 @@ class MapComponent extends Component {
         let items = [];
         let pkuData = undefined;
 
-        if (routeId === 1) {
-            pkuData = this.state.pkuDataFirstRoute;
-        } else if (routeId === 2) {
+        // if (routeId === 1) {
+        //     pkuData = this.state.pkuDataFirstRoute;
+        // } else
+        if (routeId === 2) {
             pkuData = this.state.pkuDataSecondRoute;
         } else if (routeId === 3) {
             pkuData = this.state.pkuDataThirdRoute;
@@ -262,11 +264,11 @@ class MapComponent extends Component {
                                         />
                                     </LayersControl.BaseLayer>
 
-                                    <LayersControl.Overlay checked name="Уфа">
-                                        <LayerGroup name="pkuMarkersUfa">
-                                            {this.renderMarkersLayer(1)}
-                                        </LayerGroup>
-                                    </LayersControl.Overlay>
+                                    {/*<LayersControl.Overlay checked name="Уфа">*/}
+                                    {/*    <LayerGroup name="pkuMarkersUfa">*/}
+                                    {/*        {this.renderMarkersLayer(1)}*/}
+                                    {/*    </LayerGroup>*/}
+                                    {/*</LayersControl.Overlay>*/}
 
                                     <LayersControl.Overlay checked name="Карабаш">
                                         <LayerGroup name="pkuMarkersKarabash">
