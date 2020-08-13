@@ -1,6 +1,6 @@
 const Client= require('pg').Client;                         // подключение модуля для соединения с БД
 
-const DBNAME = "TestBase";
+const DBNAME = "PKU_MapService4";
 const DBLOG = "postgres";
 const DBPASS = "postgres";
 const DBPORT = "5432";
@@ -36,56 +36,45 @@ class MyRepository {
 
 
     async loadDataForMarkers(routeId) {                         // функция для считывания данных об объектах на маршруте
-        // try {
-        //     await this.client.connect();                        // создание подключения
-        //     console.log('DB has been connected');
-        // } catch(e) {
-        //     console.log('Error', e)
-        // }
 
-        let query = this.client.query(`select * from f_s_subject_routeid(${routeId})`); // запрос для получения координат маркеров на маршруте routeId
+        let query = this.client.query(`select *,${routeId} as routenumber  from f_s_subject_routeid(${routeId})`); // запрос для получения координат маркеров на маршруте routeId
         // this.client.end();
         return query
     }
 
-    async loadDataForTable(pkuId, typeTable) {                  // функция для считывания данных об объектах в зависимости от отдела
-        // try {
-        //     await this.client.connect();                        // создание подключения
-        //     console.log('DB has been connected');
-        // } catch(e) {
-        //     console.log('Error', e)
-        // }
-
+    async loadDataForTable(pkuId, typeTable, routeNumber) {                  // функция для считывания данных об объектах в зависимости от отдела
         let query = undefined;
-
+        // console.log(typeof(routeNumber))
+        // console.log(routeNumber)
         switch (typeTable) {
             case "ОМТС":
-                query = this.client.query(`select * from f_s_equipment_routeid(2);`);           // запрос на получение информации об оборудовании для отдела комплектации
-
+                query = this.client.query(`select * from f_s_equipment_routeid(${routeNumber});`);           // запрос на получение информации об оборудовании для отдела комплектации
                 break;
+
             case "Монтажники1":
                 query = this.client.query(`select * from f_s_subwork_perf_subid(${pkuId});`);   // запрос на получение информации о работах на объекте для отдела монтажников
-
                 break;
+
             case "Монтажники2":
                 query = this.client.query(`select * from f_s_subhw_subid(${pkuId});`);          // запрос на получение информации об оборудовании для монтажников
-
                 break;
+
             case "ПТО1":
                 query = this.client.query(`select * from f_s_subwork_pto_subid(${pkuId});`);    // запрос на получение информации о работах на объекте для отдела ПТО
                 break;
+
             case "ПТО2":
                 query = this.client.query(`select * from f_s_subhw_subid(${pkuId});`);          // запрос на получение информации об оборудовании для отдела ПТО
-
                 break;
+
             case "Отчеты1":
-                query = this.client.query(`select * from f_s_report_general_routeid(2);`);      // запрос на получение отчетов
-
+                query = this.client.query(`select * from f_s_report_general_routeid(${routeNumber});`);      // запрос на получение отчетов
                 break;
+
             case "Отчеты2":
-                query = this.client.query(`select * from f_s_report_general_routeid(2);`);      // запрос на получение отчетов
-
+                query = this.client.query(`select * from f_s_report_general_routeid(${routeNumber});`);      // запрос на получение отчетов
                 break;
+
             default:
                 break;
         }
@@ -101,10 +90,12 @@ class MyRepository {
 
         let query = undefined
         let userId = parseInt(userIdString)
-        let performerId = 1
+        // let performerId = 1
         // let userId = 3
-        console.log(userIdString)
-        console.log(userId)
+        let date = new Date().toLocaleDateString()
+        let time = new Date().toLocaleTimeString()
+        console.log(`Изменения в таблицу внес пользователь с id №${userIdString} в ${time} ${date} `)
+        // console.log(userId)
                                   // 1 - Админ - (временная переменная из за отсутствия регистрации)
                                 // 1 - Админ - (временная переменная из за отсутствия регистрации)
         // Здесь и далее для всех отделов:
@@ -144,6 +135,8 @@ class MyRepository {
                 break;
             case "Монтажники1":
                 let DateWork = null;
+                let PerformerName1 = null;
+                let flag1 = null;
                 let CommentMontazhniki1 = '';
                 if(row.DateWork !== null) {
                     DateWork = this.convertToPG(row.DateWork);
@@ -151,13 +144,23 @@ class MyRepository {
                 if(row.Comment !== null) {
                     CommentMontazhniki1 = row.Comment;
                 }
+                // console.log(row.PerformerName)
 
+                if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
+                    PerformerName1 = '1'
+                }
+                if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
+                    PerformerName1 = '2'
+                }
+                if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
+                    PerformerName1 = '3'
+                }
                                                                 // запрос на внесение данных о работах для монтажников
                 query = this.client.query(`select * from f_u_subwork_perf(
                     ${row.WorkID},
                     ${DateWork},
                     ${this.convertToPG(row.Fact)},
-                    ${performerId},
+                    ${PerformerName1},
                     ${this.convertToPG(CommentMontazhniki1)},
                     ${userId}
                 );`);
@@ -171,6 +174,7 @@ class MyRepository {
                 let EndDateAkt = null;
                 let MaterialDate = null;
                 let CommentPTO1 = '';
+                let PerformerName2 = null;
 
                 if(row.StartDateCon !== null) {
                     StartDateCon = this.convertToPG(row.StartDateCon);
@@ -197,6 +201,15 @@ class MyRepository {
                     CommentPTO1 = row.Comment;
                 }
 
+                if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
+                    PerformerName2 = '1'
+                }
+                if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
+                    PerformerName2 = '2'
+                }
+                if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
+                    PerformerName2 = '3'
+                }
                                                                 // запрос на внесение данных о работах для отдела ПТО
                 query = this.client.query(`select * from f_u_subwork_pto(
                     ${row.WorkID},
@@ -207,7 +220,7 @@ class MyRepository {
                     ${EndDatePlan},
                     ${DateWorkPTO},
                     ${this.convertToPG(row.Fact)},
-                    ${performerId},
+                    ${PerformerName2},
                     ${EndDateAkt},
                     ${MaterialDate},
                     ${this.convertToPG(CommentPTO1)},
@@ -231,43 +244,35 @@ class MyRepository {
     }
 
      async checkAuth(data) { // функция для проверки пароля и логина пользователя
-        // try {
-        //     await this.client.connect();                        // создание подключения
-        //     console.log('DB has been connected');
-        // } catch(e) {
-        //     console.log('Error', e)
-        // }
         let query = undefined;
         const logForPG = this.convertToPG(data.login);
         const passForPG = this.convertToPG(data.password);
-        console.log(data.password)
+        // console.log(data.password)
         query = this.client.query(`select * from f_s_userid_logpas(${logForPG}, ${passForPG});`);        // this.client.end();
         return query
     }
 
-     async getUserRole(data) { // функция для проверки пароля и логина пользователя
-        // try{
-        //     await this.client.connect();                        // создание подключения
-        //     console.log('DB has been connected');
-        // } catch(e) {
-        //     console.log('Error', e)
-        // }
+     async getUserRole(data) { // функция для получения роли пользователя
         const userIdPG = this.convertToPG(data.userId);
-        console.log(userIdPG)
+        // console.log(userIdPG)
         let query = this.client.query(`select * from f_s_roleid_userid(${userIdPG});`);        // this.client.end();
         return query
     }
 
-     async getUserName(data) { // функция для проверки пароля и логина пользователя
-        // try{
-        //     await this.client.connect();                        // создание подключения
-        //     console.log('DB has been connected');
-        // } catch(e) {
-        //     console.log('Error', e)
-        // }
+     async getUserName(data) { // функция для получения имени пользователя
         const userIdPG = this.convertToPG(data.userId);
-        console.log(userIdPG)
-        let query = this.client.query(`select * from f_s_username_userid(${userIdPG});`)
+         let query = this.client.query(`select * from f_s_username_userid(${userIdPG});`)
+         let date = new Date().toLocaleDateString()
+         let time = new Date().toLocaleTimeString()
+             // .then(result => {
+             //    console.log(`Авторизовался пользователь ${result.rows[0].f_s_username_userid}`)
+             // })
+         console.log(`Авторизовался пользователь с id №${data.userId} в ${time} ${date} `)
+         return query;
+     }
+
+    async getPerfName() { // функция для получения имени исполнителя (монтажника)
+        let query = this.client.query(`select * from f_s_get_performers();`)
         return query
     }
 }
