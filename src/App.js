@@ -50,14 +50,11 @@ class App extends React.Component {
             show: false,        //показать таблицу
             hide: "Нажмите на ПКУ для вывода таблицы",
             idPKU: undefined,
-            // depName: "Отчеты",
             depName: "ОМТС",
-            // depName: "ПТО",
-            // typeTable: "Отчеты1",
-            // typeTable: "ПТО1",
             typeTable: "ОМТС",
             markerName: undefined,
             rootPriv: "Отчеты",
+            routeNumber: 2,
             // стейты для авторизации
             authorisation: false,
             authorisationErr: false,
@@ -113,7 +110,6 @@ class App extends React.Component {
                     authorisation: true,
                     userId: data.rows[0].f_s_userid_logpas
                 })
-                console.log("Жабка в очках")
                 this.getUserRoleById(apiRoute, data.rows[0].f_s_userid_logpas)
 
             } else this.setState({
@@ -128,12 +124,12 @@ switchDepartment(){
     switch (localStorage.getItem('userRole')) {
         case '1':
             this.setState({depName: "Отчеты"});
-            console.log('1111111')
+            // console.log('1111111')
             this.setState({typeTable: "Отчеты1"});
             break;
         case '2':
             this.setState({depName: "ОМТС"});
-            console.log('22222222')
+            // console.log('22222222')
             this.setState({typeTable: "ОМТС"});
             break;
         case '3':
@@ -174,6 +170,7 @@ switchDepartment(){
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}/userRole`);
         });
     }
+
 
     async getUserNameById(apiRoute, userId) { // функция для получения номера роли пользователя
         const userIdJson = {userId: userId}
@@ -245,17 +242,19 @@ switchDepartment(){
         }
     }
 
-    gettingNamePKU = (e) => {
+    gettingNamePKU = (id, name, routenumber) => {
         // e.preventDefault();
-        console.log(e.target.options.name);
-        const id = e.target.options.title;
-        const name = e.target.options.name;
-        console.log();
+        // console.log(routenumber);
+        // const id = e.target.options.title;
+        // const name = e.target.options.name;
+
+        // console.log(e.target.options);
         if (id) {
             this.setState({
                 show: true,
                 hide: false,
                 idPKU: id,
+                routeNumber: routenumber,
                 // depName: "Отчеты",
                 markerName: name
             });
@@ -264,13 +263,16 @@ switchDepartment(){
                 show: false,
                 hide: "Нажмите на ПКУ для вывода таблицы",
                 idPKU: undefined,
+                routeNumber: routenumber,
                 markerName: name
 
             });
         }
     };
 
-    logout(){
+
+
+    logout(){ // обработчик события выхода из аккаунта
         localStorage.removeItem('userRole')
         localStorage.removeItem('userName')
         localStorage.removeItem('userId')
@@ -315,7 +317,7 @@ switchDepartment(){
 
     render() {
         return (
-            <div >
+            <div id={"mainDiv"}>
 
                 {/*<BootstrapTable*/}
                 {/*    keyField="id"*/}
@@ -334,13 +336,19 @@ switchDepartment(){
                 {this.state.authorisation &&
                 <div>
                     <table width={"100%"} >
-                        <td><img src={logo}  width="400px"/></td>
-                        <td><div className="mainHeader" ><h1>Карта объектов для монтажа оборудования</h1></div></td>
-                        <td><button className="button8" onClick={this.logout} type="button">Выход</button></td>
+                        <tr>
+                            <td><img src={logo}  width="400px"/></td>
+                            <td><div className="mainHeader" ><h1>Карта объектов для монтажа оборудования</h1></div></td>
+                            <td><button className="button8" onClick={this.logout} type="button">Выход</button></td>
+                        </tr>
                     </table>
 
 
-                    <MapComponent namePKU={this.gettingNamePKU}/>
+                    <MapComponent
+                        namePKU={this.gettingNamePKU}
+                        routeNumber={this.state.routeNumber}
+                        selectedId={this.state.idPKU}
+                    />
                     <br/>
                     <h2>Вы вошли как пользователь {this.state.userName}</h2>
                     {/*<LogoutComponent*/}
@@ -363,10 +371,14 @@ switchDepartment(){
                         typeTableFunc={this.onClickTypeTable}
                         depName={this.state.depName}
                         typeTable={this.state.typeTable}
+                        // routeNumber={this.state.routeNumber}
                     />
-                    {this.state.idPKU && (this.state.typeTable === "Монтажники1" || this.state.typeTable === "ПТО1") && <p className="Table-header"><h2 align="center">Перечень работ на {this.state.markerName} </h2></p>}
-                    {this.state.idPKU && (this.state.typeTable === "Монтажники2" || this.state.typeTable === "ПТО2") && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} </h2></p>}
-                    {this.state.idPKU && (this.state.typeTable === "ОМТС" || this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Карабаш</h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "Монтажники1" || this.state.typeTable === "ПТО1" ) && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Перечень работ на {this.state.markerName} (Альметьевск - Карабаш) </h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "Монтажники2" || this.state.typeTable === "ПТО2") && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} (Альметьевск - Карабаш) </h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "ОМТС" || this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Карабаш</h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "Монтажники1" || this.state.typeTable === "ПТО1" ) && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Перечень работ на {this.state.markerName} (Альметьевск - Башкултаево)</h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "Монтажники2" || this.state.typeTable === "ПТО2") && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} (Альметьевск - Башкултаево) </h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "ОМТС" || this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Башкултаево</h2></p>}
                     <div id="start"></div>
                     <TableComponent
                     show={this.state.show}
@@ -375,6 +387,7 @@ switchDepartment(){
                     depName={this.state.depName}
                     typeTable={this.state.typeTable}
                     markerName={this.state.markerName}
+                    routeNumber={this.state.routeNumber}
                     // userRole={this.state.userRole}
                     // userName={this.state.userName}
                     />

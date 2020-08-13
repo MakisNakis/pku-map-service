@@ -15,23 +15,23 @@ class DepartmentsComponent extends Component {
             case "ОМТС":
                 className = ['tablinks','tablinks','tablinks','tablinks'];
                 className[0] += classNameActive;
-                console.log(className[0]);
+                // console.log(className[0]);
                 break;
             case "Монтажники":
                 className = ['tablinks','tablinks','tablinks','tablinks'];
                 className[1] += classNameActive;
                 break;
-                console.log(className[1]);
+                // console.log(className[1]);
 
             case "ПТО":
                 className = ['tablinks','tablinks','tablinks','tablinks'];
                 className[2] += classNameActive;
-                console.log(className[2]);
+                // console.log(className[2]);
                 break;
             case "Отчеты":
                 className = ['tablinks','tablinks','tablinks','tablinks'];
                 className[3] += classNameActive;
-                console.log(className[3]);
+                // console.log(className[3]);
                 break;
             default:
                 break;
