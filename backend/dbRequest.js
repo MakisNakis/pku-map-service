@@ -92,7 +92,9 @@ class MyRepository {
         let userId = parseInt(userIdString)
         // let performerId = 1
         // let userId = 3
-        console.log(`Изменения в таблицу внес пользователь с id №${userIdString}`)
+        let date = new Date().toLocaleDateString()
+        let time = new Date().toLocaleTimeString()
+        console.log(`Изменения в таблицу внес пользователь с id №${userIdString} в ${time} ${date} `)
         // console.log(userId)
                                   // 1 - Админ - (временная переменная из за отсутствия регистрации)
                                 // 1 - Админ - (временная переменная из за отсутствия регистрации)
@@ -260,10 +262,12 @@ class MyRepository {
      async getUserName(data) { // функция для получения имени пользователя
         const userIdPG = this.convertToPG(data.userId);
          let query = this.client.query(`select * from f_s_username_userid(${userIdPG});`)
+         let date = new Date().toLocaleDateString()
+         let time = new Date().toLocaleTimeString()
              // .then(result => {
              //    console.log(`Авторизовался пользователь ${result.rows[0].f_s_username_userid}`)
              // })
-         console.log(`Авторизовался пользователь с id №${data.userId}`)
+         console.log(`Авторизовался пользователь с id №${data.userId} в ${time} ${date} `)
          return query;
      }
 

@@ -244,7 +244,7 @@ switchDepartment(){
 
     gettingNamePKU = (id, name, routenumber) => {
         // e.preventDefault();
-        console.log(routenumber);
+        // console.log(routenumber);
         // const id = e.target.options.title;
         // const name = e.target.options.name;
 

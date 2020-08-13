@@ -29,33 +29,33 @@ class TableComponent extends Component {
     }
 
 
-                    async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
-                        await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
-                           // console.log(`/api/pkuDataServerPKUTable${idPKU}`);                  // apiRoute - api адрес, откуда нужно получить данные
-                           // console.log(results);
-                            return results.json();
-                        }).then(
-                            data => {
-                                let pkuInfoWithID = data.map((val, ix) => {
-                                    val.tableID = ix+1;
-                                    // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
-                                    return val;
-                                });
-                                // console.log(data);
-                                this.setState({
-                                    pkuInfo: pkuInfoWithID,
-                                    filterColor: "white",
+         async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
+             await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
+                // console.log(`/api/pkuDataServerPKUTable${idPKU}`);                  // apiRoute - api адрес, откуда нужно получить данные
+                // console.log(results);
+                 return results.json();
+             }).then(
+                 data => {
+                     let pkuInfoWithID = data.map((val, ix) => {
+                         val.tableID = ix+1;
+                         // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
+                         return val;
+                     });
+                     // console.log(data);
+                     this.setState({
+                         pkuInfo: pkuInfoWithID,
+                         filterColor: "white",
 
-                                });
-                                this.copyPkuInfo = this.state.pkuInfo;
+                     });
+                     this.copyPkuInfo = this.state.pkuInfo;
 
-                            // console.log(this.state.pkuInfo);
-                            // console.log(Object.keys(data.rows[0])[0]);
-                        }).catch(() => {
-                            console.log(`Ошибка при выполнении запроса с ${apiRoute}${idPKU}`);
-                        });
+                 // console.log(this.state.pkuInfo);
+                 // console.log(Object.keys(data.rows[0])[0]);
+             }).catch(() => {
+                 console.log(`Ошибка при выполнении запроса с ${apiRoute}${idPKU}`);
+             });
 
-                    }
+         }
 
     // async fetchFromApi(apiRoute, idPKU, rowEdit) {
     //     let jsonObj = {routeNumber: this.props.routeNumber}
@@ -78,61 +78,33 @@ class TableComponent extends Component {
     //     });
     // }
 
-    async loadData(idPKU, typeTable, curRouteNumber) { // функция для выгрузки соотвествующих для отдела depName данных
-        if (curRouteNumber === 2) {
+    async loadData(idPKU, typeTable, nextPropRouteNumber) { // функция для выгрузки соотвествующих для отдела depName данных
+        // if (nextPropRouteNumber === 2) {
             switch (typeTable) {
                 case "ОМТС":
-                    this.fetchFromApi('/api/pkuDataServerPKUTable/2/OMTS/', idPKU);
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/OMTS/`, idPKU);
                     break;
                 case "Монтажники1":
-                    this.fetchFromApi('/api/pkuDataServerPKUTable/2/Montazhniki/Montazhniki1/', idPKU);
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/Montazhniki/Montazhniki1/`, idPKU);
                     break;
                 case "Монтажники2":
-                    this.fetchFromApi('/api/pkuDataServerPKUTable/2/Montazhniki/Montazhniki2/', idPKU);
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/Montazhniki/Montazhniki2/`, idPKU);
                     break;
                 case "ПТО1":
-                    this.fetchFromApi('/api/pkuDataServerPKUTable/2/PTO/PTO1/', idPKU);
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/PTO/PTO1/`, idPKU);
                     break;
                 case "ПТО2":
-                    this.fetchFromApi('/api/pkuDataServerPKUTable/2/PTO/PTO2/', idPKU);
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/PTO/PTO2/`, idPKU);
                     break;
                 case "Отчеты1":
-                    this.fetchFromApi('/api/pkuDataServerPKUTable/2/Otchety/Otchety1/', idPKU);
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/Otchety/Otchety1/`, idPKU);
                     break;
                 case "Отчеты2":
-                    this.fetchFromApi('/api/pkuDataServerPKUTable/2/Otchety/Otchety2/', idPKU);
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/Otchety/Otchety2/`, idPKU);
                     break;
                 default:
                     break;
             }
-        }
-        if (curRouteNumber === 3) {
-            switch (typeTable) {
-                case "ОМТС":
-                    this.fetchFromApi('/api/pkuDataServerPKUTable/3/OMTS/', idPKU);
-                    break;
-                case "Монтажники1":
-                    this.fetchFromApi('/api/pkuDataServerPKUTable/3/Montazhniki/Montazhniki1/', idPKU);
-                    break;
-                case "Монтажники2":
-                    this.fetchFromApi('/api/pkuDataServerPKUTable/3/Montazhniki/Montazhniki2/', idPKU);
-                    break;
-                case "ПТО1":
-                    this.fetchFromApi('/api/pkuDataServerPKUTable/3/PTO/PTO1/', idPKU);
-                    break;
-                case "ПТО2":
-                    this.fetchFromApi('/api/pkuDataServerPKUTable/3/PTO/PTO2/', idPKU);
-                    break;
-                case "Отчеты1":
-                    this.fetchFromApi('/api/pkuDataServerPKUTable/3/Otchety/Otchety1/', idPKU);
-                    break;
-                case "Отчеты2":
-                    this.fetchFromApi('/api/pkuDataServerPKUTable/3/Otchety/Otchety2/', idPKU);
-                    break;
-                default:
-                    break;
-            }
-        }
 
     }
 
@@ -153,57 +125,57 @@ class TableComponent extends Component {
     async uploadData(rowEdit) {
         // let userId = localStorage.getItem('userId')
         // console.log(userId)
-        if (this.props.routeNumber === 2) {
+        // if (this.props.routeNumber === 2) {
             switch (this.props.typeTable) {
                 case "ОМТС":
-                    this.fetchOnApi('/api/pkuDataServerPKUTable/2/OMTS/', this.props.idPKU, rowEdit, this.props.routeNumber);
+                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
                     break;
                 case "Монтажники1":
-                    this.fetchOnApi('/api/pkuDataServerPKUTable/2/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit, this.props.routeNumber);
+                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/Montazhniki/Montazhniki1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
                     break;
                 case "ПТО1":
-                    this.fetchOnApi('/api/pkuDataServerPKUTable/2/PTO/PTO1/', this.props.idPKU, rowEdit, this.props.routeNumber);
+                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
                     break;
                 case "ПТО2":
-                    this.fetchOnApi('/api/pkuDataServerPKUTable/2/PTO/PTO2/', this.props.idPKU, rowEdit, this.props.routeNumber);
+                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO2/`, this.props.idPKU, rowEdit, this.props.routeNumber);
                     break;
                 default:
                     break;
             }
-        }
-
-        if (this.props.routeNumber === 3) {
-            switch (this.props.typeTable) {
-                case "ОМТС":
-                    this.fetchOnApi('/api/pkuDataServerPKUTable/3/OMTS/', this.props.idPKU, rowEdit, this.props.routeNumber);
-                    break;
-                case "Монтажники1":
-                    this.fetchOnApi('/api/pkuDataServerPKUTable/3/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit, this.props.routeNumber);
-                    break;
-                case "ПТО1":
-                    this.fetchOnApi('/api/pkuDataServerPKUTable/3/PTO/PTO1/', this.props.idPKU, rowEdit, this.props.routeNumber);
-                    break;
-                case "ПТО2":
-                    this.fetchOnApi('/api/pkuDataServerPKUTable/3/PTO/PTO2/', this.props.idPKU, rowEdit, this.props.routeNumber);
-                    break;
-                default:
-                    break;
-            }
-        }
+        // }
+        //
+        // if (this.props.routeNumber === 3) {
+        //     switch (this.props.typeTable) {
+        //         case "ОМТС":
+        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/OMTS/', this.props.idPKU, rowEdit, this.props.routeNumber);
+        //             break;
+        //         case "Монтажники1":
+        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit, this.props.routeNumber);
+        //             break;
+        //         case "ПТО1":
+        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/PTO/PTO1/', this.props.idPKU, rowEdit, this.props.routeNumber);
+        //             break;
+        //         case "ПТО2":
+        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/PTO/PTO2/', this.props.idPKU, rowEdit, this.props.routeNumber);
+        //             break;
+        //         default:
+        //             break;
+        //     }
+        // }
     }
 
     componentWillReceiveProps(nextProp) { // если получаем новые пропсы, то перерисовыаем таблицу
         if (nextProp.typeTable !== this.props.typeTable || nextProp.idPKU !== this.props.idPKU || nextProp.routeNumber !== this.props.routeNumber) {
-            console.log(this.props.routeNumber)
-            console.log(nextProp.routeNumber)
+            // console.log(this.props.routeNumber)
+            // console.log(nextProp.routeNumber)
             this.loadData(nextProp.idPKU, nextProp.typeTable, nextProp.routeNumber);
         }
     }
 
     async fetchOnApi(apiRoute, idPKU, rowEdit) {
         let jsonObj = {rowEdit: rowEdit, userId: localStorage.getItem('userId')}
-        console.log(window.location.href);
-        console.log(rowEdit);
+        // console.log(window.location.href);
+        // console.log(rowEdit);
         await fetch(`${this.url}${apiRoute}${idPKU}`, {
         // await fetch('http://192.168.1.116:5000/api/test1', {
             method: 'POST',
@@ -213,10 +185,10 @@ class TableComponent extends Component {
             body: JSON.stringify(jsonObj),
             // cache: "no-cache",
         }).then(results => {
-            console.log(results);
+            // console.log(results);
             return results.json();
         }).then(data => {
-            console.log(data);
+            // console.log(data);
             this.fetchFromApi(apiRoute, idPKU) // вызываем для обновления полей таблицы после апдейта
         }).catch((err) => {
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}${idPKU}`);
@@ -298,7 +270,7 @@ class TableComponent extends Component {
             let newData = [];
             let lenMas = this.copyPkuInfo.length;
 
-            console.log(color);
+            // console.log(color);
 
             for (let i=0; i < lenMas; i++) {
                 let obj = this.copyPkuInfo[i];
@@ -315,7 +287,7 @@ class TableComponent extends Component {
         const filterColor = () => {
             switch(this.state.filterColor) {
                 case "white":
-                    console.log('###### ' + this.state.filterColor);
+                    // console.log('###### ' + this.state.filterColor);
                     this.copyPkuInfo = this.state.pkuInfo;
                     this.setState({
                         filterColor: "yellow",
@@ -323,7 +295,7 @@ class TableComponent extends Component {
                     });
                     break;
                 case "yellow":
-                    console.log('###### ' + this.state.filterColor);
+                    // console.log('###### ' + this.state.filterColor);
 
                     this.setState({
                         filterColor: "red",
@@ -331,7 +303,7 @@ class TableComponent extends Component {
                     });
                     break;
                 case "red":
-                    console.log('###### ' + this.state.filterColor);
+                    // console.log('###### ' + this.state.filterColor);
 
                     this.setState({
                         filterColor: "white",
@@ -389,7 +361,7 @@ class TableComponent extends Component {
                                         cellEdit={cellEditFactory({
                                             mode: 'dbclick',
                                             blurToSave: false,
-                                            beforeSaveCell: (oldValue, newValue, row, column) => { console.log('Before Saving Cell!!'); },
+                                            beforeSaveCell: (oldValue, newValue, row, column) => {  },
                                             afterSaveCell: (oldValue, newValue, row, column) => {
                                                 if (oldValue !== newValue) {
                                                     this.uploadData(row, newValue, column);

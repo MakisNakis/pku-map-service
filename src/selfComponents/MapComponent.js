@@ -194,7 +194,7 @@ class MapComponent extends Component {
             pkuData = this.state.pkuDataThirdRoute;
         }
 
-        console.log(this.props.selectedId);
+        // console.log(this.props.selectedId);
         for (let i = 0; i < pkuData.length; i++) {
             if (this.props.selectedId === pkuData[i].SubjectID ){
                 items.push(
