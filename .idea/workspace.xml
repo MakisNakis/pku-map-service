@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,6 +221,8 @@
       <workItem from="1596439483591" duration="2113000" />
       <workItem from="1596523679103" duration="1711000" />
       <workItem from="1596627589004" duration="611000" />
+      <workItem from="1597041124027" duration="736000" />
+      <workItem from="1597320402946" duration="706000" />
     </task>
     <task id="LOCAL-00010" summary="- Добавлен json файл с координатми по объекту Уфа">
       <created>1590000932387</created>
