@@ -33,7 +33,7 @@ function CellStyle(cell, row, rowIndex, colIndex) {
 //     });
 // }
 
-export function ColumnsData(performers) {
+export function ColumnsData() {
 
         // const performers = localStorage.getItem('performers')
     // let performers = [{label: "1"}, {label:"2"}, {label: "3"}]
@@ -45,7 +45,7 @@ export function ColumnsData(performers) {
 
 //     let performersMas = []
 //     let performersMas = [{label: "Бажутов Сергей", value: 1}, {label: "Камалетдинов Рамис", value: 2}, {label: "Шакиров Рашид", value: 3}]
-    let performersMas = [{label: "Бажутов Сергей", value: "Бажутов Сергей"}, {label: "Камалетдинов Рамис", value: "Камалетдинов Рамис"}, {label: "Шакиров Рашид", value: "Шакиров Рашид"}]
+    let performersMas = [{label: "Бажутов Сергей", value: "Бажутов Сергей"}, {label: "Камалетдинов Рамис", value: "Камалетдинов Рамис"}, {label: "Шакиров Рашид", value: "Шакиров Рашид"}, {label: "Очистить", value: "null"}]
 //     for (let i = 0; i < performers.length; i++){
 //         performersMas[i] = {label: performers[i].Surname}
 //     }

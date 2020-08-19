@@ -7,7 +7,7 @@ const port = 5000;
 const repository = new MyRepository();
 
 const types = require('pg').types;                              // подключаем pg types для обработки типов данных, считываемых из pg
-const moment = require('moment');                               // подключаем moment js для обработки дат
+// const moment = require('moment');                               // подключаем moment js для обработки дат
 
 var parseFn = function(val) {                                   // функция обработчик для обработки типов данных, считываемых из pg
     return val
