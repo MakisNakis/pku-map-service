@@ -13,6 +13,8 @@ import './css/TableComponent.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.css';
 
+const { SearchBar } = Search;
+// let performers = [{label: "1"}, {label:"2"}, {label: "3"}]
 
 class TableComponent extends Component {
 
@@ -21,103 +23,127 @@ class TableComponent extends Component {
         this.state = {
             pkuInfo: [],
             filterColor: "white",
-            // showModalWindow: false,
+            // performers: [] // список всех исполнителей (монтажников)
         };
         this.url = window.location.href;
         this.copyPkuInfo = [];
-        // this.confirm = false;
-    }
-
-
-
-    async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
-        await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
-           // console.log(`/api/pkuDataServerPKUTable${idPKU}`);                  // apiRoute - api адрес, откуда нужно получить данные
-           // console.log(results);
-            return results.json();
-        }).then(
-            data => {
-                let pkuInfoWithID = data.map((val, ix) => {
-                    val.tableID = ix+1;
-                    // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
-                    return val;
-                });
-                // console.log(data);
-                this.setState({
-                    pkuInfo: pkuInfoWithID,
-                    filterColor: "white",
-
-                });
-                this.copyPkuInfo = this.state.pkuInfo;
-
-            // console.log(this.state.pkuInfo);
-            // console.log(Object.keys(data.rows[0])[0]);
-        }).catch(() => {
-            console.log(`Ошибка при выполнении запроса с ${apiRoute}${idPKU}`);
-        });
 
     }
 
 
-    async loadData(idPKU, typeTable) { // функция для выгрузки соотвествующих для отдела depName данных
-        switch (typeTable) {
-            case "ОМТС":
-                this.fetchFromApi('/api/pkuDataServerPKUTable/OMTS/', idPKU);
-                break;
-            case "Монтажники1":
-                this.fetchFromApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/', idPKU);
-                break;
-            case "Монтажники2":
-                this.fetchFromApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki2/', idPKU);
-                break;
-            case "ПТО1":
-                this.fetchFromApi('/api/pkuDataServerPKUTable/PTO/PTO1/', idPKU);
-                break;
-            case "ПТО2":
-                this.fetchFromApi('/api/pkuDataServerPKUTable/PTO/PTO2/', idPKU);
-                break;
-            case "Отчеты1":
-                this.fetchFromApi('/api/pkuDataServerPKUTable/Otchety/Otchety1/', idPKU);
-                break;
-            case "Отчеты2":
-                this.fetchFromApi('/api/pkuDataServerPKUTable/Otchety/Otchety2/', idPKU);
-                break;
-            default:
-                break;
-        }
+         async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
+             await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
+                // console.log(`/api/pkuDataServerPKUTable${idPKU}`);                  // apiRoute - api адрес, откуда нужно получить данные
+                // console.log(results);
+                 return results.json();
+             }).then(
+                 data => {
+                     let pkuInfoWithID = data.map((val, ix) => {
+                         val.tableID = ix+1;
+                         // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
+                         return val;
+                     });
+                     // console.log(data);
+                     this.setState({
+                         pkuInfo: pkuInfoWithID,
+                         filterColor: "white",
+
+                     });
+                     this.copyPkuInfo = this.state.pkuInfo;
+
+                 // console.log(this.state.pkuInfo);
+                 // console.log(Object.keys(data.rows[0])[0]);
+             }).catch(() => {
+                 console.log(`Ошибка при выполнении запроса с ${apiRoute}${idPKU}`);
+             });
+
+         }
+
+
+    async loadData(idPKU, typeTable, nextPropRouteNumber) { // функция для выгрузки соотвествующих для отдела depName данных
+        // if (nextPropRouteNumber === 2) {
+            switch (typeTable) {
+                case "ОМТС":
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/OMTS/`, idPKU);
+                    break;
+                case "Монтажники1":
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/Montazhniki/Montazhniki1/`, idPKU);
+                    break;
+                case "Монтажники2":
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/Montazhniki/Montazhniki2/`, idPKU);
+                    break;
+                case "ПТО1":
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/PTO/PTO1/`, idPKU);
+                    break;
+                case "ПТО2":
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/PTO/PTO2/`, idPKU);
+                    break;
+                case "Отчеты1":
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/Otchety/Otchety1/`, idPKU);
+                    break;
+                case "Отчеты2":
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/Otchety/Otchety2/`, idPKU);
+                    break;
+                default:
+                    break;
+            }
+
     }
 
     async uploadData(rowEdit) {
         // let userId = localStorage.getItem('userId')
         // console.log(userId)
-        switch (this.props.typeTable) {
-            case "ОМТС":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/OMTS/', this.props.idPKU, rowEdit);
-                break;
-            case "Монтажники1":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit);
-                break;
-            case "ПТО1":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO1/', this.props.idPKU, rowEdit);
-                break;
-            case "ПТО2":
-                this.fetchOnApi('/api/pkuDataServerPKUTable/PTO/PTO2/', this.props.idPKU, rowEdit);
-                break;
-            default:
-                break;
-        }
+        // if (this.props.routeNumber === 2) {
+            switch (this.props.typeTable) {
+                case "ОМТС":
+                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                    break;
+                case "Монтажники1":
+                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/Montazhniki/Montazhniki1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                    break;
+                case "ПТО1":
+                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                    break;
+                case "ПТО2":
+                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO2/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                    break;
+                default:
+                    break;
+            }
+        // }
+        //
+        // if (this.props.routeNumber === 3) {
+        //     switch (this.props.typeTable) {
+        //         case "ОМТС":
+        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/OMTS/', this.props.idPKU, rowEdit, this.props.routeNumber);
+        //             break;
+        //         case "Монтажники1":
+        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit, this.props.routeNumber);
+        //             break;
+        //         case "ПТО1":
+        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/PTO/PTO1/', this.props.idPKU, rowEdit, this.props.routeNumber);
+        //             break;
+        //         case "ПТО2":
+        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/PTO/PTO2/', this.props.idPKU, rowEdit, this.props.routeNumber);
+        //             break;
+        //         default:
+        //             break;
+        //     }
+        // }
     }
 
     componentWillReceiveProps(nextProp) { // если получаем новые пропсы, то перерисовыаем таблицу
-        if (nextProp.typeTable !== this.props.typeTable || nextProp.idPKU !== this.props.idPKU) {
-            this.loadData(nextProp.idPKU, nextProp.typeTable);
+        if (nextProp.typeTable !== this.props.typeTable || nextProp.idPKU !== this.props.idPKU || nextProp.routeNumber !== this.props.routeNumber) {
+            // console.log(this.props.routeNumber)
+            // console.log(nextProp.routeNumber)
+            this.loadData(nextProp.idPKU, nextProp.typeTable, nextProp.routeNumber);
         }
     }
 
     async fetchOnApi(apiRoute, idPKU, rowEdit) {
         let jsonObj = {rowEdit: rowEdit, userId: localStorage.getItem('userId')}
-        console.log(window.location.href);
-        console.log(rowEdit);
+        // console.log(window.location.href);
+        // console.log(rowEdit);
         await fetch(`${this.url}${apiRoute}${idPKU}`, {
         // await fetch('http://192.168.1.116:5000/api/test1', {
             method: 'POST',
@@ -127,10 +153,10 @@ class TableComponent extends Component {
             body: JSON.stringify(jsonObj),
             // cache: "no-cache",
         }).then(results => {
-            console.log(results);
+            // console.log(results);
             return results.json();
         }).then(data => {
-            console.log(data);
+            // console.log(data);
             this.fetchFromApi(apiRoute, idPKU) // вызываем для обновления полей таблицы после апдейта
         }).catch((err) => {
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}${idPKU}`);
@@ -153,26 +179,10 @@ class TableComponent extends Component {
 
     render() {
 
+        // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
         const tableHeaders = ColumnsData(); // подключаем заголовки таблиц из файла ../data/ColumnsData
         const {ExportCSVButton} = CSVExport; // кнопка для экспорта таблицы в CSV
 
-
-        const options = {
-            // size: "sm",
-            page: 4,
-            prePage: '⟵',
-            nextPage: '⟶',
-            firstPage: '⟸',
-            lastPage: '⟹',
-        };
-
-        let selectRowProp = {
-            mode: "checkbox",
-            clickToSelect: true,
-            // bgColor: "rgb(206,255,198)"
-            bgColor: "rgb(206,255,198)"
-
-        };
 
 
         const customTotal = (from, to, size) => (
@@ -232,7 +242,7 @@ class TableComponent extends Component {
             let newData = [];
             let lenMas = this.copyPkuInfo.length;
 
-            console.log(color);
+            // console.log(color);
 
             for (let i=0; i < lenMas; i++) {
                 let obj = this.copyPkuInfo[i];
@@ -249,7 +259,7 @@ class TableComponent extends Component {
         const filterColor = () => {
             switch(this.state.filterColor) {
                 case "white":
-                    console.log('###### ' + this.state.filterColor);
+                    // console.log('###### ' + this.state.filterColor);
                     this.copyPkuInfo = this.state.pkuInfo;
                     this.setState({
                         filterColor: "yellow",
@@ -257,7 +267,7 @@ class TableComponent extends Component {
                     });
                     break;
                 case "yellow":
-                    console.log('###### ' + this.state.filterColor);
+                    // console.log('###### ' + this.state.filterColor);
 
                     this.setState({
                         filterColor: "red",
@@ -265,7 +275,7 @@ class TableComponent extends Component {
                     });
                     break;
                 case "red":
-                    console.log('###### ' + this.state.filterColor);
+                    // console.log('###### ' + this.state.filterColor);
 
                     this.setState({
                         filterColor: "white",
@@ -287,39 +297,6 @@ class TableComponent extends Component {
         };
 
 
-        // const handleClose = async () => {
-        //     console.log("%%%%%%%%%%%");
-        //     this.setState({showModalWindow: false});
-        //     console.log(this.state.showModalWindow);
-        // };
-        //
-        // const handleSave = async () => {
-        //     console.log("$$$$$$$$$$");
-        //     this.confirm = true;
-        //     console.log(this.confirm);
-        //     await handleClose();
-        // };
-        //
-        // const handleShow = async () => {
-        //     console.log("!@@!@@!@@!@");
-        //     this.setState({showModalWindow: true});
-        //     console.log(this.state.showModalWindow);
-        // };
-
-        // const beforeSaveCell = (oldValue, newValue, row, column, done) => {
-        //     // console.log(this.confirm);
-        //     this.setState({showModalWindow: true});
-        //     // this.confirm = window.confirm('Do you want to accept this change?');
-        //
-        //     // if (window.confirm('Do you want to accept this change?')) {
-        //     //     done(true);
-        //     // } else {
-        //     //     done(false);
-        //     // }
-        //     return { async: true };
-        // }
-
-
         return (
             <div id="TableComp" >
                 {this.props.show &&
@@ -328,6 +305,7 @@ class TableComponent extends Component {
                         keyField={"tableID"}
                         data={this.state.pkuInfo}
                         columns={tableHeaders[this.props.typeTable]}
+                        search
                         exportCSV={{
                             fileName: 'таблица.csv'
                         }}
@@ -335,30 +313,16 @@ class TableComponent extends Component {
                         {
                             props => (
                                 <div>
-                                    <MyExportCSV { ...props.csvProps } />
+                                    <table>
+                                        <tr>
+                                    <td><MyExportCSV { ...props.csvProps } /></td>
                                     {/*<ExportCSVButton className={"button8"} {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>*/}
-                                    {this.props.depName === "Отчеты" && <button className="button9" style={{backgroundColor: this.state.filterColor}} onClick={filterColor}>Фильтр</button>}
-                                    <br/>
-                                    {/*<div>*/}
-                                    {/*    <Modal*/}
-                                    {/*        show={this.state.showModalWindow}*/}
-                                    {/*        onHide={handleClose}*/}
-                                    {/*        backdrop="static"*/}
-                                    {/*    >*/}
-                                    {/*        <Modal.Header closeButton>*/}
-                                    {/*            <Modal.Title>Modal heading</Modal.Title>*/}
-                                    {/*        </Modal.Header>*/}
-                                    {/*        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>*/}
-                                    {/*        <Modal.Footer>*/}
-                                    {/*            <Button variant="secondary" onClick={handleClose}>*/}
-                                    {/*                Close*/}
-                                    {/*            </Button>*/}
-                                    {/*            <Button variant="primary" onClick={handleSave}>*/}
-                                    {/*                Save Changes*/}
-                                    {/*            </Button>*/}
-                                    {/*        </Modal.Footer>*/}
-                                    {/*    </Modal>*/}
-                                    {/*</div>*/}
+                                        <td>{this.props.depName === "Отчеты" && <button className="button9" style={{backgroundColor: this.state.filterColor}} onClick={filterColor}>Фильтр</button>}</td>
+                                    {/*<br/>*/}
+                                        <td ><SearchBar { ...props.searchProps } /></td>
+                                    {/*<hr />*/}
+                                        </tr>
+                                    </table>
                                     <BootstrapTable
                                         wrapperClasses="table-horiz-scroll"
                                         headerClasses="thead"
@@ -371,10 +335,7 @@ class TableComponent extends Component {
                                             blurToSave: false,
                                             // beforeSaveCell,
                                             afterSaveCell: (oldValue, newValue, row, column) => {
-                                                console.log(this.confirm);
-                                                if (oldValue !== newValue ) {
-                                                    // this.confirm = false;
-                                                    // console.log("***********888" + this.confirm);
+                                                if (oldValue !== newValue) {
                                                     this.uploadData(row, newValue, column);
                                                 }
                                             }
