@@ -104,6 +104,8 @@ class MapComponent extends Component {
             pkuData = this.state.pkuDataSecondRoute;
         }
 
+        console.log(pkuData);
+
         // console.log(this.state.pkuDataFirstRoute);
         // console.log(this.state.pkuDataSecondRoute.length);
         // console.log(this.state.pkuDataSecondRoute);

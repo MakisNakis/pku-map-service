@@ -5,6 +5,8 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
 import ToolkitProvider, {Search, CSVExport} from 'react-bootstrap-table2-toolkit';
 import {ColumnsData} from "../data/ColumnsData";
+import Modal from 'react-bootstrap/Modal'
+import { Button } from 'react-bootstrap';
 
 
 import './css/TableComponent.css';
@@ -19,9 +21,11 @@ class TableComponent extends Component {
         this.state = {
             pkuInfo: [],
             filterColor: "white",
+            // showModalWindow: false,
         };
         this.url = window.location.href;
         this.copyPkuInfo = [];
+        // this.confirm = false;
     }
 
 
@@ -145,6 +149,8 @@ class TableComponent extends Component {
         return style;
     };
 
+
+
     render() {
 
         const tableHeaders = ColumnsData(); // подключаем заголовки таблиц из файла ../data/ColumnsData
@@ -174,6 +180,8 @@ class TableComponent extends Component {
                 Показано с { from } по { to } из { size }
             </span>
         );
+
+
 
         const optionsPagination = {
             paginationSize: 5,
@@ -279,6 +287,39 @@ class TableComponent extends Component {
         };
 
 
+        // const handleClose = async () => {
+        //     console.log("%%%%%%%%%%%");
+        //     this.setState({showModalWindow: false});
+        //     console.log(this.state.showModalWindow);
+        // };
+        //
+        // const handleSave = async () => {
+        //     console.log("$$$$$$$$$$");
+        //     this.confirm = true;
+        //     console.log(this.confirm);
+        //     await handleClose();
+        // };
+        //
+        // const handleShow = async () => {
+        //     console.log("!@@!@@!@@!@");
+        //     this.setState({showModalWindow: true});
+        //     console.log(this.state.showModalWindow);
+        // };
+
+        // const beforeSaveCell = (oldValue, newValue, row, column, done) => {
+        //     // console.log(this.confirm);
+        //     this.setState({showModalWindow: true});
+        //     // this.confirm = window.confirm('Do you want to accept this change?');
+        //
+        //     // if (window.confirm('Do you want to accept this change?')) {
+        //     //     done(true);
+        //     // } else {
+        //     //     done(false);
+        //     // }
+        //     return { async: true };
+        // }
+
+
         return (
             <div id="TableComp" >
                 {this.props.show &&
@@ -298,6 +339,26 @@ class TableComponent extends Component {
                                     {/*<ExportCSVButton className={"button8"} {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>*/}
                                     {this.props.depName === "Отчеты" && <button className="button9" style={{backgroundColor: this.state.filterColor}} onClick={filterColor}>Фильтр</button>}
                                     <br/>
+                                    {/*<div>*/}
+                                    {/*    <Modal*/}
+                                    {/*        show={this.state.showModalWindow}*/}
+                                    {/*        onHide={handleClose}*/}
+                                    {/*        backdrop="static"*/}
+                                    {/*    >*/}
+                                    {/*        <Modal.Header closeButton>*/}
+                                    {/*            <Modal.Title>Modal heading</Modal.Title>*/}
+                                    {/*        </Modal.Header>*/}
+                                    {/*        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>*/}
+                                    {/*        <Modal.Footer>*/}
+                                    {/*            <Button variant="secondary" onClick={handleClose}>*/}
+                                    {/*                Close*/}
+                                    {/*            </Button>*/}
+                                    {/*            <Button variant="primary" onClick={handleSave}>*/}
+                                    {/*                Save Changes*/}
+                                    {/*            </Button>*/}
+                                    {/*        </Modal.Footer>*/}
+                                    {/*    </Modal>*/}
+                                    {/*</div>*/}
                                     <BootstrapTable
                                         wrapperClasses="table-horiz-scroll"
                                         headerClasses="thead"
@@ -308,9 +369,12 @@ class TableComponent extends Component {
                                         cellEdit={cellEditFactory({
                                             mode: 'dbclick',
                                             blurToSave: false,
-                                            beforeSaveCell: (oldValue, newValue, row, column) => { console.log('Before Saving Cell!!'); },
+                                            // beforeSaveCell,
                                             afterSaveCell: (oldValue, newValue, row, column) => {
-                                                if (oldValue !== newValue) {
+                                                console.log(this.confirm);
+                                                if (oldValue !== newValue ) {
+                                                    // this.confirm = false;
+                                                    // console.log("***********888" + this.confirm);
                                                     this.uploadData(row, newValue, column);
                                                 }
                                             }
