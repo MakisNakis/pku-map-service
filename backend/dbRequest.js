@@ -111,7 +111,7 @@ class MyRepository {
                 let DateContract = null;
                 let DatePlan = null;
                 let DateFact = null;
-                let CommentOMTS = '';
+                let CommentOMTS = null;
 
                 if(row.DateContract !== null) {
                     DateContract = this.convertToPG(row.DateContract);
@@ -123,8 +123,8 @@ class MyRepository {
                 if(row.DateFact !== null) {
                     DateFact = this.convertToPG(row.DateFact);
                 }
-                if(row.Comment !== null) {
-                    CommentOMTS = row.Comment;
+                if(row.Comment !== '' && row.Comment !== null) {
+                    CommentOMTS = this.convertToPG(row.Comment);
                 }
 
                                                                  // запрос на внесение данных для отдела комплектации
@@ -134,7 +134,7 @@ class MyRepository {
                     ${DatePlan}, 
                     ${DateFact}, 
                     ${row.Quantity}, 
-                    ${this.convertToPG(CommentOMTS)},
+                    ${CommentOMTS},
                     ${userId}
                 );`);
                 break;
@@ -142,12 +142,12 @@ class MyRepository {
                 let DateWork = null;
                 let PerformerNameMontazhniki = parseInt(row.PerformerName);
                 let flag1 = null;
-                let CommentMontazhniki1 = '';
+                let CommentMontazhniki1 = null;
                 if(row.DateWork !== null) {
                     DateWork = this.convertToPG(row.DateWork);
                 }
-                if(row.Comment !== null) {
-                    CommentMontazhniki1 = row.Comment;
+                if(row.Comment !== '' && row.Comment !== null) {
+                    CommentMontazhniki1 = this.convertToPG(row.Comment);
                 }
                 // console.log(row.PerformerName)
 
@@ -166,7 +166,7 @@ class MyRepository {
                     ${DateWork},
                     ${this.convertToPG(row.Fact)},
                     ${PerformerNameMontazhniki},
-                    ${this.convertToPG(CommentMontazhniki1)},
+                    ${CommentMontazhniki1},
                     ${userId}
                 );`);
                 break;
@@ -178,7 +178,7 @@ class MyRepository {
                 let DateWorkPTO = null;
                 let EndDateAkt = null;
                 let MaterialDate = null;
-                let CommentPTO1 = '';
+                let CommentPTO1 = null;
                 let PerformerNamePTO = parseInt(row.PerformerName);
 
                 if(row.StartDateCon !== null) {
@@ -202,8 +202,8 @@ class MyRepository {
                 if(row.MaterialDate !== null) {
                     MaterialDate = this.convertToPG(row.MaterialDate);
                 }
-                if(row.Comment !== null) {
-                    CommentPTO1 = row.Comment;
+                if(row.Comment !== '' && row.Comment !== null) {
+                    CommentPTO1 = this.convertToPG(row.Comment);
                 }
 
                 // if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
@@ -228,7 +228,7 @@ class MyRepository {
                     ${PerformerNamePTO},
                     ${EndDateAkt},
                     ${MaterialDate},
-                    ${this.convertToPG(CommentPTO1)},
+                    ${CommentPTO1},
                     ${userId}
                 );`);
                 break;
