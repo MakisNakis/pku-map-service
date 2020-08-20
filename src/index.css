@@ -12,6 +12,14 @@ code {
     monospace;
 }
 
+.progName {
+  font-size: 40px;
+  letter-spacing: 3px;
+  width: 100%;
+  color: rgb(3, 85, 150);
+
+}
+
 h1 {
   /*font-family: 'Merriweather', serif;*/
   font-size: 25px;
