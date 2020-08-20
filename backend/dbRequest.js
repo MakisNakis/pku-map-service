@@ -1,6 +1,6 @@
 const Client= require('pg').Client;                         // подключение модуля для соединения с БД
 
-const DBNAME = "PKU_MapService";
+const DBNAME = "NewBase";
 const DBLOG = "postgres";
 const DBPASS = "postgres";
 const DBPORT = "5432";
@@ -180,6 +180,9 @@ class MyRepository {
                 let MaterialDate = null;
                 let CommentPTO1 = null;
                 let PerformerNamePTO = parseInt(row.PerformerName);
+                // console.log("^^^^^^^^^^^^^^^^ ");
+                // console.log(row.PerformerName);
+                // console.log(PerformerNamePTO);
 
                 if(row.StartDateCon !== null) {
                     StartDateCon = this.convertToPG(row.StartDateCon);

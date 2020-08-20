@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="" />
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/AuthorisationComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/AuthorisationComponent.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -225,6 +229,13 @@
       <workItem from="1597129145704" duration="25847000" />
       <workItem from="1597225103778" duration="15295000" />
       <workItem from="1597298444370" duration="17100000" />
+    </task>
+    <task id="LOCAL-00017" summary="- получил данные с сервера на клиенте &#10;TODO: &#10;- Вывести информацию с сервера на карте&#10;- Привести код к красивому виду">
+      <created>1590190831669</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1590190831669</updated>
     </task>
     <task id="LOCAL-00018" summary="- Вывел информацию с сервера на карте&#10;&#10;TODO: &#10;- Привести код к красивому виду">
       <created>1590342667866</created>
@@ -562,14 +573,7 @@
       <option name="project" value="LOCAL" />
       <updated>1597920116704</updated>
     </task>
-    <task id="LOCAL-00066" summary="+ добавлено название ПО">
-      <created>1597927845434</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1597927845434</updated>
-    </task>
-    <option name="localTasksCounter" value="67" />
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,6 +592,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="TODO: Авторизация" />
     <MESSAGE value="- авторизация, сравнивающая значения логинов и паролей с базой данных, вовзращает данные об id пользователя, номере роли и имени пользователя&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей" />
     <MESSAGE value="- добавил разделение прав на клиенте в соответствие с логином.паролем&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей" />
     <MESSAGE value="- сохранение сессии и куки&#10;- TODO:&#10;        1 - хеширование паролей" />
@@ -612,8 +617,7 @@
     <MESSAGE value=" - Выбор маршрута (Башкултаево), а именно:  привинтить получение информации с сервера в зависимости от того, какая ПКУ и с какого маршрута выбрана и добавить кнопку для смены маршрута" />
     <MESSAGE value="+ добавлен журнал действий" />
     <MESSAGE value="+ если в поле комментария нет информации, то в БД вносится null" />
-    <MESSAGE value="+ добавлено название ПО" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ добавлено название ПО" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ если в поле комментария нет информации, то в БД вносится null" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
@@ -624,11 +628,11 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1597927845349">
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1597920116636">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315928553" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1597927845349" />
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1597920116636" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -711,17 +715,17 @@
     </state>
     <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
     <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596113405534" />
-    <state x="503" y="215" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1597927856076">
+    <state x="503" y="215" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1597920119903">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593016893395" />
     <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315937267" />
-    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1597927856076" />
-    <state x="764" y="475" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597928658860">
-      <screen x="67" y="27" width="1853" height="1068" />
+    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1597920119903" />
+    <state x="722" y="503" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596030309751">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="722" y="503" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596030309751" />
-    <state x="764" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1068@67.27.1853.1068" timestamp="1597928658860" />
+    <state x="764" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1068@67.27.1853.1068" timestamp="1593090182755" />
     <state x="550" y="125" key="git4idea.branch.GitSmartOperationDialog" timestamp="1592919376093">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

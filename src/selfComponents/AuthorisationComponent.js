@@ -9,7 +9,7 @@ class AuthorisationComponent extends Component {
     render() {
         return (
             <div class="auth" align='center'>
-                <div className="mainHeader" ><h1>Система Планирования и Контроля Исполнения Работ</h1></div>
+                <p class="progName">Система Планирования и Контроля Исполнения Работ</p>
                 <br/>
                 <form method="post" onSubmit={this.props.getPersonName}>
                 {/*<form method="post" onSubmit={this.props.getPersonName}>*/}
