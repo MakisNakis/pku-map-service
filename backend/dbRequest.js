@@ -190,6 +190,13 @@ class MyRepository {
                 let CommentPTO1 = '';
                 let PerformerName2 = row.PerformerName;
 
+                console.log(typeof(PerformerName2) + ' ' + PerformerName2);
+                if (PerformerName2 === 1) {
+                    console.log(typeof(PerformerName2) + ' ' + PerformerName2);
+                    console.log(typeof(userId) + ' ' + userId);
+                }
+                console.log(row);
+
                 if(row.StartDateCon !== null) {
                     StartDateCon = this.convertToPG(row.StartDateCon);
                 }

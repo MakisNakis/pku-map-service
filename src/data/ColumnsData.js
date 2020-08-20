@@ -44,7 +44,7 @@ export function ColumnsData() {
 
 
 //     let performersMas = []
-//     let performersMas = [{label: "Бажутов Сергей", value: 1}, {label: "Камалетдинов Рамис", value: 2}, {label: "Шакиров Рашид", value: 3}]
+//     let performersMas = [{label: "Бажутов Сергей", value: '1'}, {label: "Камалетдинов Рамис", value: '2'}, {label: "Шакиров Рашид", value: '3'}]
     let performersMas = [{label: "Бажутов Сергей", value: "Бажутов Сергей"}, {label: "Камалетдинов Рамис", value: "Камалетдинов Рамис"}, {label: "Шакиров Рашид", value: "Шакиров Рашид"}, {label: "Очистить", value: "null"}]
 //     for (let i = 0; i < performers.length; i++){
 //         performersMas[i] = {label: performers[i].Surname}

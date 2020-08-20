@@ -175,7 +175,7 @@ class TableComponent extends Component {
     async fetchOnApi(apiRoute, idPKU, rowEdit) {
         let jsonObj = {rowEdit: rowEdit, userId: localStorage.getItem('userId')}
         // console.log(window.location.href);
-        console.log(rowEdit);
+        // console.log(rowEdit);
         await fetch(`${this.url}${apiRoute}${idPKU}`, {
         // await fetch('http://192.168.1.116:5000/api/test1', {
             method: 'POST',
@@ -188,8 +188,8 @@ class TableComponent extends Component {
             // console.log(results);
             return results.json();
         }).then(data => {
-            console.log(data);
-            // this.fetchFromApi(apiRoute, idPKU) // вызываем для обновления полей таблицы после апдейта
+            // console.log(data);
+            this.fetchFromApi(apiRoute, idPKU) // вызываем для обновления полей таблицы после апдейта
         }).catch((err) => {
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}${idPKU}`);
         });
