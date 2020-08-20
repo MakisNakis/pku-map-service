@@ -255,7 +255,6 @@ switchDepartment(){
                 hide: false,
                 idPKU: id,
                 routeNumber: routenumber,
-                // depName: "Отчеты",
                 markerName: name
             });
         } else {
@@ -284,7 +283,7 @@ switchDepartment(){
     onClickDep = (e) => {
         const buttonName = e.target.title;
         console.log(e.target);
-
+        console.log("@@@@@@@@@@@@@@@@");
         this.setState({depName: buttonName});
         // console.log(localStorage.getItem('userRole'))
         // console.log(typeof(localStorage.getItem('userRole')))
@@ -301,6 +300,8 @@ switchDepartment(){
             case "Отчеты":
                 this.setState({typeTable: "Отчеты1"});
                 break;
+            case "Логи":
+                this.setState({typeTable: "Логи"});
             default:
                 break;
         }
@@ -373,12 +374,16 @@ switchDepartment(){
                         typeTable={this.state.typeTable}
                         // routeNumber={this.state.routeNumber}
                     />
+
                     {this.state.idPKU && (this.state.typeTable === "Монтажники1" || this.state.typeTable === "ПТО1" ) && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Перечень работ на {this.state.markerName} (Альметьевск - Карабаш) </h2></p>}
                     {this.state.idPKU && (this.state.typeTable === "Монтажники2" || this.state.typeTable === "ПТО2") && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} (Альметьевск - Карабаш) </h2></p>}
                     {this.state.idPKU && (this.state.typeTable === "ОМТС" || this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Карабаш</h2></p>}
+
                     {this.state.idPKU && (this.state.typeTable === "Монтажники1" || this.state.typeTable === "ПТО1" ) && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Перечень работ на {this.state.markerName} (Альметьевск - Башкултаево)</h2></p>}
                     {this.state.idPKU && (this.state.typeTable === "Монтажники2" || this.state.typeTable === "ПТО2") && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} (Альметьевск - Башкултаево) </h2></p>}
                     {this.state.idPKU && (this.state.typeTable === "ОМТС" || this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Башкултаево</h2></p>}
+
+
                     <div id="start"></div>
                     <TableComponent
                     show={this.state.show}

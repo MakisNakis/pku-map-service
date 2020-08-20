@@ -194,6 +194,14 @@ for (let i = 0; i < 130; i++) {                                  // цикл, в
         const data = await repository.loadDataForTable(i, "Отчеты2",3);
         res.json(data.rows);
     });
+    app.get(`/api/pkuDataServerPKUTable/2/Logs/${i}`, async (req, res) => {
+        const data = await repository.loadDataForTable(i, "Логи",2);
+        res.json(data.rows);
+    });
+    app.get(`/api/pkuDataServerPKUTable/3/Logs/${i}`, async (req, res) => {
+        const data = await repository.loadDataForTable(i, "Логи",3);
+        res.json(data.rows);
+    });
 }
 
 app.route(`/api/auth`) // эндпоинт для получения id пользователя, который логинится

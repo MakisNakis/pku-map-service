@@ -22,7 +22,9 @@
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/ColumnsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/DepartmentsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/DepartmentsComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
@@ -623,6 +625,10 @@
     <option name="LAST_COMMIT_MESSAGE" value=" - Выбор маршрута (Башкултаево), а именно:  привинтить получение информации с сервера в зависимости от того, какая ПКУ и с какого маршрута выбрана и добавить кнопку для смены маршрута" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
+      <screen x="67" y="27" width="1853" height="1068" />
+    </state>
+    <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1597913959737" />
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596188972129">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>

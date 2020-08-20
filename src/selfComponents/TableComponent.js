@@ -31,33 +31,34 @@ class TableComponent extends Component {
     }
 
 
-         async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
-             await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
-                // console.log(`/api/pkuDataServerPKUTable${idPKU}`);                  // apiRoute - api адрес, откуда нужно получить данные
-                // console.log(results);
-                 return results.json();
-             }).then(
-                 data => {
-                     let pkuInfoWithID = data.map((val, ix) => {
-                         val.tableID = ix+1;
-                         // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
-                         return val;
-                     });
-                     // console.log(data);
-                     this.setState({
-                         pkuInfo: pkuInfoWithID,
-                         filterColor: "white",
+     async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
+         await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
+            // console.log(`/api/pkuDataServerPKUTable${idPKU}`);                  // apiRoute - api адрес, откуда нужно получить данные
+            console.log(results);
+             return results.json();
+         }).then(
+             data => {
+                 console.log(data);
+                 let pkuInfoWithID = data.map((val, ix) => {
+                     val.tableID = ix+1;
+                     // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
+                     return val;
+                 });
+                 // console.log(data);
+                 this.setState({
+                     pkuInfo: pkuInfoWithID,
+                     filterColor: "white",
 
-                     });
-                     this.copyPkuInfo = this.state.pkuInfo;
+                 });
+                 this.copyPkuInfo = this.state.pkuInfo;
 
-                 // console.log(this.state.pkuInfo);
-                 // console.log(Object.keys(data.rows[0])[0]);
-             }).catch(() => {
-                 console.log(`Ошибка при выполнении запроса с ${apiRoute}${idPKU}`);
-             });
+             // console.log(this.state.pkuInfo);
+             // console.log(Object.keys(data.rows[0])[0]);
+         }).catch(() => {
+             console.log(`Ошибка при выполнении запроса с ${apiRoute}${idPKU}`);
+         });
 
-         }
+     }
 
 
     async loadData(idPKU, typeTable, nextPropRouteNumber) { // функция для выгрузки соотвествующих для отдела depName данных
@@ -83,6 +84,9 @@ class TableComponent extends Component {
                     break;
                 case "Отчеты2":
                     this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/Otchety/Otchety2/`, idPKU);
+                    break;
+                case "Логи":
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/Logs/`, idPKU);
                     break;
                 default:
                     break;
