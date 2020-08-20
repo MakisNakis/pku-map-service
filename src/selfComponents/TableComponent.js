@@ -204,10 +204,10 @@ class TableComponent extends Component {
             // withFirstAndLast: false, // Hide the going to First and Last page button
             // hideSizePerPage: true, // Hide the sizePerPage dropdown always
             // hidePageListOnlyOnePage: true, // Hide the pagination list when only one page
-            firstPageText: 'First',
-            prePageText: 'Back',
-            nextPageText: 'Next',
-            lastPageText: 'Last',
+            firstPageText: 'Первая',
+            prePageText: 'Предыдущая',
+            nextPageText: 'Следующая',
+            lastPageText: 'Последняя',
             nextPageTitle: 'First page',
             prePageTitle: 'Pre page',
             firstPageTitle: 'Next page',

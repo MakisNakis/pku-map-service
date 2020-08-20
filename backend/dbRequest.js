@@ -151,15 +151,15 @@ class MyRepository {
                 }
                 // console.log(row.PerformerName)
 
-                // if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
-                //     PerformerName1 = '1'
-                // }
-                // if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
-                //     PerformerName1 = '2'
-                // }
-                // if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
-                //     PerformerName1 = '3'
-                // }
+                if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
+                    PerformerNameMontazhniki = 1;
+                }
+                if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
+                    PerformerNameMontazhniki = 2;
+                }
+                if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
+                    PerformerNameMontazhniki = 3;
+                }
                                                                 // запрос на внесение данных о работах для монтажников
                 query = this.client.query(`select * from f_u_subwork_perf(
                     ${row.WorkID},
@@ -206,15 +206,15 @@ class MyRepository {
                     CommentPTO1 = this.convertToPG(row.Comment);
                 }
 
-                // if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
-                //     PerformerName2 = '1'
-                // }
-                // if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
-                //     PerformerName2 = '2'
-                // }
-                // if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
-                //     PerformerName2 = '3'
-                // }
+                if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
+                    PerformerNamePTO = 1;
+                }
+                if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
+                    PerformerNamePTO = 2;
+                }
+                if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
+                    PerformerNamePTO = 3;
+                }
                                                                 // запрос на внесение данных о работах для отдела ПТО
                 query = this.client.query(`select * from f_u_subwork_pto(
                     ${row.WorkID},
