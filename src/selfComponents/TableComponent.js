@@ -2,9 +2,11 @@ import React, {Component} from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import cellEditFactory from 'react-bootstrap-table2-editor';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-// import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
+import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
 import ToolkitProvider, {Search, CSVExport} from 'react-bootstrap-table2-toolkit';
 import {ColumnsData} from "../data/ColumnsData";
+import Modal from 'react-bootstrap/Modal'
+import { Button } from 'react-bootstrap';
 
 
 import './css/TableComponent.css';
@@ -29,54 +31,35 @@ class TableComponent extends Component {
     }
 
 
-         async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
-             await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
-                // console.log(`/api/pkuDataServerPKUTable${idPKU}`);                  // apiRoute - api адрес, откуда нужно получить данные
-                // console.log(results);
-                 return results.json();
-             }).then(
-                 data => {
-                     let pkuInfoWithID = data.map((val, ix) => {
-                         val.tableID = ix+1;
-                         // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
-                         return val;
-                     });
-                     // console.log(data);
-                     this.setState({
-                         pkuInfo: pkuInfoWithID,
-                         filterColor: "white",
+     async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
+         await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
+            // console.log(`/api/pkuDataServerPKUTable${idPKU}`);                  // apiRoute - api адрес, откуда нужно получить данные
+            console.log(results);
+             return results.json();
+         }).then(
+             data => {
+                 console.log(data);
+                 let pkuInfoWithID = data.map((val, ix) => {
+                     val.tableID = ix+1;
+                     // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
+                     return val;
+                 });
+                 // console.log(data);
+                 this.setState({
+                     pkuInfo: pkuInfoWithID,
+                     filterColor: "white",
 
-                     });
-                     this.copyPkuInfo = this.state.pkuInfo;
+                 });
+                 this.copyPkuInfo = this.state.pkuInfo;
 
-                 // console.log(this.state.pkuInfo);
-                 // console.log(Object.keys(data.rows[0])[0]);
-             }).catch(() => {
-                 console.log(`Ошибка при выполнении запроса с ${apiRoute}${idPKU}`);
-             });
+             // console.log(this.state.pkuInfo);
+             // console.log(Object.keys(data.rows[0])[0]);
+         }).catch(() => {
+             console.log(`Ошибка при выполнении запроса с ${apiRoute}${idPKU}`);
+         });
 
-         }
+     }
 
-    // async fetchFromApi(apiRoute, idPKU, rowEdit) {
-    //     let jsonObj = {routeNumber: this.props.routeNumber}
-    //     await fetch(`${this.url}${apiRoute}${idPKU}`, {
-    //         // await fetch('http://192.168.1.116:5000/api/test1', {
-    //         method: 'POST',
-    //         headers:{'content-type': 'application/json'},
-    //         mode: "cors",
-    //         // credentials: 'same-origin',
-    //         body: JSON.stringify(jsonObj),
-    //         // cache: "no-cache",
-    //     }).then(results => {
-    //         console.log(results);
-    //         return results.json();
-    //     }).then(data => {
-    //         console.log(data);
-    //         this.fetchFromApi(apiRoute, idPKU) // вызываем для обновления полей таблицы после апдейта
-    //     }).catch((err) => {
-    //         console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}${idPKU}`);
-    //     });
-    // }
 
     async loadData(idPKU, typeTable, nextPropRouteNumber) { // функция для выгрузки соотвествующих для отдела depName данных
         // if (nextPropRouteNumber === 2) {
@@ -102,25 +85,14 @@ class TableComponent extends Component {
                 case "Отчеты2":
                     this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/Otchety/Otchety2/`, idPKU);
                     break;
+                case "Логи":
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/Logs/`, idPKU);
+                    break;
                 default:
                     break;
             }
 
     }
-
-            // async loadPerformers(){ // функция для выгрузки информации об исполнителях (монтаж)
-            //       await fetch(`/api/auth/perfName`).then(results => {
-            //         return results.json();
-            //     }).then(
-            //         data => {
-            //             // console.log(data.rows[0])
-            //             this.setState({performers: data.rows})
-            //             // localStorage.setItem('performers', data.rows);
-            //             // console.log(this.state.performers[0].Name)
-            //     }).catch(() => {
-            //         console.log(`Ошибка при выполнении запроса с /api/auth/perfName`);
-            //     });
-            // }
 
     async uploadData(rowEdit) {
         // let userId = localStorage.getItem('userId')
@@ -207,6 +179,8 @@ class TableComponent extends Component {
         return style;
     };
 
+
+
     render() {
 
         // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
@@ -220,6 +194,8 @@ class TableComponent extends Component {
                 Показано с { from } по { to } из { size }
             </span>
         );
+
+
 
         const optionsPagination = {
             paginationSize: 5,
@@ -361,7 +337,7 @@ class TableComponent extends Component {
                                         cellEdit={cellEditFactory({
                                             mode: 'dbclick',
                                             blurToSave: false,
-                                            beforeSaveCell: (oldValue, newValue, row, column) => {  },
+                                            // beforeSaveCell,
                                             afterSaveCell: (oldValue, newValue, row, column) => {
                                                 if (oldValue !== newValue) {
                                                     this.uploadData(row, newValue, column);
