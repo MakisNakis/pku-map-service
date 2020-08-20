@@ -339,7 +339,7 @@ switchDepartment(){
                     <table width={"100%"} >
                         <tr>
                             <td><img src={logo} width="400px"/></td>
-                            <td><div className="mainHeader" ><h1>Карта объектов для монтажа оборудования</h1></div></td>
+                            <td><div className="mainHeader" ><h1>ОМЕГА "СПиКИР"</h1></div></td>
                             <td><button className="button8" onClick={this.logout} type="button">Выход</button></td>
                         </tr>
                     </table>
