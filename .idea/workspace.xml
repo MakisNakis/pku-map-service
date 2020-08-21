@@ -20,9 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,13 +228,6 @@
       <workItem from="1597129145704" duration="25847000" />
       <workItem from="1597225103778" duration="15295000" />
       <workItem from="1597298444370" duration="17100000" />
-    </task>
-    <task id="LOCAL-00020" summary="- Вывел информацию с сервера на карте&#10;&#10;Merged with 'tabolin' branch">
-      <created>1590412969738</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1590412969738</updated>
     </task>
     <task id="LOCAL-00021" summary="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
       <created>1590413083455</created>
@@ -574,7 +565,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598006450810</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="+ появление надписи на карте при нажатии на кнопку с ПКУ&#10;+ убрал масштаб колесиком">
+      <created>1598016345115</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1598016345115</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,7 +592,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- сохранение сессии и куки&#10;- TODO:&#10;        1 - хеширование паролей" />
     <MESSAGE value="- добавил кнопку выхода&#10;- TODO:&#10;        1 - хеширование паролей" />
     <MESSAGE value="- добавил кнопку выхода&#10;- исправил баги&#10;- TODO:&#10;        1 - хеширование паролей" />
     <MESSAGE value="- merge с tabolin2&#10;- TODO:&#10;        1 - хеширование паролей" />
@@ -619,7 +616,8 @@
     <MESSAGE value="+ название ПО" />
     <MESSAGE value="+ кнопка &quot;наверх&quot;" />
     <MESSAGE value="+ удаление дат" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ удаление дат" />
+    <MESSAGE value="+ появление надписи на карте при нажатии на кнопку с ПКУ&#10;+ убрал масштаб колесиком" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ появление надписи на карте при нажатии на кнопку с ПКУ&#10;+ убрал масштаб колесиком" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
@@ -635,11 +633,11 @@
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
     <state x="732" y="358" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1597994691707" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1598006450735">
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1598016345009">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315928553" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1598006450735" />
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1598016345009" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
