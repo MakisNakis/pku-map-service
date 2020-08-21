@@ -17,9 +17,9 @@ class AuthorisationComponent extends Component {
                 <br/>
                 <form method="post" onSubmit={this.props.getPersonName}>
                 {/*<form method="post" onSubmit={this.props.getPersonName}>*/}
-                    <input type="text" name="loginPerson" placeholder="Логин" size="40"></input>
+                    <input type="text" name="loginPerson" placeholder="Логин" size="40" />
                     <br/>
-                    <input type="password" name="passwordPerson" placeholder="Пароль" size="40"></input>
+                    <input type="password" name="passwordPerson" placeholder="Пароль" size="40" />
                     <br/>
                     <br/>
                     <button className={"button8"}>Авторизоваться</button>
