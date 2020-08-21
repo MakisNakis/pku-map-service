@@ -43,6 +43,12 @@ class MapComponent extends Component {
             popupAnchor: [0, -50]
         }
 
+        this.loadData(2);
+        this.loadData(3);
+
+
+        this.map = null;
+
     }
 
     async loadData(routeId) {
@@ -69,7 +75,7 @@ class MapComponent extends Component {
                 });
                 break
 
-                case 3:
+            case 3:
                 await fetch('/api/pkuDataServerThirdRoute').then(results => {
                     return results.json()
                 }).then(data => {
@@ -88,11 +94,12 @@ class MapComponent extends Component {
     }
 
 
-    componentWillMount() {
-        // this.loadData(1);
-        this.loadData(2);
-        this.loadData(3);
-    }
+    // componentWillMount() {
+    //     // this.loadData(1);
+    //     if
+    //     this.loadData(2);
+    //     this.loadData(3);
+    // }
 
 
     setMarkerIcon(routeId) { // свитч для выбора иконки маркера в зависимости от маршрута
@@ -112,7 +119,9 @@ class MapComponent extends Component {
         return new Icon(this.pkuMarkerIcon)
     }
 
-    renderMarkersLayer(routeId) {
+
+
+    renderMarkersLayer(routeId, selectedId) {
         let pkuData = undefined;
 
         // if (routeId === 1) {
@@ -130,10 +139,27 @@ class MapComponent extends Component {
         // console.log(this.state.pkuDataSecondRoute.length);
         // console.log(this.state.pkuDataSecondRoute);
         let result = [];
+
+        const MyMarker = props => {
+            const initMarker = ref => {
+                // console.log(props);
+                if (ref && props.id === this.props.selectedId && props.route === this.props.routeNumber) {
+                    ref.leafletElement.openPopup()
+                    console.log("!!!");
+                }
+            }
+
+            return <Marker ref={initMarker} {...props}/>
+        }
+
         for (let i = 0; i < pkuData.length; i++) {
+            let ref = 'marker' + i;
             // console.log(pkuData[0].routenumber)
             result.push(
-                <Marker key={i}
+                <MyMarker
+                        key={i}
+                        id={pkuData[i].SubjectID}
+                        route={routeId}
                         position={[pkuData[i].Latitude, pkuData[i].Longtitude]}
                         icon={this.setMarkerIcon(routeId)}
                         title={`${pkuData[i].routenumber}-й маршрут`}
@@ -153,7 +179,7 @@ class MapComponent extends Component {
                             <h3> {pkuData[i].SubjectName}</h3>
                         </Link>
                     </Popup>
-                </Marker>
+                </MyMarker>
             );
         }
         return result;
@@ -182,6 +208,10 @@ class MapComponent extends Component {
     //     }
     //     return items;
     // }
+
+    openPop() {
+
+    }
 
     pkuListGeneration(routeId) {
         let items = [];
@@ -215,8 +245,9 @@ class MapComponent extends Component {
                                         className={"button8 btnPku buttonSelected"}
                                         title={pkuData[i].routenumber}
                                         name={pkuData[i].SubjectName}
-                                        onClick={(e) => this.props.namePKU(pkuData[i].SubjectID, pkuData[i].SubjectName, pkuData[i].routenumber, e)
-
+                                        onClick={(e) => {
+                                                this.props.namePKU(pkuData[i].SubjectID, pkuData[i].SubjectName, pkuData[i].routenumber, true, e);
+                                            }
                                         }
                                     >
                                         {pkuData[i].SubjectName}
@@ -247,6 +278,9 @@ class MapComponent extends Component {
         return items;
     }
 
+    zoomEnable() {
+
+    }
 
     render() {
 
@@ -256,7 +290,14 @@ class MapComponent extends Component {
                 <table>
                     <tr>
                         <td className={"mapComp"}>
-                            <LeafletMap center={[55.030922, 53.722198]} zoom={this.state.zoom} minZoom={this.state.minZoom}>
+                            {this.map = <LeafletMap
+                                ref='map'
+                                center={[55.030922, 53.722198]}
+                                zoom={this.state.zoom}
+                                minZoom={this.state.minZoom}
+                                scrollWheelZoom={false}
+                                onClick={this.zoomEnable}
+                            >
                                 <LayersControl position='topright'>
 
                                     <LayersControl.BaseLayer checked name="Гибрид">
@@ -274,18 +315,18 @@ class MapComponent extends Component {
 
                                     <LayersControl.Overlay checked name="Карабаш">
                                         <LayerGroup name="pkuMarkersKarabash">
-                                            {this.renderMarkersLayer(2)}
+                                            {this.renderMarkersLayer(2, this.props.selectedId)}
                                         </LayerGroup>
                                     </LayersControl.Overlay>
 
                                     <LayersControl.Overlay checked name="Башкултаево">
                                         <LayerGroup name="pkuMarkersBashkultaevo">
-                                            {this.renderMarkersLayer(3)}
+                                            {this.renderMarkersLayer(3, this.props.selectedId)}
                                         </LayerGroup>
                                     </LayersControl.Overlay>
 
                                 </LayersControl>
-                            </LeafletMap>
+                            </LeafletMap>}
                         </td>
                         <td className={"pkuListComp"}>
                             <div id={"pkuListCompDiv"}>

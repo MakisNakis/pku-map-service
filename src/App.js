@@ -43,11 +43,19 @@ import {Icon} from "leaflet";
 let appThis;
 
 window.addEventListener('scroll', function() {
-    console.log(appThis);
-    appThis.setState({
-        offset: window.scrollY
-    });
-    console.log(typeof(appThis.state.offset), appThis.state.offset);
+    console.log(window.scrollY, appThis.state.showButtonUp);
+    if (window.scrollY > appThis.offset && appThis.state.showButtonUp === false) {
+        // console.log(appThis);
+        appThis.setState({
+            showButtonUp: true
+        });
+    } else if (window.scrollY <= appThis.offset && appThis.state.showButtonUp === true) {
+        appThis.setState({
+            showButtonUp: false
+        });
+    }
+
+    // console.log(typeof(appThis.state.offset), appThis.state.offset);
 });
 
 class App extends React.Component {
@@ -75,9 +83,10 @@ class App extends React.Component {
             userRole: undefined,
             userName: undefined,
             rememberMe: false,
-            offset: 0
+            showButtonUp: false
         }
         this.url = window.location.href;
+        this.offset = 150;
         // if (localStorage.getItem('rememberMe') === 'true'){
         //     const rememberMe =  localStorage.getItem('rememberMe')
         //     const userId =  localStorage.getItem('userId')
@@ -96,6 +105,7 @@ class App extends React.Component {
         if (rememberMe) this.setState({authorisation: true})
         this.setState({userId, userRole, userName, rememberMe})
         this.switchDepartment()
+        console.log(this.state.showButtonUp);
 
     }
 
@@ -255,13 +265,18 @@ class App extends React.Component {
         }
     }
 
-    gettingNamePKU = (id, name, routenumber) => {
+    gettingNamePKU = (id, name, routenumber, openPopup) => {
         // e.preventDefault();
         // console.log(routenumber);
         // const id = e.target.options.title;
         // const name = e.target.options.name;
 
         // console.log(e.target.options);
+
+        if (openPopup) {
+
+        }
+
         if (id) {
             this.setState({
                 show: true,
@@ -361,7 +376,7 @@ class App extends React.Component {
                         </tr>
                     </table>
 
-                    {this.state.offset > 150 && <ButtonUpComponent />}
+                    {this.state.showButtonUp && <ButtonUpComponent />}
                     <MapComponent
                         namePKU={this.gettingNamePKU}
                         routeNumber={this.state.routeNumber}
