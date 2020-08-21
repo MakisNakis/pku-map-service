@@ -4,9 +4,9 @@ import DepartmentsComponent from './selfComponents/DepartmentsComponent';
 import TableComponent from './selfComponents/TableComponent';
 import AuthorisationComponent from './selfComponents/AuthorisationComponent';
 import TypeTableComponent from './selfComponents/TypeTableComponent';
+import ButtonUpComponent from './selfComponents/ButtonUpComponent';
 import logo from './003 Лого Без фона.png';
 
-import ModalWindow from './selfComponents/ModalWindow';
 import BootstrapTable from 'react-bootstrap-table-next';
 import cellEditFactory from 'react-bootstrap-table2-editor';
 import {Map as LeafletMap, Marker, TileLayer} from "react-leaflet";
@@ -40,10 +40,22 @@ import {Icon} from "leaflet";
 // },
 // ]
 
+let appThis;
+
+window.addEventListener('scroll', function() {
+    console.log(appThis);
+    appThis.setState({
+        offset: window.scrollY
+    });
+    console.log(typeof(appThis.state.offset), appThis.state.offset);
+});
+
 class App extends React.Component {
     constructor() {
 
         super();
+
+        appThis = this;
 
         this.state = {
             // authorisation: true,
@@ -62,7 +74,8 @@ class App extends React.Component {
             userId: undefined,
             userRole: undefined,
             userName: undefined,
-            rememberMe: false
+            rememberMe: false,
+            offset: 0
         }
         this.url = window.location.href;
         // if (localStorage.getItem('rememberMe') === 'true'){
@@ -120,30 +133,30 @@ class App extends React.Component {
         });
     }
 
-switchDepartment(){
-    switch (localStorage.getItem('userRole')) {
-        case '1':
-            this.setState({depName: "Отчеты"});
-            // console.log('1111111')
-            this.setState({typeTable: "Отчеты1"});
-            break;
-        case '2':
-            this.setState({depName: "ОМТС"});
-            // console.log('22222222')
-            this.setState({typeTable: "ОМТС"});
-            break;
-        case '3':
-            this.setState({depName: "ПТО"});
-            this.setState({typeTable: "ПТО1"});
-            break;
-        case '4':
-            this.setState({depName: "Монтажники"});
-            this.setState({typeTable: "Монтажники1"});
-            break;
-        default:
-            break;
+    switchDepartment(){
+        switch (localStorage.getItem('userRole')) {
+            case '1':
+                this.setState({depName: "Отчеты"});
+                // console.log('1111111')
+                this.setState({typeTable: "Отчеты1"});
+                break;
+            case '2':
+                this.setState({depName: "ОМТС"});
+                // console.log('22222222')
+                this.setState({typeTable: "ОМТС"});
+                break;
+            case '3':
+                this.setState({depName: "ПТО"});
+                this.setState({typeTable: "ПТО1"});
+                break;
+            case '4':
+                this.setState({depName: "Монтажники"});
+                this.setState({typeTable: "Монтажники1"});
+                break;
+            default:
+                break;
+        }
     }
-}
 
     async getUserRoleById(apiRoute, userId) { // функция для получения номера роли пользователя
         // console.log(userData);
@@ -317,6 +330,9 @@ switchDepartment(){
 
 
     render() {
+
+
+
         return (
             <div id={"mainDiv"}>
 
@@ -336,6 +352,7 @@ switchDepartment(){
                 />}
                 {this.state.authorisation &&
                 <div>
+
                     <table width={"100%"} >
                         <tr>
                             <td><img src={logo} width="400px"/></td>
@@ -344,7 +361,7 @@ switchDepartment(){
                         </tr>
                     </table>
 
-
+                    {this.state.offset > 150 && <ButtonUpComponent />}
                     <MapComponent
                         namePKU={this.gettingNamePKU}
                         routeNumber={this.state.routeNumber}
@@ -403,6 +420,7 @@ switchDepartment(){
         )
     }
 }
+
 
 
 export default App;
