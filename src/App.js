@@ -40,30 +40,28 @@ import {Icon} from "leaflet";
 // },
 // ]
 
-let appThis;
-
-window.addEventListener('scroll', function() {
-    console.log(window.scrollY, appThis.state.showButtonUp);
-    if (window.scrollY > appThis.offset && appThis.state.showButtonUp === false) {
-        // console.log(appThis);
-        appThis.setState({
-            showButtonUp: true
-        });
-    } else if (window.scrollY <= appThis.offset && appThis.state.showButtonUp === true) {
-        appThis.setState({
-            showButtonUp: false
-        });
-    }
-
-    // console.log(typeof(appThis.state.offset), appThis.state.offset);
-});
+// let appThis;
+//
+// window.addEventListener('scroll', function() {
+//     console.log(window.scrollY, appThis.state.showButtonUp);
+//     if (window.scrollY > appThis.offset && appThis.state.showButtonUp === false) {
+//         // console.log(appThis);
+//         appThis.setState({
+//             showButtonUp: true
+//         });
+//     } else if (window.scrollY <= appThis.offset && appThis.state.showButtonUp === true) {
+//         appThis.setState({
+//             showButtonUp: false
+//         });
+//     }
+//
+//     // console.log(typeof(appThis.state.offset), appThis.state.offset);
+// });
 
 class App extends React.Component {
     constructor() {
 
         super();
-
-        appThis = this;
 
         this.state = {
             // authorisation: true,
@@ -82,11 +80,9 @@ class App extends React.Component {
             userId: undefined,
             userRole: undefined,
             userName: undefined,
-            rememberMe: false,
-            showButtonUp: false
+            rememberMe: false
         }
         this.url = window.location.href;
-        this.offset = 150;
         // if (localStorage.getItem('rememberMe') === 'true'){
         //     const rememberMe =  localStorage.getItem('rememberMe')
         //     const userId =  localStorage.getItem('userId')
@@ -376,7 +372,7 @@ class App extends React.Component {
                         </tr>
                     </table>
 
-                    {this.state.showButtonUp && <ButtonUpComponent />}
+                    <ButtonUpComponent />
                     <MapComponent
                         namePKU={this.gettingNamePKU}
                         routeNumber={this.state.routeNumber}

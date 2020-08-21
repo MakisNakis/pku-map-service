@@ -2,19 +2,42 @@ import React, {Component} from 'react';
 import img from '../up3.png';
 import {Link} from "react-scroll";
 
+let appThis;
 
+window.addEventListener('scroll', function() {
+    console.log(window.scrollY, appThis.state.showButtonUp);
+    if (window.scrollY > appThis.offset && appThis.state.showButtonUp === false) {
+        // console.log(appThis);
+        appThis.setState({
+            showButtonUp: true
+        });
+    } else if (window.scrollY <= appThis.offset && appThis.state.showButtonUp === true) {
+        appThis.setState({
+            showButtonUp: false
+        });
+    }
+
+    // console.log(typeof(appThis.state.offset), appThis.state.offset);
+});
 
 class ButtonUpComponent extends Component {
     constructor() {
         super();
+
+        appThis = this;
+
+        this.state = {
+            showButtonUp: false
+        }
+
+        this.offset = 150;
     }
-
-
 
     render() {
         return (
             <div>
-                    <Link
+                {this.state.showButtonUp &&
+                <Link
                     // не настраивал
                     to="mainDiv"
                     spy={true}
@@ -25,6 +48,7 @@ class ButtonUpComponent extends Component {
                         {/*<img src="/003 Лого Без фона.png" />*/}
                     </button>
                 </Link>
+                }
             </div>
         )
     }
