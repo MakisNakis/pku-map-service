@@ -106,6 +106,7 @@ class MyRepository {
         // Здесь и далее для всех отделов:
         //  - if используется для преобразования даты и комментария в тип, пригодный для pg (т.е. данные должны быть окружены '')
         // console.log("!!!!!!!    " + localStorage.getItem('userName'));
+        console.log(row);
         switch (typeTable) {
             case "ОМТС":
                 let DateContract = null;
@@ -113,14 +114,14 @@ class MyRepository {
                 let DateFact = null;
                 let CommentOMTS = null;
 
-                if(row.DateContract !== null) {
+                if(row.DateContract !== null && row.DateContract !== '') {
                     DateContract = this.convertToPG(row.DateContract);
                 }
-                if(row.DatePlan !== null) {
+                if(row.DatePlan !== null && row.DatePlan !== '') {
                     DatePlan = this.convertToPG(row.DatePlan);
                 }
 
-                if(row.DateFact !== null) {
+                if(row.DateFact !== null && row.DateFact !== '') {
                     DateFact = this.convertToPG(row.DateFact);
                 }
                 if(row.Comment !== '' && row.Comment !== null) {
@@ -140,25 +141,27 @@ class MyRepository {
                 break;
             case "Монтажники1":
                 let DateWork = null;
-                let PerformerNameMontazhniki = parseInt(row.PerformerName);
+                let PerformerNameMontazhniki;
                 let flag1 = null;
                 let CommentMontazhniki1 = null;
-                if(row.DateWork !== null) {
+
+                if(row.DateWork !== null && row.DateWork !== '') {
                     DateWork = this.convertToPG(row.DateWork);
                 }
                 if(row.Comment !== '' && row.Comment !== null) {
                     CommentMontazhniki1 = this.convertToPG(row.Comment);
                 }
-                // console.log(row.PerformerName)
 
                 if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
                     PerformerNameMontazhniki = 1;
-                }
-                if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
+                } else if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
                     PerformerNameMontazhniki = 2;
-                }
-                if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
+                } else if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
                     PerformerNameMontazhniki = 3;
+                } else if(row.PerformerName === '---' ) {
+                    PerformerNameMontazhniki = null;
+                } else {
+                    PerformerNameMontazhniki = parseInt(row.PerformerName);
                 }
                                                                 // запрос на внесение данных о работах для монтажников
                 query = this.client.query(`select * from f_u_subwork_perf(
@@ -179,30 +182,27 @@ class MyRepository {
                 let EndDateAkt = null;
                 let MaterialDate = null;
                 let CommentPTO1 = null;
-                let PerformerNamePTO = parseInt(row.PerformerName);
-                // console.log("^^^^^^^^^^^^^^^^ ");
-                // console.log(row.PerformerName);
-                // console.log(PerformerNamePTO);
+                let PerformerNamePTO;
 
-                if(row.StartDateCon !== null) {
+                if(row.StartDateCon !== null && row.StartDateCon !== '') {
                     StartDateCon = this.convertToPG(row.StartDateCon);
                 }
-                if(row.EndDateCon !== null) {
+                if(row.EndDateCon !== null && row.EndDateCon !== '') {
                     EndDateCon = this.convertToPG(row.EndDateCon);
                 }
-                if(row.StartDatePlan !== null) {
+                if(row.StartDatePlan !== null && row.StartDatePlan !== '') {
                     StartDatePlan = this.convertToPG(row.StartDatePlan);
                 }
-                if(row.EndDatePlan !== null) {
+                if(row.EndDatePlan !== null && row.EndDatePlan !== '') {
                     EndDatePlan = this.convertToPG(row.EndDatePlan);
                 }
-                if(row.DateWork !== null) {
+                if(row.DateWork !== null && row.DateWork !== '') {
                     DateWorkPTO = this.convertToPG(row.DateWork);
                 }
-                if(row.EndDateAkt !== null) {
+                if(row.EndDateAkt !== null && row.EndDateAkt !== '') {
                     EndDateAkt = this.convertToPG(row.EndDateAkt);
                 }
-                if(row.MaterialDate !== null) {
+                if(row.MaterialDate !== null && row.MaterialDate !== '') {
                     MaterialDate = this.convertToPG(row.MaterialDate);
                 }
                 if(row.Comment !== '' && row.Comment !== null) {
@@ -211,12 +211,14 @@ class MyRepository {
 
                 if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
                     PerformerNamePTO = 1;
-                }
-                if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
+                } else if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
                     PerformerNamePTO = 2;
-                }
-                if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
+                } else if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
                     PerformerNamePTO = 3;
+                } else if(row.PerformerName === '---' ) {
+                    PerformerNamePTO = null;
+                } else {
+                    PerformerNamePTO = parseInt(row.PerformerName);
                 }
                                                                 // запрос на внесение данных о работах для отдела ПТО
                 query = this.client.query(`select * from f_u_subwork_pto(
