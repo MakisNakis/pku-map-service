@@ -19,21 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/admin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/selfComponents/ChangePasswordComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/selfComponents/ProfileComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/selfComponents/css/ButtonUpComponent.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/selfComponents/css/ChangePasswordComponent.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/selfComponents/css/ProfileComponent.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/user.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="+ Личный кабинет&#10;+ смена пароля">
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/ButtonUpComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/ButtonUpComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,14 +230,7 @@
       <workItem from="1597298444370" duration="17100000" />
       <workItem from="1598257516196" duration="19896000" />
       <workItem from="1598351333205" duration="4354000" />
-      <workItem from="1598356056888" duration="1894000" />
-    </task>
-    <task id="LOCAL-00023" summary="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
-      <created>1590422377903</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1590422377903</updated>
+      <workItem from="1598356056888" duration="2810000" />
     </task>
     <task id="LOCAL-00024" summary="+ простая авторизация">
       <created>1592919502768</created>
@@ -588,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598017666410</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="+ Личный кабинет&#10;+ смена пароля">
+      <created>1598358218845</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1598358218845</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,7 +595,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="+ сравнение значений в ячейке на изменение" />
     <MESSAGE value="- изменил стили&#10;- добавил логотип АО &quot;ОМЕГА&quot;" />
     <MESSAGE value="- небольшие правки к стилям&#10;- изменил название выходного CSV файла" />
     <MESSAGE value="- небольшие правки к стилям [2]" />
@@ -633,7 +619,8 @@
     <MESSAGE value="+ вернул сохранение данных нажатием на зону вне поля" />
     <MESSAGE value="+ вернул сохранение данных нажатием на зону вне поля ввода" />
     <MESSAGE value="+ убрал баг отрисовки описания пку" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ убрал баг отрисовки описания пку" />
+    <MESSAGE value="+ Личный кабинет&#10;+ смена пароля" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ Личный кабинет&#10;+ смена пароля" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
@@ -649,11 +636,11 @@
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
     <state x="732" y="358" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1597994691707" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1598017666332">
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1598358239518">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315928553" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1598017666332" />
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1598358239518" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -736,17 +723,17 @@
     </state>
     <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
     <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596113405534" />
-    <state x="503" y="215" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1598017669569">
+    <state x="503" y="215" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1598358221460">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593016893395" />
     <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315937267" />
-    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1598017669569" />
-    <state x="722" y="503" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596030309751">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1598358221460" />
+    <state x="764" y="475" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598358232145">
+      <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="722" y="503" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596030309751" />
-    <state x="764" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1068@67.27.1853.1068" timestamp="1593090182755" />
+    <state x="764" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1068@67.27.1853.1068" timestamp="1598358232145" />
     <state x="550" y="125" key="git4idea.branch.GitSmartOperationDialog" timestamp="1592919376093">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
