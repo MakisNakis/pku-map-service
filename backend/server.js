@@ -213,10 +213,20 @@ app.route(`/api/auth`) // эндпоинт для получения id поль
             res.send(dbResponse);
     });
 
+app.route(`/api/changePassword`)
+    .post(async (req, res) => {
+        let data = req.body;
+        console.log(data);
+        const dbResponse = await repository.changePassword(data);
+        console.log(dbResponse);
+        // res.send(req.body);
+        res.send(dbResponse);
+    });
+
 app.route(`/api/auth/userRole`) // эндпоинт для получения номера роли пользователя, который залогинился
     .post(async (req, res) => {
-        let data = req.body
-        // console.log(data)
+        let data = req.body;
+        // console.log(data);
         const dbResponse = await repository.getUserRole(data);
         // res.send(req.body);
         res.send(dbResponse);
