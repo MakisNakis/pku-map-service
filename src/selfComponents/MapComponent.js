@@ -14,7 +14,7 @@ import {Icon} from "leaflet";
 // import * as pkuDataUfa from "../data/tRouteTrackPointsUfa.json"
 import {render} from 'react-dom'
 import {Link} from "react-scroll";
-
+import './css/MapComponent.css';
 
 
 class MapComponent extends Component {
@@ -24,12 +24,15 @@ class MapComponent extends Component {
 
         this.state = {
             zoom: 9,
-            minZoom: 4,
+            minZoom: 6,
             radius: 0,
-            firstRouteApi: '/api/pkuDataServerFirstRoute',
-            secondRouteApi: '/api/pkuDataServerSecondRoute',
+            // firstRouteApi: '/api/pkuDataServerFirstRoute',
+            // secondRouteApi: '/api/pkuDataServerSecondRoute',
+            // thirdRouteApi: '/api/pkuDataServerThirdRoute',
             pkuDataFirstRoute: [],
-            pkuDataSecondRoute: []
+            pkuDataSecondRoute: [],
+            pkuDataThirdRoute: [],
+            currentSelectedRouteId: 2 // по умолчанию при первой отрисовке таблицы будет выводиться информация о маршруте Альметьевск - Карабаш
         };
 
         this.pkuMarkerIcon = {
@@ -37,8 +40,14 @@ class MapComponent extends Component {
             iconSize: [30, 50],
             shadowSize: [15, 15],
             iconAnchor: [15, 50],
-            popupAnchor: [0, 0]
+            popupAnchor: [0, -50]
         }
+
+        this.loadData(2);
+        this.loadData(3);
+
+
+        this.map = null;
 
     }
 
@@ -53,6 +62,7 @@ class MapComponent extends Component {
                 }).catch(() => {
                     console.log(`Ошибка при извлечении информации о ${routeId}-м маршруте!`);
                 });
+                break
 
             case 2:
                 await fetch('/api/pkuDataServerSecondRoute').then(results => {
@@ -63,22 +73,36 @@ class MapComponent extends Component {
                 }).catch(() => {
                     console.log(`Ошибка при извлечении информации о ${routeId}-м маршруте!`);
                 });
+                break
 
+            case 3:
+                await fetch('/api/pkuDataServerThirdRoute').then(results => {
+                    return results.json()
+                }).then(data => {
+                    this.setState({pkuDataThirdRoute: data.rows});
+                    // console.log(this.state.pkuData[0].ID)
+                }).catch(() => {
+                    console.log(`Ошибка при извлечении информации о ${routeId}-м маршруте!`);
+                });
+                break
             default:
                 console.log(`Маршрут с номером "${routeId}" отсутствует`);
+                break
 
         }
 
     }
 
 
-    componentWillMount() {
-        this.loadData(1);
-        this.loadData(2);
-    }
+    // componentWillMount() {
+    //     // this.loadData(1);
+    //     if
+    //     this.loadData(2);
+    //     this.loadData(3);
+    // }
 
 
-    setMarkerIcon(routeId) {
+    setMarkerIcon(routeId) { // свитч для выбора иконки маркера в зависимости от маршрута
         switch (routeId) {
             case 1:
                 this.pkuMarkerIcon.iconUrl = '/markers/redM.png';
@@ -95,27 +119,52 @@ class MapComponent extends Component {
         return new Icon(this.pkuMarkerIcon)
     }
 
-    renderMarkersLayer(routeId) {
+
+
+    renderMarkersLayer(routeId, selectedId) {
         let pkuData = undefined;
 
-        if (routeId === 1) {
-            pkuData = this.state.pkuDataFirstRoute;
-        } else if (routeId === 2) {
+        // if (routeId === 1) {
+        //     pkuData = this.state.pkuDataFirstRoute;
+        // } else
+        if (routeId === 2) {
             pkuData = this.state.pkuDataSecondRoute;
+        } else if (routeId === 3) {
+            pkuData = this.state.pkuDataThirdRoute;
         }
+
+        // console.log(pkuData);
 
         // console.log(this.state.pkuDataFirstRoute);
         // console.log(this.state.pkuDataSecondRoute.length);
         // console.log(this.state.pkuDataSecondRoute);
         let result = [];
+
+        const MyMarker = props => {
+            const initMarker = ref => {
+                // console.log(props);
+                if (ref && props.id === this.props.selectedId && props.route === this.props.routeNumber) {
+                    ref.leafletElement.openPopup()
+                    console.log("!!!");
+                }
+            }
+
+            return <Marker ref={initMarker} {...props}/>
+        }
+
         for (let i = 0; i < pkuData.length; i++) {
+            let ref = 'marker' + i;
+            // console.log(pkuData[0].routenumber)
             result.push(
-                <Marker key={i}
+                <MyMarker
+                        key={i}
+                        id={pkuData[i].SubjectID}
+                        route={routeId}
                         position={[pkuData[i].Latitude, pkuData[i].Longtitude]}
                         icon={this.setMarkerIcon(routeId)}
-                        title={pkuData[i].SubjectID}
+                        title={`${pkuData[i].routenumber}-й маршрут`}
                         name={pkuData[i].SubjectName}
-                        onClick={this.props.namePKU}
+                        onClick={(e) => this.props.namePKU(pkuData[i].SubjectID, pkuData[i].SubjectName, pkuData[i].routenumber, e)}
                 >
                     <Popup>
 
@@ -125,47 +174,177 @@ class MapComponent extends Component {
                             spy={true}
                             smooth={true}
                             duration={500}
-
                         >
                             {/*<h2>{pkuData.SubjectName}</h2>*/}
                             <h3> {pkuData[i].SubjectName}</h3>
                         </Link>
                     </Popup>
-                </Marker>
+                </MyMarker>
             );
         }
         return result;
     }
 
 
+    // pkuListGeneration(routeId) {
+    //     let items = [];
+    //
+    //     let pkuData = undefined;
+    //
+    //     if (routeId === 1) {
+    //         pkuData = this.state.pkuDataFirstRoute;
+    //     } else if (routeId === 2) {
+    //         pkuData = this.state.pkuDataSecondRoute;
+    //     }
+    //
+    //     console.log(this.props.selectedId);
+    //     for (let i = 0; i < pkuData.length; i++) {
+    //
+    //         if(this.props.selectedId === pkuData[i].SubjectID) {
+    //             items.push(<option key={pkuData[i].SubjectID} value={pkuData[i].SubjectName} selected>{pkuData[i].SubjectName}</option>);
+    //         } else {
+    //             items.push(<option key={pkuData[i].SubjectID} value={pkuData[i].SubjectName}>{pkuData[i].SubjectName}</option>);
+    //         }
+    //     }
+    //     return items;
+    // }
+
+    openPop() {
+
+    }
+
+    pkuListGeneration(routeId) {
+        let items = [];
+        let pkuData = undefined;
+
+        // if (routeId === 1) {
+        //     pkuData = this.state.pkuDataFirstRoute;
+        // } else
+        if (routeId === 2) {
+            pkuData = this.state.pkuDataSecondRoute;
+        } else if (routeId === 3) {
+            pkuData = this.state.pkuDataThirdRoute;
+        }
+
+        // console.log(this.props.selectedId);
+        for (let i = 0; i < pkuData.length; i++) {
+            if (this.props.selectedId === pkuData[i].SubjectID ){
+                items.push(
+                    <tr>
+                        <td>
+                            <Link
+                                // не настраивал
+                                to="start"
+                                spy={true}
+                                smooth={true}
+                                duration={500}
+
+                            >
+                                <div id={"selectedPku"}>
+                                    <button
+                                        className={"button8 btnPku buttonSelected"}
+                                        title={pkuData[i].routenumber}
+                                        name={pkuData[i].SubjectName}
+                                        onClick={(e) => {
+                                                this.props.namePKU(pkuData[i].SubjectID, pkuData[i].SubjectName, pkuData[i].routenumber, true, e);
+                                            }
+                                        }
+                                    >
+                                        {pkuData[i].SubjectName}
+                                    </button>
+                                </div>
+                            </Link>
+                        </td>
+                    </tr>
+                );
+            } else {
+                items.push(
+                    <tr>
+                        <td>
+                            <button
+                                className={"button8 btnPku"}
+                                title={pkuData[i].SubjectID}
+                                name={pkuData[i].SubjectName}
+                                onClick={(e) => this.props.namePKU(pkuData[i].SubjectID, pkuData[i].SubjectName, pkuData[i].routenumber, e)}
+                            >
+                                {pkuData[i].SubjectName}
+                            </button>
+                        </td>
+                    </tr>
+                );
+            }
+
+        }
+        return items;
+    }
+
+    zoomEnable() {
+
+    }
+
     render() {
 
         return (
-            <div>
-                <LeafletMap center={[54.930922, 53.722198]} zoom={this.state.zoom} minZoom={this.state.minZoom}>
-                    <LayersControl position='topright'>
+            <div >
+            {/*<div align="center">*/}
+                <table>
+                    <tr>
+                        <td className={"mapComp"}>
+                            {this.map = <LeafletMap
+                                ref='map'
+                                center={[55.030922, 53.722198]}
+                                zoom={this.state.zoom}
+                                minZoom={this.state.minZoom}
+                                scrollWheelZoom={false}
+                                onClick={this.zoomEnable}
+                            >
+                                <LayersControl position='topright'>
 
-                        <LayersControl.BaseLayer checked name="Гибрид">
-                            <TileLayer
-                                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                            />
-                        </LayersControl.BaseLayer>
+                                    <LayersControl.BaseLayer checked name="Гибрид">
+                                        <TileLayer
+                                            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                        />
+                                    </LayersControl.BaseLayer>
 
-                        <LayersControl.Overlay checked name="Уфа">
-                            <LayerGroup name="pkuMarkersUfa">
-                                {this.renderMarkersLayer(1)}
-                            </LayerGroup>
-                        </LayersControl.Overlay>
+                                    {/*<LayersControl.Overlay checked name="Уфа">*/}
+                                    {/*    <LayerGroup name="pkuMarkersUfa">*/}
+                                    {/*        {this.renderMarkersLayer(1)}*/}
+                                    {/*    </LayerGroup>*/}
+                                    {/*</LayersControl.Overlay>*/}
 
-                        <LayersControl.Overlay checked name="Карабаш">
-                            <LayerGroup name="pkuMarkersKarabash">
-                                {this.renderMarkersLayer(2)}
-                            </LayerGroup>
-                        </LayersControl.Overlay>
+                                    <LayersControl.Overlay checked name="Карабаш">
+                                        <LayerGroup name="pkuMarkersKarabash">
+                                            {this.renderMarkersLayer(2, this.props.selectedId)}
+                                        </LayerGroup>
+                                    </LayersControl.Overlay>
 
-                    </LayersControl>
-                </LeafletMap>
+                                    <LayersControl.Overlay checked name="Башкултаево">
+                                        <LayerGroup name="pkuMarkersBashkultaevo">
+                                            {this.renderMarkersLayer(3, this.props.selectedId)}
+                                        </LayerGroup>
+                                    </LayersControl.Overlay>
+
+                                </LayersControl>
+                            </LeafletMap>}
+                        </td>
+                        <td className={"pkuListComp"}>
+                            <div id={"pkuListCompDiv"}>
+                                {/*<button className={"labelPkuListComp"}>Список ПКУ</button>*/}
+                                {/*<select className={"select1"}>*/}
+                                {/*    {this.pkuListGeneration(2)}*/}
+                                {/*</select>*/}
+                                <div className={"tablePkuListScroll"}>
+                                    <table className={"tablePkuList"}>
+                                        {this.pkuListGeneration(this.props.routeNumber)}
+                                    </table>
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
             </div>
         );
     }

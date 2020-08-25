@@ -12,6 +12,14 @@ code {
     monospace;
 }
 
+.progName {
+  font-size: 40px;
+  letter-spacing: 3px;
+  width: 100%;
+  color: rgb(3, 85, 150);
+
+}
+
 h1 {
   /*font-family: 'Merriweather', serif;*/
   font-size: 25px;
@@ -25,20 +33,22 @@ h1 {
 
 .mainHeader h1 {
   display: table;
-  width: auto;
-  margin: 35px auto;
+  width: 100%;
+  margin-left: 35px;
+  /*margin: 35px auto;*/
+  margin-right: 35px;
+  margin-bottom: 35px;
   letter-spacing: 3px;
-  color: rgb(0, 0, 0);
+  color: rgb(3, 85, 150);
 }
 .mainHeader h1:before {
   content: "";
   position: absolute;
   top: -15%;
-  left: -95px;
+  /*left: -95px;*/
   z-index: -1;
-  background: #a6f4fe;
-  background-image: url("omegaIcon.svg");
-  width: 60px;
+  /*background: #a6f4fe;*/
+  /*<img src="catalog/view/theme/default/image/КАРТИНКА.РАСШИРЕНИЕ" />  width: 60px;*/
   height: 60px;
   border-radius: 10%;
 }
@@ -46,10 +56,10 @@ h1 {
   content: "";
   position: absolute;
   top: -15%;
-  right: -95px;
+  /*right: -95px;*/
   z-index: -1;
-  background: #a6f4fe;
-  background-image: url("omegaIcon.svg");
+  /*background: #a6f4fe;*/
+  /*background-image: url("omegaIcon.svg");*/
   width: 60px;
   height: 60px;
   border-radius: 10%;
@@ -76,7 +86,8 @@ h1 {
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
-  background-color: inherit;
+  background-color: rgb(255, 255, 255);
+  color: #000000;
   float: left;
   border: none;
   outline: none;
@@ -87,12 +98,87 @@ h1 {
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: rgba(142, 238, 147, 0.61);
+  /*background-color: rgba(142, 238, 147, 0.61);*/
+  background-color: rgb(65, 128, 177);}
+
+
+.button7 {
+  display: inline-block;
+  background: #e0e0e0;
+  /*background: rgb(255, 255, 255);*/
+  color: #035594;
+  /*border-color: rgb(217, 13, 22);*/
+  border: #035594 2px solid;
+  /*color: white;*/
+  font-weight: 500;
+  text-decoration: none;
+  user-select: none;
+  padding: 4px 6px;
+  outline: none;
+  /*border-width: 2px;*/
+  /*border-radius: 300px;*/
+  transition: 0.2s;
 }
 
+.button7:hover { border: #ffffff 2px solid; background: #c4c4c4; color: rgb(255, 255, 255)
+}
+
+.button8 {
+  display: inline-block;
+  background: rgb(255, 255, 255);
+  color: #035594;
+  font-weight: 700;
+  text-decoration: none;
+  user-select: none;
+  padding: .5em 2em;
+  outline: none;
+  border: 2px solid;
+  /*border-radius: 300px;*/
+  transition: 0.2s;
+
+}
+.button8:hover { background: #035593; color: rgb(255, 255, 255)
+}
+.button8:active { background: #002642; color: #ffffff}
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: rgba(53, 222, 65, 0.87);
+  background-color: rgb(3, 85, 149);
+  font-weight: 700;
+
+  color: #ffffff;
+  font-size: larger;
 }
 
+.button9 {
+  display: inline-block;
+  background: rgb(255, 255, 255);
+  color: #035593;
+  font-weight: 700;
+  text-decoration: none;
+  user-select: none;
+  padding: .5em 2em;
+  outline: none;
+  border: 2px solid;
+  transition: 0.2s;
+}
+
+.button9:hover {
+    background: #ffffff;
+    color: rgb(16, 2, 2);
+}
+/*.button9:active { background: #002642; color: #ffffff*/
+/*}*/
+
+.buttonSelected {
+    background: #002642;
+    color: rgb(255, 255, 255);
+}
+
+/*.mainHeader {*/
+/*  font-size: 50px;*/
+/*}*/
+
+.btn1 {
+  color: #a6f4fe;
+}
 
