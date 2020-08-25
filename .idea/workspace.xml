@@ -19,8 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="+ Личный кабинет&#10;+ смена пароля">
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/selfComponents/css/AuthorisationComponent.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/AuthorisationComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/AuthorisationComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,14 +231,7 @@
       <workItem from="1597298444370" duration="17100000" />
       <workItem from="1598257516196" duration="19896000" />
       <workItem from="1598351333205" duration="4354000" />
-      <workItem from="1598356056888" duration="2810000" />
-    </task>
-    <task id="LOCAL-00024" summary="+ простая авторизация">
-      <created>1592919502768</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1592919502768</updated>
+      <workItem from="1598356056888" duration="3148000" />
     </task>
     <task id="LOCAL-00025" summary="+ scroll&#10;- не доделан скролл">
       <created>1593016889093</created>
@@ -575,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598358218845</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="+ убрал ограничение по символам&#10;+ можно использовать цифры в пароле">
+      <created>1598359066477</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1598359066477</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -595,7 +596,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- изменил стили&#10;- добавил логотип АО &quot;ОМЕГА&quot;" />
     <MESSAGE value="- небольшие правки к стилям&#10;- изменил название выходного CSV файла" />
     <MESSAGE value="- небольшие правки к стилям [2]" />
     <MESSAGE value="- небольшие правки к стилям [3]" />
@@ -620,7 +620,8 @@
     <MESSAGE value="+ вернул сохранение данных нажатием на зону вне поля ввода" />
     <MESSAGE value="+ убрал баг отрисовки описания пку" />
     <MESSAGE value="+ Личный кабинет&#10;+ смена пароля" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ Личный кабинет&#10;+ смена пароля" />
+    <MESSAGE value="+ убрал ограничение по символам&#10;+ можно использовать цифры в пароле" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ убрал ограничение по символам&#10;+ можно использовать цифры в пароле" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
@@ -636,11 +637,11 @@
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
     <state x="732" y="358" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1597994691707" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1598358239518">
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1598359066398">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315928553" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1598358239518" />
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1598359066398" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -742,11 +743,11 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="665" y="403" width="590" height="415" key="git4idea.merge.GitPullDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596184495430" />
-    <state x="657" y="257" key="run.anything.popup" timestamp="1598256472525">
+    <state x="657" y="257" width="672" height="677" key="run.anything.popup" timestamp="1598359246948">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="611" y="258" key="run.anything.popup/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597157485828" />
-    <state x="657" y="257" key="run.anything.popup/67.27.1853.1068@67.27.1853.1068" timestamp="1598256472525" />
+    <state x="657" y="257" width="672" height="677" key="run.anything.popup/67.27.1853.1068@67.27.1853.1068" timestamp="1598359246948" />
     <state x="610" y="263" width="697" height="762" key="search.everywhere.popup" timestamp="1596179811728">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
