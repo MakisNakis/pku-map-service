@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="" />
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="- test" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -226,13 +226,6 @@
       <workItem from="1597129145704" duration="25847000" />
       <workItem from="1597225103778" duration="15295000" />
       <workItem from="1597298444370" duration="17100000" />
-    </task>
-    <task id="LOCAL-00021" summary="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
-      <created>1590413083455</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1590413083455</updated>
     </task>
     <task id="LOCAL-00022" summary="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
       <created>1590414361557</created>
@@ -570,7 +563,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598016345115</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="- test">
+      <created>1598017714535</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1598017714535</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -590,7 +590,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- добавил кнопку выхода&#10;- TODO:&#10;        1 - хеширование паролей" />
     <MESSAGE value="- добавил кнопку выхода&#10;- исправил баги&#10;- TODO:&#10;        1 - хеширование паролей" />
     <MESSAGE value="- merge с tabolin2&#10;- TODO:&#10;        1 - хеширование паролей" />
     <MESSAGE value="+ сравнение значений в ячейке на изменение" />
@@ -615,7 +614,8 @@
     <MESSAGE value="+ кнопка &quot;наверх&quot;" />
     <MESSAGE value="+ удаление дат" />
     <MESSAGE value="+ появление надписи на карте при нажатии на кнопку с ПКУ&#10;+ убрал масштаб колесиком" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ появление надписи на карте при нажатии на кнопку с ПКУ&#10;+ убрал масштаб колесиком" />
+    <MESSAGE value="- test" />
+    <option name="LAST_COMMIT_MESSAGE" value="- test" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
@@ -713,23 +713,24 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320469" />
-    <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog" timestamp="1596113405534">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state x="558" y="274" width="714" height="468" key="MultipleFileMergeDialog" timestamp="1598017731052">
+      <screen x="67" y="27" width="1853" height="1173" />
     </state>
     <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
     <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596113405534" />
+    <state x="558" y="274" key="MultipleFileMergeDialog/67.27.1853.1173@67.27.1853.1173" timestamp="1598017731052" />
     <state x="503" y="215" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1598006454059">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593016893395" />
     <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315937267" />
     <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1598006454059" />
-    <state x="764" y="519" width="438" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598017690005">
+    <state x="764" y="519" width="438" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598358258753">
       <screen x="67" y="27" width="1853" height="1173" />
     </state>
     <state x="722" y="503" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596030309751" />
     <state x="764" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1068@67.27.1853.1068" timestamp="1593090182755" />
-    <state x="764" y="519" width="438" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1173@67.27.1853.1173" timestamp="1598017690005" />
+    <state x="764" y="519" width="438" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1173@67.27.1853.1173" timestamp="1598358258753" />
     <state x="550" y="125" key="git4idea.branch.GitSmartOperationDialog" timestamp="1592919376093">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
