@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 import img from '../up3.png';
 import {Link} from "react-scroll";
 
+import './css/ButtonUpComponent.css';
+
 let appThis;
 
 window.addEventListener('scroll', function() {
-    console.log(window.scrollY, appThis.state.showButtonUp);
+    // console.log(window.scrollY, appThis.state.showButtonUp);
     if (window.scrollY > appThis.offset && appThis.state.showButtonUp === false) {
         // console.log(appThis);
         appThis.setState({
@@ -45,7 +47,7 @@ class ButtonUpComponent extends Component {
                     duration={250}
                 >
                     <button className={"buttonUp"}>
-                        {/*<img src="/003 Лого Без фона.png" />*/}
+                        <img src={img}/>
                     </button>
                 </Link>
                 }

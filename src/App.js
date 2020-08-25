@@ -5,6 +5,9 @@ import TableComponent from './selfComponents/TableComponent';
 import AuthorisationComponent from './selfComponents/AuthorisationComponent';
 import TypeTableComponent from './selfComponents/TypeTableComponent';
 import ButtonUpComponent from './selfComponents/ButtonUpComponent';
+import ProfileComponent from './selfComponents/ProfileComponent';
+import ChangePasswordComponent from './selfComponents/ChangePasswordComponent';
+
 import logo from './003 Лого Без фона.png';
 
 import BootstrapTable from 'react-bootstrap-table-next';
@@ -12,51 +15,6 @@ import cellEditFactory from 'react-bootstrap-table2-editor';
 import {Map as LeafletMap, Marker, TileLayer} from "react-leaflet";
 import * as pkuData from "./data/tRouteTrackPointsKarabash";
 import {Icon} from "leaflet";
-
-
-// const columns = [{
-//     dataField: 'id',
-//     text: 'Product ID'
-// }, {
-//     dataField: 'name',
-//     text: 'Product Name'
-// }, {
-//     dataField: 'price',
-//     text: 'Product Price'
-// }];
-//
-// const products = [{
-//     id: 1,
-//     name: "item 1",
-//     price: 111
-// },{
-//     id: 2,
-//     name: "item 2",
-//     price: 222
-// },{
-//     id: 3,
-//     name: "item 3",
-//     price: 333
-// },
-// ]
-
-// let appThis;
-//
-// window.addEventListener('scroll', function() {
-//     console.log(window.scrollY, appThis.state.showButtonUp);
-//     if (window.scrollY > appThis.offset && appThis.state.showButtonUp === false) {
-//         // console.log(appThis);
-//         appThis.setState({
-//             showButtonUp: true
-//         });
-//     } else if (window.scrollY <= appThis.offset && appThis.state.showButtonUp === true) {
-//         appThis.setState({
-//             showButtonUp: false
-//         });
-//     }
-//
-//     // console.log(typeof(appThis.state.offset), appThis.state.offset);
-// });
 
 class App extends React.Component {
     constructor() {
@@ -77,9 +35,11 @@ class App extends React.Component {
             authorisation: false,
             authorisationErr: false,
             incorrectUser: false,
+            incorrectChangePass: false,
             userId: undefined,
             userRole: undefined,
             userName: undefined,
+            showChangePassForm: false,
             rememberMe: false
         }
         this.url = window.location.href;
@@ -304,10 +264,55 @@ class App extends React.Component {
         // this.setState({authorisation: false})
     }
 
+    changePassOpenWindow = () => {
+        let flag = !this.state.showChangePassForm;
+        this.setState({showChangePassForm: true});
+    }
+
+    closeChangePassWindow = () => {
+        this.setState({showChangePassForm: false});
+    }
+
+    changePassword = async (e) => {
+        e.preventDefault();
+        const firstPass = e.target.elements.firstPassword.value;
+        const secondPass = e.target.elements.secondPassword.value;
+        const apiRoute = 'api/changePassword';
+        let regexp = /^[a-z\s@#$]+$/i;
+
+        if (!regexp.test(firstPass)) {
+            this.setState({incorrectChangePass: "Разрешенные символы в пароле: A-Za-z@#$"});
+        } else if (firstPass.length < 8 /*&& this.state.userId !== '1'*/) {
+            this.setState({incorrectChangePass: "Минимальная длина пароля: 8 символов"});
+        } else if (firstPass !== secondPass) {
+            this.setState({incorrectChangePass: "Пароли не совпадают"});
+        } else {
+            const passwords = {userId: this.state.userId, password: firstPass};
+            await fetch(`${this.url}${apiRoute}`, {
+                method: 'POST',
+                headers: {'content-type': 'application/json'},
+                mode: "cors",
+                body: JSON.stringify(passwords),
+            }).then(results => {
+                console.log(results);
+                this.closeChangePassWindow();
+                this.setState({incorrectChangePass: false})
+                return results.json();
+            }).then(data => {
+                if (data.rows) {
+                    console.log("Пользователь с ID №" + data.rows[0].f_s_userid_changepas + " успешно сменил пороль");
+                }
+            }).catch((err) => {
+                console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}`);
+                this.setState({incorrectChangePass: "Не удалось изменить пароль. Ошибка сервера."});
+            });
+        }
+
+    }
+
     onClickDep = (e) => {
         const buttonName = e.target.title;
         console.log(e.target);
-        console.log("@@@@@@@@@@@@@@@@");
         this.setState({depName: buttonName});
         // console.log(localStorage.getItem('userRole'))
         // console.log(typeof(localStorage.getItem('userRole')))
@@ -368,18 +373,33 @@ class App extends React.Component {
                         <tr>
                             <td><img src={logo} width="400px"/></td>
                             <td><div className="mainHeader" ><h1>ОМЕГА "СПиКИР"</h1></div></td>
-                            <td><button className="button8" onClick={this.logout} type="button">Выход</button></td>
+                            <td>
+                                <ProfileComponent
+                                    userName={this.state.userName}
+                                    showChangePassForm={this.state.showChangePassForm}
+                                    changePassOpenWindow={this.changePassOpenWindow}
+                                    logout={this.logout}
+                                />
+                            </td>
+                            {/*<td><button className="button8" onClick={this.logout} type="button">Выход</button></td>*/}
                         </tr>
                     </table>
 
                     <ButtonUpComponent />
+                    {this.state.showChangePassForm &&
+                        <ChangePasswordComponent
+                            incorrectChangePass={this.state.incorrectChangePass}
+                            changePassword={this.changePassword}
+                            closeChangePassWindow={this.closeChangePassWindow}
+                        />
+                    }
                     <MapComponent
                         namePKU={this.gettingNamePKU}
                         routeNumber={this.state.routeNumber}
                         selectedId={this.state.idPKU}
                     />
                     <br/>
-                    <h2>Вы вошли как пользователь {this.state.userName}</h2>
+                    {/*<h2>Вы вошли как пользователь {this.state.userName}</h2>*/}
                     {/*<LogoutComponent*/}
                     {/*    userName={this.state.userName}*/}
                     {/*    // authorisation={this.state.authorisation}*/}
