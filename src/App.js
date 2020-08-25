@@ -278,12 +278,10 @@ class App extends React.Component {
         const firstPass = e.target.elements.firstPassword.value;
         const secondPass = e.target.elements.secondPassword.value;
         const apiRoute = 'api/changePassword';
-        let regexp = /^[a-z\s@#$]+$/i;
+        let regexp = /^[a-z\s0-9@#$]+$/i;
 
         if (!regexp.test(firstPass)) {
-            this.setState({incorrectChangePass: "Разрешенные символы в пароле: A-Za-z@#$"});
-        } else if (firstPass.length < 8 /*&& this.state.userId !== '1'*/) {
-            this.setState({incorrectChangePass: "Минимальная длина пароля: 8 символов"});
+            this.setState({incorrectChangePass: "Разрешенные символы в пароле: A-Za-z0-9@#$"});
         } else if (firstPass !== secondPass) {
             this.setState({incorrectChangePass: "Пароли не совпадают"});
         } else {
