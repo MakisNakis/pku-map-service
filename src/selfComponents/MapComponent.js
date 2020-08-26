@@ -287,7 +287,7 @@ class MapComponent extends Component {
         return (
             <div >
             {/*<div align="center">*/}
-                <table>
+                <table className={"tableMapPku"}>
                     <tr>
                         <td className={"mapComp"}>
                             {this.map = <LeafletMap

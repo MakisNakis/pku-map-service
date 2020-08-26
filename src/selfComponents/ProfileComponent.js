@@ -43,8 +43,11 @@ class ProfileComponent extends Component {
                     <div className={"divList"} align={"center"}>
                         <tr >
                             <td>
-                                <button className={"buttonList button7"} onClick={this.props.changePassOpenWindow}>
-                                    Сменить пороль
+                                <button id={"changePassword"} className={"buttonList button7"} onClick={()=>{
+                                    this.closeProfile();
+                                    this.props.changePassOpenWindow();
+                                }}>
+                                    Сменить пароль
                                 </button>
                             </td>
                         </tr>

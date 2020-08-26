@@ -52,7 +52,6 @@ class DepartmentsComponent extends Component {
                     <button className={className[4]} title="Логи" onClick={this.props.depNameFunc}>Журнал действий</button>
                 </div>
                 }
-                {this.props.hide}
             </div>
         )
     }

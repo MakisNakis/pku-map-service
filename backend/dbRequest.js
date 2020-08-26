@@ -156,7 +156,7 @@ class MyRepository {
                     PerformerNameMontazhniki = 1;
                 } else if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
                     PerformerNameMontazhniki = 2;
-                } else if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
+                } else if(row.PerformerName === 'Шакиров Ришат' || row.PerformerName === 'Шакиров Р.') {
                     PerformerNameMontazhniki = 3;
                 } else if(row.PerformerName === '---' ) {
                     PerformerNameMontazhniki = null;
@@ -213,7 +213,7 @@ class MyRepository {
                     PerformerNamePTO = 1;
                 } else if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
                     PerformerNamePTO = 2;
-                } else if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
+                } else if(row.PerformerName === 'Шакиров Ришат' || row.PerformerName === 'Шакиров Р.') {
                     PerformerNamePTO = 3;
                 } else if(row.PerformerName === '---' ) {
                     PerformerNamePTO = null;
