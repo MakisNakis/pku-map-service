@@ -287,13 +287,16 @@ class MyRepository {
      }
 
     async getPerfName() { // функция для получения имени исполнителя (монтажника)
-        let query = this.client.query(`select * from f_s_get_performers();`)
+        let query = this.client.query(`select * from f_s_performers_list();`)
         return query
     }
 
     async changePassword(data) {
         // let query = false;
-        let query = this.client.query(`select * from f_s_userid_changepas(${data.userId},${this.convertToPG(data.password)});`);
+        let query = this.client.query(`select * from f_s_userid_changepas(
+            ${data.userId},
+            ${this.convertToPG(data.password)}
+        );`);
         return query;
     }
 }
