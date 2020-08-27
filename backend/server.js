@@ -243,6 +243,7 @@ app.route(`/api/auth/userName`) // эндпоинт для получения и
 app.route(`/api/auth/perfName`) // эндпоинт для получения имени исполнителя
     .get(async (req, res) => {
         const dbResponse = await repository.getPerfName();
+        console.log(dbResponse.rows);
         // console.log(`В авторизовался пользователь ${dbResponse}`)
         res.send(dbResponse);
     });

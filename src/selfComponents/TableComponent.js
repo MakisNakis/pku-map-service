@@ -27,7 +27,28 @@ class TableComponent extends Component {
         };
         this.url = window.location.href;
         this.copyPkuInfo = [];
+        this.performers = this.getPerformers();
+    }
 
+    async getPerformers() {
+        const performers = [];
+        await fetch('/api/auth/perfName').then(result => {
+            console.log(result);
+            return result.json();
+        }).then( data => {
+            console.log(data.rows);
+            const lenMas = data.rows.length;
+            for( let i = 0; i < lenMas; i++) {
+                performers[i] = {
+                    label: data.rows[i].Surname + ' ' + data.rows[i].Name,
+                    value: data.rows[i].ID
+                }
+            }
+        }).catch(() => {
+            console.log('Ошибка на /api/auth/perfName');
+        })
+        console.log(performers);
+        return performers;
     }
 
 
@@ -152,7 +173,7 @@ class TableComponent extends Component {
     render() {
 
         // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
-        const tableHeaders = ColumnsData(); // подключаем заголовки таблиц из файла ../data/ColumnsData
+        const tableHeaders = ColumnsData(this.performers); // подключаем заголовки таблиц из файла ../data/ColumnsData
         const {ExportCSVButton} = CSVExport; // кнопка для экспорта таблицы в CSV
 
 

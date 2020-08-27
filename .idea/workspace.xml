@@ -20,19 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/selfComponents/Template.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/ColumnsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/DepartmentsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/DepartmentsComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/ProfileComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/ProfileComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/css/ChangePasswordComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/css/ChangePasswordComponent.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/css/MapComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/css/MapComponent.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/css/ProfileComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/css/ProfileComponent.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/css/TableComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/css/TableComponent.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +51,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -248,14 +240,7 @@
       <workItem from="1598257516196" duration="19896000" />
       <workItem from="1598351333205" duration="4354000" />
       <workItem from="1598356056888" duration="6978000" />
-      <workItem from="1598423903611" duration="8012000" />
-    </task>
-    <task id="LOCAL-00026" summary="+ scroll&#10;- не доделан скролл">
-      <created>1593071098353</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1593071098353</updated>
+      <workItem from="1598423903611" duration="15519000" />
     </task>
     <task id="LOCAL-00027" summary="+ scroll&#10;- не доделан скролл">
       <created>1593071362415</created>
@@ -593,7 +578,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598359351410</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="+ добавил стилей">
+      <created>1598433896321</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1598433896322</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -613,7 +605,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- небольшие правки к стилям [2]" />
     <MESSAGE value="- небольшие правки к стилям [3]" />
     <MESSAGE value="- немного поменял название заголовков таблицы &quot;Отчет1&quot;" />
     <MESSAGE value="- поменял кнопку авторизации" />
@@ -638,7 +629,8 @@
     <MESSAGE value="+ Личный кабинет&#10;+ смена пароля" />
     <MESSAGE value="+ убрал ограничение по символам&#10;+ можно использовать цифры в пароле" />
     <MESSAGE value="+ сообщения об ошибках пишутся красным цветом" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ сообщения об ошибках пишутся красным цветом" />
+    <MESSAGE value="+ добавил стилей" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ добавил стилей" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
@@ -649,16 +641,16 @@
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="649" y="362" width="678" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1068@67.27.1853.1068" timestamp="1597994626869" />
-    <state x="732" y="358" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597994691707">
+    <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598439326183">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
-    <state x="732" y="358" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1597994691707" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1598359351319">
+    <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1598439326183" />
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1598433896082">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315928553" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1598359351319" />
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1598433896082" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -741,12 +733,12 @@
     </state>
     <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
     <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596113405534" />
-    <state x="503" y="215" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1598359353592">
+    <state x="503" y="215" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1598433902533">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593016893395" />
     <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315937267" />
-    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1598359353592" />
+    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1598433902533" />
     <state x="764" y="475" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598358232145">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>

@@ -44,7 +44,7 @@ export function ColumnsData(performers) {
 
 
 //     let performersMas = []
-    let performersMas = [{label: "Бажутов Сергей", value: 1}, {label: "Камалетдинов Рамис", value: 2}, {label: "Шакиров Ришат", value: 3}]
+//     let performersMas = [{label: "Бажутов Сергей", value: 1}, {label: "Камалетдинов Рамис", value: 2}, {label: "Шакиров Ришат", value: 3}]
     // let performersMas = [{label: "Бажутов Сергей", value: "Бажутов Сергей"}, {label: "Камалетдинов Рамис", value: "Камалетдинов Рамис"}, {label: "Шакиров Рашид", value: "Шакиров Рашид"}]
 //     for (let i = 0; i < performers.length; i++){
 //         performersMas[i] = {label: performers[i].Surname}
@@ -266,7 +266,7 @@ export function ColumnsData(performers) {
         editable: true,
         editor: {
             type: Type.SELECT,
-            options: performersMas
+            options: performers
         },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -402,7 +402,7 @@ export function ColumnsData(performers) {
         editable: true,
         editor: {
             type: Type.SELECT,
-            options: performersMas
+            options: performers
         },
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
