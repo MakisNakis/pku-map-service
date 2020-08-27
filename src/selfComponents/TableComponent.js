@@ -49,7 +49,7 @@ class TableComponent extends Component {
             const lenMas = data.rows.length;
             for( let i = 0; i < lenMas; i++) {
                 performers[i] = {
-                    label: data.rows[i].Surname + ' ' + data.rows[i].Name,
+                    label: data.rows[i].Name,
                     value: data.rows[i].ID
                 }
             }
