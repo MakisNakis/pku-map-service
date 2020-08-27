@@ -23,20 +23,29 @@ class TableComponent extends Component {
         this.state = {
             pkuInfo: [],
             filterColor: "white",
-            // performers: [] // список всех исполнителей (монтажников)
+            // performers: this.getPerformers() // список всех исполнителей (монтажников)
         };
         this.url = window.location.href;
         this.copyPkuInfo = [];
-        this.performers = this.getPerformers();
+        this.performers = [];
+    }
+
+    componentWillMount() {
+        this.getPerformers()
+            .then(data => {
+                this.performers = data;
+            })
+            .catch(() => {
+                console.log("Ошибка при асинхронном запросе для чтения исполнителей");
+            });
     }
 
     async getPerformers() {
         const performers = [];
-        await fetch('/api/auth/perfName').then(result => {
-            console.log(result);
-            return result.json();
-        }).then( data => {
-            console.log(data.rows);
+        const performersMas = await fetch('/api/auth/perfName')
+            .then(result => result.json())
+            .then(data => {
+            // console.log(data.rows);
             const lenMas = data.rows.length;
             for( let i = 0; i < lenMas; i++) {
                 performers[i] = {
@@ -44,11 +53,13 @@ class TableComponent extends Component {
                     value: data.rows[i].ID
                 }
             }
+            console.log(performers);
+            return performers;
         }).catch(() => {
             console.log('Ошибка на /api/auth/perfName');
-        })
-        console.log(performers);
-        return performers;
+        });
+        console.log(performersMas);
+        return performersMas;
     }
 
 
@@ -174,6 +185,7 @@ class TableComponent extends Component {
 
         // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
         const tableHeaders = ColumnsData(this.performers); // подключаем заголовки таблиц из файла ../data/ColumnsData
+        console.log(this.performers);
         const {ExportCSVButton} = CSVExport; // кнопка для экспорта таблицы в CSV
 
 

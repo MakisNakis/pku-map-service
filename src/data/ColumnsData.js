@@ -39,7 +39,7 @@ export function ColumnsData(performers) {
     // let performers = [{label: "1"}, {label:"2"}, {label: "3"}]
 
 // console.log()
-// console.log(performers)
+console.log(performers)
 // console.log(JSON.stringify(performers))
 
 
