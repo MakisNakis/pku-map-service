@@ -266,11 +266,15 @@ class App extends React.Component {
 
     changePassOpenWindow = () => {
         let flag = !this.state.showChangePassForm;
-        this.setState({showChangePassForm: true});
+        this.setState({
+            showChangePassForm: true
+        });
     }
 
     closeChangePassWindow = () => {
-        this.setState({showChangePassForm: false});
+        this.setState({
+            showChangePassForm: false
+        });
     }
 
     changePassword = async (e) => {

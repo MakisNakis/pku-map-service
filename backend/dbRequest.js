@@ -141,8 +141,8 @@ class MyRepository {
                 break;
             case "Монтажники1":
                 let DateWork = null;
-                let PerformerNameMontazhniki;
-                let flag1 = null;
+                let PerformerNameMontazhniki = null;
+                // let flag1 = null;
                 let CommentMontazhniki1 = null;
 
                 if(row.DateWork !== null && row.DateWork !== '') {
@@ -152,17 +152,21 @@ class MyRepository {
                     CommentMontazhniki1 = this.convertToPG(row.Comment);
                 }
 
-                if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
-                    PerformerNameMontazhniki = 1;
-                } else if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
-                    PerformerNameMontazhniki = 2;
-                } else if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
-                    PerformerNameMontazhniki = 3;
-                } else if(row.PerformerName === '---' ) {
-                    PerformerNameMontazhniki = null;
-                } else {
+                if (row.PerformerName !== '') {
                     PerformerNameMontazhniki = parseInt(row.PerformerName);
                 }
+
+                // if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
+                //     PerformerNameMontazhniki = 1;
+                // } else if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
+                //     PerformerNameMontazhniki = 2;
+                // } else if(row.PerformerName === 'Шакиров Ришат' || row.PerformerName === 'Шакиров Р.') {
+                //     PerformerNameMontazhniki = 3;
+                // } else if(row.PerformerName === '---' ) {
+                //     PerformerNameMontazhniki = null;
+                // } else {
+                //     PerformerNameMontazhniki = parseInt(row.PerformerName);
+                // }
                                                                 // запрос на внесение данных о работах для монтажников
                 query = this.client.query(`select * from f_u_subwork_perf(
                     ${row.WorkID},
@@ -182,7 +186,7 @@ class MyRepository {
                 let EndDateAkt = null;
                 let MaterialDate = null;
                 let CommentPTO1 = null;
-                let PerformerNamePTO;
+                let PerformerNamePTO = null;
 
                 if(row.StartDateCon !== null && row.StartDateCon !== '') {
                     StartDateCon = this.convertToPG(row.StartDateCon);
@@ -208,18 +212,20 @@ class MyRepository {
                 if(row.Comment !== '' && row.Comment !== null) {
                     CommentPTO1 = this.convertToPG(row.Comment);
                 }
-
-                if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
-                    PerformerNamePTO = 1;
-                } else if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
-                    PerformerNamePTO = 2;
-                } else if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
-                    PerformerNamePTO = 3;
-                } else if(row.PerformerName === '---' ) {
-                    PerformerNamePTO = null;
-                } else {
+                if (row.PerformerName !== '') {
                     PerformerNamePTO = parseInt(row.PerformerName);
                 }
+                // if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
+                //     PerformerNamePTO = 1;
+                // } else if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
+                //     PerformerNamePTO = 2;
+                // } else if(row.PerformerName === 'Шакиров Ришат' || row.PerformerName === 'Шакиров Р.') {
+                //     PerformerNamePTO = 3;
+                // } else if(row.PerformerName === '---' ) {
+                //     PerformerNamePTO = null;
+                // } else {
+                //     PerformerNamePTO = parseInt(row.PerformerName);
+                // }
                                                                 // запрос на внесение данных о работах для отдела ПТО
                 query = this.client.query(`select * from f_u_subwork_pto(
                     ${row.WorkID},

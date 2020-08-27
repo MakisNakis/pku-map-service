@@ -23,11 +23,43 @@ class TableComponent extends Component {
         this.state = {
             pkuInfo: [],
             filterColor: "white",
-            // performers: [] // список всех исполнителей (монтажников)
+            // performers: this.getPerformers() // список всех исполнителей (монтажников)
         };
         this.url = window.location.href;
         this.copyPkuInfo = [];
+        this.performers = [];
+    }
 
+    componentWillMount() {
+        this.getPerformers()
+            .then(data => {
+                this.performers = data;
+            })
+            .catch(() => {
+                console.log("Ошибка при асинхронном запросе для чтения исполнителей");
+            });
+    }
+
+    async getPerformers() {
+        const performers = [];
+        const performersMas = await fetch('/api/auth/perfName')
+            .then(result => result.json())
+            .then(data => {
+            // console.log(data.rows);
+            const lenMas = data.rows.length;
+            for( let i = 0; i < lenMas; i++) {
+                performers[i] = {
+                    label: data.rows[i].Surname + ' ' + data.rows[i].Name,
+                    value: data.rows[i].ID
+                }
+            }
+            console.log(performers);
+            return performers;
+        }).catch(() => {
+            console.log('Ошибка на /api/auth/perfName');
+        });
+        console.log(performersMas);
+        return performersMas;
     }
 
 
@@ -52,8 +84,6 @@ class TableComponent extends Component {
                  });
                  this.copyPkuInfo = this.state.pkuInfo;
 
-             // console.log(this.state.pkuInfo);
-             // console.log(Object.keys(data.rows[0])[0]);
          }).catch(() => {
              console.log(`Ошибка при выполнении запроса с ${apiRoute}${idPKU}`);
          });
@@ -95,72 +125,42 @@ class TableComponent extends Component {
     }
 
     async uploadData(rowEdit) {
-        // let userId = localStorage.getItem('userId')
-        // console.log(userId)
-        // if (this.props.routeNumber === 2) {
-            switch (this.props.typeTable) {
-                case "ОМТС":
-                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
-                    break;
-                case "Монтажники1":
-                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/Montazhniki/Montazhniki1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
-                    break;
-                case "ПТО1":
-                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
-                    break;
-                case "ПТО2":
-                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO2/`, this.props.idPKU, rowEdit, this.props.routeNumber);
-                    break;
-                default:
-                    break;
-            }
-        // }
-        //
-        // if (this.props.routeNumber === 3) {
-        //     switch (this.props.typeTable) {
-        //         case "ОМТС":
-        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/OMTS/', this.props.idPKU, rowEdit, this.props.routeNumber);
-        //             break;
-        //         case "Монтажники1":
-        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit, this.props.routeNumber);
-        //             break;
-        //         case "ПТО1":
-        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/PTO/PTO1/', this.props.idPKU, rowEdit, this.props.routeNumber);
-        //             break;
-        //         case "ПТО2":
-        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/PTO/PTO2/', this.props.idPKU, rowEdit, this.props.routeNumber);
-        //             break;
-        //         default:
-        //             break;
-        //     }
-        // }
+        switch (this.props.typeTable) {
+            case "ОМТС":
+                this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                break;
+            case "Монтажники1":
+                this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/Montazhniki/Montazhniki1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                break;
+            case "ПТО1":
+                this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                break;
+            case "ПТО2":
+                this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO2/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                break;
+            default:
+                break;
+        }
     }
 
     componentWillReceiveProps(nextProp) { // если получаем новые пропсы, то перерисовыаем таблицу
         if (nextProp.typeTable !== this.props.typeTable || nextProp.idPKU !== this.props.idPKU || nextProp.routeNumber !== this.props.routeNumber) {
-            // console.log(this.props.routeNumber)
-            // console.log(nextProp.routeNumber)
             this.loadData(nextProp.idPKU, nextProp.typeTable, nextProp.routeNumber);
         }
     }
 
     async fetchOnApi(apiRoute, idPKU, rowEdit) {
         let jsonObj = {rowEdit: rowEdit, userId: localStorage.getItem('userId')}
-        // console.log(window.location.href);
         console.log(rowEdit);
         await fetch(`${this.url}${apiRoute}${idPKU}`, {
         // await fetch('http://192.168.1.116:5000/api/test1', {
             method: 'POST',
             headers:{'content-type': 'application/json'},
             mode: "cors",
-            // credentials: 'same-origin',
             body: JSON.stringify(jsonObj),
-            // cache: "no-cache",
         }).then(results => {
-            // console.log(results);
             return results.json();
         }).then(data => {
-            // console.log(data);
             this.fetchFromApi(apiRoute, idPKU) // вызываем для обновления полей таблицы после апдейта
         }).catch((err) => {
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}${idPKU}`);
@@ -184,7 +184,8 @@ class TableComponent extends Component {
     render() {
 
         // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
-        const tableHeaders = ColumnsData(); // подключаем заголовки таблиц из файла ../data/ColumnsData
+        const tableHeaders = ColumnsData(this.performers); // подключаем заголовки таблиц из файла ../data/ColumnsData
+        console.log(this.performers);
         const {ExportCSVButton} = CSVExport; // кнопка для экспорта таблицы в CSV
 
 
@@ -354,7 +355,7 @@ class TableComponent extends Component {
                 </div>
                 }
 
-                <p>{!this.props.hide}</p>
+                <p className={"messageStyle"} align={"center"}>{this.props.hide}</p>
 
 
             </div>

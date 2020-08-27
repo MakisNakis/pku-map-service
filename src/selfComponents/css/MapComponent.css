@@ -5,16 +5,21 @@
     padding: 0;
 }
 
+.tableMapPku {
+    width: 100%;
+}
+
 .select1 {
     width: 100%;
 }
 
 .pkuListComp {
     vertical-align: top;
+
 }
 
 #pkuListCompDiv {
-    padding: 0 0 0 20px;
+    padding: 0 0 0 1%;
     height: 65vh;
 }
 
