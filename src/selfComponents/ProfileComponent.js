@@ -44,7 +44,7 @@ class ProfileComponent extends Component {
                         <tr >
                             <td>
                                 <button className={"buttonList button7"} onClick={this.props.changePassOpenWindow}>
-                                    Сменить пороль
+                                    Сменить пароль
                                 </button>
                             </td>
                         </tr>
