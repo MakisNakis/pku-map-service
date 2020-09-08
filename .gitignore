@@ -2,3 +2,7 @@
 
 ./node_modules
 /.idea/codeStyles/codeStyleConfig.xml
+/backend/node_modules/
+/backend/npm-debug.log
+/node_modules/
+/.idea/shelf/

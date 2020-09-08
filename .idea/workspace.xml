@@ -741,11 +741,16 @@
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593016893395" />
     <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315937267" />
     <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1598527271852" />
-    <state x="764" y="475" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598358232145">
-      <screen x="67" y="27" width="1853" height="1068" />
+    <state x="751" y="329" width="475" height="566" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1599568130430">
+      <screen x="67" y="27" width="1853" height="1173" />
+    </state>
+    <state x="751" y="329" width="475" height="566" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/67.27.1853.1173@67.27.1853.1173" timestamp="1599568130430" />
+    <state x="764" y="519" width="428" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599567837583">
+      <screen x="67" y="27" width="1853" height="1173" />
     </state>
     <state x="722" y="503" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596030309751" />
     <state x="764" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1068@67.27.1853.1068" timestamp="1598358232145" />
+    <state x="764" y="519" width="428" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1173@67.27.1853.1173" timestamp="1599567837583" />
     <state x="550" y="125" key="git4idea.branch.GitSmartOperationDialog" timestamp="1592919376093">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
