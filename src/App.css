@@ -1,10 +1,15 @@
 
 
 #mainDiv {
-    width: 99%;
-    padding: 5px 20px 5px 20px;
-}
+    /*width: 99%;*/
+    padding: 10px 10% 10px 10%;
 
+    }
+
+#globalDiv {
+    /*background-image:*/
+    /*        url("./bg23.jpg");*/
+}
 
 /*.mapComp {*/
 /*    width: 85vw;*/

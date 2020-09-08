@@ -8,7 +8,7 @@ import ButtonUpComponent from './selfComponents/ButtonUpComponent';
 import ProfileComponent from './selfComponents/ProfileComponent';
 import ChangePasswordComponent from './selfComponents/ChangePasswordComponent';
 
-import logo from './003 Лого Без фона.png';
+import logo from './Транснефть-лого-шапка.png';
 
 import BootstrapTable from 'react-bootstrap-table-next';
 import cellEditFactory from 'react-bootstrap-table2-editor';
@@ -352,7 +352,7 @@ class App extends React.Component {
 
 
         return (
-            <div id={"mainDiv"}>
+            <div id={"globalDiv"}>
 
                 {/*<BootstrapTable*/}
                 {/*    keyField="id"*/}
@@ -369,7 +369,7 @@ class App extends React.Component {
                     handleChange={this.handleChange}
                 />}
                 {this.state.authorisation &&
-                <div>
+                <div id="mainDiv">
 
                     <table width={"100%"} >
                         <tr>
