@@ -7,7 +7,7 @@
 }
 
 .auth {
-    margin-top: 20%;
+    margin-top: 15%;
 }
 
 /*.fixed-header {*/
@@ -64,6 +64,10 @@ th {
     margin-left: 15px;
 }
 
+.messageStyle {
+    color: #5e5e5e;
+    font-weight: 500;
+}
 
 .TableComp {
     width: 100%;

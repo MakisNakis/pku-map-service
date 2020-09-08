@@ -7,7 +7,7 @@ const port = 5000;
 const repository = new MyRepository();
 
 const types = require('pg').types;                              // подключаем pg types для обработки типов данных, считываемых из pg
-const moment = require('moment');                               // подключаем moment js для обработки дат
+// const moment = require('moment');                               // подключаем moment js для обработки дат
 
 var parseFn = function(val) {                                   // функция обработчик для обработки типов данных, считываемых из pg
     return val
@@ -194,6 +194,14 @@ for (let i = 0; i < 130; i++) {                                  // цикл, в
         const data = await repository.loadDataForTable(i, "Отчеты2",3);
         res.json(data.rows);
     });
+    app.get(`/api/pkuDataServerPKUTable/2/Logs/${i}`, async (req, res) => {
+        const data = await repository.loadDataForTable(i, "Логи",2);
+        res.json(data.rows);
+    });
+    app.get(`/api/pkuDataServerPKUTable/3/Logs/${i}`, async (req, res) => {
+        const data = await repository.loadDataForTable(i, "Логи",3);
+        res.json(data.rows);
+    });
 }
 
 app.route(`/api/auth`) // эндпоинт для получения id пользователя, который логинится
@@ -205,10 +213,20 @@ app.route(`/api/auth`) // эндпоинт для получения id поль
             res.send(dbResponse);
     });
 
+app.route(`/api/changePassword`)
+    .post(async (req, res) => {
+        let data = req.body;
+        console.log(data);
+        const dbResponse = await repository.changePassword(data);
+        console.log(dbResponse);
+        // res.send(req.body);
+        res.send(dbResponse);
+    });
+
 app.route(`/api/auth/userRole`) // эндпоинт для получения номера роли пользователя, который залогинился
     .post(async (req, res) => {
-        let data = req.body
-        // console.log(data)
+        let data = req.body;
+        // console.log(data);
         const dbResponse = await repository.getUserRole(data);
         // res.send(req.body);
         res.send(dbResponse);
@@ -225,6 +243,7 @@ app.route(`/api/auth/userName`) // эндпоинт для получения и
 app.route(`/api/auth/perfName`) // эндпоинт для получения имени исполнителя
     .get(async (req, res) => {
         const dbResponse = await repository.getPerfName();
+        console.log(dbResponse.rows);
         // console.log(`В авторизовался пользователь ${dbResponse}`)
         res.send(dbResponse);
     });

@@ -39,13 +39,13 @@ export function ColumnsData(performers) {
     // let performers = [{label: "1"}, {label:"2"}, {label: "3"}]
 
 // console.log()
-// console.log(performers)
+console.log(performers)
 // console.log(JSON.stringify(performers))
 
 
 //     let performersMas = []
-//     let performersMas = [{label: "Бажутов Сергей", value: 1}, {label: "Камалетдинов Рамис", value: 2}, {label: "Шакиров Рашид", value: 3}]
-    let performersMas = [{label: "Бажутов Сергей", value: "1"}, {label: "Камалетдинов Рамис", value: "2"}, {label: "Шакиров Рашид", value: "3"}, {label: "Очистить", value: "null"}]
+//     let performersMas = [{label: "Бажутов Сергей", value: 1}, {label: "Камалетдинов Рамис", value: 2}, {label: "Шакиров Ришат", value: 3}]
+    // let performersMas = [{label: "Бажутов Сергей", value: "Бажутов Сергей"}, {label: "Камалетдинов Рамис", value: "Камалетдинов Рамис"}, {label: "Шакиров Рашид", value: "Шакиров Рашид"}]
 //     for (let i = 0; i < performers.length; i++){
 //         performersMas[i] = {label: performers[i].Surname}
 //     }
@@ -266,7 +266,7 @@ export function ColumnsData(performers) {
         editable: true,
         editor: {
             type: Type.SELECT,
-            options: performersMas
+            options: performers
         },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -402,7 +402,7 @@ export function ColumnsData(performers) {
         editable: true,
         editor: {
             type: Type.SELECT,
-            options: performersMas
+            options: performers
         },
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
@@ -908,6 +908,68 @@ export function ColumnsData(performers) {
             return {width: 200, textAlign: 'center'};
         }
     }];
+
+    tableHeaders["Логи"] = [{
+        dataField: 'Comment',
+        text: 'Описание',
+        sort: true,
+        headerStyle: (colum, colIndex) => {
+            return {width: 700, textAlign: 'center'};
+        }
+    }, {
+        dataField: 'TableName',
+        text: 'Название таблицы',
+        sort: true,
+        editable: false,
+
+        headerStyle: (colum, colIndex) => {
+            return {width: 180, textAlign: 'center'};
+        }
+    }, {
+        dataField: 'RowName',
+        text: 'Название колонки',
+        sort: true,
+        editable: false,
+
+        headerStyle: (colum, colIndex) => {
+            return {width: 180, textAlign: 'center'};
+        }
+    }, {
+        dataField: 'OldValue',
+        text: 'Старое значение',
+        sort: true,
+        editable: false,
+
+        headerStyle: (colum, colIndex) => {
+            return {width: 200, textAlign: 'center'};
+        }
+    }, {
+        dataField: 'NewValue',
+        text: 'Новое значение',
+        sort: true,
+        editable: false,
+
+        headerStyle: (colum, colIndex) => {
+            return {width: 200, textAlign: 'center'};
+        }
+    }, {
+        dataField: 'User',
+        text: 'Пользователь',
+        sort: true,
+        editable: false,
+        headerStyle: (colum, colIndex) => {
+            return {width: 180, textAlign: 'center'};
+        }
+    }, {
+        dataField: 'DateUp',
+        text: 'Дата внес. изменений',
+        sort: true,
+        editable: false,
+        headerStyle: (colum, colIndex) => {
+            return {width: 180, textAlign: 'center'};
+        }
+    }];
+
     return tableHeaders;
 
 }

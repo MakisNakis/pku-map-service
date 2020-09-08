@@ -19,13 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="- убрал лишние логи с клиента&#10;- добавил логи в серверный терминал, позволяющие отследить время и дату авторизации пользователея и внесения изменений">
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/003 Лого Без фона.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Транснефть-лого-шапка.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/ColumnsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +47,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -94,7 +89,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -112,17 +107,22 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/selfComponents" />
-      <recent name="$PROJECT_DIR$/backend" />
-      <recent name="$PROJECT_DIR$/public/markers" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/selfComponents" />
       <recent name="$PROJECT_DIR$/public/markers" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/selfComponents" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/backend" />
+      <recent name="$PROJECT_DIR$/public/markers" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value=".incorrectAuth {" />
+    </option>
   </component>
   <component name="RunManager" selected="npm.dev">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -232,101 +232,11 @@
       <workItem from="1597040134912" duration="16193000" />
       <workItem from="1597129145704" duration="25847000" />
       <workItem from="1597225103778" duration="15295000" />
-      <workItem from="1597298444370" duration="21473000" />
-      <workItem from="1597647066838" duration="10951000" />
-      <workItem from="1597817576314" duration="3922000" />
-      <workItem from="1599461906358" duration="2058000" />
-    </task>
-    <task id="LOCAL-00016" summary="&#10;TODO: &#10;- развернуть бек на Node / Express">
-      <created>1590153385757</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1590153385758</updated>
-    </task>
-    <task id="LOCAL-00017" summary="- получил данные с сервера на клиенте &#10;TODO: &#10;- Вывести информацию с сервера на карте&#10;- Привести код к красивому виду">
-      <created>1590190831669</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1590190831669</updated>
-    </task>
-    <task id="LOCAL-00018" summary="- Вывел информацию с сервера на карте&#10;&#10;TODO: &#10;- Привести код к красивому виду">
-      <created>1590342667866</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1590342667866</updated>
-    </task>
-    <task id="LOCAL-00019" summary="- Вывел информацию с сервера на карте&#10;&#10;TODO: &#10;- Привести код к красивому виду">
-      <created>1590352676777</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1590352676777</updated>
-    </task>
-    <task id="LOCAL-00020" summary="- Вывел информацию с сервера на карте&#10;&#10;Merged with 'tabolin' branch">
-      <created>1590412969738</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1590412969738</updated>
-    </task>
-    <task id="LOCAL-00021" summary="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
-      <created>1590413083455</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1590413083455</updated>
-    </task>
-    <task id="LOCAL-00022" summary="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
-      <created>1590414361557</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1590414361557</updated>
-    </task>
-    <task id="LOCAL-00023" summary="- Пулл в 'rusteeck' из 'makeBackOnNodeJS'">
-      <created>1590422377903</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1590422377903</updated>
-    </task>
-    <task id="LOCAL-00024" summary="+ простая авторизация">
-      <created>1592919502768</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1592919502768</updated>
-    </task>
-    <task id="LOCAL-00025" summary="+ scroll&#10;- не доделан скролл">
-      <created>1593016889093</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1593016889093</updated>
-    </task>
-    <task id="LOCAL-00026" summary="+ scroll&#10;- не доделан скролл">
-      <created>1593071098353</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1593071098353</updated>
-    </task>
-    <task id="LOCAL-00027" summary="+ scroll&#10;- не доделан скролл">
-      <created>1593071362415</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1593071362416</updated>
-    </task>
-    <task id="LOCAL-00028" summary="- добавил состояние ROOT пользователя в App.js">
-      <created>1593072352251</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1593072352251</updated>
+      <workItem from="1597298444370" duration="17100000" />
+      <workItem from="1598257516196" duration="19896000" />
+      <workItem from="1598351333205" duration="4354000" />
+      <workItem from="1598356056888" duration="6978000" />
+      <workItem from="1598423903611" duration="22705000" />
     </task>
     <task id="LOCAL-00029" summary="+ просто commit">
       <created>1593075465527</created>
@@ -573,14 +483,105 @@
       <option name="project" value="LOCAL" />
       <updated>1597315928863</updated>
     </task>
-    <task id="LOCAL-00064" summary="- убрал лишние логи с клиента&#10;- добавил логи в серверный терминал, позволяющие отследить время и дату авторизации пользователея и внесения изменений">
-      <created>1597317925108</created>
+    <task id="LOCAL-00064" summary="+ добавлен журнал действий">
+      <created>1597918518412</created>
       <option name="number" value="00064" />
       <option name="presentableId" value="LOCAL-00064" />
       <option name="project" value="LOCAL" />
-      <updated>1597317925108</updated>
+      <updated>1597918518412</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="+ если в поле комментария нет информации, то в БД вносится null">
+      <created>1597920116704</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1597920116704</updated>
+    </task>
+    <task id="LOCAL-00066" summary="+ название ПО">
+      <created>1597928936100</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1597928936100</updated>
+    </task>
+    <task id="LOCAL-00067" summary="+ кнопка &quot;наверх&quot;">
+      <created>1598004780946</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1598004780946</updated>
+    </task>
+    <task id="LOCAL-00068" summary="+ удаление дат">
+      <created>1598006450810</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1598006450810</updated>
+    </task>
+    <task id="LOCAL-00069" summary="+ появление надписи на карте при нажатии на кнопку с ПКУ&#10;+ убрал масштаб колесиком">
+      <created>1598016345115</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1598016345115</updated>
+    </task>
+    <task id="LOCAL-00070" summary="+ вернул сохранение данных нажатием на зону вне поля ввода">
+      <created>1598016436542</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1598016436542</updated>
+    </task>
+    <task id="LOCAL-00071" summary="+ убрал баг отрисовки описания пку">
+      <created>1598017666409</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1598017666410</updated>
+    </task>
+    <task id="LOCAL-00072" summary="+ Личный кабинет&#10;+ смена пароля">
+      <created>1598358218845</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1598358218845</updated>
+    </task>
+    <task id="LOCAL-00073" summary="+ убрал ограничение по символам&#10;+ можно использовать цифры в пароле">
+      <created>1598359066477</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1598359066477</updated>
+    </task>
+    <task id="LOCAL-00074" summary="+ сообщения об ошибках пишутся красным цветом">
+      <created>1598359351410</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1598359351410</updated>
+    </task>
+    <task id="LOCAL-00075" summary="+ добавил стилей">
+      <created>1598433896321</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1598433896322</updated>
+    </task>
+    <task id="LOCAL-00076" summary="+ перформеры берутся из бд">
+      <created>1598516017371</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1598516017371</updated>
+    </task>
+    <task id="LOCAL-00077" summary="+ перформеры берутся из бд (fix)">
+      <created>1598527268753</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1598527268753</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -599,20 +600,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="+ исправил формат даты и времени (fix)" />
-    <MESSAGE value="TODO: Авторизация" />
-    <MESSAGE value="- авторизация, сравнивающая значения логинов и паролей с базой данных, вовзращает данные об id пользователя, номере роли и имени пользователя&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей" />
-    <MESSAGE value="- добавил разделение прав на клиенте в соответствие с логином.паролем&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей" />
-    <MESSAGE value="- сохранение сессии и куки&#10;- TODO:&#10;        1 - хеширование паролей" />
-    <MESSAGE value="- добавил кнопку выхода&#10;- TODO:&#10;        1 - хеширование паролей" />
-    <MESSAGE value="- добавил кнопку выхода&#10;- исправил баги&#10;- TODO:&#10;        1 - хеширование паролей" />
-    <MESSAGE value="- merge с tabolin2&#10;- TODO:&#10;        1 - хеширование паролей" />
-    <MESSAGE value="+ сравнение значений в ячейке на изменение" />
-    <MESSAGE value="- изменил стили&#10;- добавил логотип АО &quot;ОМЕГА&quot;" />
-    <MESSAGE value="- небольшие правки к стилям&#10;- изменил название выходного CSV файла" />
-    <MESSAGE value="- небольшие правки к стилям [2]" />
-    <MESSAGE value="- небольшие правки к стилям [3]" />
-    <MESSAGE value="- немного поменял название заголовков таблицы &quot;Отчет1&quot;" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="- поменял кнопку авторизации" />
     <MESSAGE value="- рабочая преАльфа" />
     <MESSAGE value="- убрал слайдер снизу" />
@@ -623,19 +611,42 @@
     <MESSAGE value="- сделал смену списка ПКУшек при нажатии на маркеры в зависимости от номера маршрута&#10;- Обновил общий заголовок таблицы в соотвествии с номером маршрута&#10;&#10;TODO: - Выбор маршрута (Башкултаево), а именно:  привинтить получение информации с сервера в зависимости от того, какая ПКУ и с каого маршрута выбрана и добавить кнопку для смены маршрута" />
     <MESSAGE value=" - Выбор маршрута (Башкултаево), а именно:  привинтить получение информации с сервера в зависимости от того, какая ПКУ и с каrого маршрута выбрана и добавить кнопку для смены маршрута" />
     <MESSAGE value=" - Выбор маршрута (Башкултаево), а именно:  привинтить получение информации с сервера в зависимости от того, какая ПКУ и с какого маршрута выбрана и добавить кнопку для смены маршрута" />
-    <MESSAGE value="- убрал лишние логи с клиента&#10;- добавил логи в серверный терминал, позволяющие отследить время и дату авторизации пользователея и внесения изменений" />
-    <option name="LAST_COMMIT_MESSAGE" value="- убрал лишние логи с клиента&#10;- добавил логи в серверный терминал, позволяющие отследить время и дату авторизации пользователея и внесения изменений" />
+    <MESSAGE value="+ добавлен журнал действий" />
+    <MESSAGE value="+ если в поле комментария нет информации, то в БД вносится null" />
+    <MESSAGE value="+ название ПО" />
+    <MESSAGE value="+ кнопка &quot;наверх&quot;" />
+    <MESSAGE value="+ удаление дат" />
+    <MESSAGE value="+ появление надписи на карте при нажатии на кнопку с ПКУ&#10;+ убрал масштаб колесиком" />
+    <MESSAGE value="+ вернул сохранение данных нажатием на зону вне поля" />
+    <MESSAGE value="+ вернул сохранение данных нажатием на зону вне поля ввода" />
+    <MESSAGE value="+ убрал баг отрисовки описания пку" />
+    <MESSAGE value="+ Личный кабинет&#10;+ смена пароля" />
+    <MESSAGE value="+ убрал ограничение по символам&#10;+ можно использовать цифры в пароле" />
+    <MESSAGE value="+ сообщения об ошибках пишутся красным цветом" />
+    <MESSAGE value="+ добавил стилей" />
+    <MESSAGE value="+ перформеры берутся из бд" />
+    <MESSAGE value="+ перформеры берутся из бд (fix)" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ перформеры берутся из бд (fix)" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596188972129">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
+      <screen x="67" y="27" width="1853" height="1068" />
+    </state>
+    <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1597913959737" />
+    <state x="649" y="362" width="678" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597994626869">
+      <screen x="67" y="27" width="1853" height="1068" />
+    </state>
+    <state x="649" y="362" width="678" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1068@67.27.1853.1068" timestamp="1597994626869" />
+    <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598439326183">
+      <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2" timestamp="1597320366399">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1598439326183" />
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1598527268611">
+      <screen x="67" y="27" width="1853" height="1068" />
     </state>
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597320366399" />
-    <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1596527755852" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315928553" />
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1598527268611" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -718,17 +729,17 @@
     </state>
     <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
     <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596113405534" />
-    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1597317929710">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state x="503" y="215" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1598527271852">
+      <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593016893395" />
-    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597317929710" />
-    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1596527760144" />
-    <state x="722" y="503" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596030309751">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315937267" />
+    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1598527271852" />
+    <state x="764" y="475" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598358232145">
+      <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="722" y="503" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596030309751" />
-    <state x="764" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1068@67.27.1853.1068" timestamp="1593090182755" />
+    <state x="764" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1068@67.27.1853.1068" timestamp="1598358232145" />
     <state x="550" y="125" key="git4idea.branch.GitSmartOperationDialog" timestamp="1592919376093">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -737,11 +748,11 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="665" y="403" width="590" height="415" key="git4idea.merge.GitPullDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596184495430" />
-    <state x="611" y="258" key="run.anything.popup" timestamp="1597157485828">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state x="657" y="257" width="672" height="677" key="run.anything.popup" timestamp="1598359246948">
+      <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="611" y="258" key="run.anything.popup/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597157485828" />
-    <state x="657" y="257" key="run.anything.popup/67.27.1853.1068@67.27.1853.1068" timestamp="1596621977384" />
+    <state x="657" y="257" width="672" height="677" key="run.anything.popup/67.27.1853.1068@67.27.1853.1068" timestamp="1598359246948" />
     <state x="610" y="263" width="697" height="762" key="search.everywhere.popup" timestamp="1596179811728">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>

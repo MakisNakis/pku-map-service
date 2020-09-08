@@ -2,9 +2,11 @@ import React, {Component} from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import cellEditFactory from 'react-bootstrap-table2-editor';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-// import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
+import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
 import ToolkitProvider, {Search, CSVExport} from 'react-bootstrap-table2-toolkit';
 import {ColumnsData} from "../data/ColumnsData";
+import Modal from 'react-bootstrap/Modal'
+import { Button } from 'react-bootstrap';
 
 
 import './css/TableComponent.css';
@@ -21,62 +23,73 @@ class TableComponent extends Component {
         this.state = {
             pkuInfo: [],
             filterColor: "white",
-            // performers: [] // список всех исполнителей (монтажников)
+            // performers: this.getPerformers() // список всех исполнителей (монтажников)
         };
         this.url = window.location.href;
         this.copyPkuInfo = [];
+        this.performers = [];
+    }
 
+    componentWillMount() {
+        this.getPerformers()
+            .then(data => {
+                this.performers = data;
+            })
+            .catch(() => {
+                console.log("Ошибка при асинхронном запросе для чтения исполнителей");
+            });
+    }
+
+    async getPerformers() {
+        const performers = [];
+        const performersMas = await fetch('/api/auth/perfName')
+            .then(result => result.json())
+            .then(data => {
+            // console.log(data.rows);
+            const lenMas = data.rows.length;
+            for( let i = 0; i < lenMas; i++) {
+                performers[i] = {
+                    label: data.rows[i].Name,
+                    value: data.rows[i].ID
+                }
+            }
+            console.log(performers);
+            return performers;
+        }).catch(() => {
+            console.log('Ошибка на /api/auth/perfName');
+        });
+        console.log(performersMas);
+        return performersMas;
     }
 
 
-         async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
-             await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
-                // console.log(`/api/pkuDataServerPKUTable${idPKU}`);                  // apiRoute - api адрес, откуда нужно получить данные
-                // console.log(results);
-                 return results.json();
-             }).then(
-                 data => {
-                     let pkuInfoWithID = data.map((val, ix) => {
-                         val.tableID = ix+1;
-                         // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
-                         return val;
-                     });
-                     // console.log(data);
-                     this.setState({
-                         pkuInfo: pkuInfoWithID,
-                         filterColor: "white",
+     async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
+         await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
+            // console.log(`/api/pkuDataServerPKUTable${idPKU}`);                  // apiRoute - api адрес, откуда нужно получить данные
+            console.log(results);
+             return results.json();
+         }).then(
+             data => {
+                 console.log(data);
+                 let pkuInfoWithID = data.map((val, ix) => {
+                     val.tableID = ix+1;
+                     // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
+                     return val;
+                 });
+                 // console.log(data);
+                 this.setState({
+                     pkuInfo: pkuInfoWithID,
+                     filterColor: "white",
 
-                     });
-                     this.copyPkuInfo = this.state.pkuInfo;
+                 });
+                 this.copyPkuInfo = this.state.pkuInfo;
 
-                 // console.log(this.state.pkuInfo);
-                 // console.log(Object.keys(data.rows[0])[0]);
-             }).catch(() => {
-                 console.log(`Ошибка при выполнении запроса с ${apiRoute}${idPKU}`);
-             });
+         }).catch(() => {
+             console.log(`Ошибка при выполнении запроса с ${apiRoute}${idPKU}`);
+         });
 
-         }
+     }
 
-    // async fetchFromApi(apiRoute, idPKU, rowEdit) {
-    //     let jsonObj = {routeNumber: this.props.routeNumber}
-    //     await fetch(`${this.url}${apiRoute}${idPKU}`, {
-    //         // await fetch('http://192.168.1.116:5000/api/test1', {
-    //         method: 'POST',
-    //         headers:{'content-type': 'application/json'},
-    //         mode: "cors",
-    //         // credentials: 'same-origin',
-    //         body: JSON.stringify(jsonObj),
-    //         // cache: "no-cache",
-    //     }).then(results => {
-    //         console.log(results);
-    //         return results.json();
-    //     }).then(data => {
-    //         console.log(data);
-    //         this.fetchFromApi(apiRoute, idPKU) // вызываем для обновления полей таблицы после апдейта
-    //     }).catch((err) => {
-    //         console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}${idPKU}`);
-    //     });
-    // }
 
     async loadData(idPKU, typeTable, nextPropRouteNumber) { // функция для выгрузки соотвествующих для отдела depName данных
         // if (nextPropRouteNumber === 2) {
@@ -102,94 +115,53 @@ class TableComponent extends Component {
                 case "Отчеты2":
                     this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/Otchety/Otchety2/`, idPKU);
                     break;
+                case "Логи":
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${nextPropRouteNumber}/Logs/`, idPKU);
+                    break;
                 default:
                     break;
             }
 
     }
 
-            // async loadPerformers(){ // функция для выгрузки информации об исполнителях (монтаж)
-            //       await fetch(`/api/auth/perfName`).then(results => {
-            //         return results.json();
-            //     }).then(
-            //         data => {
-            //             // console.log(data.rows[0])
-            //             this.setState({performers: data.rows})
-            //             // localStorage.setItem('performers', data.rows);
-            //             // console.log(this.state.performers[0].Name)
-            //     }).catch(() => {
-            //         console.log(`Ошибка при выполнении запроса с /api/auth/perfName`);
-            //     });
-            // }
-
     async uploadData(rowEdit) {
-        // let userId = localStorage.getItem('userId')
-        // console.log(userId)
-        // if (this.props.routeNumber === 2) {
-            switch (this.props.typeTable) {
-                case "ОМТС":
-                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
-                    break;
-                case "Монтажники1":
-                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/Montazhniki/Montazhniki1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
-                    break;
-                case "ПТО1":
-                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
-                    break;
-                case "ПТО2":
-                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO2/`, this.props.idPKU, rowEdit, this.props.routeNumber);
-                    break;
-                default:
-                    break;
-            }
-        // }
-        //
-        // if (this.props.routeNumber === 3) {
-        //     switch (this.props.typeTable) {
-        //         case "ОМТС":
-        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/OMTS/', this.props.idPKU, rowEdit, this.props.routeNumber);
-        //             break;
-        //         case "Монтажники1":
-        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/Montazhniki/Montazhniki1/', this.props.idPKU, rowEdit, this.props.routeNumber);
-        //             break;
-        //         case "ПТО1":
-        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/PTO/PTO1/', this.props.idPKU, rowEdit, this.props.routeNumber);
-        //             break;
-        //         case "ПТО2":
-        //             this.fetchOnApi('/api/pkuDataServerPKUTable/3/PTO/PTO2/', this.props.idPKU, rowEdit, this.props.routeNumber);
-        //             break;
-        //         default:
-        //             break;
-        //     }
-        // }
+        switch (this.props.typeTable) {
+            case "ОМТС":
+                this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                break;
+            case "Монтажники1":
+                this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/Montazhniki/Montazhniki1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                break;
+            case "ПТО1":
+                this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                break;
+            case "ПТО2":
+                this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO2/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                break;
+            default:
+                break;
+        }
     }
 
     componentWillReceiveProps(nextProp) { // если получаем новые пропсы, то перерисовыаем таблицу
         if (nextProp.typeTable !== this.props.typeTable || nextProp.idPKU !== this.props.idPKU || nextProp.routeNumber !== this.props.routeNumber) {
-            // console.log(this.props.routeNumber)
-            // console.log(nextProp.routeNumber)
             this.loadData(nextProp.idPKU, nextProp.typeTable, nextProp.routeNumber);
         }
     }
 
     async fetchOnApi(apiRoute, idPKU, rowEdit) {
         let jsonObj = {rowEdit: rowEdit, userId: localStorage.getItem('userId')}
-        // console.log(window.location.href);
-        // console.log(rowEdit);
+        console.log(rowEdit);
         await fetch(`${this.url}${apiRoute}${idPKU}`, {
         // await fetch('http://192.168.1.116:5000/api/test1', {
             method: 'POST',
             headers:{'content-type': 'application/json'},
             mode: "cors",
-            // credentials: 'same-origin',
             body: JSON.stringify(jsonObj),
-            // cache: "no-cache",
         }).then(results => {
-            // console.log(results);
             return results.json();
         }).then(data => {
-            // console.log(data);
-            this.fetchFromApi(apiRoute, idPKU); // вызываем для обновления полей таблицы после апдейта
+            this.fetchFromApi(apiRoute, idPKU) // вызываем для обновления полей таблицы после апдейта
         }).catch((err) => {
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}${idPKU}`);
         });
@@ -207,10 +179,13 @@ class TableComponent extends Component {
         return style;
     };
 
+
+
     render() {
 
         // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
-        const tableHeaders = ColumnsData(); // подключаем заголовки таблиц из файла ../data/ColumnsData
+        const tableHeaders = ColumnsData(this.performers); // подключаем заголовки таблиц из файла ../data/ColumnsData
+        console.log(this.performers);
         const {ExportCSVButton} = CSVExport; // кнопка для экспорта таблицы в CSV
 
 
@@ -221,6 +196,8 @@ class TableComponent extends Component {
             </span>
         );
 
+
+
         const optionsPagination = {
             paginationSize: 5,
             pageStartIndex: 1,
@@ -228,10 +205,10 @@ class TableComponent extends Component {
             // withFirstAndLast: false, // Hide the going to First and Last page button
             // hideSizePerPage: true, // Hide the sizePerPage dropdown always
             // hidePageListOnlyOnePage: true, // Hide the pagination list when only one page
-            firstPageText: 'First',
-            prePageText: 'Back',
-            nextPageText: 'Next',
-            lastPageText: 'Last',
+            firstPageText: 'Первая',
+            prePageText: 'Предыдущая',
+            nextPageText: 'Следующая',
+            lastPageText: 'Последняя',
             nextPageTitle: 'First page',
             prePageTitle: 'Pre page',
             firstPageTitle: 'Next page',
@@ -360,8 +337,8 @@ class TableComponent extends Component {
                                         pagination={paginationFactory(optionsPagination)}
                                         cellEdit={cellEditFactory({
                                             mode: 'dbclick',
-                                            blurToSave: false,
-                                            beforeSaveCell: (oldValue, newValue, row, column) => {  },
+                                            blurToSave: true,
+                                            // beforeSaveCell,
                                             afterSaveCell: (oldValue, newValue, row, column) => {
                                                 if (oldValue !== newValue) {
                                                     this.uploadData(row, newValue, column);
@@ -378,7 +355,7 @@ class TableComponent extends Component {
                 </div>
                 }
 
-                <p>{!this.props.hide}</p>
+                <p className={"messageStyle"} align={"center"}>{this.props.hide}</p>
 
 
             </div>
