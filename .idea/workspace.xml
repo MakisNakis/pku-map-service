@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="- test">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="- test" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,6 +90,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="ToolWindowCommit.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editorconfig.notification" value="lf;" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -239,27 +238,7 @@
       <workItem from="1598356056888" duration="6978000" />
       <workItem from="1598423903611" duration="22705000" />
       <workItem from="1599477037720" duration="705000" />
-    </task>
-    <task id="LOCAL-00029" summary="+ просто commit">
-      <created>1593075465527</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1593075465527</updated>
-    </task>
-    <task id="LOCAL-00030" summary="+ просто commit">
-      <created>1593083093605</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1593083093605</updated>
-    </task>
-    <task id="LOCAL-00031" summary="+ просто commit">
-      <created>1593083430530</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1593083430530</updated>
+      <workItem from="1599567810785" duration="296000" />
     </task>
     <task id="LOCAL-00032" summary="+ добавлен выбор под вкладок для отделов">
       <created>1593088888895</created>
@@ -583,7 +562,28 @@
       <option name="project" value="LOCAL" />
       <updated>1598527268753</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="- test">
+      <created>1599567869606</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1599567869607</updated>
+    </task>
+    <task id="LOCAL-00079" summary="- test">
+      <created>1599567937114</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1599567937114</updated>
+    </task>
+    <task id="LOCAL-00080" summary="- test">
+      <created>1599568072948</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1599568072948</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -603,7 +603,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- поменял кнопку авторизации" />
     <MESSAGE value="- рабочая преАльфа" />
     <MESSAGE value="- убрал слайдер снизу" />
     <MESSAGE value="+ убрал слайдер снизу" />
@@ -628,7 +627,8 @@
     <MESSAGE value="+ добавил стилей" />
     <MESSAGE value="+ перформеры берутся из бд" />
     <MESSAGE value="+ перформеры берутся из бд (fix)" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ перформеры берутся из бд (fix)" />
+    <MESSAGE value="- test" />
+    <option name="LAST_COMMIT_MESSAGE" value="- test" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
