@@ -283,7 +283,7 @@ class MyRepository {
              //    console.log(`Авторизовался пользователь ${result.rows[0].f_s_username_userid}`)
              // })
          console.log(`Авторизовался пользователь с id №${data.userId} в ${time} ${date} `)
-         return query;
+         return query
      }
 
     async getPerfName() { // функция для получения имени исполнителя (монтажника)
