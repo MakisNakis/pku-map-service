@@ -19,12 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="- убрал лишние логи с клиента&#10;- добавил логи в серверный терминал, позволяющие отследить время и дату авторизации пользователея и внесения изменений">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/003 Лого Без фона.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Транснефть-лого-шапка.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/DepartmentsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/DepartmentsComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/MapComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/ColumnsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,6 +94,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -231,14 +232,10 @@
       <workItem from="1597040134912" duration="16193000" />
       <workItem from="1597129145704" duration="25847000" />
       <workItem from="1597225103778" duration="15295000" />
-      <workItem from="1597298444370" duration="17100000" />
-    </task>
-    <task id="LOCAL-00015" summary="&#10;TODO: &#10;- развернуть бек на Node / Express">
-      <created>1590150369268</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1590150369268</updated>
+      <workItem from="1597298444370" duration="21473000" />
+      <workItem from="1597647066838" duration="10951000" />
+      <workItem from="1597817576314" duration="3922000" />
+      <workItem from="1599461906358" duration="2058000" />
     </task>
     <task id="LOCAL-00016" summary="&#10;TODO: &#10;- развернуть бек на Node / Express">
       <created>1590153385757</created>
@@ -576,7 +573,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597315928863</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="- убрал лишние логи с клиента&#10;- добавил логи в серверный терминал, позволяющие отследить время и дату авторизации пользователея и внесения изменений">
+      <created>1597317925108</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1597317925108</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -595,7 +599,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="+ исправил формат даты и времени" />
     <MESSAGE value="+ исправил формат даты и времени (fix)" />
     <MESSAGE value="TODO: Авторизация" />
     <MESSAGE value="- авторизация, сравнивающая значения логинов и паролей с базой данных, вовзращает данные об id пользователя, номере роли и имени пользователя&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей" />
@@ -620,17 +623,18 @@
     <MESSAGE value="- сделал смену списка ПКУшек при нажатии на маркеры в зависимости от номера маршрута&#10;- Обновил общий заголовок таблицы в соотвествии с номером маршрута&#10;&#10;TODO: - Выбор маршрута (Башкултаево), а именно:  привинтить получение информации с сервера в зависимости от того, какая ПКУ и с каого маршрута выбрана и добавить кнопку для смены маршрута" />
     <MESSAGE value=" - Выбор маршрута (Башкултаево), а именно:  привинтить получение информации с сервера в зависимости от того, какая ПКУ и с каrого маршрута выбрана и добавить кнопку для смены маршрута" />
     <MESSAGE value=" - Выбор маршрута (Башкултаево), а именно:  привинтить получение информации с сервера в зависимости от того, какая ПКУ и с какого маршрута выбрана и добавить кнопку для смены маршрута" />
-    <option name="LAST_COMMIT_MESSAGE" value=" - Выбор маршрута (Башкултаево), а именно:  привинтить получение информации с сервера в зависимости от того, какая ПКУ и с какого маршрута выбрана и добавить кнопку для смены маршрута" />
+    <MESSAGE value="- убрал лишние логи с клиента&#10;- добавил логи в серверный терминал, позволяющие отследить время и дату авторизации пользователея и внесения изменений" />
+    <option name="LAST_COMMIT_MESSAGE" value="- убрал лишние логи с клиента&#10;- добавил логи в серверный терминал, позволяющие отследить время и дату авторизации пользователея и внесения изменений" />
   </component>
   <component name="WindowStateProjectService">
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596188972129">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2" timestamp="1597315928553">
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2" timestamp="1597320366399">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315928553" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597320366399" />
     <state x="532" y="108" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1596527755852" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
@@ -714,11 +718,11 @@
     </state>
     <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
     <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596113405534" />
-    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1597315937267">
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1597317929710">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593016893395" />
-    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315937267" />
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597317929710" />
     <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1596527760144" />
     <state x="722" y="503" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596030309751">
       <screen x="0" y="0" width="1920" height="1200" />

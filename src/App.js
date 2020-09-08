@@ -4,7 +4,7 @@ import DepartmentsComponent from './selfComponents/DepartmentsComponent';
 import TableComponent from './selfComponents/TableComponent';
 import AuthorisationComponent from './selfComponents/AuthorisationComponent';
 import TypeTableComponent from './selfComponents/TypeTableComponent';
-import logo from './003 Лого Без фона.png';
+import logo from './Транснефть-лого-шапка.png';
 
 import PkuListComponent from './selfComponents/PkuListComponent';
 import BootstrapTable from 'react-bootstrap-table-next';

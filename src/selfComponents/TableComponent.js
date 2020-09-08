@@ -189,7 +189,7 @@ class TableComponent extends Component {
             return results.json();
         }).then(data => {
             // console.log(data);
-            this.fetchFromApi(apiRoute, idPKU) // вызываем для обновления полей таблицы после апдейта
+            this.fetchFromApi(apiRoute, idPKU); // вызываем для обновления полей таблицы после апдейта
         }).catch((err) => {
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}${idPKU}`);
         });

@@ -1,6 +1,6 @@
 const Client= require('pg').Client;                         // подключение модуля для соединения с БД
 
-const DBNAME = "PKU_MapService4";
+const DBNAME = "PKU_MapService3";
 const DBLOG = "postgres";
 const DBPASS = "postgres";
 const DBPORT = "5432";
@@ -137,6 +137,7 @@ class MyRepository {
                 let DateWork = null;
                 let PerformerName1 = null;
                 let flag1 = null;
+                
                 let CommentMontazhniki1 = '';
                 if(row.DateWork !== null) {
                     DateWork = this.convertToPG(row.DateWork);
@@ -174,7 +175,9 @@ class MyRepository {
                 let EndDateAkt = null;
                 let MaterialDate = null;
                 let CommentPTO1 = '';
-                let PerformerName2 = null;
+                let PerformerName2 = row.PerformerName;
+                console.log(PerformerName2);
+
 
                 if(row.StartDateCon !== null) {
                     StartDateCon = this.convertToPG(row.StartDateCon);
@@ -201,15 +204,24 @@ class MyRepository {
                     CommentPTO1 = row.Comment;
                 }
 
-                if(row.PerformerName === 'Бажутов Сергей' || row.PerformerName === 'Бажутов С.') {
-                    PerformerName2 = '1'
-                }
-                if(row.PerformerName === 'Камалетдинов Рамис' || row.PerformerName === 'Камалетдинов Р.') {
-                    PerformerName2 = '2'
-                }
-                if(row.PerformerName === 'Шакиров Рашид' || row.PerformerName === 'Шакиров Р.') {
-                    PerformerName2 = '3'
-                }
+                // if(row.PerformerName === 'Бажутов Сергей') {
+                //     PerformerName2 = '1'
+                // }
+                // if(row.PerformerName === 'Камалетдинов Рамис') {
+                //     PerformerName2 = '2'
+                // }
+                // if(row.PerformerName === 'Шакиров Рашид') {
+                //     PerformerName2 = '3'
+                // }
+                // if(row.PerformerName === 'Бажутов С.') {
+                //     PerformerName2 = '1'
+                // }
+                // if(row.PerformerName === 'Камалетдинов Р.') {
+                //     PerformerName2 = '2'
+                // }
+                // if(row.PerformerName === null) {
+                //     PerformerName2 = 'null'
+                // }
                                                                 // запрос на внесение данных о работах для отдела ПТО
                 query = this.client.query(`select * from f_u_subwork_pto(
                     ${row.WorkID},
