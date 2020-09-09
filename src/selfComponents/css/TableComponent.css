@@ -50,7 +50,7 @@ th {
 
 .table-horiz-scroll {
     background-color: white;
-    height: 800px;
+    height: 700px;
     width: 100%;
     /*align: center;*/
     overflow-x: auto;
