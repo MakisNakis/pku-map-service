@@ -33,13 +33,14 @@ function CellStyle(cell, row, rowIndex, colIndex) {
 //     });
 // }
 
-export function ColumnsData(performers) {
+export function ColumnsData(performers, factOfAgreement) {
 
         // const performers = localStorage.getItem('performers')
     // let performers = [{label: "1"}, {label:"2"}, {label: "3"}]
 
 // console.log()
-console.log(performers)
+    console.log(performers);
+    console.log(factOfAgreement);
 // console.log(JSON.stringify(performers))
 
 
@@ -76,14 +77,14 @@ console.log(performers)
             return {width: 600, textAlign: 'center'};
         }
     }, {
-        dataField: 'Date',
-        text: 'Дата согласования',
+        dataField: 'Fact',
+        text: 'Согласование',
         sort: true,
         editor: {
-            type: Type.DATE,
-            defaultValue: Date.now()
+            type: Type.SELECT,
+            options: factOfAgreement
         },
-        editable: false,
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -153,6 +154,18 @@ console.log(performers)
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 100, textAlign: 'center'};
+        }
+    }, {
+        dataField: 'FactDoc',
+        text: 'Закрытие документации',
+        sort: true,
+        editor: {
+            type: Type.SELECT,
+            options: factOfAgreement
+        },
+        editable: true,
+        headerStyle: (colum, colIndex) => {
+            return {width: 200, textAlign: 'center'};
         }
     }, {
         dataField: 'StartDate',

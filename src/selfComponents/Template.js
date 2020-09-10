@@ -12,12 +12,12 @@ class Template extends Component {
     }
 
     render() {
-    return (
-            <div>
+        return (
+                <div>
 
-            </div>
-        )
-    }
+                </div>
+            )
+        }
 }
 
 export default Template;
