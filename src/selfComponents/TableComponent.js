@@ -206,7 +206,6 @@ class TableComponent extends Component {
 
                 if (done) {
                     for (let j = 0; j < factOfAgreementLen; j++) {
-
                         let factOfAgreementJ = this.factOfAgreement[j];
                         switch (factOfAgreementJ.label) {
                             case rowEdit.Fact: {
@@ -235,7 +234,7 @@ class TableComponent extends Component {
                 break;
             }
             case "ПТО1": {
-                if (rowEdit.Fact === '' || rowEdit.PerformerName === '') {
+                if (rowEdit.Fact === '') {
                     done = false;
                 }
                 console.log(rowEdit.Fact);

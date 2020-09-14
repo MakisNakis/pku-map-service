@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="- во вкладках Монтаж и ПТО">
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/ColumnsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -243,14 +241,7 @@
       <workItem from="1598423903611" duration="26278000" />
       <workItem from="1598614328716" duration="732000" />
       <workItem from="1599651772238" duration="17782000" />
-      <workItem from="1600086298401" duration="3720000" />
-    </task>
-    <task id="LOCAL-00030" summary="+ просто commit">
-      <created>1593083093605</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1593083093605</updated>
+      <workItem from="1600086298401" duration="4750000" />
     </task>
     <task id="LOCAL-00031" summary="+ просто commit">
       <created>1593083430530</created>
@@ -588,7 +579,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598532332960</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="- во вкладках Монтаж и ПТО теперь факт исполнения выбирается из списка и пишется &quot;Выполнено&quot; / &quot;Не выполнено&quot;&#10;&#10;- Для корректной работы после внесенных изменений поменялась база. Теперь функция для возврата данных об исполнителях в пустых ячейках пишет не &quot;---&quot;, а &quot; &quot;">
+      <created>1600091339342</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1600091339343</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,7 +606,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- рабочая преАльфа" />
     <MESSAGE value="- убрал слайдер снизу" />
     <MESSAGE value="+ убрал слайдер снизу" />
     <MESSAGE value="- добавил поиск по таблице" />
@@ -633,7 +630,8 @@
     <MESSAGE value="+ перформеры берутся из бд" />
     <MESSAGE value="+ перформеры берутся из бд (fix)" />
     <MESSAGE value="+ перформеры берутся из бд (изменен запрос к бд)" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ перформеры берутся из бд (изменен запрос к бд)" />
+    <MESSAGE value="- во вкладках Монтаж и ПТО теперь факт исполнения выбирается из списка и пишется &quot;Выполнено&quot; / &quot;Не выполнено&quot;&#10;&#10;- Для корректной работы после внесенных изменений поменялась база. Теперь функция для возврата данных об исполнителях в пустых ячейках пишет не &quot;---&quot;, а &quot; &quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="- во вкладках Монтаж и ПТО теперь факт исполнения выбирается из списка и пишется &quot;Выполнено&quot; / &quot;Не выполнено&quot;&#10;&#10;- Для корректной работы после внесенных изменений поменялась база. Теперь функция для возврата данных об исполнителях в пустых ячейках пишет не &quot;---&quot;, а &quot; &quot;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
@@ -649,10 +647,10 @@
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
     <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1598439326183" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1598532332811">
-      <screen x="67" y="27" width="1853" height="1068" />
+    <state x="482" y="91" width="972" height="904" key="CommitChangelistDialog2" timestamp="1600091339068">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315928553" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1600091339068" />
     <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1598532332811" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
@@ -736,11 +734,11 @@
     </state>
     <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
     <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596113405534" />
-    <state x="503" y="215" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1598532335367">
-      <screen x="67" y="27" width="1853" height="1068" />
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1600091354824">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593016893395" />
-    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315937267" />
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1600091354824" />
     <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1598532335367" />
     <state x="764" y="475" width="381" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598358232145">
       <screen x="67" y="27" width="1853" height="1068" />
