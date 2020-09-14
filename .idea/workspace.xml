@@ -19,19 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/499486.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shrek_movies_animated_movies_Dreamworks-1820641.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shrek_movies_animated_movies_Dreamworks-1820641.jpg!d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bg23.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fog-4597348.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/milky-way-2695569_1920.jpg" afterDir="false" />
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="- test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/css/MapComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/css/MapComponent.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/css/ProfileComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/css/ProfileComponent.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/css/TableComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/css/TableComponent.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,6 +108,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -250,6 +242,7 @@
       <workItem from="1598351333205" duration="4354000" />
       <workItem from="1598356056888" duration="6978000" />
       <workItem from="1598423903611" duration="22705000" />
+      <workItem from="1599637796298" duration="1979000" />
     </task>
     <task id="LOCAL-00029" summary="+ просто commit">
       <created>1593075465527</created>

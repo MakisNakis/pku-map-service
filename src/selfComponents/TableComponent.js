@@ -337,7 +337,7 @@ class TableComponent extends Component {
                                         pagination={paginationFactory(optionsPagination)}
                                         cellEdit={cellEditFactory({
                                             mode: 'dbclick',
-                                            blurToSave: true,
+                                            // blurToSave: true,
                                             // beforeSaveCell,
                                             afterSaveCell: (oldValue, newValue, row, column) => {
                                                 if (oldValue !== newValue) {

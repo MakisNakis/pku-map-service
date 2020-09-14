@@ -407,6 +407,8 @@ class App extends React.Component {
                     {/*    // authorisation={this.state.authorisation}*/}
                     {/*    logout={this.logout}*/}
                     {/*/>*/}
+
+                    <div id="start"></div>
                     {localStorage.getItem('userRole') === '1' && <DepartmentsComponent
                         show={this.state.show}
                         hide={this.state.hide}
@@ -434,7 +436,6 @@ class App extends React.Component {
                     {this.state.idPKU && (this.state.typeTable === "ОМТС" || this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Башкултаево</h2></p>}
 
 
-                    <div id="start"></div>
                     <TableComponent
                     show={this.state.show}
                     hide={this.state.hide}
