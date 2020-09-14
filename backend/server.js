@@ -252,7 +252,7 @@ app.route(`/api/auth/perfName`) // эндпоинт для получения и
 
 
 
-app.route(`/api/auth/factOfAgreement`) // эндпоинт для получения имени исполнителя
+app.route(`/api/auth/factOfAgreement`) // эндпоинт для получения факта согласования
     .get(async (req, res) => {
         const dbResponse = await repository.getFactOfAgreement();
         console.log(dbResponse.rows);

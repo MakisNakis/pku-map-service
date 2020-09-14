@@ -77,7 +77,7 @@ class TableComponent extends Component {
             .then(data => {
                 // console.log(data.rows);
                 const lenMas = data.rows.length;
-                for( let i = 0; i < lenMas; i++) {
+                for(let i = 0; i < lenMas; i++) {
                     factOfAgreement[i] = {
                         label: data.rows[i].Text,
                         value: data.rows[i].Bool
@@ -156,12 +156,9 @@ class TableComponent extends Component {
 
     async uploadData(rowEdit, newValue, oldValue) {
 
-        // console.log(rowEdit);
-        //
-        // console.log(oldValue);
-        // console.log(newValue);
         let done = true;
         let factOfAgreementLen = this.factOfAgreement.length;
+        let performersLen = this.performers.length;
         // for(let i = 0; i < factOfAgreementLen; i++) {
         //     console.log(this.factOfAgreement[i].label);
         //
@@ -201,13 +198,78 @@ class TableComponent extends Component {
                 break;
             }
             case "Монтажники1": {
-                this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/Montazhniki/Montazhniki1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                console.log(rowEdit.PerformerName)
+                if (rowEdit.Fact === '') {
+                    done = false;
+                }
+                console.log(rowEdit.Fact);
+
+                if (done) {
+                    for (let j = 0; j < factOfAgreementLen; j++) {
+
+                        let factOfAgreementJ = this.factOfAgreement[j];
+                        switch (factOfAgreementJ.label) {
+                            case rowEdit.Fact: {
+                                rowEdit.Fact = factOfAgreementJ.value;
+                                break;
+                            }
+                            default:
+                                break;
+                        }
+                    }
+                    for (let j = 0; j < performersLen; j++) {
+                        let performersLenJ = this.performers[j];
+                        switch (performersLenJ.label) {
+                            case rowEdit.PerformerName: {
+                                rowEdit.PerformerName = performersLenJ.value;
+                                break;
+                            }
+                            default:
+                                break;
+                        }
+                    }
+                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/Montazhniki/Montazhniki1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                } else {
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/Montazhniki/Montazhniki1/`, this.props.idPKU);
+                }
                 break;
             }
             case "ПТО1": {
-                this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                if (rowEdit.Fact === '' || rowEdit.PerformerName === '') {
+                    done = false;
+                }
+                console.log(rowEdit.Fact);
+
+                if (done) {
+                    for (let j = 0; j < factOfAgreementLen; j++) {
+                        let factOfAgreementJ = this.factOfAgreement[j];
+                        switch (factOfAgreementJ.label) {
+                            case rowEdit.Fact: {
+                                rowEdit.Fact = factOfAgreementJ.value;
+                                break;
+                            }
+                            default:
+                                break;
+                        }
+                    }
+                    for (let j = 0; j < performersLen; j++) {
+                        let performersLenJ = this.performers[j];
+                        switch (performersLenJ.label) {
+                            case rowEdit.PerformerName: {
+                                rowEdit.PerformerName = performersLenJ.value;
+                                break;
+                            }
+                            default:
+                                break;
+                        }
+                    }
+                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                } else {
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO1/`, this.props.idPKU);
+                }
                 break;
             }
+
             case "ПТО2": {
                 this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO2/`, this.props.idPKU, rowEdit, this.props.routeNumber);
                 break;

@@ -5,9 +5,6 @@ function CellStyle(cell, row, rowIndex, colIndex) {
 
     let nameColumnColor = Object.keys(row)[colIndex+1];
 
-    // for ()
-
-    // if (row.EndDatePlanColor !== null ) {
     if (row.nameColumnColor !== null ) {
         return {
             backgroundColor: `${row.EndDatePlanColor}`
@@ -264,11 +261,10 @@ export function ColumnsData(performers, factOfAgreement) {
         text: 'Факт выполнения',
         sort: true,
         editor: {
-            type: Type.CHECKBOX,
-            // label:'pupa:lupa',
-            // value: 'true:false',
-            value: 'true:false',
+            type: Type.SELECT,
+            options: factOfAgreement
     },
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
         }
@@ -400,11 +396,10 @@ export function ColumnsData(performers, factOfAgreement) {
         text: 'Факт выполнения',
         sort: true,
         editor: {
-            type: Type.CHECKBOX,
-            // value: 'true:false'
-            value: 'true:false',
-
+            type: Type.SELECT,
+            options: factOfAgreement
         },
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
         }
