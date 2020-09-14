@@ -136,7 +136,10 @@ class MyRepository {
                     ${DateFact}, 
                     ${row.Quantity}, 
                     ${CommentOMTS},
-                    ${userId}
+                    ${userId},
+                    ${row.ProviderName},
+                    ${this.convertToPG(row.Fact)},
+                    ${this.convertToPG(row.FactDoc)}
                 );`);
                 break;
             case "Монтажники1":
@@ -287,8 +290,13 @@ class MyRepository {
      }
 
     async getPerfName() { // функция для получения имени исполнителя (монтажника)
-        let query = this.client.query(`select * from f_s_performers_list();`)
-        return query
+        let query = this.client.query(`select * from f_s_performers_list();`);
+        return query;
+    }
+
+    async getFactOfAgreement() {
+        let query = this.client.query(`select * from f_s_bool_list();`);
+        return query;
     }
 
     async changePassword(data) {

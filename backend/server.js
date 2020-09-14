@@ -78,10 +78,12 @@ for (let i = 0; i < 130; i++) {                                  // цикл, в
     app.route(`/api/pkuDataServerPKUTable/2/OMTS/${i}`)
         .get(async (req, res) => {
             const data = await repository.loadDataForTable(i, "ОМТС",2);
+            console.log(data.rows);
             res.json(data.rows)
         })
         .post(async (req, res) => {
             const data = await repository.uploadDataForTable(i, "ОМТС", req.body.rowEdit, req.body.userId);
+            console.log(data.rows);
             res.send(data);
     });
 
@@ -243,6 +245,16 @@ app.route(`/api/auth/userName`) // эндпоинт для получения и
 app.route(`/api/auth/perfName`) // эндпоинт для получения имени исполнителя
     .get(async (req, res) => {
         const dbResponse = await repository.getPerfName();
+        console.log(dbResponse.rows);
+        // console.log(`В авторизовался пользователь ${dbResponse}`)
+        res.send(dbResponse);
+    });
+
+
+
+app.route(`/api/auth/factOfAgreement`) // эндпоинт для получения имени исполнителя
+    .get(async (req, res) => {
+        const dbResponse = await repository.getFactOfAgreement();
         console.log(dbResponse.rows);
         // console.log(`В авторизовался пользователь ${dbResponse}`)
         res.send(dbResponse);

@@ -28,6 +28,7 @@ class TableComponent extends Component {
         this.url = window.location.href;
         this.copyPkuInfo = [];
         this.performers = [];
+        this.factOfAgreement = [];
     }
 
     componentWillMount() {
@@ -37,6 +38,13 @@ class TableComponent extends Component {
             })
             .catch(() => {
                 console.log("Ошибка при асинхронном запросе для чтения исполнителей");
+            });
+        this.getFactOfAgreement()
+            .then(data => {
+                this.factOfAgreement = data;
+            })
+            .catch(() => {
+                console.log("Ошибка при асинхронном запросе для чтения факта согласования");
             });
     }
 
@@ -60,6 +68,28 @@ class TableComponent extends Component {
         });
         console.log(performersMas);
         return performersMas;
+    }
+
+    async getFactOfAgreement() {
+        const factOfAgreement = [];
+        const factOfAgreementMas = await fetch('/api/auth/factOfAgreement')
+            .then(result => result.json())
+            .then(data => {
+                // console.log(data.rows);
+                const lenMas = data.rows.length;
+                for( let i = 0; i < lenMas; i++) {
+                    factOfAgreement[i] = {
+                        label: data.rows[i].Text,
+                        value: data.rows[i].Bool
+                    }
+                }
+                console.log(factOfAgreement);
+                return factOfAgreement;
+            }).catch(() => {
+                console.log('Ошибка на /api/auth/factOfAgreement');
+            });
+        console.log(factOfAgreementMas);
+        return factOfAgreementMas;
     }
 
 
@@ -124,20 +154,64 @@ class TableComponent extends Component {
 
     }
 
-    async uploadData(rowEdit) {
+    async uploadData(rowEdit, newValue, oldValue) {
+
+        // console.log(rowEdit);
+        //
+        // console.log(oldValue);
+        // console.log(newValue);
+        let done = true;
+        let factOfAgreementLen = this.factOfAgreement.length;
+        // for(let i = 0; i < factOfAgreementLen; i++) {
+        //     console.log(this.factOfAgreement[i].label);
+        //
+        //     if (this.factOfAgreement[i].label === oldValue && newValue === "") {
+        //         console.log("!!!");
+        //         done = false;
+        //     }
+        // }
         switch (this.props.typeTable) {
-            case "ОМТС":
-                this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+            case "ОМТС": {
+                if (rowEdit.Fact === '' || rowEdit.FactDoc === '') {
+                    done = false;
+                }
+                console.log(rowEdit);
+
+                if (done) {
+                    for(let j = 0; j < factOfAgreementLen; j++) {
+
+                        let factOfAgreementJ = this.factOfAgreement[j];
+                        switch (factOfAgreementJ.label) {
+                            case rowEdit.Fact: {
+                                rowEdit.Fact = factOfAgreementJ.value;
+                                break;
+                            }
+                            case rowEdit.FactDoc: {
+                                rowEdit.FactDoc = factOfAgreementJ.value;
+                                break;
+                            }
+                            default:
+                                break;
+                        }
+                    }
+                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                } else {
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU);
+                }
                 break;
-            case "Монтажники1":
+            }
+            case "Монтажники1": {
                 this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/Montazhniki/Montazhniki1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
                 break;
-            case "ПТО1":
+            }
+            case "ПТО1": {
                 this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
                 break;
-            case "ПТО2":
+            }
+            case "ПТО2": {
                 this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO2/`, this.props.idPKU, rowEdit, this.props.routeNumber);
                 break;
+            }
             default:
                 break;
         }
@@ -184,7 +258,7 @@ class TableComponent extends Component {
     render() {
 
         // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
-        const tableHeaders = ColumnsData(this.performers); // подключаем заголовки таблиц из файла ../data/ColumnsData
+        const tableHeaders = ColumnsData(this.performers, this.factOfAgreement); // подключаем заголовки таблиц из файла ../data/ColumnsData
         console.log(this.performers);
         const {ExportCSVButton} = CSVExport; // кнопка для экспорта таблицы в CSV
 
@@ -301,6 +375,23 @@ class TableComponent extends Component {
             );
         };
 
+        const beforeSaveCell = (oldValue, newValue, row, column, done) => {
+            setTimeout(() => {
+                console.log(oldValue);
+                console.log(newValue);
+                let factOfAgreementLen = this.factOfAgreement.length;
+                for(let i = 0; i < factOfAgreementLen; i++) {
+                    console.log(this.factOfAgreement[i].label);
+
+                    if (this.factOfAgreement[i].label === oldValue && newValue === "") {
+                        console.log("!!!");
+                        done(false);
+                    }
+                }
+                done(true);
+            }, 0);
+            return { async: true };
+        }
 
         return (
             <div id="TableComp" >
@@ -337,11 +428,12 @@ class TableComponent extends Component {
                                         pagination={paginationFactory(optionsPagination)}
                                         cellEdit={cellEditFactory({
                                             mode: 'dbclick',
-                                            blurToSave: true,
-                                            // beforeSaveCell,
+                                            // blurToSave: true,
+                                            beforeSaveCell,
                                             afterSaveCell: (oldValue, newValue, row, column) => {
+
                                                 if (oldValue !== newValue) {
-                                                    this.uploadData(row, newValue, column);
+                                                    this.uploadData(row, newValue, oldValue);
                                                 }
                                             }
                                         })}
