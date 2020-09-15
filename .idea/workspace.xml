@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="-">
       <change afterPath="$PROJECT_DIR$/backend/node_modules/.bin/uuid" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/backend/node_modules/@types/node/LICENSE" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/backend/node_modules/@types/node/README.md" afterDir="false" />
@@ -2948,11 +2948,10 @@
       <change afterPath="$PROJECT_DIR$/node_modules/uncontrollable/esm/utils.d.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/node_modules/uncontrollable/esm/utils.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/node_modules/uncontrollable/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/ProfileComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/ProfileComponent.js" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -3176,13 +3175,8 @@
       <workItem from="1598257516196" duration="19896000" />
       <workItem from="1598351333205" duration="4354000" />
       <workItem from="1598356056888" duration="3148000" />
-    </task>
-    <task id="LOCAL-00025" summary="+ scroll&#10;- не доделан скролл">
-      <created>1593016889093</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1593016889093</updated>
+      <workItem from="1598620617896" duration="12724000" />
+      <workItem from="1600173773233" duration="521000" />
     </task>
     <task id="LOCAL-00026" summary="+ scroll&#10;- не доделан скролл">
       <created>1593071098353</created>
@@ -3520,11 +3514,18 @@
       <option name="project" value="LOCAL" />
       <updated>1598359066477</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="-">
+      <created>1598620730627</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1598620730627</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -3541,7 +3542,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- небольшие правки к стилям&#10;- изменил название выходного CSV файла" />
     <MESSAGE value="- небольшие правки к стилям [2]" />
     <MESSAGE value="- небольшие правки к стилям [3]" />
     <MESSAGE value="- немного поменял название заголовков таблицы &quot;Отчет1&quot;" />
@@ -3566,7 +3566,8 @@
     <MESSAGE value="+ убрал баг отрисовки описания пку" />
     <MESSAGE value="+ Личный кабинет&#10;+ смена пароля" />
     <MESSAGE value="+ убрал ограничение по символам&#10;+ можно использовать цифры в пароле" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ убрал ограничение по символам&#10;+ можно использовать цифры в пароле" />
+    <MESSAGE value="-" />
+    <option name="LAST_COMMIT_MESSAGE" value="-" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" />
