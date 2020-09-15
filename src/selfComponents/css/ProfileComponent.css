@@ -1,0 +1,62 @@
+.profileComponent {
+    margin-right: 20px;
+}
+
+.buttonProfile {
+    /*background: rgba(54, 34, 34, .2);*/
+    /*border-color: #c40e30;*/
+    /*border-radius: 10%;*/
+    border: none;
+    height: 60px;
+    width: 60px;
+    background: no-repeat;
+    padding-left: 20px;
+
+    /*cursor: pointer;*/
+}
+
+.buttonProfile:focus {
+    outline: none;
+}
+
+.profileName {
+    font: small-caps bold 24px/1 sans-serif;
+
+}
+
+.buttonList {
+    /*background: no-repeat;*/
+    width: 100%;
+    border-width: 2px;
+    border-radius: 10px;
+    align-content: center;
+
+}
+
+
+#mainDiv {
+    display: block;
+}
+
+.buttonList:focus {
+    outline: none;
+}
+
+.tableList {
+    border-collapse: collapse;
+
+}
+
+.divList {
+    margin-top: 10px;
+    margin-right: 20px;
+    height: auto;
+    padding: 2px;
+    /*width: 150px;*/
+    background: #035496;
+    /*background: rgb(3, 85, 150);*/
+    border-radius: 10px;
+    border-width: 2px;
+    position: absolute;
+}
+

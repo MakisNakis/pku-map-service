@@ -1,0 +1,47 @@
+.leaflet-container {
+    width: 65vw;
+    height: 65vh;
+    margin: 0;
+    padding: 0;
+}
+
+.tableMapPku {
+    width: 100%;
+}
+
+.select1 {
+    width: 100%;
+}
+
+.pkuListComp {
+    vertical-align: top;
+
+}
+
+#pkuListCompDiv {
+    padding: 0 0 0 1%;
+    height: 65vh;
+}
+
+.tablePkuList {
+}
+
+.tablePkuListScroll {
+    overflow: auto;
+    /*display: block;*/
+    width: 100%;
+    height: 100%;
+
+}
+
+.btnPku {
+    width: 100%;
+
+}
+
+
+
+.labelPkuListComp {
+    text-align: center;
+
+}

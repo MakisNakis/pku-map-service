@@ -1,7 +1,17 @@
-.leaflet-container {
-    width: 90vw;
-    height: 90vh;
-    margin-left: 5vw;
-    margin-right: 5vw;
-    margin-bottom: 10vh;
+
+
+#mainDiv {
+    /*width: 99%;*/
+    padding: 10px 10% 10px 10%;
+
+    }
+
+#globalDiv {
+    /*background-image:*/
+    /*        url("./bg23.jpg");*/
 }
+
+/*.mapComp {*/
+/*    width: 85vw;*/
+/*    height: 65vh;*/
+/*}*/
