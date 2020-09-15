@@ -96,11 +96,11 @@ class TableComponent extends Component {
      async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
          await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
             // console.log(`/api/pkuDataServerPKUTable${idPKU}`);                  // apiRoute - api адрес, откуда нужно получить данные
-            console.log(results);
+            // console.log(results);
              return results.json();
          }).then(
              data => {
-                 console.log(data);
+                 // console.log(data);
                  let pkuInfoWithID = data.map((val, ix) => {
                      val.tableID = ix+1;
                      // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
@@ -155,7 +155,6 @@ class TableComponent extends Component {
     }
 
     async uploadData(rowEdit, newValue, oldValue) {
-
         let done = true;
         let factOfAgreementLen = this.factOfAgreement.length;
         let performersLen = this.performers.length;
@@ -169,10 +168,11 @@ class TableComponent extends Component {
         // }
         switch (this.props.typeTable) {
             case "ОМТС": {
+                console.log(rowEdit)
                 if (rowEdit.Fact === '' || rowEdit.FactDoc === '') {
                     done = false;
                 }
-                console.log(rowEdit);
+                // console.log(rowEdit);
 
                 if (done) {
                     for(let j = 0; j < factOfAgreementLen; j++) {
@@ -190,19 +190,22 @@ class TableComponent extends Component {
                             default:
                                 break;
                         }
+
                     }
                     this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+
+                    // this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
                 } else {
                     this.fetchFromApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU);
                 }
                 break;
             }
             case "Монтажники1": {
-                console.log(rowEdit.PerformerName)
+                // console.log(rowEdit.PerformerName)
                 if (rowEdit.Fact === '') {
                     done = false;
                 }
-                console.log(rowEdit.Fact);
+                // console.log(rowEdit.Fact);
 
                 if (done) {
                     for (let j = 0; j < factOfAgreementLen; j++) {

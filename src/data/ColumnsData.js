@@ -101,7 +101,7 @@ export function ColumnsData(performers, factOfAgreement) {
             type: Type.DATE,
             defaultValue: Date.now()
         },
-        // editable: false,
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -113,6 +113,7 @@ export function ColumnsData(performers, factOfAgreement) {
             type: Type.DATE,
             defaultValue: Date.now()
         },
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -124,6 +125,7 @@ export function ColumnsData(performers, factOfAgreement) {
             type: Type.DATE,
             defaultValue: Date.now()
         },
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -140,6 +142,7 @@ export function ColumnsData(performers, factOfAgreement) {
         text: 'Количество',
         sort: true,
         type: 'number',
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 120, textAlign: 'center'};
         }
