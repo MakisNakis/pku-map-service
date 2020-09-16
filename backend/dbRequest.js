@@ -113,6 +113,8 @@ class MyRepository {
                 let DatePlan = null;
                 let DateFact = null;
                 let CommentOMTS = null;
+                let Fact = null;
+                let FactDoc = null;
 
                 if(row.DateContract !== null && row.DateContract !== '') {
                     DateContract = this.convertToPG(row.DateContract);
@@ -128,6 +130,21 @@ class MyRepository {
                     CommentOMTS = this.convertToPG(row.Comment);
                 }
 
+                if(row.Fact === 'Выполнено') {
+                    Fact = 'true'
+                } else if(row.Fact === 'Не выполнено'){
+                    Fact = 'false'
+                } else if(row.Fact === null){
+                    Fact = 'null'}
+                else Fact = this.convertToPG(row.Fact);
+
+                if (row.FactDoc === 'Выполнено'){
+                    FactDoc = 'true'
+                } else if(row.FactDoc === 'Не выполнено') {
+                    FactDoc = 'false'
+                } else if(row.FactDoc === null){
+                    Fact = 'null'}
+                else FactDoc = this.convertToPG(row.FactDoc);
                                                                  // запрос на внесение данных для отдела комплектации
                 query = this.client.query(`select * from f_u_equipment(        
                     ${row.DeliveryID}, 
@@ -138,8 +155,8 @@ class MyRepository {
                     ${CommentOMTS},
                     ${userId},
                     ${row.ProviderName},
-                    ${this.convertToPG(row.Fact)},
-                    ${this.convertToPG(row.FactDoc)}
+                    ${Fact},
+                    ${FactDoc}
                 );`);
                 break;
             case "Монтажники1":
