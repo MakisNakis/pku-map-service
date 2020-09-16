@@ -49,7 +49,8 @@ th {
 }
 
 .table-horiz-scroll {
-    height: 800px;
+    background-color: white;
+    height: 700px;
     width: 100%;
     /*align: center;*/
     overflow-x: auto;
@@ -64,6 +65,10 @@ th {
     margin-left: 15px;
 }
 
+.messageStyle {
+    color: #5e5e5e;
+    font-weight: 500;
+}
 
 .TableComp {
     width: 100%;

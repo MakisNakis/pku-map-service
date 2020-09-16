@@ -3,12 +3,13 @@ import MapComponent from './selfComponents/MapComponent';
 import DepartmentsComponent from './selfComponents/DepartmentsComponent';
 import TableComponent from './selfComponents/TableComponent';
 import AuthorisationComponent from './selfComponents/AuthorisationComponent';
+import AuthComponent from './selfComponents/Auth/AuthComponent';
 import TypeTableComponent from './selfComponents/TypeTableComponent';
 import ButtonUpComponent from './selfComponents/ButtonUpComponent';
 import ProfileComponent from './selfComponents/ProfileComponent';
 import ChangePasswordComponent from './selfComponents/ChangePasswordComponent';
 
-import logo from './003 Лого Без фона.png';
+import logo from './Транснефть-лого-шапка.png';
 
 import BootstrapTable from 'react-bootstrap-table-next';
 import cellEditFactory from 'react-bootstrap-table2-editor';
@@ -266,11 +267,15 @@ class App extends React.Component {
 
     changePassOpenWindow = () => {
         let flag = !this.state.showChangePassForm;
-        this.setState({showChangePassForm: true});
+        this.setState({
+            showChangePassForm: true
+        });
     }
 
     closeChangePassWindow = () => {
-        this.setState({showChangePassForm: false});
+        this.setState({
+            showChangePassForm: false
+        });
     }
 
     changePassword = async (e) => {
@@ -348,7 +353,7 @@ class App extends React.Component {
 
 
         return (
-            <div id={"mainDiv"}>
+            <div id={"globalDiv"}>
 
                 {/*<BootstrapTable*/}
                 {/*    keyField="id"*/}
@@ -365,7 +370,7 @@ class App extends React.Component {
                     handleChange={this.handleChange}
                 />}
                 {this.state.authorisation &&
-                <div>
+                <div id="mainDiv">
 
                     <table width={"100%"} >
                         <tr>
@@ -403,6 +408,7 @@ class App extends React.Component {
                     {/*    // authorisation={this.state.authorisation}*/}
                     {/*    logout={this.logout}*/}
                     {/*/>*/}
+                    <div id="start"></div>
                     {localStorage.getItem('userRole') === '1' && <DepartmentsComponent
                         show={this.state.show}
                         hide={this.state.hide}
@@ -411,6 +417,7 @@ class App extends React.Component {
                         depName={this.state.depName}
                     />
                     }
+
                     <TypeTableComponent
                         show={this.state.show}
                         hide={this.state.hide}
@@ -430,7 +437,6 @@ class App extends React.Component {
                     {this.state.idPKU && (this.state.typeTable === "ОМТС" || this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Башкултаево</h2></p>}
 
 
-                    <div id="start"></div>
                     <TableComponent
                     show={this.state.show}
                     hide={this.state.hide}

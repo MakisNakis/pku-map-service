@@ -20,7 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,8 +52,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -63,7 +65,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="makingAuthorisation" />
+        <entry key="$PROJECT_DIR$" value="makingAuth" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -108,6 +110,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -121,6 +124,11 @@
       <recent name="$PROJECT_DIR$/backend" />
       <recent name="$PROJECT_DIR$/public/markers" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value=".incorrectAuth {" />
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -245,37 +253,12 @@
       <workItem from="1597298444370" duration="17100000" />
       <workItem from="1598257516196" duration="19896000" />
       <workItem from="1598351333205" duration="4354000" />
-      <workItem from="1598356056888" duration="3148000" />
-      <workItem from="1598620617896" duration="12724000" />
-      <workItem from="1600173773233" duration="521000" />
-    </task>
-    <task id="LOCAL-00027" summary="+ scroll&#10;- не доделан скролл">
-      <created>1593071362415</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1593071362416</updated>
-    </task>
-    <task id="LOCAL-00028" summary="- добавил состояние ROOT пользователя в App.js">
-      <created>1593072352251</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1593072352251</updated>
-    </task>
-    <task id="LOCAL-00029" summary="+ просто commit">
-      <created>1593075465527</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1593075465527</updated>
-    </task>
-    <task id="LOCAL-00030" summary="+ просто commit">
-      <created>1593083093605</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1593083093605</updated>
+      <workItem from="1598356056888" duration="6978000" />
+      <workItem from="1598423903611" duration="26278000" />
+      <workItem from="1598614328716" duration="732000" />
+      <workItem from="1599651772238" duration="17782000" />
+      <workItem from="1600086298401" duration="4750000" />
+      <workItem from="1600274403291" duration="1073000" />
     </task>
     <task id="LOCAL-00031" summary="+ просто commit">
       <created>1593083430530</created>
@@ -578,21 +561,49 @@
       <option name="project" value="LOCAL" />
       <updated>1598359066477</updated>
     </task>
-    <task id="LOCAL-00074" summary="-">
-      <created>1598620730627</created>
+    <task id="LOCAL-00074" summary="+ сообщения об ошибках пишутся красным цветом">
+      <created>1598359351410</created>
       <option name="number" value="00074" />
       <option name="presentableId" value="LOCAL-00074" />
       <option name="project" value="LOCAL" />
-      <updated>1598620730627</updated>
+      <updated>1598359351410</updated>
     </task>
-    <task id="LOCAL-00075" summary="-">
-      <created>1600276041014</created>
+    <task id="LOCAL-00075" summary="+ добавил стилей">
+      <created>1598433896321</created>
       <option name="number" value="00075" />
       <option name="presentableId" value="LOCAL-00075" />
       <option name="project" value="LOCAL" />
-      <updated>1600276041014</updated>
+      <updated>1598433896322</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="+ перформеры берутся из бд">
+      <created>1598516017371</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1598516017371</updated>
+    </task>
+    <task id="LOCAL-00077" summary="+ перформеры берутся из бд (fix)">
+      <created>1598527268753</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1598527268753</updated>
+    </task>
+    <task id="LOCAL-00078" summary="+ перформеры берутся из бд (изменен запрос к бд)">
+      <created>1598532332960</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1598532332960</updated>
+    </task>
+    <task id="LOCAL-00079" summary="- во вкладках Монтаж и ПТО теперь факт исполнения выбирается из списка и пишется &quot;Выполнено&quot; / &quot;Не выполнено&quot;&#10;&#10;- Для корректной работы после внесенных изменений поменялась база. Теперь функция для возврата данных об исполнителях в пустых ячейках пишет не &quot;---&quot;, а &quot; &quot;">
+      <created>1600091339342</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1600091339343</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -613,11 +624,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- небольшие правки к стилям [2]" />
-    <MESSAGE value="- небольшие правки к стилям [3]" />
-    <MESSAGE value="- немного поменял название заголовков таблицы &quot;Отчет1&quot;" />
-    <MESSAGE value="- поменял кнопку авторизации" />
-    <MESSAGE value="- рабочая преАльфа" />
     <MESSAGE value="- убрал слайдер снизу" />
     <MESSAGE value="+ убрал слайдер снизу" />
     <MESSAGE value="- добавил поиск по таблице" />
@@ -637,18 +643,23 @@
     <MESSAGE value="+ убрал баг отрисовки описания пку" />
     <MESSAGE value="+ Личный кабинет&#10;+ смена пароля" />
     <MESSAGE value="+ убрал ограничение по символам&#10;+ можно использовать цифры в пароле" />
-    <MESSAGE value="-" />
-    <option name="LAST_COMMIT_MESSAGE" value="-" />
+    <MESSAGE value="+ сообщения об ошибках пишутся красным цветом" />
+    <MESSAGE value="+ добавил стилей" />
+    <MESSAGE value="+ перформеры берутся из бд" />
+    <MESSAGE value="+ перформеры берутся из бд (fix)" />
+    <MESSAGE value="+ перформеры берутся из бд (изменен запрос к бд)" />
+    <MESSAGE value="- во вкладках Монтаж и ПТО теперь факт исполнения выбирается из списка и пишется &quot;Выполнено&quot; / &quot;Не выполнено&quot;&#10;&#10;- Для корректной работы после внесенных изменений поменялась база. Теперь функция для возврата данных об исполнителях в пустых ячейках пишет не &quot;---&quot;, а &quot; &quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="- во вкладках Монтаж и ПТО теперь факт исполнения выбирается из списка и пишется &quot;Выполнено&quot; / &quot;Не выполнено&quot;&#10;&#10;- Для корректной работы после внесенных изменений поменялась база. Теперь функция для возврата данных об исполнителях в пустых ячейках пишет не &quot;---&quot;, а &quot; &quot;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" />
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1068@67.27.1853.1068" />
     <state x="649" y="362" width="678" height="396" key="#com.intellij.fileTypes.FileTypeChooser" />
     <state x="649" y="362" width="678" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1068@67.27.1853.1068" />
-    <state x="732" y="358" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" />
+    <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" />
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" />
-    <state x="732" y="358" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" />
+    <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" />
+    <state x="482" y="91" width="972" height="904" key="CommitChangelistDialog2" />
     <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" />
     <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" />
@@ -695,7 +706,7 @@
     <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog" />
     <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" />
     <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" />
-    <state x="503" y="215" width="802" height="523" key="Vcs.Push.Dialog.v2" />
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" />
     <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" />
     <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" />

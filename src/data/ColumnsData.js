@@ -5,9 +5,6 @@ function CellStyle(cell, row, rowIndex, colIndex) {
 
     let nameColumnColor = Object.keys(row)[colIndex+1];
 
-    // for ()
-
-    // if (row.EndDatePlanColor !== null ) {
     if (row.nameColumnColor !== null ) {
         return {
             backgroundColor: `${row.EndDatePlanColor}`
@@ -33,18 +30,19 @@ function CellStyle(cell, row, rowIndex, colIndex) {
 //     });
 // }
 
-export function ColumnsData(performers) {
+export function ColumnsData(performers, factOfAgreement) {
 
         // const performers = localStorage.getItem('performers')
     // let performers = [{label: "1"}, {label:"2"}, {label: "3"}]
 
 // console.log()
-// console.log(performers)
+    console.log(performers);
+    console.log(factOfAgreement);
 // console.log(JSON.stringify(performers))
 
 
 //     let performersMas = []
-    let performersMas = [{label: "Бажутов Сергей", value: 1}, {label: "Камалетдинов Рамис", value: 2}, {label: "Шакиров Рашид", value: 3}]
+//     let performersMas = [{label: "Бажутов Сергей", value: 1}, {label: "Камалетдинов Рамис", value: 2}, {label: "Шакиров Ришат", value: 3}]
     // let performersMas = [{label: "Бажутов Сергей", value: "Бажутов Сергей"}, {label: "Камалетдинов Рамис", value: "Камалетдинов Рамис"}, {label: "Шакиров Рашид", value: "Шакиров Рашид"}]
 //     for (let i = 0; i < performers.length; i++){
 //         performersMas[i] = {label: performers[i].Surname}
@@ -76,14 +74,14 @@ export function ColumnsData(performers) {
             return {width: 600, textAlign: 'center'};
         }
     }, {
-        dataField: 'Date',
-        text: 'Дата согласования',
+        dataField: 'Fact',
+        text: 'Согласование',
         sort: true,
         editor: {
-            type: Type.DATE,
-            defaultValue: Date.now()
+            type: Type.SELECT,
+            options: factOfAgreement
         },
-        editable: false,
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -153,6 +151,18 @@ export function ColumnsData(performers) {
         editable: false,
         headerStyle: (colum, colIndex) => {
             return {width: 100, textAlign: 'center'};
+        }
+    }, {
+        dataField: 'FactDoc',
+        text: 'Закрытие документации',
+        sort: true,
+        editor: {
+            type: Type.SELECT,
+            options: factOfAgreement
+        },
+        editable: true,
+        headerStyle: (colum, colIndex) => {
+            return {width: 200, textAlign: 'center'};
         }
     }, {
         dataField: 'StartDate',
@@ -251,11 +261,10 @@ export function ColumnsData(performers) {
         text: 'Факт выполнения',
         sort: true,
         editor: {
-            type: Type.CHECKBOX,
-            // label:'pupa:lupa',
-            // value: 'true:false',
-            value: 'true:false',
+            type: Type.SELECT,
+            options: factOfAgreement
     },
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
         }
@@ -266,7 +275,7 @@ export function ColumnsData(performers) {
         editable: true,
         editor: {
             type: Type.SELECT,
-            options: performersMas
+            options: performers
         },
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
@@ -387,11 +396,10 @@ export function ColumnsData(performers) {
         text: 'Факт выполнения',
         sort: true,
         editor: {
-            type: Type.CHECKBOX,
-            // value: 'true:false'
-            value: 'true:false',
-
+            type: Type.SELECT,
+            options: factOfAgreement
         },
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
         }
@@ -402,7 +410,7 @@ export function ColumnsData(performers) {
         editable: true,
         editor: {
             type: Type.SELECT,
-            options: performersMas
+            options: performers
         },
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
