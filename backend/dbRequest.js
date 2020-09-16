@@ -1,6 +1,6 @@
 const Client= require('pg').Client;                         // подключение модуля для соединения с БД
 
-const DBNAME = "PKU_MapService3";
+const DBNAME = "NewBase";
 const DBLOG = "postgres";
 const DBPASS = "postgres";
 const DBPORT = "5432";
