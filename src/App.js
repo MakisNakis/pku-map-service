@@ -3,6 +3,7 @@ import MapComponent from './selfComponents/MapComponent';
 import DepartmentsComponent from './selfComponents/DepartmentsComponent';
 import TableComponent from './selfComponents/TableComponent';
 import AuthorisationComponent from './selfComponents/AuthorisationComponent';
+import AuthComponent from './selfComponents/Auth/AuthComponent';
 import TypeTableComponent from './selfComponents/TypeTableComponent';
 import ButtonUpComponent from './selfComponents/ButtonUpComponent';
 import ProfileComponent from './selfComponents/ProfileComponent';
