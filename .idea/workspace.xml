@@ -21,8 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/ColumnsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,14 +241,7 @@
       <workItem from="1598614328716" duration="732000" />
       <workItem from="1599651772238" duration="17782000" />
       <workItem from="1600086298401" duration="5112000" />
-      <workItem from="1600152818350" duration="13091000" />
-    </task>
-    <task id="LOCAL-00032" summary="+ добавлен выбор под вкладок для отделов">
-      <created>1593088888895</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1593088888895</updated>
+      <workItem from="1600152818350" duration="13866000" />
     </task>
     <task id="LOCAL-00033" summary="- test">
       <created>1594820884789</created>
@@ -588,7 +579,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600093548901</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="- во вкладках Монтаж и ПТО теперь факт исполнения выбирается из списка и пишется &quot;Выполнено&quot; / &quot;Не выполнено&quot;&#10;&#10;- Для корректной работы после внесенных изменений поменялась база. Теперь функция для возврата данных об исполнителях в пустых ячейках пишет не &quot;---&quot;, а &quot; &quot;&#10;- !!! НЕ РАБОТАЕТ изменение таблицы у отдела Комплектации">
+      <created>1600172923953</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1600172923954</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,7 +606,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- убрал слайдер снизу" />
     <MESSAGE value="+ убрал слайдер снизу" />
     <MESSAGE value="- добавил поиск по таблице" />
     <MESSAGE value="- TODO: выбор исполнителя из списка" />
@@ -633,7 +630,8 @@
     <MESSAGE value="+ перформеры берутся из бд (fix)" />
     <MESSAGE value="+ перформеры берутся из бд (изменен запрос к бд)" />
     <MESSAGE value="- во вкладках Монтаж и ПТО теперь факт исполнения выбирается из списка и пишется &quot;Выполнено&quot; / &quot;Не выполнено&quot;&#10;&#10;- Для корректной работы после внесенных изменений поменялась база. Теперь функция для возврата данных об исполнителях в пустых ячейках пишет не &quot;---&quot;, а &quot; &quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="- во вкладках Монтаж и ПТО теперь факт исполнения выбирается из списка и пишется &quot;Выполнено&quot; / &quot;Не выполнено&quot;&#10;&#10;- Для корректной работы после внесенных изменений поменялась база. Теперь функция для возврата данных об исполнителях в пустых ячейках пишет не &quot;---&quot;, а &quot; &quot;" />
+    <MESSAGE value="- во вкладках Монтаж и ПТО теперь факт исполнения выбирается из списка и пишется &quot;Выполнено&quot; / &quot;Не выполнено&quot;&#10;&#10;- Для корректной работы после внесенных изменений поменялась база. Теперь функция для возврата данных об исполнителях в пустых ячейках пишет не &quot;---&quot;, а &quot; &quot;&#10;- !!! НЕ РАБОТАЕТ изменение таблицы у отдела Комплектации" />
+    <option name="LAST_COMMIT_MESSAGE" value="- во вкладках Монтаж и ПТО теперь факт исполнения выбирается из списка и пишется &quot;Выполнено&quot; / &quot;Не выполнено&quot;&#10;&#10;- Для корректной работы после внесенных изменений поменялась база. Теперь функция для возврата данных об исполнителях в пустых ячейках пишет не &quot;---&quot;, а &quot; &quot;&#10;- !!! НЕ РАБОТАЕТ изменение таблицы у отдела Комплектации" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
@@ -649,10 +647,10 @@
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
     <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1598439326183" />
-    <state x="2402" y="91" width="972" height="904" key="CommitChangelistDialog2" timestamp="1600093548803">
-      <screen x="1920" y="0" width="1920" height="1200" />
+    <state x="482" y="91" width="972" height="904" key="CommitChangelistDialog2" timestamp="1600172923696">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1600091339068" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1600172923696" />
     <state x="2402" y="91" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@1920.0.1920.1200" timestamp="1600093548803" />
     <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1598532332811" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
