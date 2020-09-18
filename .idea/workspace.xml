@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -242,13 +240,7 @@
       <workItem from="1599651772238" duration="17782000" />
       <workItem from="1600086298401" duration="5112000" />
       <workItem from="1600152818350" duration="13866000" />
-    </task>
-    <task id="LOCAL-00033" summary="- test">
-      <created>1594820884789</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1594820884789</updated>
+      <workItem from="1600410169383" duration="333000" />
     </task>
     <task id="LOCAL-00034" summary="+ исправил формат даты и времени">
       <created>1595414311764</created>
@@ -586,7 +578,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600172923954</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="-">
+      <created>1600410405598</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1600410405599</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,7 +605,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="+ убрал слайдер снизу" />
     <MESSAGE value="- добавил поиск по таблице" />
     <MESSAGE value="- TODO: выбор исполнителя из списка" />
     <MESSAGE value="- сделал выбор исполнителя из списка&#10;&#10;TODO: - Выбор маршрута (Башкултаево)" />
@@ -631,7 +629,8 @@
     <MESSAGE value="+ перформеры берутся из бд (изменен запрос к бд)" />
     <MESSAGE value="- во вкладках Монтаж и ПТО теперь факт исполнения выбирается из списка и пишется &quot;Выполнено&quot; / &quot;Не выполнено&quot;&#10;&#10;- Для корректной работы после внесенных изменений поменялась база. Теперь функция для возврата данных об исполнителях в пустых ячейках пишет не &quot;---&quot;, а &quot; &quot;" />
     <MESSAGE value="- во вкладках Монтаж и ПТО теперь факт исполнения выбирается из списка и пишется &quot;Выполнено&quot; / &quot;Не выполнено&quot;&#10;&#10;- Для корректной работы после внесенных изменений поменялась база. Теперь функция для возврата данных об исполнителях в пустых ячейках пишет не &quot;---&quot;, а &quot; &quot;&#10;- !!! НЕ РАБОТАЕТ изменение таблицы у отдела Комплектации" />
-    <option name="LAST_COMMIT_MESSAGE" value="- во вкладках Монтаж и ПТО теперь факт исполнения выбирается из списка и пишется &quot;Выполнено&quot; / &quot;Не выполнено&quot;&#10;&#10;- Для корректной работы после внесенных изменений поменялась база. Теперь функция для возврата данных об исполнителях в пустых ячейках пишет не &quot;---&quot;, а &quot; &quot;&#10;- !!! НЕ РАБОТАЕТ изменение таблицы у отдела Комплектации" />
+    <MESSAGE value="-" />
+    <option name="LAST_COMMIT_MESSAGE" value="-" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
