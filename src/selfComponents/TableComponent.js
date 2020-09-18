@@ -5,8 +5,7 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
 import ToolkitProvider, {Search, CSVExport} from 'react-bootstrap-table2-toolkit';
 import {ColumnsData} from "../data/ColumnsData";
-import Modal from 'react-bootstrap/Modal'
-import { Button } from 'react-bootstrap';
+import {ContextMenu, MenuItem, ContextMenuTrigger} from "react-contextmenu";
 
 
 import './css/TableComponent.css';
@@ -389,6 +388,16 @@ class TableComponent extends Component {
         return style;
     };
 
+ handleClick(e, data) {
+     if (data.foo === '1'){
+         alert('Пошел нахер')
+     }
+     if (data.foo === '2'){
+         alert('Иди в жопу')
+     }
+  console.log(data.foo);
+}
+
 
 
     render() {
@@ -447,6 +456,21 @@ class TableComponent extends Component {
             return style;
         };
 
+
+        const selectRow = { // данный параметр используется для получения сведений о строке, на которую нажали (правой кнопкой мыши)
+            mode: 'checkbox',
+            hideSelectColumn: true, // скрываем флажки для выделения строки
+            clickToSelect: true,
+            onSelect: (row, neNuzhno, neNuzhno2, e) =>{
+                console.log(e)
+
+                if (e.which === 3){
+                    alert(row)
+                }
+                else console.log(row)
+
+        }
+        };
 
         const indication = () => {
             return "В таблице нет информации";
@@ -531,6 +555,7 @@ class TableComponent extends Component {
 
         return (
             <div id="TableComp" >
+
                 {this.props.show &&
                 <div>
                     <ToolkitProvider
@@ -555,7 +580,23 @@ class TableComponent extends Component {
                                     {/*<hr />*/}
                                         </tr>
                                     </table>
+                                    <ContextMenuTrigger id="same_unique_identifier">
+                                        <div className="well">Right click to see the menu</div>
+
+                                    <ContextMenu id="same_unique_identifier">
+                                        <MenuItem data={{foo: '1'}} onClick={this.handleClick}>
+                                            Изменить контрагента
+                                        </MenuItem>
+                                        <MenuItem data={{foo: '2'}} onClick={this.handleClick}>
+                                            Добавить нового контрагента
+                                        </MenuItem>
+                                        {/*<MenuItem divider />*/}
+                                        {/*<MenuItem data={{foo: 'bar'}} onClick={selectRow}>*/}
+                                        {/*    ContextMenu Item 3*/}
+                                        {/*</MenuItem>*/}
+                                    </ContextMenu>
                                     <BootstrapTable
+                                        selectRow={ selectRow}
                                         wrapperClasses="table-horiz-scroll"
                                         headerClasses="thead"
                                         bodyClasses="tbody"
@@ -576,6 +617,8 @@ class TableComponent extends Component {
                                         // filter={filterFactory()}
                                         {...props.baseProps}
                                     />
+                                    </ContextMenuTrigger>
+
                                 </div>
                             )
                         }
