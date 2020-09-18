@@ -1,6 +1,6 @@
 const Client= require('pg').Client;                         // подключение модуля для соединения с БД
 
-const DBNAME = "NewBase";
+const DBNAME = "PKU_MapService3";
 const DBLOG = "postgres";
 const DBPASS = "postgres";
 const DBPORT = "5432";
@@ -129,6 +129,10 @@ class MyRepository {
                 if(row.Comment !== '' && row.Comment !== null) {
                     CommentOMTS = this.convertToPG(row.Comment);
                 }
+                if(row.ProviderName === '' || row.ProviderName === null) {
+                    row.ProviderName = 'null'
+                }
+
 
                 if(row.Fact === 'Выполнено') {
                     Fact = 'true'
@@ -313,6 +317,11 @@ class MyRepository {
 
     async getFactOfAgreement() {
         let query = this.client.query(`select * from f_s_bool_list();`);
+        return query;
+    }
+
+    async getProvidersList() {
+        let query = this.client.query(`select * from f_s_providers_list();`);
         return query;
     }
 

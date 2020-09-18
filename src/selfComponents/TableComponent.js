@@ -46,6 +46,14 @@ class TableComponent extends Component {
             .catch(() => {
                 console.log("Ошибка при асинхронном запросе для чтения факта согласования");
             });
+
+        this.getProvidersList()
+            .then(data => {
+                this.providersList = data;
+            })
+            .catch(() => {
+                console.log("Ошибка при асинхронном запросе для чтения списка контрагентов");
+            });
     }
 
     async getPerformers() {
@@ -61,12 +69,12 @@ class TableComponent extends Component {
                     value: data.rows[i].ID
                 }
             }
-            console.log(performers);
+            // console.log(performers);
             return performers;
         }).catch(() => {
             console.log('Ошибка на /api/auth/perfName');
         });
-        console.log(performersMas);
+        // console.log(performersMas);
         return performersMas;
     }
 
@@ -83,15 +91,36 @@ class TableComponent extends Component {
                         value: data.rows[i].Bool
                     }
                 }
-                console.log(factOfAgreement);
+                // console.log(factOfAgreement);
                 return factOfAgreement;
             }).catch(() => {
                 console.log('Ошибка на /api/auth/factOfAgreement');
             });
-        console.log(factOfAgreementMas);
+        // console.log(factOfAgreementMas);
         return factOfAgreementMas;
     }
 
+    async getProvidersList() { // функция для получения списка контрагентов
+        const providersList = [];
+        const providersListMas = await fetch('/api/auth/providersList')
+            .then(result => result.json())
+            .then(data => {
+                // console.log(data.rows);
+                const lenMas = data.rows.length;
+                for(let i = 0; i < lenMas; i++) {
+                    providersList[i] = {
+                        label: data.rows[i].Name,
+                        value: data.rows[i].ID
+                    }
+                }
+                console.log(providersList);
+                return providersList;
+            }).catch(() => {
+                console.log('Ошибка на /api/auth/factOfAgreement');
+            });
+        console.log(providersListMas);
+        return providersListMas;
+    }
 
      async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
          await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
@@ -158,6 +187,7 @@ class TableComponent extends Component {
         let done = true;
         let factOfAgreementLen = this.factOfAgreement.length;
         let performersLen = this.performers.length;
+        let providersListLen = this.providersList.length;
         // for(let i = 0; i < factOfAgreementLen; i++) {
         //     console.log(this.factOfAgreement[i].label);
         //
@@ -168,6 +198,20 @@ class TableComponent extends Component {
         // }
         switch (this.props.typeTable) {
             case "ОМТС": {
+
+                // for(let j = 0; j < providersListLen; j++) {
+                //     let providersListJ = this.providersList[j];
+                //     switch (providersListJ.label) {
+                //         case rowEdit.ProviderID: {
+                //             rowEdit.ProviderID = providersListJ.value;
+                //             break;
+                //         }
+                //         default:
+                //             break;
+                //     }
+                //
+                // }
+
                 console.log(rowEdit)
                 if (rowEdit.Fact === '' || rowEdit.FactDoc === '') {
                     done = false;
@@ -191,12 +235,40 @@ class TableComponent extends Component {
                                 break;
                         }
 
+                        for(let j = 0; j < providersListLen; j++) {
+                            let providersListJ = this.providersList[j];
+                            console.log(providersListJ)
+                            console.log(rowEdit.ProviderID)
+                            switch (providersListJ.label) {
+                                case rowEdit.ProviderName: {
+                                    rowEdit.ProviderName = providersListJ.value;
+                                    break;
+                                }
+                                default:
+                                    break;
+                            }
+
+                        }
+
+
                     }
                     this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
 
                     // this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
                 } else {
                     this.fetchFromApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU);
+                }
+
+                for(let j = 0; j < providersListLen; j++) {
+                    let providersListJ = this.providersList[j];
+                    switch (providersListJ.label) {
+                        case rowEdit.ProviderID: {
+                            rowEdit.ProviderID = providersListJ.value;
+                            break;
+                        }
+                        default:
+                            break;
+                    }
                 }
                 break;
             }
@@ -322,7 +394,7 @@ class TableComponent extends Component {
     render() {
 
         // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
-        const tableHeaders = ColumnsData(this.performers, this.factOfAgreement); // подключаем заголовки таблиц из файла ../data/ColumnsData
+        const tableHeaders = ColumnsData(this.performers, this.factOfAgreement, this.providersList); // подключаем заголовки таблиц из файла ../data/ColumnsData
         console.log(this.performers);
         const {ExportCSVButton} = CSVExport; // кнопка для экспорта таблицы в CSV
 

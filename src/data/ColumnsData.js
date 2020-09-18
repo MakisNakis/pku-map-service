@@ -30,7 +30,7 @@ function CellStyle(cell, row, rowIndex, colIndex) {
 //     });
 // }
 
-export function ColumnsData(performers, factOfAgreement) {
+export function ColumnsData(performers, factOfAgreement, providersList) {
 
         // const performers = localStorage.getItem('performers')
     // let performers = [{label: "1"}, {label:"2"}, {label: "3"}]
@@ -89,7 +89,11 @@ export function ColumnsData(performers, factOfAgreement) {
         dataField: 'ProviderName',
         text: 'Контрагент',
         sort: true,
-        editable: false,
+        editor: {
+            type: Type.SELECT,
+            options: providersList
+        },
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
         }

@@ -259,3 +259,11 @@ app.route(`/api/auth/factOfAgreement`) // эндпоинт для получен
         // console.log(`В авторизовался пользователь ${dbResponse}`)
         res.send(dbResponse);
     });
+
+app.route(`/api/auth/providersList`) // эндпоинт для получения списка контрагентов
+    .get(async (req, res) => {
+        const dbResponse = await repository.getProvidersList();
+        console.log(dbResponse.rows);
+        // console.log(`В авторизовался пользователь ${dbResponse}`)
+        res.send(dbResponse);
+    });
