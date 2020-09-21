@@ -22,6 +22,7 @@ class TableComponent extends Component {
         this.state = {
             pkuInfo: [],
             filterColor: "white",
+            selectedRow: null
             // performers: this.getPerformers() // список всех исполнителей (монтажников)
         };
         this.url = window.location.href;
@@ -389,13 +390,9 @@ class TableComponent extends Component {
     };
 
  handleClick(e, data) {
-     if (data.foo === '1'){
-         alert('Пошел нахер')
-     }
-     if (data.foo === '2'){
-         alert('Иди в жопу')
-     }
-  console.log(data.foo);
+         alert(data.foo)
+
+  // console.log(data.foo);
 }
 
 
@@ -457,19 +454,32 @@ class TableComponent extends Component {
         };
 
 
-        const selectRow = { // данный параметр используется для получения сведений о строке, на которую нажали (правой кнопкой мыши)
-            mode: 'checkbox',
-            hideSelectColumn: true, // скрываем флажки для выделения строки
-            clickToSelect: true,
-            onSelect: (row, neNuzhno, neNuzhno2, e) =>{
-                console.log(e)
+        // const selectRow = { // данный параметр используется для получения сведений о строке, на которую нажали (правой кнопкой мыши)
+        //     mode: 'checkbox',
+        //     hideSelectColumn: true, // скрываем флажки для выделения строки
+        //     clickToSelect: true,
+        //     onSelect: (row, neNuzhno, neNuzhno2, e) =>{
+        //         console.log(e)
+        //
+        //         if (e.which === 3){
+        //             alert(row)
+        //         }
+        //         else console.log(row)
+        //
+        // }
+        // };
 
-                if (e.which === 3){
-                    alert(row)
-                }
-                else console.log(row)
 
-        }
+        const tableRowEvents = { // данный параметр используется для получения сведений о строке, на которую нажали (правой кнопкой мыши)
+         onContextMenu: (e, row) => {
+             // if (e.which === 3) {
+             console.log(this.state.selectedRow)
+             this.setState({selectedRow: row.DeliveryID})
+             console.log(row.DeliveryID)
+             console.log(this.state.selectedRow)
+                 // console.log(e)
+             // }
+         }
         };
 
         const indication = () => {
@@ -581,13 +591,13 @@ class TableComponent extends Component {
                                         </tr>
                                     </table>
                                     <ContextMenuTrigger id="same_unique_identifier">
-                                        <div className="well">Right click to see the menu</div>
+                                        <div className="well">Контекстное меню открывается нажатием ПКМ</div>
 
                                     <ContextMenu id="same_unique_identifier">
-                                        <MenuItem data={{foo: '1'}} onClick={this.handleClick}>
+                                        <MenuItem data={{foo: this.state.selectedRow}} onClick={this.handleClick.bind(this)}>
                                             Изменить контрагента
                                         </MenuItem>
-                                        <MenuItem data={{foo: '2'}} onClick={this.handleClick}>
+                                        <MenuItem data={{foo: this.state.selectedRow}} onClick={this.handleClick.bind(this)}>
                                             Добавить нового контрагента
                                         </MenuItem>
                                         {/*<MenuItem divider />*/}
@@ -596,11 +606,12 @@ class TableComponent extends Component {
                                         {/*</MenuItem>*/}
                                     </ContextMenu>
                                     <BootstrapTable
-                                        selectRow={ selectRow}
+                                        // selectRow={ selectRow}
                                         wrapperClasses="table-horiz-scroll"
                                         headerClasses="thead"
                                         bodyClasses="tbody"
                                         // rowStyle={rowStyle}
+                                        rowEvents={tableRowEvents} // здесь прописан обработчик события нажатия правой кнопки мыши
                                         noDataIndication={ indication }
                                         pagination={paginationFactory(optionsPagination)}
                                         cellEdit={cellEditFactory({
