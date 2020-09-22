@@ -36,8 +36,6 @@ export function ColumnsData(performers, factOfAgreement, providersList) {
     // let performers = [{label: "1"}, {label:"2"}, {label: "3"}]
 
 // console.log()
-    console.log(performers);
-    console.log(factOfAgreement);
 // console.log(JSON.stringify(performers))
 
 
@@ -47,7 +45,7 @@ export function ColumnsData(performers, factOfAgreement, providersList) {
 //     for (let i = 0; i < performers.length; i++){
 //         performersMas[i] = {label: performers[i].Surname}
 //     }
-// console.log(performersMas)
+console.log(factOfAgreement)
 
     let tableHeaders = [];
     //ОМТС

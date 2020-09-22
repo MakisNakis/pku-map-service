@@ -28,7 +28,7 @@
     /*background: no-repeat;*/
     width: 100%;
     border-width: 2px;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     align-content: center;
 
 }
@@ -53,10 +53,10 @@
     height: auto;
     padding: 2px;
     /*width: 150px;*/
-    background: #035496;
+    background: rgb(65, 128, 177);
     /*background: rgb(3, 85, 150);*/
-    border-radius: 10px;
-    border-width: 2px;
+    /*border-radius: 10px;*/
+    border-width: 3px;
     position: absolute;
 }
 

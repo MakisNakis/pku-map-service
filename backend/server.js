@@ -267,3 +267,12 @@ app.route(`/api/auth/providersList`) // эндпоинт для получени
         // console.log(`В авторизовался пользователь ${dbResponse}`)
         res.send(dbResponse);
     });
+
+    app.route('/api/OMTS/splitDelivery')
+        .post(async (req, res) => {
+            const data = req.body;
+            const dbResponse = await repository.splitDelivery(data);
+            console.log(dbResponse.rows);
+            // console.log(`В авторизовался пользователь ${dbResponse}`)
+            res.send(dbResponse);
+        })
