@@ -19,15 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/ColumnsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ColumnsData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/Template.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/Template.js" afterDir="false" />
-    </list>
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -246,6 +238,7 @@
       <workItem from="1598423903611" duration="26278000" />
       <workItem from="1598614328716" duration="732000" />
       <workItem from="1599651772238" duration="17782000" />
+      <workItem from="1600756093406" duration="395000" />
     </task>
     <task id="LOCAL-00030" summary="+ просто commit">
       <created>1593083093605</created>
