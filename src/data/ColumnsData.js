@@ -5,9 +5,6 @@ function CellStyle(cell, row, rowIndex, colIndex) {
 
     let nameColumnColor = Object.keys(row)[colIndex+1];
 
-    // for ()
-
-    // if (row.EndDatePlanColor !== null ) {
     if (row.nameColumnColor !== null ) {
         return {
             backgroundColor: `${row.EndDatePlanColor}`
@@ -33,7 +30,7 @@ function CellStyle(cell, row, rowIndex, colIndex) {
 //     });
 // }
 
-export function ColumnsData(performers, factOfAgreement) {
+export function ColumnsData(performers, factOfAgreement, providersList) {
 
         // const performers = localStorage.getItem('performers')
     // let performers = [{label: "1"}, {label:"2"}, {label: "3"}]
@@ -92,7 +89,11 @@ export function ColumnsData(performers, factOfAgreement) {
         dataField: 'ProviderName',
         text: 'Контрагент',
         sort: true,
-        editable: false,
+        editor: {
+            type: Type.SELECT,
+            options: providersList
+        },
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
         }
@@ -104,7 +105,7 @@ export function ColumnsData(performers, factOfAgreement) {
             type: Type.DATE,
             defaultValue: Date.now()
         },
-        // editable: false,
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -116,6 +117,7 @@ export function ColumnsData(performers, factOfAgreement) {
             type: Type.DATE,
             defaultValue: Date.now()
         },
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -127,6 +129,7 @@ export function ColumnsData(performers, factOfAgreement) {
             type: Type.DATE,
             defaultValue: Date.now()
         },
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -143,6 +146,7 @@ export function ColumnsData(performers, factOfAgreement) {
         text: 'Количество',
         sort: true,
         type: 'number',
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 120, textAlign: 'center'};
         }
@@ -264,11 +268,10 @@ export function ColumnsData(performers, factOfAgreement) {
         text: 'Факт выполнения',
         sort: true,
         editor: {
-            type: Type.CHECKBOX,
-            // label:'pupa:lupa',
-            // value: 'true:false',
-            value: 'true:false',
+            type: Type.SELECT,
+            options: factOfAgreement
     },
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
         }
@@ -400,11 +403,10 @@ export function ColumnsData(performers, factOfAgreement) {
         text: 'Факт выполнения',
         sort: true,
         editor: {
-            type: Type.CHECKBOX,
-            // value: 'true:false'
-            value: 'true:false',
-
+            type: Type.SELECT,
+            options: factOfAgreement
         },
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 150, textAlign: 'center'};
         }

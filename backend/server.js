@@ -252,9 +252,17 @@ app.route(`/api/auth/perfName`) // эндпоинт для получения и
 
 
 
-app.route(`/api/auth/factOfAgreement`) // эндпоинт для получения имени исполнителя
+app.route(`/api/auth/factOfAgreement`) // эндпоинт для получения факта согласования
     .get(async (req, res) => {
         const dbResponse = await repository.getFactOfAgreement();
+        console.log(dbResponse.rows);
+        // console.log(`В авторизовался пользователь ${dbResponse}`)
+        res.send(dbResponse);
+    });
+
+app.route(`/api/auth/providersList`) // эндпоинт для получения списка контрагентов
+    .get(async (req, res) => {
+        const dbResponse = await repository.getProvidersList();
         console.log(dbResponse.rows);
         // console.log(`В авторизовался пользователь ${dbResponse}`)
         res.send(dbResponse);

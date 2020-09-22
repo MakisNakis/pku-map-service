@@ -5,8 +5,7 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
 import ToolkitProvider, {Search, CSVExport} from 'react-bootstrap-table2-toolkit';
 import {ColumnsData} from "../data/ColumnsData";
-import Modal from 'react-bootstrap/Modal'
-import { Button } from 'react-bootstrap';
+import {ContextMenu, MenuItem, ContextMenuTrigger} from "react-contextmenu";
 
 
 import './css/TableComponent.css';
@@ -23,6 +22,7 @@ class TableComponent extends Component {
         this.state = {
             pkuInfo: [],
             filterColor: "white",
+            selectedRow: null
             // performers: this.getPerformers() // список всех исполнителей (монтажников)
         };
         this.url = window.location.href;
@@ -46,6 +46,14 @@ class TableComponent extends Component {
             .catch(() => {
                 console.log("Ошибка при асинхронном запросе для чтения факта согласования");
             });
+
+        this.getProvidersList()
+            .then(data => {
+                this.providersList = data;
+            })
+            .catch(() => {
+                console.log("Ошибка при асинхронном запросе для чтения списка контрагентов");
+            });
     }
 
     async getPerformers() {
@@ -61,12 +69,12 @@ class TableComponent extends Component {
                     value: data.rows[i].ID
                 }
             }
-            console.log(performers);
+            // console.log(performers);
             return performers;
         }).catch(() => {
             console.log('Ошибка на /api/auth/perfName');
         });
-        console.log(performersMas);
+        // console.log(performersMas);
         return performersMas;
     }
 
@@ -77,30 +85,51 @@ class TableComponent extends Component {
             .then(data => {
                 // console.log(data.rows);
                 const lenMas = data.rows.length;
-                for( let i = 0; i < lenMas; i++) {
+                for(let i = 0; i < lenMas; i++) {
                     factOfAgreement[i] = {
                         label: data.rows[i].Text,
                         value: data.rows[i].Bool
                     }
                 }
-                console.log(factOfAgreement);
+                // console.log(factOfAgreement);
                 return factOfAgreement;
             }).catch(() => {
                 console.log('Ошибка на /api/auth/factOfAgreement');
             });
-        console.log(factOfAgreementMas);
+        // console.log(factOfAgreementMas);
         return factOfAgreementMas;
     }
 
+    async getProvidersList() { // функция для получения списка контрагентов
+        const providersList = [];
+        const providersListMas = await fetch('/api/auth/providersList')
+            .then(result => result.json())
+            .then(data => {
+                // console.log(data.rows);
+                const lenMas = data.rows.length;
+                for(let i = 0; i < lenMas; i++) {
+                    providersList[i] = {
+                        label: data.rows[i].Name,
+                        value: data.rows[i].ID
+                    }
+                }
+                console.log(providersList);
+                return providersList;
+            }).catch(() => {
+                console.log('Ошибка на /api/auth/factOfAgreement');
+            });
+        console.log(providersListMas);
+        return providersListMas;
+    }
 
      async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
          await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
             // console.log(`/api/pkuDataServerPKUTable${idPKU}`);                  // apiRoute - api адрес, откуда нужно получить данные
-            console.log(results);
+            // console.log(results);
              return results.json();
          }).then(
              data => {
-                 console.log(data);
+                 // console.log(data);
                  let pkuInfoWithID = data.map((val, ix) => {
                      val.tableID = ix+1;
                      // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
@@ -155,13 +184,10 @@ class TableComponent extends Component {
     }
 
     async uploadData(rowEdit, newValue, oldValue) {
-
-        // console.log(rowEdit);
-        //
-        // console.log(oldValue);
-        // console.log(newValue);
         let done = true;
         let factOfAgreementLen = this.factOfAgreement.length;
+        let performersLen = this.performers.length;
+        let providersListLen = this.providersList.length;
         // for(let i = 0; i < factOfAgreementLen; i++) {
         //     console.log(this.factOfAgreement[i].label);
         //
@@ -172,10 +198,25 @@ class TableComponent extends Component {
         // }
         switch (this.props.typeTable) {
             case "ОМТС": {
+
+                // for(let j = 0; j < providersListLen; j++) {
+                //     let providersListJ = this.providersList[j];
+                //     switch (providersListJ.label) {
+                //         case rowEdit.ProviderID: {
+                //             rowEdit.ProviderID = providersListJ.value;
+                //             break;
+                //         }
+                //         default:
+                //             break;
+                //     }
+                //
+                // }
+
+                console.log(rowEdit)
                 if (rowEdit.Fact === '' || rowEdit.FactDoc === '') {
                     done = false;
                 }
-                console.log(rowEdit);
+                // console.log(rowEdit);
 
                 if (done) {
                     for(let j = 0; j < factOfAgreementLen; j++) {
@@ -193,21 +234,116 @@ class TableComponent extends Component {
                             default:
                                 break;
                         }
+
+                        for(let j = 0; j < providersListLen; j++) {
+                            let providersListJ = this.providersList[j];
+                            console.log(providersListJ)
+                            console.log(rowEdit.ProviderID)
+                            switch (providersListJ.label) {
+                                case rowEdit.ProviderName: {
+                                    rowEdit.ProviderName = providersListJ.value;
+                                    break;
+                                }
+                                default:
+                                    break;
+                            }
+
+                        }
+
+
                     }
                     this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+
+                    // this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
                 } else {
                     this.fetchFromApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU);
+                }
+
+                for(let j = 0; j < providersListLen; j++) {
+                    let providersListJ = this.providersList[j];
+                    switch (providersListJ.label) {
+                        case rowEdit.ProviderID: {
+                            rowEdit.ProviderID = providersListJ.value;
+                            break;
+                        }
+                        default:
+                            break;
+                    }
                 }
                 break;
             }
             case "Монтажники1": {
-                this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/Montazhniki/Montazhniki1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                // console.log(rowEdit.PerformerName)
+                if (rowEdit.Fact === '') {
+                    done = false;
+                }
+                // console.log(rowEdit.Fact);
+
+                if (done) {
+                    for (let j = 0; j < factOfAgreementLen; j++) {
+                        let factOfAgreementJ = this.factOfAgreement[j];
+                        switch (factOfAgreementJ.label) {
+                            case rowEdit.Fact: {
+                                rowEdit.Fact = factOfAgreementJ.value;
+                                break;
+                            }
+                            default:
+                                break;
+                        }
+                    }
+                    for (let j = 0; j < performersLen; j++) {
+                        let performersLenJ = this.performers[j];
+                        switch (performersLenJ.label) {
+                            case rowEdit.PerformerName: {
+                                rowEdit.PerformerName = performersLenJ.value;
+                                break;
+                            }
+                            default:
+                                break;
+                        }
+                    }
+                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/Montazhniki/Montazhniki1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                } else {
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/Montazhniki/Montazhniki1/`, this.props.idPKU);
+                }
                 break;
             }
             case "ПТО1": {
-                this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                if (rowEdit.Fact === '') {
+                    done = false;
+                }
+                console.log(rowEdit.Fact);
+
+                if (done) {
+                    for (let j = 0; j < factOfAgreementLen; j++) {
+                        let factOfAgreementJ = this.factOfAgreement[j];
+                        switch (factOfAgreementJ.label) {
+                            case rowEdit.Fact: {
+                                rowEdit.Fact = factOfAgreementJ.value;
+                                break;
+                            }
+                            default:
+                                break;
+                        }
+                    }
+                    for (let j = 0; j < performersLen; j++) {
+                        let performersLenJ = this.performers[j];
+                        switch (performersLenJ.label) {
+                            case rowEdit.PerformerName: {
+                                rowEdit.PerformerName = performersLenJ.value;
+                                break;
+                            }
+                            default:
+                                break;
+                        }
+                    }
+                    this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO1/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+                } else {
+                    this.fetchFromApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO1/`, this.props.idPKU);
+                }
                 break;
             }
+
             case "ПТО2": {
                 this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/PTO/PTO2/`, this.props.idPKU, rowEdit, this.props.routeNumber);
                 break;
@@ -253,12 +389,18 @@ class TableComponent extends Component {
         return style;
     };
 
+ handleClick(e, data) {
+         alert(data.foo)
+
+  // console.log(data.foo);
+}
+
 
 
     render() {
 
         // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
-        const tableHeaders = ColumnsData(this.performers, this.factOfAgreement); // подключаем заголовки таблиц из файла ../data/ColumnsData
+        const tableHeaders = ColumnsData(this.performers, this.factOfAgreement, this.providersList); // подключаем заголовки таблиц из файла ../data/ColumnsData
         console.log(this.performers);
         const {ExportCSVButton} = CSVExport; // кнопка для экспорта таблицы в CSV
 
@@ -311,6 +453,34 @@ class TableComponent extends Component {
             return style;
         };
 
+
+        // const selectRow = { // данный параметр используется для получения сведений о строке, на которую нажали (правой кнопкой мыши)
+        //     mode: 'checkbox',
+        //     hideSelectColumn: true, // скрываем флажки для выделения строки
+        //     clickToSelect: true,
+        //     onSelect: (row, neNuzhno, neNuzhno2, e) =>{
+        //         console.log(e)
+        //
+        //         if (e.which === 3){
+        //             alert(row)
+        //         }
+        //         else console.log(row)
+        //
+        // }
+        // };
+
+
+        const tableRowEvents = { // данный параметр используется для получения сведений о строке, на которую нажали (правой кнопкой мыши)
+         onContextMenu: (e, row) => {
+             // if (e.which === 3) {
+             console.log(this.state.selectedRow)
+             this.setState({selectedRow: row.DeliveryID})
+             console.log(row.DeliveryID)
+             console.log(this.state.selectedRow)
+                 // console.log(e)
+             // }
+         }
+        };
 
         const indication = () => {
             return "В таблице нет информации";
@@ -395,6 +565,7 @@ class TableComponent extends Component {
 
         return (
             <div id="TableComp" >
+
                 {this.props.show &&
                 <div>
                     <ToolkitProvider
@@ -419,11 +590,28 @@ class TableComponent extends Component {
                                     {/*<hr />*/}
                                         </tr>
                                     </table>
+                                    <ContextMenuTrigger id="same_unique_identifier">
+                                        <div className="well">Контекстное меню открывается нажатием ПКМ</div>
+
+                                    <ContextMenu id="same_unique_identifier">
+                                        <MenuItem data={{foo: this.state.selectedRow}} onClick={this.handleClick.bind(this)}>
+                                            Изменить контрагента
+                                        </MenuItem>
+                                        <MenuItem data={{foo: this.state.selectedRow}} onClick={this.handleClick.bind(this)}>
+                                            Добавить нового контрагента
+                                        </MenuItem>
+                                        {/*<MenuItem divider />*/}
+                                        {/*<MenuItem data={{foo: 'bar'}} onClick={selectRow}>*/}
+                                        {/*    ContextMenu Item 3*/}
+                                        {/*</MenuItem>*/}
+                                    </ContextMenu>
                                     <BootstrapTable
+                                        // selectRow={ selectRow}
                                         wrapperClasses="table-horiz-scroll"
                                         headerClasses="thead"
                                         bodyClasses="tbody"
                                         // rowStyle={rowStyle}
+                                        rowEvents={tableRowEvents} // здесь прописан обработчик события нажатия правой кнопки мыши
                                         noDataIndication={ indication }
                                         pagination={paginationFactory(optionsPagination)}
                                         cellEdit={cellEditFactory({
@@ -440,6 +628,8 @@ class TableComponent extends Component {
                                         // filter={filterFactory()}
                                         {...props.baseProps}
                                     />
+                                    </ContextMenuTrigger>
+
                                 </div>
                             )
                         }
@@ -454,5 +644,4 @@ class TableComponent extends Component {
         );
     }
 }
-
 export default TableComponent;
