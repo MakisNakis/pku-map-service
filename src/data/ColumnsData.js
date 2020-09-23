@@ -45,7 +45,7 @@ export function ColumnsData(performers, factOfAgreement, providersList) {
 //     for (let i = 0; i < performers.length; i++){
 //         performersMas[i] = {label: performers[i].Surname}
 //     }
-console.log(factOfAgreement)
+// console.log(factOfAgreement)
 
     let tableHeaders = [];
     //ОМТС
@@ -81,7 +81,7 @@ console.log(factOfAgreement)
         },
         editable: true,
         headerStyle: (colum, colIndex) => {
-            return {width: 200, textAlign: 'center'};
+            return {width: 150, textAlign: 'center'};
         }
     }, {
         dataField: 'ProviderName',
@@ -150,12 +150,12 @@ console.log(factOfAgreement)
         }
     }, {
         dataField: 'QuantityAll',
-        text: 'Требуемое кол-во',
+        text: 'Осталось поставить',
         sort: true,
         type: 'number',
         editable: false,
         headerStyle: (colum, colIndex) => {
-            return {width: 100, textAlign: 'center'};
+            return {width: 120, textAlign: 'center'};
         }
     }, {
         dataField: 'FactDoc',
@@ -167,7 +167,7 @@ console.log(factOfAgreement)
         },
         editable: true,
         headerStyle: (colum, colIndex) => {
-            return {width: 200, textAlign: 'center'};
+            return {width: 150, textAlign: 'center'};
         }
     }, {
         dataField: 'StartDate',

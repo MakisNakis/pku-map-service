@@ -381,21 +381,20 @@ class TableComponent extends Component {
     }
 
     async splitDelivery(e, data) {
-        console.log(data);
-        console.log(this);
         delete data.target;
-        await fetch('/api/OMTS/splitDelivery', {
-            method: 'POST',
-            headers:{'content-type': 'application/json'},
-            mode: "cors",
-            body: JSON.stringify(data),
-        }).then(results => results.json()
-        ).then(() => {
-            this.fetchFromApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU);
-        }).catch((err) => {
-            console.log("!!!Err: splitDelivery");
-        });
-
+        if(window.confirm("Разбить поставку?")) {
+            await fetch('/api/OMTS/splitDelivery', {
+                method: 'POST',
+                headers:{'content-type': 'application/json'},
+                mode: "cors",
+                body: JSON.stringify(data),
+            }).then(results => results.json()
+            ).then(() => {
+                this.fetchFromApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU);
+            }).catch((err) => {
+                console.log("!!!Err: splitDelivery");
+            });
+        }
     }
 
 
