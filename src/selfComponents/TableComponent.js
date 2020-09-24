@@ -22,7 +22,8 @@ class TableComponent extends Component {
         this.state = {
             pkuInfo: [],
             filterColor: "white",
-            selectedRow: null
+            selectedRowDeliveryId: null,
+            selectedRowProvider: null
             // performers: this.getPerformers() // список всех исполнителей (монтажников)
         };
         this.url = window.location.href;
@@ -31,6 +32,7 @@ class TableComponent extends Component {
         this.factOfAgreement = [];
         this.handleClick = this.handleClick.bind(this);
         this.splitDelivery = this.splitDelivery.bind(this);
+        this.cardOfProvider = this.cardOfProvider.bind(this);
     }
 
     componentDidMount() {
@@ -397,6 +399,13 @@ class TableComponent extends Component {
         }
     }
 
+    async cardOfProvider(e, data) {
+        delete data.target;
+        console.log(e);
+        console.log(data.foo);
+        console.log(data);
+    }
+
 
 
     render() {
@@ -474,7 +483,10 @@ class TableComponent extends Component {
             onContextMenu: (e, row) => {
                 switch (this.props.typeTable) {
                     case "ОМТС": {
-                        this.setState({selectedRow: row.DeliveryID});
+                        this.setState({
+                            selectedRowDeliveryId: row.DeliveryID,
+                            selectedRowProvider: row.ProviderName
+                        });
                         break;
                     }
                     default: {
@@ -545,17 +557,21 @@ class TableComponent extends Component {
         };
 
         const beforeSaveCell = (oldValue, newValue, row, column, done) => {
-            setTimeout(() => {
-                let factOfAgreementLen = this.factOfAgreement.length;
-                for(let i = 0; i < factOfAgreementLen; i++) {
-
-                    if (this.factOfAgreement[i].label === oldValue && newValue === "") {
-                        done(false);
-                    }
-                }
-                done(true);
-            }, 0);
-            return { async: true };
+            if (column.type === "number") {
+                console.log(newValue, window)
+                newValue = newValue.window.replace(/,/, '.').bind(this);
+            }
+            // setTimeout(() => {
+            //     let factOfAgreementLen = this.factOfAgreement.length;
+            //     for(let i = 0; i < factOfAgreementLen; i++) {
+            //
+            //         if (this.factOfAgreement[i].label === oldValue && newValue === "") {
+            //             done(false);
+            //         }
+            //     }
+            //     done(true);
+            // }, 0);
+            // return { async: true };
         }
 
         return (
@@ -586,18 +602,18 @@ class TableComponent extends Component {
                                         </tr>
                                     </table>
 
-                                    <ContextMenuTrigger id="same_unique_identifier" holdToDisplay={-1}>
+                                    {/*<ContextMenuTrigger id="same_unique_identifier" holdToDisplay={-1}>*/}
                                         {/*<div className="well">Контекстное меню открывается нажатием ПКМ</div>*/}
                                     {this.props.depName === "ОМТС" && <ContextMenu id="same_unique_identifier" className="context_menu">
                                         <MenuItem data={{deliveryId: this.state.selectedRow, userId: parseInt(localStorage.getItem('userId'))}} className="button7" onClick={this.splitDelivery}>
                                             Разбить поставку
                                         </MenuItem>
-                                        <MenuItem data={{foo: this.state.selectedRow}} className="button7" onClick={this.handleClick}>
-                                            Изменить контрагента
+                                        <MenuItem data={{foo: this.state.selectedRowProvider}} className="button7" onClick={this.cardOfProvider}>
+                                            Карточка контрагента
                                         </MenuItem>
-                                        <MenuItem data={{foo: this.state.selectedRow}} className="button7" onClick={this.handleClick}>
-                                            Добавить нового контрагента
-                                        </MenuItem>
+                                        {/*<MenuItem data={{foo: this.state.selectedRow}} className="button7" onClick={this.handleClick}>*/}
+                                        {/*    Добавить нового контрагента*/}
+                                        {/*</MenuItem>*/}
                                         {/*<MenuItem divider />*/}
                                         {/*<MenuItem data={{foo: 'bar'}} onClick={selectRow}>*/}
                                         {/*    ContextMenu Item 3*/}
@@ -617,8 +633,11 @@ class TableComponent extends Component {
                                             // blurToSave: true,
                                             beforeSaveCell,
                                             afterSaveCell: (oldValue, newValue, row, column) => {
-                                                console.log(newValue);
-
+                                                console.log(column);
+                                                if (column.type === "number") {
+                                                    console.log(newValue, window)
+                                                    newValue = newValue.window.replace(/,/, '.').bind(this);
+                                                }
                                                 if (oldValue !== newValue) {
                                                     console.log(row);
                                                     this.uploadData(row, newValue, oldValue);
@@ -628,7 +647,7 @@ class TableComponent extends Component {
                                         // filter={filterFactory()}
                                         {...props.baseProps}
                                     />
-                                    </ContextMenuTrigger>
+                                    {/*</ContextMenuTrigger>*/}
 
                                 </div>
                             )
