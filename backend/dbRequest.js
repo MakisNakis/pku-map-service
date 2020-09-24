@@ -1,6 +1,6 @@
 const Client= require('pg').Client;                         // подключение модуля для соединения с БД
 
-const DBNAME = "PKU_MapService3";
+const DBNAME = "PKU_MapService";
 const DBLOG = "postgres";
 const DBPASS = "postgres";
 const DBPORT = "5432";
@@ -129,20 +129,24 @@ class MyRepository {
                 if(row.Comment !== '' && row.Comment !== null) {
                     CommentOMTS = this.convertToPG(row.Comment);
                 }
+                if(row.ProviderName === '' || row.ProviderName === null) {
+                    row.ProviderName = 'null'
+                }
+
 
                 if(row.Fact === 'Выполнено') {
                     Fact = 'true'
-                } else if(row.Fact === 'Не выполнено'){
+                } else if(row.Fact === 'Не выполнено') {
                     Fact = 'false'
-                } else if(row.Fact === null){
+                } else if(row.Fact === null) {
                     Fact = 'null'}
                 else Fact = this.convertToPG(row.Fact);
 
-                if (row.FactDoc === 'Выполнено'){
+                if (row.FactDoc === 'Выполнено') {
                     FactDoc = 'true'
                 } else if(row.FactDoc === 'Не выполнено') {
                     FactDoc = 'false'
-                } else if(row.FactDoc === null){
+                } else if(row.FactDoc === null) {
                     Fact = 'null'}
                 else FactDoc = this.convertToPG(row.FactDoc);
                                                                  // запрос на внесение данных для отдела комплектации
@@ -316,11 +320,24 @@ class MyRepository {
         return query;
     }
 
+    async getProvidersList() {
+        let query = this.client.query(`select * from f_s_providers_list();`);
+        return query;
+    }
+
     async changePassword(data) {
         // let query = false;
         let query = this.client.query(`select * from f_s_userid_changepas(
             ${data.userId},
             ${this.convertToPG(data.password)}
+        );`);
+        return query;
+    }
+
+    async splitDelivery(data) {
+        let query = this.client.query(`select * from f_i_copy_deliveris(
+            ${data.deliveryId},
+            ${data.userId}
         );`);
         return query;
     }

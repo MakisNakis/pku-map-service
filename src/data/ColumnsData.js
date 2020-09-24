@@ -30,14 +30,12 @@ function CellStyle(cell, row, rowIndex, colIndex) {
 //     });
 // }
 
-export function ColumnsData(performers, factOfAgreement) {
+export function ColumnsData(performers, factOfAgreement, providersList) {
 
         // const performers = localStorage.getItem('performers')
     // let performers = [{label: "1"}, {label:"2"}, {label: "3"}]
 
 // console.log()
-    console.log(performers);
-    console.log(factOfAgreement);
 // console.log(JSON.stringify(performers))
 
 
@@ -47,7 +45,7 @@ export function ColumnsData(performers, factOfAgreement) {
 //     for (let i = 0; i < performers.length; i++){
 //         performersMas[i] = {label: performers[i].Surname}
 //     }
-// console.log(performersMas)
+// console.log(factOfAgreement)
 
     let tableHeaders = [];
     //ОМТС
@@ -83,13 +81,17 @@ export function ColumnsData(performers, factOfAgreement) {
         },
         editable: true,
         headerStyle: (colum, colIndex) => {
-            return {width: 200, textAlign: 'center'};
+            return {width: 150, textAlign: 'center'};
         }
     }, {
         dataField: 'ProviderName',
         text: 'Контрагент',
         sort: true,
-        editable: false,
+        editor: {
+            type: Type.SELECT,
+            options: providersList
+        },
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 300, textAlign: 'center'};
         }
@@ -101,7 +103,7 @@ export function ColumnsData(performers, factOfAgreement) {
             type: Type.DATE,
             defaultValue: Date.now()
         },
-        // editable: false,
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -113,6 +115,7 @@ export function ColumnsData(performers, factOfAgreement) {
             type: Type.DATE,
             defaultValue: Date.now()
         },
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -124,6 +127,7 @@ export function ColumnsData(performers, factOfAgreement) {
             type: Type.DATE,
             defaultValue: Date.now()
         },
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 200, textAlign: 'center'};
         }
@@ -140,17 +144,18 @@ export function ColumnsData(performers, factOfAgreement) {
         text: 'Количество',
         sort: true,
         type: 'number',
+        editable: true,
         headerStyle: (colum, colIndex) => {
             return {width: 120, textAlign: 'center'};
         }
     }, {
         dataField: 'QuantityAll',
-        text: 'Требуемое кол-во',
+        text: 'Осталось поставить',
         sort: true,
         type: 'number',
         editable: false,
         headerStyle: (colum, colIndex) => {
-            return {width: 100, textAlign: 'center'};
+            return {width: 120, textAlign: 'center'};
         }
     }, {
         dataField: 'FactDoc',
@@ -162,7 +167,7 @@ export function ColumnsData(performers, factOfAgreement) {
         },
         editable: true,
         headerStyle: (colum, colIndex) => {
-            return {width: 200, textAlign: 'center'};
+            return {width: 150, textAlign: 'center'};
         }
     }, {
         dataField: 'StartDate',

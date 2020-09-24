@@ -446,7 +446,7 @@ class App extends React.Component {
                     markerName={this.state.markerName}
                     routeNumber={this.state.routeNumber}
                     // userRole={this.state.userRole}
-                    // userName={this.state.userName}
+                    userName={this.state.userName}
                     />
                     <br/>
                 </div>}

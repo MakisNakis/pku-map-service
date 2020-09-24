@@ -5,8 +5,7 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
 import ToolkitProvider, {Search, CSVExport} from 'react-bootstrap-table2-toolkit';
 import {ColumnsData} from "../data/ColumnsData";
-import Modal from 'react-bootstrap/Modal'
-import { Button } from 'react-bootstrap';
+import {ContextMenu, MenuItem, ContextMenuTrigger} from "react-contextmenu";
 
 
 import './css/TableComponent.css';
@@ -23,15 +22,18 @@ class TableComponent extends Component {
         this.state = {
             pkuInfo: [],
             filterColor: "white",
+            selectedRow: null
             // performers: this.getPerformers() // список всех исполнителей (монтажников)
         };
         this.url = window.location.href;
         this.copyPkuInfo = [];
         this.performers = [];
         this.factOfAgreement = [];
+        this.handleClick = this.handleClick.bind(this);
+        this.splitDelivery = this.splitDelivery.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.getPerformers()
             .then(data => {
                 this.performers = data;
@@ -46,6 +48,14 @@ class TableComponent extends Component {
             .catch(() => {
                 console.log("Ошибка при асинхронном запросе для чтения факта согласования");
             });
+
+        this.getProvidersList()
+            .then(data => {
+                this.providersList = data;
+            })
+            .catch(() => {
+                console.log("Ошибка при асинхронном запросе для чтения списка контрагентов");
+            });
     }
 
     async getPerformers() {
@@ -53,7 +63,6 @@ class TableComponent extends Component {
         const performersMas = await fetch('/api/auth/perfName')
             .then(result => result.json())
             .then(data => {
-            // console.log(data.rows);
             const lenMas = data.rows.length;
             for( let i = 0; i < lenMas; i++) {
                 performers[i] = {
@@ -61,12 +70,10 @@ class TableComponent extends Component {
                     value: data.rows[i].ID
                 }
             }
-            console.log(performers);
             return performers;
         }).catch(() => {
             console.log('Ошибка на /api/auth/perfName');
         });
-        console.log(performersMas);
         return performersMas;
     }
 
@@ -75,7 +82,6 @@ class TableComponent extends Component {
         const factOfAgreementMas = await fetch('/api/auth/factOfAgreement')
             .then(result => result.json())
             .then(data => {
-                // console.log(data.rows);
                 const lenMas = data.rows.length;
                 for(let i = 0; i < lenMas; i++) {
                     factOfAgreement[i] = {
@@ -83,30 +89,44 @@ class TableComponent extends Component {
                         value: data.rows[i].Bool
                     }
                 }
-                console.log(factOfAgreement);
                 return factOfAgreement;
             }).catch(() => {
                 console.log('Ошибка на /api/auth/factOfAgreement');
             });
-        console.log(factOfAgreementMas);
         return factOfAgreementMas;
     }
 
+    async getProvidersList() { // функция для получения списка контрагентов
+        const providersList = [];
+        const providersListMas = await fetch('/api/auth/providersList')
+            .then(result => result.json())
+            .then(data => {
+                const lenMas = data.rows.length;
+                for(let i = 0; i < lenMas; i++) {
+                    providersList[i] = {
+                        label: data.rows[i].Name,
+                        value: data.rows[i].ID
+                    }
+                }
+                return providersList;
+            }).catch(() => {
+                console.log('Ошибка на /api/auth/factOfAgreement');
+            });
+        return providersListMas;
+    }
 
      async fetchFromApi(apiRoute, idPKU) {                                         // функция подгрузки данных для таблиц, на вход принимает
          await fetch(`${this.url}${apiRoute}${idPKU}`).then(results => {     // idPKU - получаемый по нажатии на маркер в MapComponent и
             // console.log(`/api/pkuDataServerPKUTable${idPKU}`);                  // apiRoute - api адрес, откуда нужно получить данные
-            console.log(results);
              return results.json();
          }).then(
              data => {
-                 console.log(data);
+                 // console.log(data);
                  let pkuInfoWithID = data.map((val, ix) => {
                      val.tableID = ix+1;
                      // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
                      return val;
                  });
-                 // console.log(data);
                  this.setState({
                      pkuInfo: pkuInfoWithID,
                      filterColor: "white",
@@ -155,24 +175,35 @@ class TableComponent extends Component {
     }
 
     async uploadData(rowEdit, newValue, oldValue) {
-
         let done = true;
         let factOfAgreementLen = this.factOfAgreement.length;
         let performersLen = this.performers.length;
+        let providersListLen = this.providersList.length;
         // for(let i = 0; i < factOfAgreementLen; i++) {
-        //     console.log(this.factOfAgreement[i].label);
         //
         //     if (this.factOfAgreement[i].label === oldValue && newValue === "") {
-        //         console.log("!!!");
         //         done = false;
         //     }
         // }
         switch (this.props.typeTable) {
             case "ОМТС": {
+
+                // for(let j = 0; j < providersListLen; j++) {
+                //     let providersListJ = this.providersList[j];
+                //     switch (providersListJ.label) {
+                //         case rowEdit.ProviderID: {
+                //             rowEdit.ProviderID = providersListJ.value;
+                //             break;
+                //         }
+                //         default:
+                //             break;
+                //     }
+                //
+                // }
+
                 if (rowEdit.Fact === '' || rowEdit.FactDoc === '') {
                     done = false;
                 }
-                console.log(rowEdit);
 
                 if (done) {
                     for(let j = 0; j < factOfAgreementLen; j++) {
@@ -190,19 +221,50 @@ class TableComponent extends Component {
                             default:
                                 break;
                         }
+                        // rowEdit.Fact = (rowEdit.Fact ==='true');
+                        // rowEdit.FactDoc = (rowEdit.FactDoc ==='true');
+
+
+                        for(let j = 0; j < providersListLen; j++) {
+                            let providersListJ = this.providersList[j];
+                            switch (providersListJ.label) {
+                                case rowEdit.ProviderName: {
+                                    rowEdit.ProviderName = providersListJ.value;
+                                    break;
+                                }
+                                default:
+                                    break;
+                            }
+
+                        }
+
+
                     }
+                    console.log(rowEdit);
                     this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
+
+                    // this.fetchOnApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU, rowEdit, this.props.routeNumber);
                 } else {
                     this.fetchFromApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU);
+                }
+
+                for(let j = 0; j < providersListLen; j++) {
+                    let providersListJ = this.providersList[j];
+                    switch (providersListJ.label) {
+                        case rowEdit.ProviderID: {
+                            rowEdit.ProviderID = providersListJ.value;
+                            break;
+                        }
+                        default:
+                            break;
+                    }
                 }
                 break;
             }
             case "Монтажники1": {
-                console.log(rowEdit.PerformerName)
                 if (rowEdit.Fact === '') {
                     done = false;
                 }
-                console.log(rowEdit.Fact);
 
                 if (done) {
                     for (let j = 0; j < factOfAgreementLen; j++) {
@@ -237,7 +299,6 @@ class TableComponent extends Component {
                 if (rowEdit.Fact === '') {
                     done = false;
                 }
-                console.log(rowEdit.Fact);
 
                 if (done) {
                     for (let j = 0; j < factOfAgreementLen; j++) {
@@ -286,7 +347,6 @@ class TableComponent extends Component {
 
     async fetchOnApi(apiRoute, idPKU, rowEdit) {
         let jsonObj = {rowEdit: rowEdit, userId: localStorage.getItem('userId')}
-        console.log(rowEdit);
         await fetch(`${this.url}${apiRoute}${idPKU}`, {
         // await fetch('http://192.168.1.116:5000/api/test1', {
             method: 'POST',
@@ -314,13 +374,35 @@ class TableComponent extends Component {
         return style;
     };
 
+    handleClick(e, data) {
+        console.log(e);
+        console.log(data.foo);
+        console.log(data);
+    }
+
+    async splitDelivery(e, data) {
+        delete data.target;
+        if(window.confirm("Разбить поставку?")) {
+            await fetch('/api/OMTS/splitDelivery', {
+                method: 'POST',
+                headers:{'content-type': 'application/json'},
+                mode: "cors",
+                body: JSON.stringify(data),
+            }).then(results => results.json()
+            ).then(() => {
+                this.fetchFromApi(`/api/pkuDataServerPKUTable/${this.props.routeNumber}/OMTS/`, this.props.idPKU);
+            }).catch((err) => {
+                console.log("!!!Err: splitDelivery");
+            });
+        }
+    }
+
 
 
     render() {
 
         // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
-        const tableHeaders = ColumnsData(this.performers, this.factOfAgreement); // подключаем заголовки таблиц из файла ../data/ColumnsData
-        console.log(this.performers);
+        const tableHeaders = ColumnsData(this.performers, this.factOfAgreement, this.providersList); // подключаем заголовки таблиц из файла ../data/ColumnsData
         const {ExportCSVButton} = CSVExport; // кнопка для экспорта таблицы в CSV
 
 
@@ -373,6 +455,36 @@ class TableComponent extends Component {
         };
 
 
+        // const selectRow = { // данный параметр используется для получения сведений о строке, на которую нажали (правой кнопкой мыши)
+        //     mode: 'checkbox',
+        //     hideSelectColumn: true, // скрываем флажки для выделения строки
+        //     clickToSelect: true,
+        //     onSelect: (row, neNuzhno, neNuzhno2, e) =>{
+        //
+        //         if (e.which === 3){
+        //             alert(row)
+        //         }
+        //         else console.log(row)
+        //
+        // }
+        // };
+
+
+        const tableRowEvents = { // данный параметр используется для получения сведений о строке, на которую нажали (правой кнопкой мыши)
+            onContextMenu: (e, row) => {
+                switch (this.props.typeTable) {
+                    case "ОМТС": {
+                        this.setState({selectedRow: row.DeliveryID});
+                        break;
+                    }
+                    default: {
+                        this.setState({selectedRow: null});
+                        break;
+                    }
+                }
+            }
+        };
+
         const indication = () => {
             return "В таблице нет информации";
         }
@@ -382,7 +494,6 @@ class TableComponent extends Component {
             let newData = [];
             let lenMas = this.copyPkuInfo.length;
 
-            // console.log(color);
 
             for (let i=0; i < lenMas; i++) {
                 let obj = this.copyPkuInfo[i];
@@ -399,7 +510,6 @@ class TableComponent extends Component {
         const filterColor = () => {
             switch(this.state.filterColor) {
                 case "white":
-                    // console.log('###### ' + this.state.filterColor);
                     this.copyPkuInfo = this.state.pkuInfo;
                     this.setState({
                         filterColor: "yellow",
@@ -407,7 +517,6 @@ class TableComponent extends Component {
                     });
                     break;
                 case "yellow":
-                    // console.log('###### ' + this.state.filterColor);
 
                     this.setState({
                         filterColor: "red",
@@ -415,7 +524,6 @@ class TableComponent extends Component {
                     });
                     break;
                 case "red":
-                    // console.log('###### ' + this.state.filterColor);
 
                     this.setState({
                         filterColor: "white",
@@ -438,14 +546,10 @@ class TableComponent extends Component {
 
         const beforeSaveCell = (oldValue, newValue, row, column, done) => {
             setTimeout(() => {
-                console.log(oldValue);
-                console.log(newValue);
                 let factOfAgreementLen = this.factOfAgreement.length;
                 for(let i = 0; i < factOfAgreementLen; i++) {
-                    console.log(this.factOfAgreement[i].label);
 
                     if (this.factOfAgreement[i].label === oldValue && newValue === "") {
-                        console.log("!!!");
                         done(false);
                     }
                 }
@@ -456,6 +560,7 @@ class TableComponent extends Component {
 
         return (
             <div id="TableComp" >
+
                 {this.props.show &&
                 <div>
                     <ToolkitProvider
@@ -480,11 +585,31 @@ class TableComponent extends Component {
                                     {/*<hr />*/}
                                         </tr>
                                     </table>
+
+                                    <ContextMenuTrigger id="same_unique_identifier" holdToDisplay={-1}>
+                                        {/*<div className="well">Контекстное меню открывается нажатием ПКМ</div>*/}
+                                    {this.props.depName === "ОМТС" && <ContextMenu id="same_unique_identifier" className="context_menu">
+                                        <MenuItem data={{deliveryId: this.state.selectedRow, userId: parseInt(localStorage.getItem('userId'))}} className="button7" onClick={this.splitDelivery}>
+                                            Разбить поставку
+                                        </MenuItem>
+                                        <MenuItem data={{foo: this.state.selectedRow}} className="button7" onClick={this.handleClick}>
+                                            Изменить контрагента
+                                        </MenuItem>
+                                        <MenuItem data={{foo: this.state.selectedRow}} className="button7" onClick={this.handleClick}>
+                                            Добавить нового контрагента
+                                        </MenuItem>
+                                        {/*<MenuItem divider />*/}
+                                        {/*<MenuItem data={{foo: 'bar'}} onClick={selectRow}>*/}
+                                        {/*    ContextMenu Item 3*/}
+                                        {/*</MenuItem>*/}
+                                    </ContextMenu>}
                                     <BootstrapTable
+                                        // selectRow={ selectRow}
                                         wrapperClasses="table-horiz-scroll"
                                         headerClasses="thead"
                                         bodyClasses="tbody"
                                         // rowStyle={rowStyle}
+                                        rowEvents={tableRowEvents} // здесь прописан обработчик события нажатия правой кнопки мыши
                                         noDataIndication={ indication }
                                         pagination={paginationFactory(optionsPagination)}
                                         cellEdit={cellEditFactory({
@@ -492,8 +617,10 @@ class TableComponent extends Component {
                                             // blurToSave: true,
                                             beforeSaveCell,
                                             afterSaveCell: (oldValue, newValue, row, column) => {
+                                                console.log(newValue);
 
                                                 if (oldValue !== newValue) {
+                                                    console.log(row);
                                                     this.uploadData(row, newValue, oldValue);
                                                 }
                                             }
@@ -501,6 +628,8 @@ class TableComponent extends Component {
                                         // filter={filterFactory()}
                                         {...props.baseProps}
                                     />
+                                    </ContextMenuTrigger>
+
                                 </div>
                             )
                         }
