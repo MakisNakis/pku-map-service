@@ -6,7 +6,7 @@ import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
 import ToolkitProvider, {Search, CSVExport} from 'react-bootstrap-table2-toolkit';
 import {ColumnsData} from "../data/ColumnsData";
 import {ContextMenu, MenuItem, ContextMenuTrigger} from "react-contextmenu";
-
+import CardOfProviderComponent from './CardOfProviderComponent';
 
 import './css/TableComponent.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
@@ -23,7 +23,9 @@ class TableComponent extends Component {
             pkuInfo: [],
             filterColor: "white",
             selectedRowDeliveryId: null,
-            selectedRowProvider: null
+            selectedRowProvider: null,
+            counter: 0,
+            showWindowPortal: false,
             // performers: this.getPerformers() // список всех исполнителей (монтажников)
         };
         this.url = window.location.href;
@@ -33,6 +35,8 @@ class TableComponent extends Component {
         this.handleClick = this.handleClick.bind(this);
         this.splitDelivery = this.splitDelivery.bind(this);
         this.cardOfProvider = this.cardOfProvider.bind(this);
+        this.toggleWindowPortal = this.toggleWindowPortal.bind(this);
+        this.closeWindowPortal = this.closeWindowPortal.bind(this);
     }
 
     componentDidMount() {
@@ -58,6 +62,28 @@ class TableComponent extends Component {
             .catch(() => {
                 console.log("Ошибка при асинхронном запросе для чтения списка контрагентов");
             });
+
+
+        window.addEventListener('beforeunload', () => {
+            this.closeWindowPortal();
+        });
+
+        window.setInterval(() => {
+            this.setState(state => ({
+                counter: state.counter + 1,
+            }));
+        }, 1000);
+    }
+
+    toggleWindowPortal() {
+        this.setState(state => ({
+            ...state,
+            showWindowPortal: !state.showWindowPortal,
+        }));
+    }
+
+    closeWindowPortal() {
+        this.setState({ showWindowPortal: false })
     }
 
     async getPerformers() {
@@ -401,8 +427,7 @@ class TableComponent extends Component {
 
     async cardOfProvider(e, data) {
         delete data.target;
-        console.log(e);
-        console.log(data.foo);
+        console.log(data.nameOfProvider);
         console.log(data);
     }
 
@@ -602,13 +627,13 @@ class TableComponent extends Component {
                                         </tr>
                                     </table>
 
-                                    {/*<ContextMenuTrigger id="same_unique_identifier" holdToDisplay={-1}>*/}
+                                    <ContextMenuTrigger id="same_unique_identifier" holdToDisplay={-1}>
                                         {/*<div className="well">Контекстное меню открывается нажатием ПКМ</div>*/}
                                     {this.props.depName === "ОМТС" && <ContextMenu id="same_unique_identifier" className="context_menu">
                                         <MenuItem data={{deliveryId: this.state.selectedRow, userId: parseInt(localStorage.getItem('userId'))}} className="button7" onClick={this.splitDelivery}>
                                             Разбить поставку
                                         </MenuItem>
-                                        <MenuItem data={{foo: this.state.selectedRowProvider}} className="button7" onClick={this.cardOfProvider}>
+                                        <MenuItem data={{nameOfProvider: this.state.selectedRowProvider}} className="button7" onClick={this.cardOfProvider}>
                                             Карточка контрагента
                                         </MenuItem>
                                         {/*<MenuItem data={{foo: this.state.selectedRow}} className="button7" onClick={this.handleClick}>*/}
@@ -649,12 +674,34 @@ class TableComponent extends Component {
                                         // filter={filterFactory()}
                                         {...props.baseProps}
                                     />
-                                    {/*</ContextMenuTrigger>*/}
+                                    </ContextMenuTrigger>
 
                                 </div>
                             )
                         }
                     </ToolkitProvider>
+
+
+                    <div>
+                        <h1>Counter: {this.state.counter}</h1>
+
+                        <button onClick={this.toggleWindowPortal}>
+                            {this.state.showWindowPortal ? 'Close the' : 'Open a'} Portal
+                        </button>
+
+                        {this.state.showWindowPortal && (
+                            <CardOfProviderComponent closeWindowPortal={this.closeWindowPortal} >
+                                <h1>Counter in a portal: {this.state.counter}</h1>
+                                <p>Even though I render in a different window, I share state!</p>
+
+                                <button onClick={() => this.closeWindowPortal()} >
+                                    Close me!
+                                </button>
+                            </CardOfProviderComponent>
+                        )}
+                    </div>
+
+
                 </div>
                 }
 
