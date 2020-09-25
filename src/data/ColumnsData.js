@@ -36,9 +36,10 @@ class NumberEditor extends Component {
     }
 
     render() {
-        const { value, onUpdate} = this.props;
+        const { value, onUpdate, ...rest } = this.props;
         return [
             <input
+                { ...rest }
                 key="numb"
                 ref={ node => this.numb = node }
                 type="text"
