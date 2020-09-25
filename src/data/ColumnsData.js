@@ -1,59 +1,56 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Type } from 'react-bootstrap-table2-editor';
 
 class NumberEditor extends Component {
-    static propTypes = {
-        value: PropTypes.number,
-        onUpdate: PropTypes.func.isRequired
-    }
-    static defaultProps = {
-        value: 0
-    }
+    // static propTypes = {
+    //     value: PropTypes.number,
+    //     onUpdate: PropTypes.func.isRequired
+    // }
+    // static defaultProps = {
+    //     value: 0
+    // }
     getValue() {
         console.log(this)
+        let quantityStr = this.numb.value;
+        let quantity;
         let reg = RegExp("^[0-9]+\.$");
-        this.numb.value = this.numb.value.replace(/,/, '.');
-        if (reg.test(this.numb.value)) {
-            console.log(reg.test(this.numb.value));
-            this.numb.value = this.numb.value.replace(/\./, '');
+        quantityStr = quantityStr.replace(/,/, '.');
+        if (reg.test(quantityStr)) {
+            console.log(reg.test(quantityStr));
+            quantityStr = quantityStr.replace(/\./, '');
+            quantityStr = quantityStr.slice(0, 6);
+        } else {
+            quantityStr = quantityStr.slice(0, 7);
         }
-        console.log(this.numb.value)
-        return this.numb.value;
+        quantity = Number(quantityStr);
+        if (isNaN(quantity)) {
+            quantity = 0;
+        }
+        console.log(quantityStr, quantity)
+        return quantity;
     }
 
     componentDidMount() {
         this.numb.focus();
     }
 
-
-    // handleKeyPress(e, onUpdate) {
-    //     console.log(e.key)
-    //     if (
-    //         !(e.key === ',' ||
-    //             e.key === '.' ||
-    //             (e.key >= '0' && e.key <= '9'))
-    //     ) {
-    //         return false;
-    //     }
-    //     if (e.key === 'Enter') {
-    //         onUpdate(this.getValue.bind(this))
-    //     }
-    // }
-
     render() {
-        const { value, onUpdate, ...rest } = this.props;
+        const { value, onUpdate} = this.props;
         return [
             <input
-                { ...rest }
                 key="numb"
                 ref={ node => this.numb = node }
                 type="text"
+                className="form-control editor edit-text"
+                // onBlur={() => {if (this.numb !== undefined) {
+                //     this.numb.focus();
+                // }}}
+                onFocus={() => {this.numb.select()}}
                 onKeyUp={() => {
                     console.log(this)
                     let reg = this.numb.value.match(/^\d+((\.|,)(\d+)?)?/g);
                     this.numb.value = (reg !== null) ? reg[0] : '';
-                    // this.numb.value = this.numb.value.replace(/[^0-9]+[^,0-9]+/,'');
                 }}
                 onKeyPress={(e) => {
                     if (e.key === 'Enter') {

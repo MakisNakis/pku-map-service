@@ -631,6 +631,8 @@ class TableComponent extends Component {
                                         cellEdit={cellEditFactory({
                                             mode: 'dbclick',
                                             // blurToSave: true,
+                                            onStartEdit: () => {console.log(document.activeElement);},
+
                                             beforeSaveCell,
                                             afterSaveCell: (oldValue, newValue, row, column) => {
                                                 console.log(column);
