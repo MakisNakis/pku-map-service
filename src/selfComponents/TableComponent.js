@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, createRef} from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import cellEditFactory from 'react-bootstrap-table2-editor';
 import paginationFactory from 'react-bootstrap-table2-paginator';
@@ -6,6 +6,7 @@ import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
 import ToolkitProvider, {Search, CSVExport} from 'react-bootstrap-table2-toolkit';
 import {ColumnsData} from "../data/ColumnsData";
 import {ContextMenu, MenuItem, ContextMenuTrigger} from "react-contextmenu";
+import ModalWindow from './ModalWindow';
 import CardOfProviderComponent from './CardOfProviderComponent';
 
 import './css/TableComponent.css';
@@ -24,19 +25,28 @@ class TableComponent extends Component {
             filterColor: "white",
             selectedRowDeliveryId: null,
             selectedRowProvider: null,
-            counter: 0,
+            selectedProviderId: null,
             showWindowPortal: false,
+            modalWindowFocus: false,        // переменная, отвечающая за переведение фокуса на модальное окно
             // performers: this.getPerformers() // список всех исполнителей (монтажников)
         };
+        // переменная, для запуска приложения с разных ip
         this.url = window.location.href;
+        // this.modalWindowRef = createRef();
+        // копия данных таблиц, использующаяся для раскраски в таблице отчетов
         this.copyPkuInfo = [];
+
         this.performers = [];
         this.factOfAgreement = [];
+        this.providersList = [];
+
         this.handleClick = this.handleClick.bind(this);
         this.splitDelivery = this.splitDelivery.bind(this);
         this.cardOfProvider = this.cardOfProvider.bind(this);
         this.toggleWindowPortal = this.toggleWindowPortal.bind(this);
         this.closeWindowPortal = this.closeWindowPortal.bind(this);
+        this.modalWindowFocusOn = this.modalWindowFocusOn.bind(this);
+        this.modalWindowFocusOff = this.modalWindowFocusOff.bind(this);
     }
 
     componentDidMount() {
@@ -58,6 +68,8 @@ class TableComponent extends Component {
         this.getProvidersList()
             .then(data => {
                 this.providersList = data;
+                console.log(this.providersList)
+
             })
             .catch(() => {
                 console.log("Ошибка при асинхронном запросе для чтения списка контрагентов");
@@ -67,19 +79,36 @@ class TableComponent extends Component {
         window.addEventListener('beforeunload', () => {
             this.closeWindowPortal();
         });
-
-        window.setInterval(() => {
-            this.setState(state => ({
-                counter: state.counter + 1,
-            }));
-        }, 1000);
     }
 
-    toggleWindowPortal() {
+    async toggleWindowPortal(e, data) {
+        delete data.target;
+        let perfMasLen = this.providersList.length;
+        let providerId = null;
+        for (let i = 0; i < perfMasLen; i++) {
+            if (data.nameOfProvider === this.providersList[i].label) {
+                providerId = this.providersList[i].value;
+            }
+        }
+        console.log(providerId)
+        console.log({...this.state})
         this.setState(state => ({
             ...state,
-            showWindowPortal: !state.showWindowPortal,
+            selectedProviderId: providerId,
+            showWindowPortal: true
         }));
+    }
+
+    modalWindowFocusOn(e, data) {
+        this.toggleWindowPortal(e, data).then(() => {
+            this.setState({
+                modalWindowFocus: true
+            });
+        });
+    }
+
+    modalWindowFocusOff() {
+        this.setState({modalWindowFocus: false});
     }
 
     closeWindowPortal() {
@@ -165,7 +194,7 @@ class TableComponent extends Component {
          }).catch(() => {
              console.log(`Ошибка при выполнении запроса с ${apiRoute}${idPKU}`);
          });
-
+        console.log(this.state.pkuInfo)
      }
 
 
@@ -432,7 +461,6 @@ class TableComponent extends Component {
     }
 
 
-
     render() {
 
         // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
@@ -515,7 +543,10 @@ class TableComponent extends Component {
                         break;
                     }
                     default: {
-                        this.setState({selectedRow: null});
+                        this.setState({
+                            selectedRowDeliveryId: null,
+                            selectedRowProvider: null
+                        });
                         break;
                     }
                 }
@@ -633,7 +664,7 @@ class TableComponent extends Component {
                                         <MenuItem data={{deliveryId: this.state.selectedRow, userId: parseInt(localStorage.getItem('userId'))}} className="button7" onClick={this.splitDelivery}>
                                             Разбить поставку
                                         </MenuItem>
-                                        <MenuItem data={{nameOfProvider: this.state.selectedRowProvider}} className="button7" onClick={this.cardOfProvider}>
+                                        <MenuItem data={{nameOfProvider: this.state.selectedRowProvider}} className="button7" onClick={this.modalWindowFocusOn}>
                                             Карточка контрагента
                                         </MenuItem>
                                         {/*<MenuItem data={{foo: this.state.selectedRow}} className="button7" onClick={this.handleClick}>*/}
@@ -656,15 +687,11 @@ class TableComponent extends Component {
                                         cellEdit={cellEditFactory({
                                             mode: 'dbclick',
                                             // blurToSave: true,
-                                            onStartEdit: () => {console.log(document.activeElement);},
+                                            // onStartEdit: () => {console.log(document.activeElement);},
 
                                             beforeSaveCell,
                                             afterSaveCell: (oldValue, newValue, row, column) => {
-                                                console.log(column);
-                                                if (column.type === "number") {
-                                                    console.log(newValue, window)
-                                                    newValue = newValue.window.replace(/,/, '.').bind(this);
-                                                }
+
                                                 if (oldValue !== newValue) {
                                                     console.log(row);
                                                     this.uploadData(row, newValue, oldValue);
@@ -683,21 +710,24 @@ class TableComponent extends Component {
 
 
                     <div>
-                        <h1>Counter: {this.state.counter}</h1>
-
-                        <button onClick={this.toggleWindowPortal}>
-                            {this.state.showWindowPortal ? 'Close the' : 'Open a'} Portal
-                        </button>
+                        {/*<button onClick={this.toggleWindowPortal}>*/}
+                        {/*    {this.state.showWindowPortal ? 'Close the' : 'Open a'} Portal*/}
+                        {/*</button>*/}
 
                         {this.state.showWindowPortal && (
-                            <CardOfProviderComponent closeWindowPortal={this.closeWindowPortal} >
-                                <h1>Counter in a portal: {this.state.counter}</h1>
-                                <p>Even though I render in a different window, I share state!</p>
-
-                                <button onClick={() => this.closeWindowPortal()} >
-                                    Close me!
-                                </button>
-                            </CardOfProviderComponent>
+                            <ModalWindow
+                                // ref={this.modalWindowRef}
+                                // selectedProviderId={this.state.selectedProviderId}
+                                modalWindowFocus={this.state.modalWindowFocus}
+                                closeWindowPortal={this.closeWindowPortal}
+                                modalWindowFocusOff={this.modalWindowFocusOff}
+                            >
+                                <CardOfProviderComponent
+                                    selectedProviderId={this.state.selectedProviderId}
+                                    closeWindowPortal={this.closeWindowPortal}
+                                >
+                                </CardOfProviderComponent>
+                            </ModalWindow>
                         )}
                     </div>
 
