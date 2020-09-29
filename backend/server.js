@@ -287,3 +287,12 @@ app.route(`/api/auth/providersList`) // эндпоинт для получени
             // console.log(`В авторизовался пользователь ${dbResponse}`)
             res.json(dbResponse.rows)
         })
+
+    app.route('/api/providersDocuments')
+        .post(async (req, res) => {
+            const data = req.body;
+            console.log(req.body);
+            const dbResponse = await repository.getProvidersDocuments(data);
+            console.log(dbResponse.rows);
+            res.json(dbResponse.rows)
+        })

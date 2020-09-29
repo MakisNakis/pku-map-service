@@ -12,6 +12,8 @@ class CardOfProviderComponent extends Component {
         super(props);
         this.state = {
             dataAboutProvider: [],
+            dataAboutDocuments: [],
+            documentsTableId: undefined
         }
         // this.obj
     }
@@ -24,25 +26,43 @@ class CardOfProviderComponent extends Component {
             body: JSON.stringify({DeliveryId: data}),
         }).then(results => results.json()
         ).then(data => {
-            console.log(data[0]);
-            data[0].tableID = 1;
-            console.log(data[0]);
-
-            // let dataAboutProviderWithID = data.map((val, ix) => {
-            //     val.tableID = ix+1;
-            //     // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
-            //     return val;
-            // });
             this.setState({
                 dataAboutProvider: data,
             });
         }).catch((err) => {
-            console.log(err, "cardOfProviders");
+            console.log(err, "cardOfProvider");
+        });
+    }
+
+    async fetchFromDocumentsApi(providerId) {
+        await fetch('/api/providersDocuments', {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            mode: "cors",
+            body: JSON.stringify({ProvidersId: providerId}),
+        }).then(results => results.json()
+        ).then(data => {
+            console.log(data);
+            let documentsTableId = data.map((val, ix) => {
+                val.tableID = ix+1;
+                // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
+                return val;
+            });
+            this.setState({
+                documentsTableId: documentsTableId,
+            });
+
+            this.setState({
+                dataAboutDocuments: data,
+            });
+        }).catch((err) => {
+            console.log(err, "providersDocuments");
         });
     }
 
     componentDidMount() {
         this.fetchFromProviderApi(this.props.selectedRowDeliveryId);
+        this.fetchFromDocumentsApi(this.props.selectedProviderId);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -54,7 +74,8 @@ class CardOfProviderComponent extends Component {
 
     render() {
 
-        const columnsFields = [
+        // заголовки для таблицы контрагента
+        const ProviderColumnsFields = [
         {
             dataField: 'Name',
             text: 'Название',
@@ -87,6 +108,63 @@ class CardOfProviderComponent extends Component {
             }
         }];
 
+        //заголовки для таблицы документов контрагентов
+        const DocumentsColumnsFields = [
+            {
+                dataField: 'Name',
+                text: 'Номер договора',
+                headerStyle: (colum, colIndex) => {
+                    return {width: 200, textAlign: 'center'};
+                }
+            }, {
+                dataField: 'PaymentType',
+                text: 'Тип оплаты',
+                headerStyle: (colum, colIndex) => {
+                    return {width: 200, textAlign: 'center'};
+                }
+            }, {
+                dataField: 'StartDate',
+                text: 'Дата заключения',
+                headerStyle: (colum, colIndex) => {
+                    return {width: 100, textAlign: 'center'};
+                }
+            }, {
+                dataField: 'EndDate',
+                text: 'Дата окончания',
+                headerStyle: (colum, colIndex) => {
+                    return {width: 200, textAlign: 'center'};
+                }
+            }, {
+                dataField: 'Way',
+                text: 'Путь до файла',
+                headerStyle: (colum, colIndex) => {
+                    return {width: 150, textAlign: 'center'};
+                }
+            },
+            {
+                dataField: 'DeliveryType',
+                text: 'Тип поставки',
+                headerStyle: (colum, colIndex) => {
+                    return {width: 150, textAlign: 'center'};
+                }
+            },
+            {
+                dataField: 'UserName',
+                text: 'Пользователь',
+                headerStyle: (colum, colIndex) => {
+                    return {width: 150, textAlign: 'center'};
+                }
+            },
+            {
+                dataField: 'DateUp',
+                text: 'Дата внесения изменений',
+                headerStyle: (colum, colIndex) => {
+                    return {width: 150, textAlign: 'center'};
+                }
+            },
+        ];
+
+
         return (
             <div>
                 <h1>Provider ID: {this.props.selectedProviderId}</h1>
@@ -94,12 +172,18 @@ class CardOfProviderComponent extends Component {
                 {this.state.dataAboutProvider !== null && <BootstrapTable
                     keyField={"tableID"}
                     data={this.state.dataAboutProvider}
-                    columns={columnsFields}
+                    columns={ProviderColumnsFields}
                 />}
 
                 <button onClick={() => this.props.closeWindowPortal()} >
                     Close me!
                 </button>
+
+                <BootstrapTable
+                keyField={"tableID"}
+                data={this.state.dataAboutDocuments}
+                columns={DocumentsColumnsFields}
+                />
             </div>
         )
     }

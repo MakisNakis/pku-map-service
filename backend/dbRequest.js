@@ -348,6 +348,14 @@ class MyRepository {
         );`);
         return query;
     }
+
+    async getProvidersDocuments(data) {
+        let query = this.client.query(`select * from f_s_docs_providerid(
+            ${data.ProvidersId}
+        );`);
+        return query;
+    }
+
 }
 
 module.exports = MyRepository;
