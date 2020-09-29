@@ -12,6 +12,7 @@ class CardOfProviderComponent extends Component {
         super(props);
         this.state = {
             dataAboutProvider: [],
+            editableRow: null,
         }
         // this.obj
     }
@@ -46,13 +47,54 @@ class CardOfProviderComponent extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.selectedProviderId !== prevProps.selectedProviderId) {
+            this.fetchFromProviderApi(this.props.selectedRowDeliveryId);
+        }
         if (this.state.dataAboutProvider !== prevState.dataAboutProvider) {
             console.log(this.state.dataAboutProvider);
+            console.log(this.state.dataAboutProvider[0].Name);
         }
     }
 
+    editableTable(data) {
+        let trs = [];
+
+        for (const property in data) {
+            console.log(property, data[property])
+            if (this.state.editableRow === property) {
+                trs.push(
+                    <tr>
+                        <td>{property}</td>
+                        <input
+                            type="text"
+                            ref={node => (node !== null) ? node.focus() : null}
+                            onBlur={() => {this.setState({
+                                editableRow: null,
+                            })}}
+                            value={data[property]}
+                        />
+                    </tr>
+                );
+            } else {
+                trs.push(
+                    <tr>
+                        <td>{property}</td>
+                        <td
+                            onDoubleClick={() => {this.setState({
+                                editableRow: property,
+                            })}}
+                        >{data[property]}</td>
+                    </tr>
+                );
+            }
+        }
+
+        return trs;
+    }
 
     render() {
+
+        const nahui = "попивси разбiйник";
 
         const columnsFields = [
         {
@@ -63,7 +105,7 @@ class CardOfProviderComponent extends Component {
             }
         }, {
             dataField: 'Contact',
-            text: 'Адрес',
+            text: 'Контактная информация',
             headerStyle: (colum, colIndex) => {
                 return {width: 200, textAlign: 'center'};
             }
@@ -73,29 +115,43 @@ class CardOfProviderComponent extends Component {
             headerStyle: (colum, colIndex) => {
                 return {width: 100, textAlign: 'center'};
             }
-        }, {
-            dataField: 'UserName',
-            text: 'Пользователь',
-            headerStyle: (colum, colIndex) => {
-                return {width: 200, textAlign: 'center'};
-            }
-        }, {
-            dataField: 'DateUp',
-            text: 'Дата внесения изменений',
-            headerStyle: (colum, colIndex) => {
-                return {width: 150, textAlign: 'center'};
-            }
-        }];
+        },
+        //     {
+        //     dataField: 'UserName',
+        //     text: 'Пользователь',
+        //     headerStyle: (colum, colIndex) => {
+        //         return {width: 200, textAlign: 'center'};
+        //     }
+        // }, {
+        //     dataField: 'DateUp',
+        //     text: 'Дата внесения изменений',
+        //     headerStyle: (colum, colIndex) => {
+        //         return {width: 150, textAlign: 'center'};
+        //     }
+        // }
+        ];
 
         return (
             <div>
-                <h1>Provider ID: {this.props.selectedProviderId}</h1>
+                {/*<h1>Provider ID: {this.props.selectedProviderId}</h1>*/}
 
-                {this.state.dataAboutProvider !== null && <BootstrapTable
-                    keyField={"tableID"}
-                    data={this.state.dataAboutProvider}
-                    columns={columnsFields}
-                />}
+                {this.state.dataAboutProvider !== null && this.state.dataAboutProvider !== undefined &&
+                <div>
+                    <h1>Карточка контрагента</h1>
+                    {/*<h1>Карточка контрагента {this.state.dataAboutProvider[0].Name}</h1>*/}
+
+                    {/*<BootstrapTable*/}
+                    {/*    keyField={"tableID"}*/}
+                    {/*    data={this.state.dataAboutProvider}*/}
+                    {/*    columns={columnsFields}*/}
+                    {/*/>*/}
+
+                    <table>
+                        {this.editableTable(this.state.dataAboutProvider[0])}
+                    </table>
+                </div>}
+
+
 
                 <button onClick={() => this.props.closeWindowPortal()} >
                     Close me!
