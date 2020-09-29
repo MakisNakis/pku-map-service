@@ -661,7 +661,7 @@ class TableComponent extends Component {
                                     <ContextMenuTrigger id="same_unique_identifier" holdToDisplay={-1}>
                                         {/*<div className="well">Контекстное меню открывается нажатием ПКМ</div>*/}
                                     {this.props.depName === "ОМТС" && <ContextMenu id="same_unique_identifier" className="context_menu">
-                                        <MenuItem data={{deliveryId: this.state.selectedRow, userId: parseInt(localStorage.getItem('userId'))}} className="button7" onClick={this.splitDelivery}>
+                                        <MenuItem data={{deliveryId: this.state.selectedRowDeliveryId, userId: parseInt(localStorage.getItem('userId'))}} className="button7" onClick={this.splitDelivery}>
                                             Разбить поставку
                                         </MenuItem>
                                         <MenuItem data={{nameOfProvider: this.state.selectedRowProvider}} className="button7" onClick={this.modalWindowFocusOn}>
