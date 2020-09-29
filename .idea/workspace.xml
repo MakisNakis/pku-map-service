@@ -20,9 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/selfComponents/ModalWindow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/ModalWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/ModalWindow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -247,14 +249,9 @@
       <workItem from="1600845068779" duration="15612000" />
       <workItem from="1600948294121" duration="12206000" />
       <workItem from="1601015943391" duration="22551000" />
-      <workItem from="1601294756831" duration="8366000" />
-    </task>
-    <task id="LOCAL-00037" summary="- авторизация, сравнивающая значения логинов и паролей с базой данных, вовзращает данные об id пользователя, номере роли и имени пользователя&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей">
-      <created>1595939329472</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1595939329472</updated>
+      <workItem from="1601294756831" duration="12420000" />
+      <workItem from="1601366068450" duration="3121000" />
+      <workItem from="1601376396326" duration="1978000" />
     </task>
     <task id="LOCAL-00038" summary="- добавил разделение прав на клиенте в соответствие с логином.паролем&#10;&#10;- TODO: 1 - сохранение сессии и куки&#10;        2 - хеширование паролей">
       <created>1595946125576</created>
@@ -592,7 +589,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601037247595</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="+ окно для карточкм контрагента с настройкой фокуса">
+      <created>1601304408815</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1601304408815</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,7 +616,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- сделал смену списка ПКУшек при нажатии на маркеры в зависимости от номера маршрута&#10;- Обновил общий заголовок таблицы в соотвествии с номером маршрута&#10;&#10;TODO: - Выбор маршрута (Башкултаево), а именно:  привинтить получение информации с сервера в зависимости от того, какая ПКУ и с каого маршрута выбрана и добавить кнопку для смены маршрута" />
     <MESSAGE value=" - Выбор маршрута (Башкултаево), а именно:  привинтить получение информации с сервера в зависимости от того, какая ПКУ и с каrого маршрута выбрана и добавить кнопку для смены маршрута" />
     <MESSAGE value=" - Выбор маршрута (Башкултаево), а именно:  привинтить получение информации с сервера в зависимости от того, какая ПКУ и с какого маршрута выбрана и добавить кнопку для смены маршрута" />
     <MESSAGE value="+ добавлен журнал действий" />
@@ -637,7 +640,8 @@
     <MESSAGE value="+ Поле для ввода числовых данных" />
     <MESSAGE value="+ форматированный ввод чисел" />
     <MESSAGE value="+ комменты" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ комменты" />
+    <MESSAGE value="+ окно для карточкм контрагента с настройкой фокуса" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ окно для карточкм контрагента с настройкой фокуса" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
@@ -653,11 +657,11 @@
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
     <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1598439326183" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1601037247503">
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1601304408567">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315928553" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1601037247503" />
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1601304408567" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>

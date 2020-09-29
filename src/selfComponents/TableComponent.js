@@ -91,7 +91,6 @@ class TableComponent extends Component {
             }
         }
         console.log(providerId)
-        console.log({...this.state})
         this.setState(state => ({
             ...state,
             selectedProviderId: providerId,
@@ -536,6 +535,7 @@ class TableComponent extends Component {
             onContextMenu: (e, row) => {
                 switch (this.props.typeTable) {
                     case "ОМТС": {
+                        console.log(row.DeliveryID);
                         this.setState({
                             selectedRowDeliveryId: row.DeliveryID,
                             selectedRowProvider: row.ProviderName
@@ -708,36 +708,27 @@ class TableComponent extends Component {
                         }
                     </ToolkitProvider>
 
-
                     <div>
-                        {/*<button onClick={this.toggleWindowPortal}>*/}
-                        {/*    {this.state.showWindowPortal ? 'Close the' : 'Open a'} Portal*/}
-                        {/*</button>*/}
-
                         {this.state.showWindowPortal && (
                             <ModalWindow
-                                // ref={this.modalWindowRef}
-                                // selectedProviderId={this.state.selectedProviderId}
                                 modalWindowFocus={this.state.modalWindowFocus}
                                 closeWindowPortal={this.closeWindowPortal}
                                 modalWindowFocusOff={this.modalWindowFocusOff}
                             >
                                 <CardOfProviderComponent
+                                    selectedRowDeliveryId={this.state.selectedRowDeliveryId}
                                     selectedProviderId={this.state.selectedProviderId}
+                                    userId={localStorage.getItem('userId')}
                                     closeWindowPortal={this.closeWindowPortal}
                                 >
                                 </CardOfProviderComponent>
                             </ModalWindow>
                         )}
                     </div>
-
-
                 </div>
                 }
 
                 <p className={"messageStyle"} align={"center"}>{this.props.hide}</p>
-
-
             </div>
         );
     }
