@@ -103,7 +103,7 @@ h1 {
 
 
 .button7 {
-  display: inline-block;
+  display: block;
   background: #e0e0e0;
   /*background: rgb(255, 255, 255);*/
   color: #035594;
@@ -180,5 +180,10 @@ h1 {
 
 .btn1 {
   color: #a6f4fe;
+}
+
+.alert {
+  font-size: 12px;
+  padding: 2px;
 }
 

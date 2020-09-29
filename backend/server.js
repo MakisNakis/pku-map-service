@@ -78,12 +78,12 @@ for (let i = 0; i < 130; i++) {                                  // цикл, в
     app.route(`/api/pkuDataServerPKUTable/2/OMTS/${i}`)
         .get(async (req, res) => {
             const data = await repository.loadDataForTable(i, "ОМТС",2);
-            console.log(data.rows);
+            // console.log(data.rows);
             res.json(data.rows)
         })
         .post(async (req, res) => {
             const data = await repository.uploadDataForTable(i, "ОМТС", req.body.rowEdit, req.body.userId);
-            console.log(data.rows);
+            // console.log(data.rows);
             res.send(data);
     });
 
@@ -267,3 +267,12 @@ app.route(`/api/auth/providersList`) // эндпоинт для получени
         // console.log(`В авторизовался пользователь ${dbResponse}`)
         res.send(dbResponse);
     });
+
+    app.route('/api/OMTS/splitDelivery')
+        .post(async (req, res) => {
+            const data = req.body;
+            const dbResponse = await repository.splitDelivery(data);
+            console.log(dbResponse.rows);
+            // console.log(`В авторизовался пользователь ${dbResponse}`)
+            res.send(dbResponse);
+        })

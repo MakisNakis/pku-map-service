@@ -48,6 +48,17 @@ th {
     /*background-color: #007bff !important;*/
 }
 
+.context_menu {
+    z-index: 1000;
+    border-color: #000000;
+    /*color: white;*/
+    /*font-weight: 500;*/
+    /*border-radius: 5px;*/
+    background-color: rgb(65, 128, 177);;
+    border-width: 2px;
+    padding: 3px;
+}
+
 .table-horiz-scroll {
     background-color: white;
     height: 700px;
