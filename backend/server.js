@@ -276,3 +276,13 @@ app.route(`/api/auth/providersList`) // эндпоинт для получени
             // console.log(`В авторизовался пользователь ${dbResponse}`)
             res.send(dbResponse);
         })
+
+    app.route('/api/cardOfProvider')
+        .post(async (req, res) => {
+            const data = req.body;
+            console.log(req.body);
+            const dbResponse = await repository.getCardOfProvider(data);
+            console.log(dbResponse.rows);
+            // console.log(`В авторизовался пользователь ${dbResponse}`)
+            res.json(dbResponse.rows)
+        })

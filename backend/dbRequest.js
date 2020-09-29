@@ -341,6 +341,13 @@ class MyRepository {
         );`);
         return query;
     }
+
+    async getCardOfProvider(data) {
+        let query = this.client.query(`select * from f_s_provider_deliveryid(
+            ${data.DeliveryId}
+        );`);
+        return query;
+    }
 }
 
 module.exports = MyRepository;
