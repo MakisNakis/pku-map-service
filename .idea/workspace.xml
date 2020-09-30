@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="" />
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -244,14 +247,7 @@
       <workItem from="1601015943391" duration="22551000" />
       <workItem from="1601294756831" duration="12420000" />
       <workItem from="1601366068450" duration="3121000" />
-      <workItem from="1601376396326" duration="2897000" />
-    </task>
-    <task id="LOCAL-00041" summary="- добавил кнопку выхода&#10;- исправил баги&#10;- TODO:&#10;        1 - хеширование паролей">
-      <created>1596030200581</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1596030200581</updated>
+      <workItem from="1601376396326" duration="15738000" />
     </task>
     <task id="LOCAL-00042" summary="- добавил кнопку выхода&#10;- исправил баги&#10;- TODO:&#10;        1 - хеширование паролей">
       <created>1596030293075</created>
@@ -575,21 +571,28 @@
       <option name="project" value="LOCAL" />
       <updated>1601378601092</updated>
     </task>
-    <task id="LOCAL-00088" summary="- таблица со списком документов по контрагенту в контекстном меню">
-      <created>1601389269161</created>
+    <task id="LOCAL-00088" summary="+ карточка контрагента (поправил ошибку)">
+      <created>1601379469447</created>
       <option name="number" value="00088" />
       <option name="presentableId" value="LOCAL-00088" />
       <option name="project" value="LOCAL" />
-      <updated>1601389269162</updated>
+      <updated>1601379469447</updated>
     </task>
-    <task id="LOCAL-00089" summary="- таблица со списком документов по контрагенту в контекстном меню">
-      <created>1601449787989</created>
+    <task id="LOCAL-00089" summary="+ карточка контрагента в своей таблице">
+      <created>1601387725483</created>
       <option name="number" value="00089" />
       <option name="presentableId" value="LOCAL-00089" />
       <option name="project" value="LOCAL" />
-      <updated>1601449787989</updated>
+      <updated>1601387725483</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="+ вносятся изменения в таблицу">
+      <created>1601448479909</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1601448479910</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -609,8 +612,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="+ добавлен журнал действий" />
-    <MESSAGE value="+ если в поле комментария нет информации, то в БД вносится null" />
     <MESSAGE value="+ название ПО" />
     <MESSAGE value="+ кнопка &quot;наверх&quot;" />
     <MESSAGE value="+ удаление дат" />
@@ -633,8 +634,10 @@
     <MESSAGE value="+ комменты" />
     <MESSAGE value="+ окно для карточкм контрагента с настройкой фокуса" />
     <MESSAGE value="+ карточка контрагента" />
-    <MESSAGE value="- таблица со списком документов по контрагенту в контекстном меню" />
-    <option name="LAST_COMMIT_MESSAGE" value="- таблица со списком документов по контрагенту в контекстном меню" />
+    <MESSAGE value="+ карточка контрагента (поправил ошибку)" />
+    <MESSAGE value="+ карточка контрагента в своей таблице" />
+    <MESSAGE value="+ вносятся изменения в таблицу" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ вносятся изменения в таблицу" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
@@ -650,11 +653,11 @@
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
     <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1598439326183" />
-    <state x="482" y="91" width="972" height="904" key="CommitChangelistDialog2" timestamp="1601449787834">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1601448479821">
+      <screen x="67" y="27" width="1853" height="1068" />
     </state>
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1601449787834" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1601378600867" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315928553" />
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1601448479821" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -742,12 +745,12 @@
     <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
     <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596113405534" />
     <state x="558" y="252" key="MultipleFileMergeDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1600756531161" />
-    <state x="503" y="215" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1601378653261">
+    <state x="503" y="215" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1601379474559">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593016893395" />
     <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315937267" />
-    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1601378653261" />
+    <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1601379474559" />
     <state x="764" y="475" width="428" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600756488802">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>

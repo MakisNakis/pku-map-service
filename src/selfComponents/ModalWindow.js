@@ -11,8 +11,8 @@ class ModalWindow extends Component {
 
     componentDidMount() {
         // STEP 3: open a new browser window and store a reference to it
-        // this.externalWindow = window.open('', '');
-        this.externalWindow = window.open('', '', 'width=1000,height=600,left=900,top=70');      // откроет окно
+        this.externalWindow = window.open('', '');
+        // this.externalWindow = window.open('', '', 'width=1000,height=600,left=900,top=70');      // откроет окно
         // STEP 4: append the container <div> (that has props.children appended to it) to the body of the new window
         this.externalWindow.document.body.appendChild(this.containerEl);
 

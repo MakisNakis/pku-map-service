@@ -16,6 +16,7 @@ class CardOfProviderComponent extends Component {
             dataAboutProvider: [],
             dataAboutDocuments: [],
             documentsTableId: undefined
+            editableRow: null,
         }
         // this.obj
     }
@@ -29,7 +30,7 @@ class CardOfProviderComponent extends Component {
         }).then(results => results.json()
         ).then(data => {
             this.setState({
-                dataAboutProvider: data,
+                dataAboutProvider: data[0],
             });
         }).catch((err) => {
             console.log(err, "cardOfProvider");
@@ -68,11 +69,82 @@ class CardOfProviderComponent extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.selectedProviderId !== prevProps.selectedProviderId) {
+            this.fetchFromProviderApi(this.props.selectedRowDeliveryId);
+        }
         if (this.state.dataAboutProvider !== prevState.dataAboutProvider) {
             console.log(this.state.dataAboutProvider);
+            console.log(this.state.dataAboutProvider.Name);
         }
     }
 
+    selectHeaders(colName, columns) {
+        for (const column of columns) {
+            if (column.dataField === colName) {
+                return column.text;
+            }
+        }
+        return false;
+    }
+
+    editableTable(data, columns) {
+        let trs = [];
+        let columnName = false;
+        for (const property in data) {
+            console.log(property, data[property])
+            columnName = this.selectHeaders(property, columns)
+            if (columnName) {
+                if (this.state.editableRow === property) {
+                    trs.push(
+                        <tr>
+                            <td>{columnName}</td>
+                            <input
+                                type="text"
+                                ref={node => {
+                                    this.editInput = node;
+                                    if (this.editInput !== null) {
+                                        this.editInput.focus();
+                                    }
+                                }}
+                                onBlur={() => {
+                                    data[property] = this.editInput.value;
+                                    this.setState({
+                                        editableRow: null,
+                                        dataAboutProvider: data
+                                    })
+                                }}
+                                onKeyPress={(e) => {
+                                    if (e.key === 'Enter') {
+                                        data[property] = this.editInput.value;
+                                        this.setState({
+                                            editableRow: null,
+                                            dataAboutProvider: data
+                                        })
+                                    }
+                                }}
+                                defaultValue={data[property]}
+                            />
+                        </tr>
+                    );
+                } else {
+                    trs.push(
+                        <tr>
+                            <td>{columnName}</td>
+                            <td
+                                onDoubleClick={() => {
+                                    this.setState({
+                                        editableRow: property,
+                                    })
+                                }}
+                            >{data[property]}</td>
+                        </tr>
+                    );
+                }
+            }
+        }
+
+        return trs;
+    }
 
     render() {
 
@@ -81,33 +153,12 @@ class CardOfProviderComponent extends Component {
         {
             dataField: 'Name',
             text: 'Название',
-            headerStyle: (colum, colIndex) => {
-                return {width: 200, textAlign: 'center'};
-            }
         }, {
             dataField: 'Contact',
-            text: 'Адрес',
-            headerStyle: (colum, colIndex) => {
-                return {width: 200, textAlign: 'center'};
-            }
+            text: 'Контактная информация',
         }, {
             dataField: 'INN',
             text: 'ИНН',
-            headerStyle: (colum, colIndex) => {
-                return {width: 100, textAlign: 'center'};
-            }
-        }, {
-            dataField: 'UserName',
-            text: 'Пользователь',
-            headerStyle: (colum, colIndex) => {
-                return {width: 200, textAlign: 'center'};
-            }
-        }, {
-            dataField: 'DateUp',
-            text: 'Дата внесения изменений',
-            headerStyle: (colum, colIndex) => {
-                return {width: 150, textAlign: 'center'};
-            }
         }];
 
         //заголовки для таблицы документов контрагентов
@@ -172,7 +223,18 @@ class CardOfProviderComponent extends Component {
 
         return (
             <div>
-                <h1>Provider ID: {this.props.selectedProviderId}</h1>
+                {/*<h1>Provider ID: {this.props.selectedProviderId}</h1>*/}
+
+                {this.state.dataAboutProvider !== null && this.state.dataAboutProvider !== undefined &&
+                <div>
+                    <h1>Карточка контрагента</h1>
+                    {/*<h1>Карточка контрагента {this.state.dataAboutProvider[0].Name}</h1>*/}
+
+                    <table>
+                        {this.editableTable(this.state.dataAboutProvider, columnsFields)}
+                    </table>
+                </div>}
+
 
                 {this.state.dataAboutProvider !== null && <BootstrapTable
                     keyField={"tableID"}
