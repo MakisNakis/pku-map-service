@@ -11,10 +11,9 @@ class CardOfProviderComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataAboutProvider: [],
+            dataAboutProvider: {},
             editableRow: null,
         }
-        // this.obj
     }
 
     async fetchFromProviderApi(data) {
@@ -35,7 +34,7 @@ class CardOfProviderComponent extends Component {
             //     return val;
             // });
             this.setState({
-                dataAboutProvider: data,
+                dataAboutProvider: data[0],
             });
         }).catch((err) => {
             console.log(err, "cardOfProviders");
@@ -52,7 +51,7 @@ class CardOfProviderComponent extends Component {
         }
         if (this.state.dataAboutProvider !== prevState.dataAboutProvider) {
             console.log(this.state.dataAboutProvider);
-            console.log(this.state.dataAboutProvider[0].Name);
+            console.log(this.state.dataAboutProvider.Name);
         }
     }
 
@@ -67,11 +66,29 @@ class CardOfProviderComponent extends Component {
                         <td>{property}</td>
                         <input
                             type="text"
-                            ref={node => (node !== null) ? node.focus() : null}
-                            onBlur={() => {this.setState({
-                                editableRow: null,
-                            })}}
-                            value={data[property]}
+                            ref={node => {
+                                this.editInput = node;
+                                if (this.editInput !== null) {
+                                    this.editInput.focus();
+                                }
+                            }}
+                            onBlur={() => {
+                                data[property] = this.editInput.value;
+                                this.setState({
+                                    editableRow: null,
+                                    dataAboutProvider: data
+                                })
+                            }}
+                            onKeyPress={(e) => {
+                                if (e.key === 'Enter') {
+                                    data[property] = this.editInput.value;
+                                    this.setState({
+                                        editableRow: null,
+                                        dataAboutProvider: data
+                                    })
+                                }
+                            }}
+                            defaultValue={data[property]}
                         />
                     </tr>
                 );
@@ -147,7 +164,7 @@ class CardOfProviderComponent extends Component {
                     {/*/>*/}
 
                     <table>
-                        {this.editableTable(this.state.dataAboutProvider[0])}
+                        {this.editableTable(this.state.dataAboutProvider)}
                     </table>
                 </div>}
 
