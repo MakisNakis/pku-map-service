@@ -4,7 +4,9 @@ import cellEditFactory, {Type} from "react-bootstrap-table2-editor";
 import BootstrapTable from "react-bootstrap-table-next";
 import {ContextMenu, ContextMenuTrigger, MenuItem} from "react-contextmenu";
 import ToolkitProvider from "react-bootstrap-table2-toolkit";
-
+import './css/TableComponent.css';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.css';
 // import './css/CardOfProviderComponent.css';
 
 class CardOfProviderComponent extends Component {
@@ -164,6 +166,9 @@ class CardOfProviderComponent extends Component {
             },
         ];
 
+        const indication = () => {
+            return "В таблице нет информации";
+        }
 
         return (
             <div>
@@ -179,11 +184,26 @@ class CardOfProviderComponent extends Component {
                     Close me!
                 </button>
 
-                <BootstrapTable
-                keyField={"tableID"}
-                data={this.state.dataAboutDocuments}
-                columns={DocumentsColumnsFields}
-                />
+                <ToolkitProvider
+                    keyField={"tableID"}
+                    data={this.state.dataAboutDocuments}
+                    columns={DocumentsColumnsFields}
+                    search
+                >
+                    {
+                        props => (
+                            <BootstrapTable
+                                wrapperClasses="table-horiz-scroll"
+                                headerClasses="thead"
+                                bodyClasses="tbody"
+                                noDataIndication={ indication }
+                                {...props.baseProps}
+                            />
+
+                        )
+                    }
+
+                </ToolkitProvider>
             </div>
         )
     }

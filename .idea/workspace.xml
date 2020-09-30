@@ -21,8 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -250,13 +248,6 @@
       <workItem from="1601294756831" duration="12420000" />
       <workItem from="1601366068450" duration="3121000" />
       <workItem from="1601376396326" duration="2897000" />
-    </task>
-    <task id="LOCAL-00039" summary="- сохранение сессии и куки&#10;- TODO:&#10;        1 - хеширование паролей">
-      <created>1596011915453</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1596011915453</updated>
     </task>
     <task id="LOCAL-00040" summary="- сохранение сессии и куки&#10;- TODO:&#10;        1 - хеширование паролей">
       <created>1596021428935</created>
@@ -594,7 +585,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601378601092</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="- таблица со списком документов по контрагенту в контекстном меню">
+      <created>1601389269161</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1601389269162</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -614,7 +612,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value=" - Выбор маршрута (Башкултаево), а именно:  привинтить получение информации с сервера в зависимости от того, какая ПКУ и с какого маршрута выбрана и добавить кнопку для смены маршрута" />
     <MESSAGE value="+ добавлен журнал действий" />
     <MESSAGE value="+ если в поле комментария нет информации, то в БД вносится null" />
     <MESSAGE value="+ название ПО" />
@@ -639,7 +636,8 @@
     <MESSAGE value="+ комменты" />
     <MESSAGE value="+ окно для карточкм контрагента с настройкой фокуса" />
     <MESSAGE value="+ карточка контрагента" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ карточка контрагента" />
+    <MESSAGE value="- таблица со списком документов по контрагенту в контекстном меню" />
+    <option name="LAST_COMMIT_MESSAGE" value="- таблица со списком документов по контрагенту в контекстном меню" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
@@ -655,10 +653,10 @@
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
     <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1598439326183" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1601378600867">
-      <screen x="67" y="27" width="1853" height="1068" />
+    <state x="482" y="91" width="972" height="904" key="CommitChangelistDialog2" timestamp="1601389268993">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315928553" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1601389268993" />
     <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1601378600867" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
