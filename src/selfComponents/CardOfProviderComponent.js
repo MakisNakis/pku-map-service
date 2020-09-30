@@ -15,7 +15,7 @@ class CardOfProviderComponent extends Component {
         this.state = {
             dataAboutProvider: [],
             dataAboutDocuments: [],
-            documentsTableId: undefined
+            documentsTableId: undefined,
             editableRow: null,
         }
         // this.obj
@@ -231,7 +231,7 @@ class CardOfProviderComponent extends Component {
                     {/*<h1>Карточка контрагента {this.state.dataAboutProvider[0].Name}</h1>*/}
 
                     <table>
-                        {this.editableTable(this.state.dataAboutProvider, columnsFields)}
+                        {this.editableTable(this.state.dataAboutProvider, ProviderColumnsFields)}
                     </table>
                 </div>}
 
