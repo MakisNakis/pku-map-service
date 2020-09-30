@@ -247,14 +247,7 @@
       <workItem from="1601015943391" duration="22551000" />
       <workItem from="1601294756831" duration="12420000" />
       <workItem from="1601366068450" duration="3121000" />
-      <workItem from="1601376396326" duration="14554000" />
-    </task>
-    <task id="LOCAL-00041" summary="- добавил кнопку выхода&#10;- исправил баги&#10;- TODO:&#10;        1 - хеширование паролей">
-      <created>1596030200581</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1596030200581</updated>
+      <workItem from="1601376396326" duration="15738000" />
     </task>
     <task id="LOCAL-00042" summary="- добавил кнопку выхода&#10;- исправил баги&#10;- TODO:&#10;        1 - хеширование паролей">
       <created>1596030293075</created>
@@ -592,7 +585,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601387725483</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="+ вносятся изменения в таблицу">
+      <created>1601448479909</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1601448479910</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,7 +612,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="+ если в поле комментария нет информации, то в БД вносится null" />
     <MESSAGE value="+ название ПО" />
     <MESSAGE value="+ кнопка &quot;наверх&quot;" />
     <MESSAGE value="+ удаление дат" />
@@ -637,7 +636,8 @@
     <MESSAGE value="+ карточка контрагента" />
     <MESSAGE value="+ карточка контрагента (поправил ошибку)" />
     <MESSAGE value="+ карточка контрагента в своей таблице" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ карточка контрагента в своей таблице" />
+    <MESSAGE value="+ вносятся изменения в таблицу" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ вносятся изменения в таблицу" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
@@ -653,11 +653,11 @@
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
     <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1598439326183" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1601387725353">
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2" timestamp="1601448479821">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597315928553" />
-    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1601387725353" />
+    <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1601448479821" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
