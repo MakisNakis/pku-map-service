@@ -11,6 +11,7 @@ import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.c
 // import './css/CardOfProviderComponent.css';
 
 import './css/CardOfProviderComponent.css';
+import {Link} from "react-scroll";
 
 class CardOfProviderComponent extends Component {
     constructor(props) {
@@ -123,6 +124,55 @@ class CardOfProviderComponent extends Component {
         }
     }
 
+    providersListGeneration(providers) {
+        let buttons = [];
+
+        console.log(providers)
+
+        for (const provider of providers) {
+        // for (let i = 0; i < pkuData.length; i++) {
+            if (this.props.selectedProviderId === provider.value) {
+                console.log(provider.value)
+                buttons.push(
+                    <tr>
+                        <td>
+                            <div id={"selectedProvider"}>
+                                <button
+                                    className={"button8 btnPku buttonSelected"}
+                                    title={provider.value}
+                                    name={provider.label}
+                                    onClick={(e) => {
+                                        this.props.selectProviderId(provider.value);
+                                    }}
+                                >
+                                    {provider.label}
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                );
+            } else {
+                buttons.push(
+                    <tr>
+                        <td>
+                            <button
+                                className={"button8 btnPku"}
+                                title={provider.value}
+                                name={provider.label}
+                                onClick={(e) => {
+                                    this.props.selectProviderId(provider.value);
+                                }}
+                            >
+                                {provider.label}
+                            </button>
+                        </td>
+                    </tr>
+                );
+            }
+        }
+        return buttons;
+    }
+
     editableTable(data, columns) {
         let trs = [];
         let columnName = false;
@@ -132,10 +182,11 @@ class CardOfProviderComponent extends Component {
             if (columnName) {
                 if (this.state.editableRow === property) {
                     trs.push(
-                        <tr>
-                            <td>{columnName}</td>
+                        <tr className="trMargin">
+                            <td className="headerWidthCardOfProviders1">{columnName}:</td>
                             <input
                                 type="text"
+                                className="cardOfProvidersInput"
                                 ref={node => {
                                     this.editInput = node;
                                     if (this.editInput !== null) {
@@ -164,9 +215,9 @@ class CardOfProviderComponent extends Component {
                     );
                 } else {
                     trs.push(
-                        <tr>
-                            <td>{columnName}</td>
-                            <td
+                        <tr className="trMargin">
+                            <td className="headerWidthCardOfProviders1">{columnName}:</td>
+                            <td className="headerWidthCardOfProviders2"
                                 onDoubleClick={() => {
                                     this.setState({
                                         editableRow: property,
@@ -275,6 +326,62 @@ class CardOfProviderComponent extends Component {
             <div id="grayBackgroundDiv">
                 {/*<h1>Provider ID: {this.props.selectedProviderId}</h1>*/}
                 <div id="cardOfProviderDiv">
+
+                    <div className="blockDiv">
+                        <div className="headerCardOfProvider" align="center">
+                            Карточка контрагента
+                        </div>
+                        <div className="cardOfProvidersMargin">
+
+                            <table>
+                                <tr>
+                                    <td className="listOfProvidersTd">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <button
+                                                            className={"button9 btnPku"}
+                                                            name="addProvider"
+                                                        >
+                                                            Добавить контрагента
+                                                        </button>
+                                                    </div>
+                                                    <hr className="hrCardOfProvider"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td className={"cardComp"}>
+                                                    <div id={"providerListCompDiv"}>
+                                                        <div className={"tableProviderListScroll"}>
+                                                            <table>
+                                                                {this.providersListGeneration(this.props.providersList)}
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td className="cardComp">
+                                        {this.state.dataAboutProvider !== null &&
+                                        <div className="cardOfProviderDiv">
+                                            <table className="cardOfProvidersTable">
+                                                {this.editableTable(this.state.dataAboutProvider, ProviderColumnsFields)}
+                                            </table>
+                                        </div>}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <button className="buttonClose button7" onClick={() => {
+                            this.props.closeWindowPortal();
+                            // this.appRoute.style.display = 'none';
+                            // this.appRoute.style.overflowY = 'hidden';
+                        }}>
+                            Закрыть
+                        </button>
+                    </div>
                     {this.state.dataAboutProvider !== null &&
                     <div>
                         <h1>Карточка контрагента</h1>

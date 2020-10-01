@@ -7,18 +7,96 @@
     height: 100%; /* Full height */
     /*overflow: auto; !* Enable scroll if needed *!*/
     /*background-color: rgb(0,0,0); !* Fallback color *!*/
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(255, 255, 255, 0.4); /* Black w/ opacity */
 }
 
 #cardOfProviderDiv {
     position: fixed; /* Stay in place */
     z-index: 1020; /* Sit on top */
-    width: 1600px;
-    height: 900px;
+    width: 90vw;
+    height: 90vh;
     top: 50%;
     left: 50%;
-    margin: -450px 0 0 -800px;
+    margin: -45vh 0 0 -45vw;
     overflow: auto; /* Enable scroll if needed */
     /*background-color: rgb(0,0,0); !* Fallback color *!*/
     background-color: white; /* Black w/ opacity */
+    box-shadow: 0 0 25px rgba(0,0,0,0.5); /* Параметры тени */
+    border: #035497 2px solid;
+
+}
+
+.cardComp {
+    vertical-align: top;
+    /*height: 1px;*/
+}
+
+#providerListCompDiv {
+    height: 25vh;
+}
+
+.blockDiv{
+    border: #035497 2px solid;
+    margin: 51px 10px 20px 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5); /* Параметры тени */
+
+}
+
+.tableProviderListScroll {
+    overflow: auto;
+    /*display: block;*/
+    width: 100%;
+    height: 100%;
+}
+
+.cardOfProviderDiv {
+    margin: 0 0 0 2vw;
+    border: #035497 2px solid;
+
+}
+
+.cardOfProvidersTable {
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #383838;
+}
+
+.trMargin {
+    height: 4vh;
+}
+
+.cardOfProvidersMargin {
+    margin: 0 2vw 10px 2vw;
+}
+
+.cardOfProvidersInput {
+    width: 100%;
+}
+
+.headerWidthCardOfProviders1 {
+    width: 15vw;
+}
+
+.headerWidthCardOfProviders2 {
+    width: 50vw;
+}
+
+.headerCardOfProvider {
+    color: #035497;
+    margin: 5px;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.listOfProvidersTd {
+    width: 20vw;
+}
+
+.hrCardOfProvider {
+    background-color: #035497;
+    height: 2px;
+    /*border-radius: 20%;*/
+    /*border: dashed;*/
+    margin: 15px 2px;
 }

@@ -28,7 +28,8 @@
     "react-modal": "^3.11.2",
     "react-moment": "^0.9.7",
     "react-scripts": "^3.4.3",
-    "react-scroll": "^1.7.16"
+    "react-scroll": "^1.7.16",
+    "util": "^0.12.3"
   },
   "scripts": {
     "start": "react-scripts start",

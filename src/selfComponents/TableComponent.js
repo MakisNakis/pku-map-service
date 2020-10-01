@@ -30,6 +30,7 @@ class TableComponent extends Component {
             modalWindowFocus: false,        // переменная, отвечающая за переведение фокуса на модальное окно
 
             // performers: this.getPerformers() // список всех исполнителей (монтажников)
+            providersList: [],
         };
         // переменная, для запуска приложения с разных ip
         this.url = window.location.href;
@@ -42,6 +43,7 @@ class TableComponent extends Component {
         this.providersList = [];
 
         this.handleClick = this.handleClick.bind(this);
+        this.selectProviderId = this.selectProviderId.bind(this);
         this.splitDelivery = this.splitDelivery.bind(this);
         this.toggleWindowPortal = this.toggleWindowPortal.bind(this);
         this.closeWindowPortal = this.closeWindowPortal.bind(this);
@@ -67,9 +69,9 @@ class TableComponent extends Component {
 
         this.getProvidersList()
             .then(data => {
-                this.providersList = data;
-                console.log(this.providersList)
-
+                this.setState({
+                    providersList: data
+                });
             })
             .catch(() => {
                 console.log("Ошибка при асинхронном запросе для чтения списка контрагентов");
@@ -81,19 +83,25 @@ class TableComponent extends Component {
         });
     }
 
+    selectProviderId(prId) {
+        this.setState({
+            selectedProviderId: prId
+        });
+    }
+
     async toggleWindowPortal(e, data) {
         delete data.target;
-        let perfMasLen = this.providersList.length;
+        let perfMasLen = this.state.providersList.length;
         let providerId = null;
         for (let i = 0; i < perfMasLen; i++) {
-            if (data.nameOfProvider === this.providersList[i].label) {
-                providerId = this.providersList[i].value;
+            if (data.nameOfProvider === this.state.providersList[i].label) {
+                providerId = this.state.providersList[i].value;
             }
         }
         console.log(providerId)
+        this.selectProviderId(providerId)
         this.setState(state => ({
             ...state,
-            selectedProviderId: providerId,
             showWindowPortal: true
         }));
     }
@@ -234,7 +242,7 @@ class TableComponent extends Component {
         let done = true;
         let factOfAgreementLen = this.factOfAgreement.length;
         let performersLen = this.performers.length;
-        let providersListLen = this.providersList.length;
+        let providersListLen = this.state.providersList.length;
         // for(let i = 0; i < factOfAgreementLen; i++) {
         //
         //     if (this.factOfAgreement[i].label === oldValue && newValue === "") {
@@ -282,7 +290,7 @@ class TableComponent extends Component {
 
 
                         for(let j = 0; j < providersListLen; j++) {
-                            let providersListJ = this.providersList[j];
+                            let providersListJ = this.state.providersList[j];
                             switch (providersListJ.label) {
                                 case rowEdit.ProviderName: {
                                     rowEdit.ProviderName = providersListJ.value;
@@ -305,7 +313,7 @@ class TableComponent extends Component {
                 }
 
                 for(let j = 0; j < providersListLen; j++) {
-                    let providersListJ = this.providersList[j];
+                    let providersListJ = this.state.providersList[j];
                     switch (providersListJ.label) {
                         case rowEdit.ProviderID: {
                             rowEdit.ProviderID = providersListJ.value;
@@ -457,18 +465,14 @@ class TableComponent extends Component {
     render() {
 
         // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
-        const tableHeaders = ColumnsData(this.performers, this.factOfAgreement, this.providersList); // подключаем заголовки таблиц из файла ../data/ColumnsData
+        const tableHeaders = ColumnsData(this.performers, this.factOfAgreement, this.state.providersList); // подключаем заголовки таблиц из файла ../data/ColumnsData
         const {ExportCSVButton} = CSVExport; // кнопка для экспорта таблицы в CSV
-
-
 
         const customTotal = (from, to, size) => (
             <span className="react-bootstrap-table-pagination-total">
                 Показано с { from } по { to } из { size }
             </span>
         );
-
-
 
         const optionsPagination = {
             paginationSize: 5,
@@ -494,21 +498,6 @@ class TableComponent extends Component {
                 text: 'Все', value: this.state.pkuInfo.length
             }] // A numeric array is also available. the purpose of above example is custom the text
         };
-
-        const rowStyle = (row, rowIndex) => {
-            row.index = rowIndex;
-            const style = {};
-            if (rowIndex % 2 === 0) {
-                style.backgroundColor = 'transparent';
-            } else {
-                style.backgroundColor = 'rgba(142,238,147,0.3)';
-            }
-
-            // style.borderTop = 'none';
-            // style.height = '70';
-            return style;
-        };
-
 
         // const selectRow = { // данный параметр используется для получения сведений о строке, на которую нажали (правой кнопкой мыши)
         //     mode: 'checkbox',
@@ -706,6 +695,8 @@ class TableComponent extends Component {
                                     routeNumber={this.props.routeNumber}
                                     url={this.url}
                                     closeWindowPortal={this.closeWindowPortal}
+                                    providersList={this.state.providersList}
+                                    selectProviderId={this.selectProviderId}
                                 >
                                 </CardOfProviderComponent>
                             </ModalWindow>
