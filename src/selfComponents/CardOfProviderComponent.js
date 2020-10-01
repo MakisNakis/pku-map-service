@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, {Component, useState} from 'react';
+import InsertNewDocumentModalComponent from './InsertNewDocumentModalComponent'
 import paginationFactory from "react-bootstrap-table2-paginator";
 import cellEditFactory, {Type} from "react-bootstrap-table2-editor";
 import BootstrapTable from "react-bootstrap-table-next";
@@ -19,6 +20,7 @@ class CardOfProviderComponent extends Component {
             dataAboutDocuments: [],
             documentsTableId: undefined,
             editableRow: null,
+            documentInsertModal: false // стейт, меняющийся на true при нажатии на карточке на кнопку добавить новый документ
         }
         this.appRoute = null;
     }
@@ -108,6 +110,17 @@ class CardOfProviderComponent extends Component {
             }
         }
         return false;
+    }
+
+    changeDocumentState(){
+        switch (this.state.documentInsertModal){
+            case true:
+                this.setState({documentInsertModal: false})
+                break
+            case false:
+                this.setState({documentInsertModal: true})
+                break
+        }
     }
 
     editableTable(data, columns) {
@@ -201,12 +214,20 @@ class CardOfProviderComponent extends Component {
             }, {
                 dataField: 'StartDate',
                 text: 'Дата заключения',
+                editor: {
+                    type: Type.DATE,
+                    defaultValue: Date.now()
+                },
                 headerStyle: (colum, colIndex) => {
                     return {width: 100, textAlign: 'center'};
                 }
             }, {
                 dataField: 'EndDate',
                 text: 'Дата окончания',
+                editor: {
+                    type: Type.DATE,
+                    defaultValue: Date.now()
+                },
                 headerStyle: (colum, colIndex) => {
                     return {width: 200, textAlign: 'center'};
                 }
@@ -240,6 +261,12 @@ class CardOfProviderComponent extends Component {
             },
         ];
 
+        const expandRow = {
+            renderer: row => (
+                <div>....</div>
+            )
+        };
+
         const indication = () => {
             return "В таблице нет информации";
         }
@@ -258,35 +285,45 @@ class CardOfProviderComponent extends Component {
                     </table>
                 </div>}
 
-                    <button className="buttonClose button7" onClick={() => {
+                   <button className="buttonClose button7" onClick={() => {
                         this.props.closeWindowPortal();
-                        // this.appRoute.style.display = 'none';
+                       // this.setState({documentInsertModal: false})
+
+                       // this.appRoute.style.display = 'none';
                         // this.appRoute.style.overflowY = 'hidden';
                     }}>
-                        Так блэт
+                        Закрыть
                     </button>
-                </div>
 
+                    <button className="button7" onClick={() => {
+                        // this.setState({documentInsertModal: true})
+                       this.changeDocumentState()
 
+                    }}>
+                        Добавить новый документ
+                    </button>
 
-                <button onClick={() => this.props.closeWindowPortal()} >
-                    Close me!
-                </button>
+                {/*<button onClick={() => this.props.closeWindowPortal()} >*/}
+                {/*    Close me!*/}
+                {/*</button>*/}
                 <br/>
                     <br/>
                         <br/>
+                    {this.state.documentInsertModal === false &&
                 <ToolkitProvider
                     keyField={"tableID"}
                     data={this.state.dataAboutDocuments}
                     columns={DocumentsColumnsFields}
                     search
+                    insertRow = {true}
+                    deleteRow = {true}
                 >
                     {
                         props => (
                             <BootstrapTable
-                                wrapperClasses="table-horiz-scroll"
-                                headerClasses="thead"
-                                bodyClasses="tbody"
+                                // wrapperClasses="table-horiz-scroll"
+                                // headerClasses="thead"
+                                // bodyClasses="tbody"
                                 noDataIndication={ indication }
                                 cellEdit={cellEditFactory({
                                     mode: 'dbclick',
@@ -307,6 +344,12 @@ class CardOfProviderComponent extends Component {
                     }
 
                 </ToolkitProvider>
+                        }
+                    {this.state.documentInsertModal === true &&
+                        <InsertNewDocumentModalComponent/>
+                    }
+                </div>
+
             </div>
         )
     }

@@ -19,12 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="+ вносятся изменения в таблицу">
+      <change afterPath="$PROJECT_DIR$/Smash-Mouth-All-Star.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/selfComponents/InsertNewDocumentModalComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/ModalWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/ModalWindow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,15 +112,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/selfComponents" />
-      <recent name="$PROJECT_DIR$/public/markers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/selfComponents" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/backend" />
+      <recent name="$PROJECT_DIR$/public/markers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/selfComponents" />
       <recent name="$PROJECT_DIR$/public/markers" />
     </key>
   </component>
@@ -252,14 +252,7 @@
       <workItem from="1601294756831" duration="12420000" />
       <workItem from="1601366068450" duration="3121000" />
       <workItem from="1601376396326" duration="15738000" />
-      <workItem from="1601532983729" duration="601000" />
-    </task>
-    <task id="LOCAL-00043" summary="- merge с tabolin2&#10;- TODO:&#10;        1 - хеширование паролей">
-      <created>1596030749797</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1596030749797</updated>
+      <workItem from="1601532983729" duration="14155000" />
     </task>
     <task id="LOCAL-00044" summary="+ сравнение значений в ячейке на изменение">
       <created>1596104754366</created>
@@ -597,7 +590,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601451306389</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="+ вносятся изменения в таблицу">
+      <created>1601534674217</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1601534674218</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -658,10 +658,10 @@
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
     <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1598439326183" />
-    <state x="482" y="91" width="972" height="904" key="CommitChangelistDialog2" timestamp="1601451306328">
+    <state x="482" y="91" width="972" height="904" key="CommitChangelistDialog2" timestamp="1601535044627">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1601451306328" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1601535044627" />
     <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1601448479821" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
@@ -740,15 +740,16 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="261" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1592952013761" />
-    <state x="147" y="65" key="MergeDialog" timestamp="1592919320469">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="184" y="95" width="1538" height="985" key="MergeDialog" timestamp="1601535001491">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320469" />
-    <state x="558" y="252" width="714" height="468" key="MultipleFileMergeDialog" timestamp="1600756531161">
-      <screen x="67" y="27" width="1853" height="1068" />
+    <state x="184" y="95" width="1538" height="985" key="MergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1601535001491" />
+    <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog" timestamp="1601535004045">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592919320476" />
-    <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596113405534" />
+    <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1601535004045" />
     <state x="558" y="252" key="MultipleFileMergeDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1600756531161" />
     <state x="503" y="215" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1601379474559">
       <screen x="67" y="27" width="1853" height="1068" />

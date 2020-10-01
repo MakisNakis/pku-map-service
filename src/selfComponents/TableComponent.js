@@ -28,6 +28,7 @@ class TableComponent extends Component {
             selectedProviderId: null,
             showWindowPortal: false,
             modalWindowFocus: false,        // переменная, отвечающая за переведение фокуса на модальное окно
+
             // performers: this.getPerformers() // список всех исполнителей (монтажников)
         };
         // переменная, для запуска приложения с разных ip
