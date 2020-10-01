@@ -374,23 +374,23 @@ class CardOfProviderComponent extends Component {
                                 </tr>
                             </table>
                         </div>
-                        <button className="buttonClose button7" onClick={() => {
-                            this.props.closeWindowPortal();
-                            // this.appRoute.style.display = 'none';
-                            // this.appRoute.style.overflowY = 'hidden';
-                        }}>
-                            Закрыть
-                        </button>
+                        {/*<button className="buttonClose button7" onClick={() => {*/}
+                        {/*    this.props.closeWindowPortal();*/}
+                        {/*    // this.appRoute.style.display = 'none';*/}
+                        {/*    // this.appRoute.style.overflowY = 'hidden';*/}
+                        {/*}}>*/}
+                        {/*    Закрыть*/}
+                        {/*</button>*/}
                     </div>
-                    {this.state.dataAboutProvider !== null &&
-                    <div>
-                        <h1>Карточка контрагента</h1>
-                        {/*<h1>Карточка контрагента {this.state.dataAboutProvider[0].Name}</h1>*/}
+                {/*    {this.state.dataAboutProvider !== null &&*/}
+                {/*    <div>*/}
+                {/*        <h1>Карточка контрагента</h1>*/}
+                {/*        /!*<h1>Карточка контрагента {this.state.dataAboutProvider[0].Name}</h1>*!/*/}
 
-                    <table>
-                        {this.editableTable(this.state.dataAboutProvider, ProviderColumnsFields)}
-                    </table>
-                </div>}
+                {/*    <table>*/}
+                {/*        {this.editableTable(this.state.dataAboutProvider, ProviderColumnsFields)}*/}
+                {/*    </table>*/}
+                {/*</div>}*/}
 
                    <button className="buttonClose button7" onClick={() => {
                         this.props.closeWindowPortal();
@@ -402,7 +402,14 @@ class CardOfProviderComponent extends Component {
                         Закрыть
                     </button>
 
-                    <button className="button7" onClick={() => {
+
+                    <div className="blockDiv">
+                        <div className="headerCardOfProvider" align="center">
+                            Список документов
+                        </div>
+                        <div className="cardOfProvidersMargin">
+
+                        <button className="button9" onClick={() => {
                         // this.setState({documentInsertModal: true})
                        this.changeDocumentState()
 
@@ -415,7 +422,7 @@ class CardOfProviderComponent extends Component {
                 {/*</button>*/}
                 <br/>
                     <br/>
-                        <br/>
+
                     {this.state.documentInsertModal === false &&
                 <ToolkitProvider
                     keyField={"tableID"}
@@ -427,6 +434,7 @@ class CardOfProviderComponent extends Component {
                 >
                     {
                         props => (
+
                             <BootstrapTable
                                 // wrapperClasses="table-horiz-scroll"
                                 // headerClasses="thead"
@@ -457,6 +465,8 @@ class CardOfProviderComponent extends Component {
                     }
                 </div>
 
+                </div>
+                </div>
             </div>
         )
     }
