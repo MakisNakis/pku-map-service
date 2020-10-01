@@ -28,6 +28,7 @@ class TableComponent extends Component {
             selectedProviderId: null,
             showWindowPortal: false,
             modalWindowFocus: false,        // переменная, отвечающая за переведение фокуса на модальное окно
+
             // performers: this.getPerformers() // список всех исполнителей (монтажников)
             providersList: [],
         };
@@ -599,17 +600,7 @@ class TableComponent extends Component {
                 console.log(newValue, window)
                 newValue = newValue.window.replace(/,/, '.').bind(this);
             }
-            // setTimeout(() => {
-            //     let factOfAgreementLen = this.factOfAgreement.length;
-            //     for(let i = 0; i < factOfAgreementLen; i++) {
-            //
-            //         if (this.factOfAgreement[i].label === oldValue && newValue === "") {
-            //             done(false);
-            //         }
-            //     }
-            //     done(true);
-            // }, 0);
-            // return { async: true };
+
         }
 
         return (
@@ -701,6 +692,8 @@ class TableComponent extends Component {
                                     selectedRowDeliveryId={this.state.selectedRowDeliveryId}
                                     selectedProviderId={this.state.selectedProviderId}
                                     userId={localStorage.getItem('userId')}
+                                    routeNumber={this.props.routeNumber}
+                                    url={this.url}
                                     closeWindowPortal={this.closeWindowPortal}
                                     providersList={this.state.providersList}
                                     selectProviderId={this.selectProviderId}
