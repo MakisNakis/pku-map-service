@@ -9,6 +9,8 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.css';
 // import './css/CardOfProviderComponent.css';
 
+import './css/CardOfProviderComponent.css';
+
 class CardOfProviderComponent extends Component {
     constructor(props) {
         super(props);
@@ -18,7 +20,7 @@ class CardOfProviderComponent extends Component {
             documentsTableId: undefined,
             editableRow: null,
         }
-        // this.obj
+        this.appRoute = null;
     }
 
     async fetchFromProviderApi(data) {
@@ -85,6 +87,7 @@ class CardOfProviderComponent extends Component {
 
     componentDidMount() {
         this.fetchFromProviderApi(this.props.selectedRowDeliveryId);
+        this.appRoute = document.getElementById('globalDiv');
         this.fetchFromDocumentsApi(this.props.selectedProviderId);
     }
 
@@ -242,19 +245,27 @@ class CardOfProviderComponent extends Component {
         }
 
         return (
-            <div>
+            <div id="grayBackgroundDiv">
                 {/*<h1>Provider ID: {this.props.selectedProviderId}</h1>*/}
-
-                {this.state.dataAboutProvider !== null && this.state.dataAboutProvider !== undefined &&
-                <div>
-                    <h1>Карточка контрагента</h1>
-                    {/*<h1>Карточка контрагента {this.state.dataAboutProvider[0].Name}</h1>*/}
+                <div id="cardOfProviderDiv">
+                    {this.state.dataAboutProvider !== null &&
+                    <div>
+                        <h1>Карточка контрагента</h1>
+                        {/*<h1>Карточка контрагента {this.state.dataAboutProvider[0].Name}</h1>*/}
 
                     <table>
                         {this.editableTable(this.state.dataAboutProvider, ProviderColumnsFields)}
                     </table>
                 </div>}
 
+                    <button className="buttonClose button7" onClick={() => {
+                        this.props.closeWindowPortal();
+                        // this.appRoute.style.display = 'none';
+                        // this.appRoute.style.overflowY = 'hidden';
+                    }}>
+                        Так блэт
+                    </button>
+                </div>
 
 
 

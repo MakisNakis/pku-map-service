@@ -123,6 +123,13 @@ h1 {
 .button7:hover { border: #ffffff 2px solid; background: #c4c4c4; color: rgb(255, 255, 255)
 }
 
+.buttonClose {
+  border: none;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
 .button8 {
   display: inline-block;
   background: rgb(255, 255, 255);
