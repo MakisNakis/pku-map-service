@@ -38,7 +38,7 @@ class CardOfProviderComponent extends Component {
     }
 
     async fetchFromDocumentsApi(providerId) {
-        await fetch('/api/providersDocuments', {
+        await fetch('/api/selectProvidersDocuments', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             mode: "cors",
@@ -63,6 +63,26 @@ class CardOfProviderComponent extends Component {
         });
     }
 
+
+    async fetchOnDocumentsApi(apiRoute, rowEdit) {
+        let jsonObj = {rowEdit: rowEdit, userId: localStorage.getItem('userId'), routeNumber: this.props.routeNumber, providerId: this.props.selectedProviderId}
+        // console.log(jsonObj)
+        console.log(apiRoute)
+        console.log(this.props.url)
+        await fetch(`${this.props.url}${apiRoute}`, {
+            // await fetch('http://192.168.1.116:5000/api/test1', {
+            method: 'POST',
+            headers:{'content-type': 'application/json'},
+            mode: "cors",
+            body: JSON.stringify(jsonObj),
+        }).then(results => {
+            return results.json();
+        }).catch((err) => {
+            console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}`);
+        });
+    }
+
+
     componentDidMount() {
         this.fetchFromProviderApi(this.props.selectedRowDeliveryId);
         this.fetchFromDocumentsApi(this.props.selectedProviderId);
@@ -74,7 +94,7 @@ class CardOfProviderComponent extends Component {
         }
         if (this.state.dataAboutProvider !== prevState.dataAboutProvider) {
             console.log(this.state.dataAboutProvider);
-            console.log(this.state.dataAboutProvider.Name);
+            console.log(this.state.dataAboutProvider);
         }
     }
 
@@ -91,7 +111,7 @@ class CardOfProviderComponent extends Component {
         let trs = [];
         let columnName = false;
         for (const property in data) {
-            console.log(property, data[property])
+            // console.log(property, data[property])
             columnName = this.selectHeaders(property, columns)
             if (columnName) {
                 if (this.state.editableRow === property) {
@@ -236,16 +256,14 @@ class CardOfProviderComponent extends Component {
                 </div>}
 
 
-                {this.state.dataAboutProvider !== null && <BootstrapTable
-                    keyField={"tableID"}
-                    data={this.state.dataAboutProvider}
-                    columns={ProviderColumnsFields}
-                />}
+
 
                 <button onClick={() => this.props.closeWindowPortal()} >
                     Close me!
                 </button>
-
+                <br/>
+                    <br/>
+                        <br/>
                 <ToolkitProvider
                     keyField={"tableID"}
                     data={this.state.dataAboutDocuments}
@@ -259,6 +277,18 @@ class CardOfProviderComponent extends Component {
                                 headerClasses="thead"
                                 bodyClasses="tbody"
                                 noDataIndication={ indication }
+                                cellEdit={cellEditFactory({
+                                    mode: 'dbclick',
+                                    // blurToSave: true,
+                                    // onStartEdit: () => {console.log(document.activeElement);},
+                                    afterSaveCell: (oldValue, newValue, row, column) => {
+
+                                        if (oldValue !== newValue) {
+                                            console.log(row);
+                                            this.fetchOnDocumentsApi(`/api/updateProvidersDocuments`, row);
+                                        }
+                                    }
+                                })}
                                 {...props.baseProps}
                             />
 

@@ -709,6 +709,8 @@ class TableComponent extends Component {
                                     selectedRowDeliveryId={this.state.selectedRowDeliveryId}
                                     selectedProviderId={this.state.selectedProviderId}
                                     userId={localStorage.getItem('userId')}
+                                    routeNumber={this.props.routeNumber}
+                                    url={this.url}
                                     closeWindowPortal={this.closeWindowPortal}
                                 >
                                 </CardOfProviderComponent>

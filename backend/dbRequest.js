@@ -94,7 +94,8 @@ class MyRepository {
     async uploadDataForTable(pkuId, typeTable, row, userIdString) {
 
         let query = undefined
-        let userId = parseInt(userIdString)
+        let postgres
+        userId = parseInt(userIdString)
         // let performerId = 1
         // let userId = 3
         let date = new Date().toLocaleDateString()
@@ -349,13 +350,29 @@ class MyRepository {
         return query;
     }
 
-    async getProvidersDocuments(data) {
+    async selectProvidersDocuments(data) {
         let query = this.client.query(`select * from f_s_docs_providerid(
             ${data.ProvidersId}
         );`);
         return query;
     }
 
+    async updateProvidersDocuments(rowEdit, userId, routeNumber, providerId) {
+        let query = this.client.query(`select * from f_u_docs(
+            ${this.convertToPG(rowEdit.ID)},
+            ${this.convertToPG(rowEdit.Name)},
+            'null',
+            ${this.convertToPG(providerId)},
+            ${this.convertToPG(rowEdit.StartDate)},
+            ${this.convertToPG(rowEdit.EndDate)},
+            ${this.convertToPG(rowEdit.Way)},
+            '1' //deliverytypeid,
+            ${this.convertToPG(userId)},
+            ${this.convertToPG(routeNumber)},
+            
+        );`);
+        return query;
+    }
 }
 
 module.exports = MyRepository;
