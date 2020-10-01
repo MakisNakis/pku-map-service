@@ -42,7 +42,6 @@ class TableComponent extends Component {
 
         this.handleClick = this.handleClick.bind(this);
         this.splitDelivery = this.splitDelivery.bind(this);
-        this.cardOfProvider = this.cardOfProvider.bind(this);
         this.toggleWindowPortal = this.toggleWindowPortal.bind(this);
         this.closeWindowPortal = this.closeWindowPortal.bind(this);
         this.modalWindowFocusOn = this.modalWindowFocusOn.bind(this);
@@ -453,12 +452,6 @@ class TableComponent extends Component {
         }
     }
 
-    async cardOfProvider(e, data) {
-        delete data.target;
-        console.log(data.nameOfProvider);
-        console.log(data);
-    }
-
 
     render() {
 
@@ -708,7 +701,7 @@ class TableComponent extends Component {
                         }
                     </ToolkitProvider>
 
-                    <div>
+                    <div id="modalWindow">
                         {this.state.showWindowPortal && (
                             <ModalWindow
                                 modalWindowFocus={this.state.modalWindowFocus}

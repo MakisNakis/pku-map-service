@@ -5,7 +5,7 @@ import BootstrapTable from "react-bootstrap-table-next";
 import {ContextMenu, ContextMenuTrigger, MenuItem} from "react-contextmenu";
 import ToolkitProvider from "react-bootstrap-table2-toolkit";
 
-// import './css/CardOfProviderComponent.css';
+import './css/CardOfProviderComponent.css';
 
 class CardOfProviderComponent extends Component {
     constructor(props) {
@@ -14,6 +14,7 @@ class CardOfProviderComponent extends Component {
             dataAboutProvider: {},
             editableRow: null,
         }
+        this.appRoute = null;
     }
 
     async fetchFromProviderApi(data) {
@@ -43,6 +44,7 @@ class CardOfProviderComponent extends Component {
 
     componentDidMount() {
         this.fetchFromProviderApi(this.props.selectedRowDeliveryId);
+        this.appRoute = document.getElementById('globalDiv');
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -139,24 +141,27 @@ class CardOfProviderComponent extends Component {
         }];
 
         return (
-            <div>
+            <div id="grayBackgroundDiv">
                 {/*<h1>Provider ID: {this.props.selectedProviderId}</h1>*/}
+                <div id="cardOfProviderDiv">
+                    {this.state.dataAboutProvider !== null &&
+                    <div>
+                        <h1>Карточка контрагента</h1>
+                        {/*<h1>Карточка контрагента {this.state.dataAboutProvider[0].Name}</h1>*/}
 
-                {this.state.dataAboutProvider !== null && this.state.dataAboutProvider !== undefined &&
-                <div>
-                    <h1>Карточка контрагента</h1>
-                    {/*<h1>Карточка контрагента {this.state.dataAboutProvider[0].Name}</h1>*/}
+                        <table>
+                            {this.editableTable(this.state.dataAboutProvider, columnsFields)}
+                        </table>
+                    </div>}
 
-                    <table>
-                        {this.editableTable(this.state.dataAboutProvider, columnsFields)}
-                    </table>
-                </div>}
-
-
-
-                <button onClick={() => this.props.closeWindowPortal()} >
-                    Close me!
-                </button>
+                    <button className="buttonClose button7" onClick={() => {
+                        this.props.closeWindowPortal();
+                        // this.appRoute.style.display = 'none';
+                        // this.appRoute.style.overflowY = 'hidden';
+                    }}>
+                        Так блэт
+                    </button>
+                </div>
             </div>
         )
     }
