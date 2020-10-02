@@ -22,8 +22,9 @@
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/css/CardOfProviderComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/css/CardOfProviderComponent.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,6 +256,7 @@
       <workItem from="1601547231313" duration="11351000" />
       <workItem from="1601561593003" duration="2949000" />
       <workItem from="1601620897604" duration="5993000" />
+      <workItem from="1601628651359" duration="8311000" />
     </task>
     <task id="LOCAL-00046" summary="+ сравнение значений в ячейке на изменение">
       <created>1596113384680</created>

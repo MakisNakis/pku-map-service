@@ -94,8 +94,7 @@ class MyRepository {
     async uploadDataForTable(pkuId, typeTable, row, userIdString) {
 
         let query = undefined
-        let postgres
-        userId = parseInt(userIdString)
+        let userId = parseInt(userIdString)
         // let performerId = 1
         // let userId = 3
         let date = new Date().toLocaleDateString()
@@ -346,6 +345,18 @@ class MyRepository {
     async getCardOfProvider(data) {
         let query = this.client.query(`select * from f_s_provider(
             ${data.ProviderId}
+        );`);
+        return query;
+    }
+
+    async updateCardOfProvider(data) {
+        // this.toStringForDb(data.Name)
+        let query = this.client.query(`select * from f_u_provider_deliveryid(
+            ${data.ID},
+            ${this.convertToPG(data.Name)},
+            ${this.convertToPG(data.Contact)},
+            ${this.convertToPG(data.INN)},
+            ${data.UserId}
         );`);
         return query;
     }

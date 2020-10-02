@@ -21,7 +21,14 @@ class CardOfProviderComponent extends Component {
             dataAboutDocuments: [],
             documentsTableId: undefined,
             editableRow: null,
+            addProviderOn: false,
             documentInsertModal: false // стейт, меняющийся на true при нажатии на карточке на кнопку добавить новый документ
+        }
+        this.emptyProvider = {
+            ID: null,
+            Name: '',
+            Contact: '',
+            INN: '',
         }
         this.appRoute = null;
     }
@@ -182,20 +189,49 @@ class CardOfProviderComponent extends Component {
         return buttons;
     }
 
-    updateCardOfComponent(dataOfProviders, prop, node) {
-        dataOfProviders[prop] = node.value;
+    updateCardOfComponent(dataOfProviders) {
         this.setState({
             editableRow: null,
             dataAboutProvider: dataOfProviders
         })
     }
 
+    async fetchOnProviderApi(data) {
+        this.updateCardOfComponent(data)
+        let dataObj = this.state.dataAboutProvider
+        dataObj.UserId = parseInt(this.props.userId)
+        console.log(dataObj)
+        await fetch('/api/cardOfProvider', {
+            method: 'PUT',
+            headers: {'content-type': 'application/json'},
+            mode: "cors",
+            body: JSON.stringify(dataObj),
+        }).then(results => results.json()
+        ).then(data => {
+            console.log(data)
+            this.fetchFromProviderApi(this.props.selectedProviderId)
+        }).catch((err) => {
+            console.log(err, "cardOfProvider");
+        });
+    }
+
+    addProvider() {
+        this.setState(state => ({
+            ...state,
+            addProviderOn: !state.addProviderOn,
+            // dataAboutProvider: this.emptyProvider
+        }));
+    }
+
     editableTable(data, columns) {
         let trs = [];
         let columnName = false;
+        console.log(data)
+
         for (const property in data) {
             // console.log(property, data[property])
             columnName = this.selectHeaders(property, columns)
+            console.log(columnName)
             if (columnName) {
                 if (this.state.editableRow === property) {
                     trs.push(
@@ -210,10 +246,15 @@ class CardOfProviderComponent extends Component {
                                         this.editInput.focus();
                                     }
                                 }}
-                                onBlur={this.updateCardOfComponent(data, property,this.editInput)}
+                                onBlur={() => {
+                                    data[property] = this.editInput.value
+                                    this.fetchOnProviderApi(data)
+                                }
+                                }
                                 onKeyPress={(e) => {
                                     if (e.key === 'Enter') {
-                                        this.updateCardOfComponent(data, property,this.editInput)
+                                        data[property] = this.editInput.value
+                                        this.fetchOnProviderApi(data)
                                     }
                                 }}
                                 defaultValue={data[property]}
@@ -347,19 +388,22 @@ class CardOfProviderComponent extends Component {
                                 <tr>
                                     <td className="listOfProvidersTd">
                                         <table width="100%">
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <button
-                                                            className={"button9 btnPku"}
-                                                            name="addProvider"
-                                                        >
-                                                            Добавить контрагента
-                                                        </button>
-                                                    </div>
-                                                    <hr className="hrCardOfProvider"/>
-                                                </td>
-                                            </tr>
+                                            {/*<tr>*/}
+                                            {/*    <td>*/}
+                                            {/*        <div>*/}
+                                            {/*            <button*/}
+                                            {/*                className={"button9 btnPku"}*/}
+                                            {/*                name="addProvider"*/}
+                                            {/*                onClick={() => {*/}
+                                            {/*                    this.addProvider();*/}
+                                            {/*                }}*/}
+                                            {/*            >*/}
+                                            {/*                {(this.state.addProviderOn) ? 'Отменить' : 'Добавить контрагента'}*/}
+                                            {/*            </button>*/}
+                                            {/*        </div>*/}
+                                            {/*        <hr className="hrCardOfProvider"/>*/}
+                                            {/*    </td>*/}
+                                            {/*</tr>*/}
                                             <tr>
                                                 <td className={"cardComp"}>
                                                     <div id={"providerListCompDiv"}>
@@ -379,6 +423,7 @@ class CardOfProviderComponent extends Component {
                                         <div className="cardOfProviderDiv">
                                             <table className="cardOfProvidersTable">
                                                 {this.editableTable(this.state.dataAboutProvider, ProviderColumnsFields)}
+                                                {/*{(this.state.addProviderOn) ? this.editableTable(this.emptyProvider, ProviderColumnsFields) : this.editableTable(this.state.dataAboutProvider, ProviderColumnsFields)}*/}
                                             </table>
                                         </div>
                                     </td>
