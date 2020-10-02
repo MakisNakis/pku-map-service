@@ -309,6 +309,16 @@ app.route(`/api/auth/providersList`) // эндпоинт для получени
             res.send(req.rows)
         })
 
+app.route('/api/selectFromPkuByDeliveryId')
+    .post(async (req, res) => {
+        const data = req.body;
+        // console.log(req.body);
+        const dbResponse = await repository.selectFromPkuByDeliveryId(data);
+        // console.log(dbResponse.rows);
+        res.json(dbResponse.rows)
+    })
+
+
         // .post(async (req, res) => {
         //     // console.log(req.headers.origin);
         //     // console.log( req.body.rowEdit);

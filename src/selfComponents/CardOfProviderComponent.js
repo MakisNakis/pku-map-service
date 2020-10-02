@@ -306,6 +306,7 @@ class CardOfProviderComponent extends Component {
             {
                 dataField: 'DateUp',
                 text: 'Дата внесения изменений',
+                editable: false,
                 headerStyle: (colum, colIndex) => {
                     return {width: 150, textAlign: 'center'};
                 }
@@ -462,6 +463,8 @@ class CardOfProviderComponent extends Component {
                         }
                     {this.state.documentInsertModal === true &&
                         <InsertNewDocumentModalComponent/>
+
+
                     }
                 </div>
 

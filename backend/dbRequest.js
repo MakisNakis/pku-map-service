@@ -94,8 +94,7 @@ class MyRepository {
     async uploadDataForTable(pkuId, typeTable, row, userIdString) {
 
         let query = undefined
-        let postgres
-        userId = parseInt(userIdString)
+        let userId = parseInt(userIdString)
         // let performerId = 1
         // let userId = 3
         let date = new Date().toLocaleDateString()
@@ -352,6 +351,13 @@ class MyRepository {
 
     async selectProvidersDocuments(data) {
         let query = this.client.query(`select * from f_s_docs_providerid(
+            ${data.ProvidersId}
+        );`);
+        return query;
+    }
+
+    async selectFromPkuByDeliveryId(data) { // функция, возвращающая список пку по номеру поставки
+        let query = this.client.query(`select * from f_s_subject_deliveryid(
             ${data.ProvidersId}
         );`);
         return query;

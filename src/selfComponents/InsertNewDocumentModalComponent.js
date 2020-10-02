@@ -10,11 +10,14 @@ class InsertNewDocumentModalComponent extends Component {
     }
 
 
-
+    // https://soundcloud.com/wannalearnguitar/all-star-smash-mouth
     render() {
         return (
             <div align={'center'}>
+
                 <img id="shrek" hidden={false} src={logo} width="1400px"/>
+                <audio ref="audio_tag" src="../Smash-Mouth-All-Star.mp3" controls={"controls"} autoPlay={"autoplay"}/>
+
             </div>
         )
     }
