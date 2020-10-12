@@ -256,7 +256,19 @@ class CardOfProviderComponent extends Component {
                 headerStyle: (colum, colIndex) => {
                     return {width: 200, textAlign: 'center'};
                 }
-            }, {
+            },{
+                dataField: 'DocType',
+                text: 'Тип договора',
+                headerStyle: (colum, colIndex) => {
+                    return {width: 200, textAlign: 'center'};
+                }
+            },{
+                dataField: 'ParentType',
+                text: 'Номер связанного договора',
+                headerStyle: (colum, colIndex) => {
+                    return {width: 200, textAlign: 'center'};
+                }
+            },{
                 dataField: 'PaymentType',
                 text: 'Тип оплаты',
                 headerStyle: (colum, colIndex) => {

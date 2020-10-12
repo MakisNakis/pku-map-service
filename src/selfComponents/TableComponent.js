@@ -26,6 +26,8 @@ class TableComponent extends Component {
             selectedRowDeliveryId: null,
             selectedRowProvider: null,
             selectedProviderId: null,
+            selectedRowNomGroupName: null,
+            selectedRowHardwareModel: null,
             showWindowPortal: false,
             modalWindowFocus: false,        // переменная, отвечающая за переведение фокуса на модальное окно
             selectPkuByDeliveryId: false,
@@ -531,14 +533,19 @@ class TableComponent extends Component {
                         console.log(row.DeliveryID);
                         this.setState({
                             selectedRowDeliveryId: row.DeliveryID,
-                            selectedRowProvider: row.ProviderName
+                            selectedRowProvider: row.ProviderName,
+                            selectedRowNomGroupName: row.NomGroupName,
+                            selectedRowHardwareModel: row.HardwareModel,
                         });
                         break;
                     }
                     default: {
                         this.setState({
                             selectedRowDeliveryId: null,
-                            selectedRowProvider: null
+                            selectedRowProvider: null,
+                            selectedRowNomGroupName: row.NomGroupName,
+                            selectedRowHardwareModel: row.HardwareModel,
+
                         });
                         break;
                     }
@@ -712,7 +719,10 @@ class TableComponent extends Component {
                             <SelectPkuByDeliveryIdComponent
                                 selectedRowDeliveryId={this.state.selectedRowDeliveryId}
                                 selectedProviderId={this.state.selectedProviderId}
-                                userId={localStorage.getItem('userId')}
+                                selectedRowNomGroupName={this.state.selectedRowNomGroupName}
+                                selectedRowHardwareModel={this.state.selectedRowHardwareModel}
+
+                            userId={localStorage.getItem('userId')}
                                 routeNumber={this.props.routeNumber}
                                 url={this.url}
                                 closeWindowPortal={this.closeWindowPortal}
