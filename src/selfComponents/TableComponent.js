@@ -654,9 +654,9 @@ class TableComponent extends Component {
                                         <MenuItem data={{deliveryId: this.state.selectedRowDeliveryId, userId: parseInt(localStorage.getItem('userId'))}} className="button7" onClick={this.splitDelivery}>
                                             Разбить поставку
                                         </MenuItem>
-                                        <MenuItem data={{nameOfProvider: this.state.selectedRowProvider}} className="button7" onClick={this.modalWindowFocusOn}>
-                                            Карточка контрагента
-                                        </MenuItem>
+                                        {/*<MenuItem data={{nameOfProvider: this.state.selectedRowProvider}} className="button7" onClick={this.modalWindowFocusOn}>*/}
+                                        {/*    Карточка контрагента*/}
+                                        {/*</MenuItem>*/}
                                         <MenuItem data={{deliveryId: this.state.selectedRowDeliveryId}} className="button7" onClick={this.selectPkuByDeliveryId}>
                                             Список объектов, использующих данное оборудование
                                         </MenuItem>
@@ -698,21 +698,21 @@ class TableComponent extends Component {
                         }
                     </ToolkitProvider>
 
-                    <div id="modalWindow">
-                        {this.state.showWindowPortal && (
-                                <CardOfProviderComponent
-                                    selectedRowDeliveryId={this.state.selectedRowDeliveryId}
-                                    selectedProviderId={this.state.selectedProviderId}
-                                    userId={localStorage.getItem('userId')}
-                                    routeNumber={this.props.routeNumber}
-                                    url={this.url}
-                                    closeWindowPortal={this.closeWindowPortal}
-                                    providersList={this.state.providersList}
-                                    selectProviderId={this.selectProviderId}
-                                >
-                                </CardOfProviderComponent>
-                        )}
-                    </div>
+                    {/*<div id="modalWindow">*/}
+                    {/*    {this.state.showWindowPortal && (*/}
+                    {/*            <CardOfProviderComponent*/}
+                    {/*                selectedRowDeliveryId={this.state.selectedRowDeliveryId}*/}
+                    {/*                selectedProviderId={this.state.selectedProviderId}*/}
+                    {/*                userId={localStorage.getItem('userId')}*/}
+                    {/*                routeNumber={this.props.routeNumber}*/}
+                    {/*                url={this.url}*/}
+                    {/*                closeWindowPortal={this.closeWindowPortal}*/}
+                    {/*                providersList={this.state.providersList}*/}
+                    {/*                selectProviderId={this.selectProviderId}*/}
+                    {/*            >*/}
+                    {/*            </CardOfProviderComponent>*/}
+                    {/*    )}*/}
+                    {/*</div>*/}
 
                     <div id="modalWindowDelivery">
                         {this.state.selectPkuByDeliveryId && (

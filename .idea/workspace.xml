@@ -20,10 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/SelectPkuByDeliveryIdComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/SelectPkuByDeliveryIdComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/TableComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -254,14 +250,7 @@
       <workItem from="1601376396326" duration="15738000" />
       <workItem from="1601532983729" duration="20117000" />
       <workItem from="1601619506778" duration="10466000" />
-      <workItem from="1602484534509" duration="5237000" />
-    </task>
-    <task id="LOCAL-00047" summary="+ сравнение значений в ячейке на изменение">
-      <created>1596119038916</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1596119038916</updated>
+      <workItem from="1602484534509" duration="5942000" />
     </task>
     <task id="LOCAL-00048" summary="- изменил стили&#10;- добавил логотип АО &quot;ОМЕГА&quot;">
       <created>1596184489544</created>
@@ -599,7 +588,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601645048653</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="- вывод списка ПКУ, на которые будет поставлено оборудование">
+      <created>1602490507494</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1602490507495</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -619,7 +615,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="+ удаление дат" />
     <MESSAGE value="+ появление надписи на карте при нажатии на кнопку с ПКУ&#10;+ убрал масштаб колесиком" />
     <MESSAGE value="+ вернул сохранение данных нажатием на зону вне поля" />
     <MESSAGE value="+ вернул сохранение данных нажатием на зону вне поля ввода" />
@@ -644,7 +639,8 @@
     <MESSAGE value="+ вносятся изменения в таблицу" />
     <MESSAGE value="- стилевые правки" />
     <MESSAGE value="- из контекстного меню теперь можно выбирать таблицу, отображающую объекты для данного номера поставки" />
-    <option name="LAST_COMMIT_MESSAGE" value="- из контекстного меню теперь можно выбирать таблицу, отображающую объекты для данного номера поставки" />
+    <MESSAGE value="- вывод списка ПКУ, на которые будет поставлено оборудование" />
+    <option name="LAST_COMMIT_MESSAGE" value="- вывод списка ПКУ, на которые будет поставлено оборудование" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
@@ -661,10 +657,10 @@
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
     <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1598439326183" />
-    <state x="2402" y="91" width="769" height="874" key="CommitChangelistDialog2" timestamp="1601645048278">
-      <screen x="1920" y="0" width="1920" height="1200" />
+    <state x="482" y="91" width="769" height="874" key="CommitChangelistDialog2" timestamp="1602490507217">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1601561541712" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1602490507217" />
     <state x="2402" y="91" width="769" height="874" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@1920.0.1920.1200" timestamp="1601645048278" />
     <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1601448479821" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
@@ -702,10 +698,10 @@
     <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1601535004045" />
     <state x="2429" y="253" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@1920.0.1920.1200" timestamp="1601558961624" />
     <state x="558" y="252" key="MultipleFileMergeDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1600756531161" />
-    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1601561561110">
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1602490514991">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1601561561110" />
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1602490514991" />
     <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1601379474559" />
     <state x="764" y="475" width="428" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600756488802">
       <screen x="67" y="27" width="1853" height="1068" />
