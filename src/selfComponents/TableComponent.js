@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, createRef} from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import cellEditFactory from 'react-bootstrap-table2-editor';
 import paginationFactory from 'react-bootstrap-table2-paginator';
@@ -6,8 +6,9 @@ import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
 import ToolkitProvider, {Search, CSVExport} from 'react-bootstrap-table2-toolkit';
 import {ColumnsData} from "../data/ColumnsData";
 import {ContextMenu, MenuItem, ContextMenuTrigger} from "react-contextmenu";
-
-
+import ModalWindow from './ModalWindow';
+import CardOfProviderComponent from './CardOfProviderComponent';
+import SelectPkuByDeliveryIdComponent from './SelectPkuByDeliveryIdComponent'
 import './css/TableComponent.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.css';
@@ -22,15 +23,34 @@ class TableComponent extends Component {
         this.state = {
             pkuInfo: [],
             filterColor: "white",
-            selectedRow: null
-            // performers: this.getPerformers() // список всех исполнителей (монтажников)
+            selectedRowDeliveryId: null,
+            selectedRowProvider: null,
+            selectedProviderId: null,
+            selectedRowNomGroupName: null,
+            selectedRowHardwareModel: null,
+            showWindowPortal: false,
+            modalWindowFocus: false,        // переменная, отвечающая за переведение фокуса на модальное окно
+            selectPkuByDeliveryId: false,
+            providersList: [],
         };
+        // переменная, для запуска приложения с разных ip
         this.url = window.location.href;
+        // this.modalWindowRef = createRef();
+        // копия данных таблиц, использующаяся для раскраски в таблице отчетов
         this.copyPkuInfo = [];
+
         this.performers = [];
         this.factOfAgreement = [];
+        this.providersList = [];
+
         this.handleClick = this.handleClick.bind(this);
+        this.selectProviderId = this.selectProviderId.bind(this);
         this.splitDelivery = this.splitDelivery.bind(this);
+        this.toggleWindowPortal = this.toggleWindowPortal.bind(this);
+        this.closeWindowPortal = this.closeWindowPortal.bind(this);
+        this.modalWindowFocusOn = this.modalWindowFocusOn.bind(this);
+        this.modalWindowFocusOff = this.modalWindowFocusOff.bind(this);
+        this.selectPkuByDeliveryId = this.selectPkuByDeliveryId.bind(this);
     }
 
     componentDidMount() {
@@ -51,11 +71,67 @@ class TableComponent extends Component {
 
         this.getProvidersList()
             .then(data => {
-                this.providersList = data;
+                this.setState({
+                    providersList: data
+                });
             })
             .catch(() => {
                 console.log("Ошибка при асинхронном запросе для чтения списка контрагентов");
             });
+
+
+        window.addEventListener('beforeunload', () => {
+            this.closeWindowPortal();
+        });
+    }
+
+    selectProviderId(prId) {
+        this.setState({
+            selectedProviderId: prId
+        });
+    }
+
+    async toggleWindowPortal(e, data) {
+        delete data.target;
+        let perfMasLen = this.state.providersList.length;
+        let providerId = null;
+        for (let i = 0; i < perfMasLen; i++) {
+            if (data.nameOfProvider === this.state.providersList[i].label) {
+                providerId = this.state.providersList[i].value;
+            }
+        }
+        console.log(providerId)
+        this.selectProviderId(providerId)
+        this.setState(state => ({
+            ...state,
+            showWindowPortal: true
+        }));
+    }
+
+    selectPkuByDeliveryId() {
+        console.log(this.state.selectPkuByDeliveryId)
+
+        this.setState({
+            selectPkuByDeliveryId: true
+        });
+        console.log(this.state.selectPkuByDeliveryId)
+    }
+
+    modalWindowFocusOn(e, data) {
+        this.toggleWindowPortal(e, data).then(() => {
+            this.setState({
+                modalWindowFocus: true
+            });
+        });
+    }
+
+    modalWindowFocusOff() {
+        this.setState({modalWindowFocus: false});
+    }
+
+    closeWindowPortal() {
+        this.setState({ showWindowPortal: false })
+        this.setState({ selectPkuByDeliveryId: false })
     }
 
     async getPerformers() {
@@ -137,7 +213,7 @@ class TableComponent extends Component {
          }).catch(() => {
              console.log(`Ошибка при выполнении запроса с ${apiRoute}${idPKU}`);
          });
-
+        console.log(this.state.pkuInfo)
      }
 
 
@@ -178,7 +254,7 @@ class TableComponent extends Component {
         let done = true;
         let factOfAgreementLen = this.factOfAgreement.length;
         let performersLen = this.performers.length;
-        let providersListLen = this.providersList.length;
+        let providersListLen = this.state.providersList.length;
         // for(let i = 0; i < factOfAgreementLen; i++) {
         //
         //     if (this.factOfAgreement[i].label === oldValue && newValue === "") {
@@ -226,7 +302,7 @@ class TableComponent extends Component {
 
 
                         for(let j = 0; j < providersListLen; j++) {
-                            let providersListJ = this.providersList[j];
+                            let providersListJ = this.state.providersList[j];
                             switch (providersListJ.label) {
                                 case rowEdit.ProviderName: {
                                     rowEdit.ProviderName = providersListJ.value;
@@ -249,7 +325,7 @@ class TableComponent extends Component {
                 }
 
                 for(let j = 0; j < providersListLen; j++) {
-                    let providersListJ = this.providersList[j];
+                    let providersListJ = this.state.providersList[j];
                     switch (providersListJ.label) {
                         case rowEdit.ProviderID: {
                             rowEdit.ProviderID = providersListJ.value;
@@ -398,22 +474,17 @@ class TableComponent extends Component {
     }
 
 
-
     render() {
 
         // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
-        const tableHeaders = ColumnsData(this.performers, this.factOfAgreement, this.providersList); // подключаем заголовки таблиц из файла ../data/ColumnsData
+        const tableHeaders = ColumnsData(this.performers, this.factOfAgreement, this.state.providersList); // подключаем заголовки таблиц из файла ../data/ColumnsData
         const {ExportCSVButton} = CSVExport; // кнопка для экспорта таблицы в CSV
-
-
 
         const customTotal = (from, to, size) => (
             <span className="react-bootstrap-table-pagination-total">
                 Показано с { from } по { to } из { size }
             </span>
         );
-
-
 
         const optionsPagination = {
             paginationSize: 5,
@@ -440,21 +511,6 @@ class TableComponent extends Component {
             }] // A numeric array is also available. the purpose of above example is custom the text
         };
 
-        const rowStyle = (row, rowIndex) => {
-            row.index = rowIndex;
-            const style = {};
-            if (rowIndex % 2 === 0) {
-                style.backgroundColor = 'transparent';
-            } else {
-                style.backgroundColor = 'rgba(142,238,147,0.3)';
-            }
-
-            // style.borderTop = 'none';
-            // style.height = '70';
-            return style;
-        };
-
-
         // const selectRow = { // данный параметр используется для получения сведений о строке, на которую нажали (правой кнопкой мыши)
         //     mode: 'checkbox',
         //     hideSelectColumn: true, // скрываем флажки для выделения строки
@@ -474,11 +530,23 @@ class TableComponent extends Component {
             onContextMenu: (e, row) => {
                 switch (this.props.typeTable) {
                     case "ОМТС": {
-                        this.setState({selectedRow: row.DeliveryID});
+                        console.log(row.DeliveryID);
+                        this.setState({
+                            selectedRowDeliveryId: row.DeliveryID,
+                            selectedRowProvider: row.ProviderName,
+                            selectedRowNomGroupName: row.NomGroupName,
+                            selectedRowHardwareModel: row.HardwareModel,
+                        });
                         break;
                     }
                     default: {
-                        this.setState({selectedRow: null});
+                        this.setState({
+                            selectedRowDeliveryId: null,
+                            selectedRowProvider: null,
+                            selectedRowNomGroupName: row.NomGroupName,
+                            selectedRowHardwareModel: row.HardwareModel,
+
+                        });
                         break;
                     }
                 }
@@ -545,17 +613,11 @@ class TableComponent extends Component {
         };
 
         const beforeSaveCell = (oldValue, newValue, row, column, done) => {
-            setTimeout(() => {
-                let factOfAgreementLen = this.factOfAgreement.length;
-                for(let i = 0; i < factOfAgreementLen; i++) {
+            if (column.type === "number") {
+                console.log(newValue, window)
+                newValue = newValue.window.replace(/,/, '.').bind(this);
+            }
 
-                    if (this.factOfAgreement[i].label === oldValue && newValue === "") {
-                        done(false);
-                    }
-                }
-                done(true);
-            }, 0);
-            return { async: true };
         }
 
         return (
@@ -589,14 +651,14 @@ class TableComponent extends Component {
                                     <ContextMenuTrigger id="same_unique_identifier" holdToDisplay={-1}>
                                         {/*<div className="well">Контекстное меню открывается нажатием ПКМ</div>*/}
                                     {this.props.depName === "ОМТС" && <ContextMenu id="same_unique_identifier" className="context_menu">
-                                        <MenuItem data={{deliveryId: this.state.selectedRow, userId: parseInt(localStorage.getItem('userId'))}} className="button7" onClick={this.splitDelivery}>
+                                        <MenuItem data={{deliveryId: this.state.selectedRowDeliveryId, userId: parseInt(localStorage.getItem('userId'))}} className="button7" onClick={this.splitDelivery}>
                                             Разбить поставку
                                         </MenuItem>
-                                        <MenuItem data={{foo: this.state.selectedRow}} className="button7" onClick={this.handleClick}>
-                                            Изменить контрагента
-                                        </MenuItem>
-                                        <MenuItem data={{foo: this.state.selectedRow}} className="button7" onClick={this.handleClick}>
-                                            Добавить нового контрагента
+                                        {/*<MenuItem data={{nameOfProvider: this.state.selectedRowProvider}} className="button7" onClick={this.modalWindowFocusOn}>*/}
+                                        {/*    Карточка контрагента*/}
+                                        {/*</MenuItem>*/}
+                                        <MenuItem data={{deliveryId: this.state.selectedRowDeliveryId}} className="button7" onClick={this.selectPkuByDeliveryId}>
+                                            Список объектов, использующих данное оборудование
                                         </MenuItem>
                                         {/*<MenuItem divider />*/}
                                         {/*<MenuItem data={{foo: 'bar'}} onClick={selectRow}>*/}
@@ -615,9 +677,10 @@ class TableComponent extends Component {
                                         cellEdit={cellEditFactory({
                                             mode: 'dbclick',
                                             // blurToSave: true,
+                                            // onStartEdit: () => {console.log(document.activeElement);},
+
                                             beforeSaveCell,
                                             afterSaveCell: (oldValue, newValue, row, column) => {
-                                                console.log(newValue);
 
                                                 if (oldValue !== newValue) {
                                                     console.log(row);
@@ -634,12 +697,43 @@ class TableComponent extends Component {
                             )
                         }
                     </ToolkitProvider>
+
+                    {/*<div id="modalWindow">*/}
+                    {/*    {this.state.showWindowPortal && (*/}
+                    {/*            <CardOfProviderComponent*/}
+                    {/*                selectedRowDeliveryId={this.state.selectedRowDeliveryId}*/}
+                    {/*                selectedProviderId={this.state.selectedProviderId}*/}
+                    {/*                userId={localStorage.getItem('userId')}*/}
+                    {/*                routeNumber={this.props.routeNumber}*/}
+                    {/*                url={this.url}*/}
+                    {/*                closeWindowPortal={this.closeWindowPortal}*/}
+                    {/*                providersList={this.state.providersList}*/}
+                    {/*                selectProviderId={this.selectProviderId}*/}
+                    {/*            >*/}
+                    {/*            </CardOfProviderComponent>*/}
+                    {/*    )}*/}
+                    {/*</div>*/}
+
+                    <div id="modalWindowDelivery">
+                        {this.state.selectPkuByDeliveryId && (
+                            <SelectPkuByDeliveryIdComponent
+                                selectedRowDeliveryId={this.state.selectedRowDeliveryId}
+                                selectedProviderId={this.state.selectedProviderId}
+                                selectedRowNomGroupName={this.state.selectedRowNomGroupName}
+                                selectedRowHardwareModel={this.state.selectedRowHardwareModel}
+
+                            userId={localStorage.getItem('userId')}
+                                routeNumber={this.props.routeNumber}
+                                url={this.url}
+                                closeWindowPortal={this.closeWindowPortal}
+                            >
+                            </SelectPkuByDeliveryIdComponent>
+                        )}
+                    </div>
                 </div>
                 }
 
                 <p className={"messageStyle"} align={"center"}>{this.props.hide}</p>
-
-
             </div>
         );
     }

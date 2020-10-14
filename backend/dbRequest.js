@@ -341,6 +341,44 @@ class MyRepository {
         );`);
         return query;
     }
+
+    async getCardOfProvider(data) {
+        let query = this.client.query(`select * from f_s_provider_deliveryid(
+            ${data.DeliveryId}
+        );`);
+        return query;
+    }
+
+    async selectProvidersDocuments(data) {
+        let query = this.client.query(`select * from f_s_docs_providerid(
+            ${data.ProvidersId}
+        );`);
+        return query;
+    }
+
+    async selectFromPkuByDeliveryId(data) { // функция, возвращающая список пку по номеру поставки
+        let query = this.client.query(`select * from f_s_subject_deliveryid(
+            ${data.ProvidersId}
+        );`);
+        return query;
+    }
+
+    async updateProvidersDocuments(rowEdit, userId, routeNumber, providerId) {
+        let query = this.client.query(`select * from f_u_docs(
+            ${this.convertToPG(rowEdit.ID)},
+            ${this.convertToPG(rowEdit.Name)},
+            'null',
+            ${this.convertToPG(providerId)},
+            ${this.convertToPG(rowEdit.StartDate)},
+            ${this.convertToPG(rowEdit.EndDate)},
+            ${this.convertToPG(rowEdit.Way)},
+            '1' //deliverytypeid,
+            ${this.convertToPG(userId)},
+            ${this.convertToPG(routeNumber)},
+            
+        );`);
+        return query;
+    }
 }
 
 module.exports = MyRepository;

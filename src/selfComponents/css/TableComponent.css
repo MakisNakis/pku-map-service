@@ -59,6 +59,27 @@ th {
     padding: 3px;
 }
 
+.button7 {
+    display: block;
+    background: #e0e0e0;
+    /*background: rgb(255, 255, 255);*/
+    color: #035594;
+    /*border-color: rgb(217, 13, 22);*/
+    border: #035594 2px solid;
+    /*color: white;*/
+    font-weight: 500;
+    text-decoration: none;
+    user-select: none;
+    padding: 4px 6px;
+    outline: none;
+    /*border-width: 2px;*/
+    /*border-radius: 300px;*/
+    transition: 0.2s;
+}
+
+.button7:hover { border: #ffffff 2px solid; background: #c4c4c4; color: rgb(255, 255, 255)
+}
+
 .table-horiz-scroll {
     background-color: white;
     height: 700px;

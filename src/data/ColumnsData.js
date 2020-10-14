@@ -1,19 +1,61 @@
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import { Type } from 'react-bootstrap-table2-editor';
 
-function CellStyle(cell, row, rowIndex, colIndex) {
-    let backgroundColor = '#ffffff';
-
-    let nameColumnColor = Object.keys(row)[colIndex+1];
-
-    if (row.nameColumnColor !== null ) {
-        return {
-            backgroundColor: `${row.EndDatePlanColor}`
-        };
+class NumberEditor extends Component {
+    static propTypes = {
+        value: PropTypes.number,                    //(не используется)проверка пропсов на соответствие типам
+        onUpdate: PropTypes.func.isRequired         //проверка пропсов на соответствие типам
     }
-    return {
-        backgroundColor: '#ffffff'
-    };
+    static defaultProps = {
+        value: 0                                    //пропс по дефолту(не используется)
+    }
+    getValue() {
+        let quantityStr = this.numb.value;
+        let quantity;
+        let reg = RegExp("^[0-9]+\.$");     //регулярка для случая, когда внесли число с точкой (напр: 1.)
+        quantityStr = quantityStr.replace(/,/, '.');        //меняем запятую на точку
+        if (reg.test(quantityStr)) {        //проверка на соответствие регулярке reg
+            quantityStr = quantityStr.replace(/\./, '');    //убираем точку
+            quantityStr = quantityStr.slice(0, 6);      //обрезка, так как в бд больше 6 цифр все равно не лезет
+        } else {
+            quantityStr = quantityStr.slice(0, 7);      //случай если цифр 6 + .
+        }
+        quantity = Number(quantityStr);         //переводим в число
+        if (isNaN(quantity)) {                  //если хуйня, то 0 (напр: '')
+            quantity = 0;
+        }
+        return quantity;
+    }
+
+    componentDidMount() {
+        this.numb.focus();                          //фокус на инпут при первой отрисовке
+    }
+
+    render() {
+        const { value, onUpdate, ...rest } = this.props;
+        return [
+            <input
+                { ...rest }
+                key="numb"                          //хз нахуя
+                ref={ node => this.numb = node }    //кладем в this.numb узел с input
+                type="text"
+                className="form-control editor edit-text"       //класс из бутстрап тейбл
+                onFocus={() => {this.numb.select()}}            //чтоб текст выделялся, когда появляется поле ввода
+                onKeyUp={() => {
+                    let reg = this.numb.value.match(/^\d+((\.|,)(\d+)?)?/g);        //регулярка, фильтрующая не числа с запятой
+                    this.numb.value = (reg !== null) ? reg[0] : '';         //перезаписываем поле инпута, оставляя там то, что прошло через регулярку
+                }}
+                onKeyPress={(e) => {
+                    if (e.key === 'Enter') {
+                        onUpdate(this.getValue.bind(this))      //записываем в таблицу
+                    }
+                }}
+            />
+        ];
+    }
 }
+
 
 // export async function loadPerformers(){
 //     await fetch(`/api/auth/perfName`).then(results => {
@@ -31,21 +73,6 @@ function CellStyle(cell, row, rowIndex, colIndex) {
 // }
 
 export function ColumnsData(performers, factOfAgreement, providersList) {
-
-        // const performers = localStorage.getItem('performers')
-    // let performers = [{label: "1"}, {label:"2"}, {label: "3"}]
-
-// console.log()
-// console.log(JSON.stringify(performers))
-
-
-//     let performersMas = []
-//     let performersMas = [{label: "Бажутов Сергей", value: 1}, {label: "Камалетдинов Рамис", value: 2}, {label: "Шакиров Ришат", value: 3}]
-    // let performersMas = [{label: "Бажутов Сергей", value: "Бажутов Сергей"}, {label: "Камалетдинов Рамис", value: "Камалетдинов Рамис"}, {label: "Шакиров Рашид", value: "Шакиров Рашид"}]
-//     for (let i = 0; i < performers.length; i++){
-//         performersMas[i] = {label: performers[i].Surname}
-//     }
-// console.log(factOfAgreement)
 
     let tableHeaders = [];
     //ОМТС
@@ -143,10 +170,25 @@ export function ColumnsData(performers, factOfAgreement, providersList) {
         dataField: 'Quantity',
         text: 'Количество',
         sort: true,
-        type: 'number',
+        // validator: (newValue, row, column) => {
+        //     console.log(newValue)
+        //     newValue = newValue.replace(/,/, '.');
+        //     console.log(newValue)
+        //     if (isNaN(newValue)) {
+        //         return {
+        //             valid: false,
+        //             message: 'Напр: 1 или 0.1'
+        //         };
+        //     }
+        //     return true;
+        // },
+        // type: 'number',
+        editorRenderer: (editorProps, value, row, column, rowIndex, columnIndex) => (       //кастомный editor для чисел с запятой
+            <NumberEditor { ...editorProps } value={ value } />
+        ),
         editable: true,
         headerStyle: (colum, colIndex) => {
-            return {width: 120, textAlign: 'center'};
+            return {width: 155, textAlign: 'center'};
         }
     }, {
         dataField: 'QuantityAll',
@@ -155,7 +197,7 @@ export function ColumnsData(performers, factOfAgreement, providersList) {
         type: 'number',
         editable: false,
         headerStyle: (colum, colIndex) => {
-            return {width: 120, textAlign: 'center'};
+            return {width: 155, textAlign: 'center'};
         }
     }, {
         dataField: 'FactDoc',
