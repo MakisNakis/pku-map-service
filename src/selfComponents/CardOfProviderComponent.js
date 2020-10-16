@@ -17,11 +17,18 @@ class CardOfProviderComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataAboutProvider: [],
+            dataAboutProvider: {},
             dataAboutDocuments: [],
             documentsTableId: undefined,
             editableRow: null,
+            addProviderOn: false,
             documentInsertModal: false // стейт, меняющийся на true при нажатии на карточке на кнопку добавить новый документ
+        }
+        this.emptyProvider = {
+            ID: null,
+            Name: '',
+            Contact: '',
+            INN: '',
         }
         this.appRoute = null;
     }
@@ -31,12 +38,18 @@ class CardOfProviderComponent extends Component {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             mode: "cors",
-            body: JSON.stringify({DeliveryId: data}),
+            body: JSON.stringify({ProviderId: data}),
         }).then(results => results.json()
         ).then(data => {
-            this.setState({
-                dataAboutProvider: data[0],
-            });
+            if (data[0] !== undefined) {
+                this.setState({
+                    dataAboutProvider: data[0],
+                });
+            } else {
+                this.setState({
+                    dataAboutProvider: {},
+                });
+            }
         }).catch((err) => {
             console.log(err, "cardOfProvider");
         });
@@ -50,7 +63,7 @@ class CardOfProviderComponent extends Component {
             body: JSON.stringify({ProvidersId: providerId}),
         }).then(results => results.json()
         ).then(data => {
-            console.log(data);
+            // console.log(data);
             let documentsTableId = data.map((val, ix) => {
                 val.tableID = ix+1;
                 // val.DateContract = moment(val.DateContract).format('YYYY-MM-DD');
@@ -72,8 +85,8 @@ class CardOfProviderComponent extends Component {
     async fetchOnDocumentsApi(apiRoute, rowEdit) {
         let jsonObj = {rowEdit: rowEdit, userId: localStorage.getItem('userId'), routeNumber: this.props.routeNumber, providerId: this.props.selectedProviderId}
         // console.log(jsonObj)
-        console.log(apiRoute)
-        console.log(this.props.url)
+        // console.log(apiRoute)
+        // console.log(this.props.url)
         await fetch(`${this.props.url}${apiRoute}`, {
             // await fetch('http://192.168.1.116:5000/api/test1', {
             method: 'POST',
@@ -89,18 +102,21 @@ class CardOfProviderComponent extends Component {
 
 
     componentDidMount() {
-        this.fetchFromProviderApi(this.props.selectedRowDeliveryId);
+        this.fetchFromProviderApi(this.props.selectedProviderId);
         this.appRoute = document.getElementById('globalDiv');
         this.fetchFromDocumentsApi(this.props.selectedProviderId);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.selectedProviderId !== prevProps.selectedProviderId) {
-            this.fetchFromProviderApi(this.props.selectedRowDeliveryId);
+            this.fetchFromProviderApi(this.props.selectedProviderId);
+            console.log(this.props.selectedProviderId);
+
+
         }
         if (this.state.dataAboutProvider !== prevState.dataAboutProvider) {
-            console.log(this.state.dataAboutProvider);
-            console.log(this.state.dataAboutProvider);
+            // console.log(this.state.dataAboutProvider);
+            // console.log(this.state.dataAboutProvider);
         }
     }
 
@@ -127,12 +143,12 @@ class CardOfProviderComponent extends Component {
     providersListGeneration(providers) {
         let buttons = [];
 
-        console.log(providers)
+        // console.log(providers)
 
         for (const provider of providers) {
         // for (let i = 0; i < pkuData.length; i++) {
             if (this.props.selectedProviderId === provider.value) {
-                console.log(provider.value)
+                // console.log(provider.value)
                 buttons.push(
                     <tr>
                         <td>
@@ -173,12 +189,49 @@ class CardOfProviderComponent extends Component {
         return buttons;
     }
 
+    updateCardOfComponent(dataOfProviders) {
+        this.setState({
+            editableRow: null,
+            dataAboutProvider: dataOfProviders
+        })
+    }
+
+    async fetchOnProviderApi(data) {
+        this.updateCardOfComponent(data)
+        let dataObj = this.state.dataAboutProvider
+        dataObj.UserId = parseInt(this.props.userId)
+        console.log(dataObj)
+        await fetch('/api/cardOfProvider', {
+            method: 'PUT',
+            headers: {'content-type': 'application/json'},
+            mode: "cors",
+            body: JSON.stringify(dataObj),
+        }).then(results => results.json()
+        ).then(data => {
+            console.log(data)
+            this.fetchFromProviderApi(this.props.selectedProviderId)
+        }).catch((err) => {
+            console.log(err, "cardOfProvider");
+        });
+    }
+
+    addProvider() {
+        this.setState(state => ({
+            ...state,
+            addProviderOn: !state.addProviderOn,
+            // dataAboutProvider: this.emptyProvider
+        }));
+    }
+
     editableTable(data, columns) {
         let trs = [];
         let columnName = false;
+        console.log(data)
+
         for (const property in data) {
             // console.log(property, data[property])
             columnName = this.selectHeaders(property, columns)
+            console.log(columnName)
             if (columnName) {
                 if (this.state.editableRow === property) {
                     trs.push(
@@ -194,19 +247,14 @@ class CardOfProviderComponent extends Component {
                                     }
                                 }}
                                 onBlur={() => {
-                                    data[property] = this.editInput.value;
-                                    this.setState({
-                                        editableRow: null,
-                                        dataAboutProvider: data
-                                    })
-                                }}
+                                    data[property] = this.editInput.value
+                                    this.fetchOnProviderApi(data)
+                                }
+                                }
                                 onKeyPress={(e) => {
                                     if (e.key === 'Enter') {
-                                        data[property] = this.editInput.value;
-                                        this.setState({
-                                            editableRow: null,
-                                            dataAboutProvider: data
-                                        })
+                                        data[property] = this.editInput.value
+                                        this.fetchOnProviderApi(data)
                                     }
                                 }}
                                 defaultValue={data[property]}
@@ -234,7 +282,6 @@ class CardOfProviderComponent extends Component {
     }
 
     render() {
-
         // заголовки для таблицы контрагента
         const ProviderColumnsFields = [
         {
@@ -335,6 +382,10 @@ class CardOfProviderComponent extends Component {
             return "В таблице нет информации";
         }
 
+        const messageErr = () => {                                                         // TODO: проверить
+            return "Контрагент не выбран";
+        }
+
         return (
             <div id="grayBackgroundDiv">
                 {/*<h1>Provider ID: {this.props.selectedProviderId}</h1>*/}
@@ -349,20 +400,23 @@ class CardOfProviderComponent extends Component {
                             <table>
                                 <tr>
                                     <td className="listOfProvidersTd">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <button
-                                                            className={"button9 btnPku"}
-                                                            name="addProvider"
-                                                        >
-                                                            Добавить контрагента
-                                                        </button>
-                                                    </div>
-                                                    <hr className="hrCardOfProvider"/>
-                                                </td>
-                                            </tr>
+                                        <table width="100%">
+                                            {/*<tr>*/}
+                                            {/*    <td>*/}
+                                            {/*        <div>*/}
+                                            {/*            <button*/}
+                                            {/*                className={"button9 btnPku"}*/}
+                                            {/*                name="addProvider"*/}
+                                            {/*                onClick={() => {*/}
+                                            {/*                    this.addProvider();*/}
+                                            {/*                }}*/}
+                                            {/*            >*/}
+                                            {/*                {(this.state.addProviderOn) ? 'Отменить' : 'Добавить контрагента'}*/}
+                                            {/*            </button>*/}
+                                            {/*        </div>*/}
+                                            {/*        <hr className="hrCardOfProvider"/>*/}
+                                            {/*    </td>*/}
+                                            {/*</tr>*/}
                                             <tr>
                                                 <td className={"cardComp"}>
                                                     <div id={"providerListCompDiv"}>
@@ -376,14 +430,24 @@ class CardOfProviderComponent extends Component {
                                             </tr>
                                         </table>
                                     </td>
+
+                                    {(Object.keys(this.state.dataAboutProvider).length > 0) ?
                                     <td className="cardComp">
-                                        {this.state.dataAboutProvider !== null &&
                                         <div className="cardOfProviderDiv">
                                             <table className="cardOfProvidersTable">
                                                 {this.editableTable(this.state.dataAboutProvider, ProviderColumnsFields)}
+                                                {/*{(this.state.addProviderOn) ? this.editableTable(this.emptyProvider, ProviderColumnsFields) : this.editableTable(this.state.dataAboutProvider, ProviderColumnsFields)}*/}
                                             </table>
-                                        </div>}
+                                        </div>
                                     </td>
+                                    :
+                                    <td className="cardComp">
+                                        <div className="cardOfProviderDiv">
+                                            <div className="errText">
+                                                Контрагент не выбран
+                                            </div>
+                                        </div>
+                                    </td>}
                                 </tr>
                             </table>
                         </div>
@@ -460,7 +524,7 @@ class CardOfProviderComponent extends Component {
                                     afterSaveCell: (oldValue, newValue, row, column) => {
 
                                         if (oldValue !== newValue) {
-                                            console.log(row);
+                                            // console.log(row);
                                             this.fetchOnDocumentsApi(`/api/updateProvidersDocuments`, row);
                                         }
                                     }
