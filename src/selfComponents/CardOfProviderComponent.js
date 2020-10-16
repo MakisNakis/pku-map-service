@@ -475,8 +475,6 @@ class CardOfProviderComponent extends Component {
                         }
                     {this.state.documentInsertModal === true &&
                         <InsertNewDocumentModalComponent/>
-
-
                     }
                 </div>
 

@@ -142,6 +142,7 @@ class SelectPkuByDeliveryIdComponent extends Component {
                         <div className="headerCardOfProvider" align="center">
                             Список объектов для оборудования "{this.props.selectedRowNomGroupName}"
                         </div>
+
                         <h2 align={'center'}>Расшифровка:</h2>
                         <h5 align={'center'}>({this.props.selectedRowHardwareModel})</h5>
 
