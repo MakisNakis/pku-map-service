@@ -1,6 +1,6 @@
 const Client= require('pg').Client;                         // подключение модуля для соединения с БД
 
-const DBNAME = "PKU_MapService";
+const DBNAME = "PKU_MapService3";
 const DBLOG = "postgres";
 const DBPASS = "postgres";
 const DBPORT = "5432";
@@ -343,8 +343,20 @@ class MyRepository {
     }
 
     async getCardOfProvider(data) {
-        let query = this.client.query(`select * from f_s_provider_deliveryid(
-            ${data.DeliveryId}
+        let query = this.client.query(`select * from f_s_provider(
+            ${data.ProviderId}
+        );`);
+        return query;
+    }
+
+    async updateCardOfProvider(data) {
+        // this.toStringForDb(data.Name)
+        let query = this.client.query(`select * from f_u_provider_deliveryid(
+            ${data.ID},
+            ${this.convertToPG(data.Name)},
+            ${this.convertToPG(data.Contact)},
+            ${this.convertToPG(data.INN)},
+            ${data.UserId}
         );`);
         return query;
     }
