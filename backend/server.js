@@ -327,10 +327,36 @@ app.route('/api/selectFromPkuByDeliveryId')
     })
 
 
-        // .post(async (req, res) => {
-        //     // console.log(req.headers.origin);
-        //     // console.log( req.body.rowEdit);
-        //     // console.log(req.body.userId);
-        //     const data = await repository.uploadDataForTable(i, "ПТО1", req.body.rowEdit, req.body.userId);
-        //     res.send(data);
-        // });
+app.route(`/api/f_s_docs_list`) // эндпоинт для получения факта согласования
+    .get(async (req, res) => {
+        const dbResponse = await repository.f_s_docs_list();
+        // console.log(dbResponse.rows);
+        // console.log(`В авторизовался пользователь ${dbResponse}`)
+        res.send(dbResponse);
+    });
+
+app.route(`/api/f_s_paymenttype_list`) // эндпоинт для получения факта согласования
+    .get(async (req, res) => {
+        const dbResponse = await repository.f_s_paymenttype_list();
+        // console.log(dbResponse.rows);
+        // console.log(`В авторизовался пользователь ${dbResponse}`)
+        res.send(dbResponse);
+    });
+
+app.route(`/api/f_s_deliverytype_list`) // эндпоинт для получения факта согласования
+    .get(async (req, res) => {
+        const dbResponse = await repository.f_s_deliverytype_list();
+        // console.log(dbResponse.rows);
+        // console.log(`В авторизовался пользователь ${dbResponse}`)
+        res.send(dbResponse);
+    });
+
+
+
+// app.route(`/api/auth/providersList`) // эндпоинт для получения списка контрагентов
+//     .get(async (req, res) => {
+//         const dbResponse = await repository.getProvidersList();
+//         // console.log(dbResponse.rows);
+//         // console.log(`В авторизовался пользователь ${dbResponse}`)
+//         res.send(dbResponse);
+//     });

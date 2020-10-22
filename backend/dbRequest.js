@@ -391,6 +391,24 @@ class MyRepository {
         );`);
         return query;
     }
+
+    async f_s_docs_list() {
+        let query = this.client.query(`select * from f_s_docs_list();`);
+        return query;
+    }
+
+    async f_s_paymenttype_list() {
+        let query = this.client.query(`select * from f_s_paymenttype_list();`);
+        return query;
+    }
+    async f_s_deliverytype_list() {
+        let query = this.client.query(`select * from f_s_deliverytype_list();`);
+        return query;
+    }
 }
+
+
+
+
 
 module.exports = MyRepository;

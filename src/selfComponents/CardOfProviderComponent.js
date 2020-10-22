@@ -22,7 +22,10 @@ class CardOfProviderComponent extends Component {
             documentsTableId: undefined,
             editableRow: null,
             addProviderOn: false,
-            documentInsertModal: false // стейт, меняющийся на true при нажатии на карточке на кнопку добавить новый документ
+            documentInsertModal: false, // стейт, меняющийся на true при нажатии на карточке на кнопку добавить новый документ
+            f_s_docs_list: null,
+            f_s_paymenttype_list: null,
+            f_s_deliverytype_list: null
         }
         this.emptyProvider = {
             ID: null,
@@ -105,15 +108,64 @@ class CardOfProviderComponent extends Component {
         this.fetchFromProviderApi(this.props.selectedProviderId);
         this.appRoute = document.getElementById('globalDiv');
         this.fetchFromDocumentsApi(this.props.selectedProviderId);
+        console.log(this.state.f_s_docs_list)
+
+        this.f_s_docs_list()
+            .then(data => {
+                this.state.f_s_docs_list = data;
+            })
+            .catch(() => {
+                console.log("Ошибка при асинхронном запросе для выполнения функции f_s_docs_list()");
+            });
+
+        console.log(this.state.f_s_docs_list)
+
+        this.f_s_paymenttype_list()
+            .then(data => {
+                this.state.f_s_paymenttype_list = data;
+            })
+            .catch(() => {
+                console.log("Ошибка при асинхронном запросе для выполнения функции f_s_paymenttype_list()");
+            });
+
+        this.f_s_deliverytype_list()
+            .then(data => {
+                this.state.f_s_deliverytype_list = data;
+            })
+            .catch(() => {
+                console.log("Ошибка при асинхронном запросе для выполнения функции f_s_deliverytype_list()");
+            });
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.props.selectedProviderId !== prevProps.selectedProviderId) {
+        if (this.props.selectedProviderId !== prevProps.selectedProviderId) { // если выбираешь другого контрагента
             this.fetchFromProviderApi(this.props.selectedProviderId);
             this.fetchFromDocumentsApi(this.props.selectedProviderId);
             console.log(this.props.selectedProviderId);
 
+            this.f_s_docs_list()
+                .then(data => {
+                    this.state.f_s_docs_list = data;
+                })
+                .catch(() => {
+                    console.log("Ошибка при асинхронном запросе для выполнения функции f_s_docs_list()");
+                });
 
+            this.f_s_paymenttype_list()
+                .then(data => {
+                    this.state.f_s_paymenttype_list = data;
+                })
+                .catch(() => {
+                    console.log("Ошибка при асинхронном запросе для выполнения функции f_s_paymenttype_list()");
+                });
+
+            this.f_s_deliverytype_list()
+                .then(data => {
+                    this.state.f_s_deliverytype_list = data;
+                })
+                .catch(() => {
+                    console.log("Ошибка при асинхронном запросе для выполнения функции f_s_deliverytype_list()");
+                });
         }
         if (this.state.dataAboutProvider !== prevState.dataAboutProvider) {
             // console.log(this.state.dataAboutProvider);
@@ -140,6 +192,65 @@ class CardOfProviderComponent extends Component {
                 break
         }
     }
+
+    //_-_-----------------------------__-_
+    async f_s_docs_list() {
+        const f_s_docs_list = [];
+        const f_s_docs_listMas = await fetch('/api/f_s_docs_list')
+            .then(result => result.json())
+            .then(data => {
+                const lenMas = data.rows.length;
+                for( let i = 0; i < lenMas; i++) {
+                    f_s_docs_list[i] = {
+                        label: data.rows[i].Name,
+                        value: data.rows[i].ID
+                    }
+                }
+                return f_s_docs_list;
+            }).catch(() => {
+                console.log('Ошибка на /api/f_s_docs_list');
+            });
+        return f_s_docs_listMas;
+    }
+
+    async f_s_paymenttype_list() {
+        const f_s_paymenttype_list = [];
+        const f_s_paymenttype_listMas = await fetch('/api/f_s_paymenttype_list')
+            .then(result => result.json())
+            .then(data => {
+                const lenMas = data.rows.length;
+                for( let i = 0; i < lenMas; i++) {
+                    f_s_paymenttype_list[i] = {
+                        label: data.rows[i].Name,
+                        value: data.rows[i].ID
+                    }
+                }
+                return f_s_paymenttype_list;
+            }).catch(() => {
+                console.log('Ошибка на /api/f_s_paymenttype_list');
+            });
+        return f_s_paymenttype_listMas;
+    }
+
+    async f_s_deliverytype_list() {
+        const f_s_deliverytype_list = [];
+        const f_s_deliverytype_listMas = await fetch('/api/f_s_deliverytype_list')
+            .then(result => result.json())
+            .then(data => {
+                const lenMas = data.rows.length;
+                for( let i = 0; i < lenMas; i++) {
+                    f_s_deliverytype_list[i] = {
+                        label: data.rows[i].Name,
+                        value: data.rows[i].ID
+                    }
+                }
+                return f_s_deliverytype_list;
+            }).catch(() => {
+                console.log('Ошибка на /api/f_s_deliverytype_list');
+            });
+        return f_s_deliverytype_listMas;
+    }
+    //_-_-----------------------------__-_
 
     providersListGeneration(providers) {
         let buttons = [];
@@ -284,6 +395,7 @@ class CardOfProviderComponent extends Component {
 
     render() {
         // заголовки для таблицы контрагента
+
         const ProviderColumnsFields = [
         {
             dataField: 'Name',
@@ -313,12 +425,20 @@ class CardOfProviderComponent extends Component {
             },{
                 dataField: 'ParentType',
                 text: 'Номер связанного договора',
+                editor: {
+                    type: Type.SELECT,
+                    options: this.state.f_s_docs_list
+                },
                 headerStyle: (colum, colIndex) => {
                     return {width: '10%', textAlign: 'center'};
                 }
             },{
                 dataField: 'PaymentType',
                 text: 'Тип оплаты',
+                editor: {
+                    type: Type.SELECT,
+                    options: this.state.f_s_paymenttype_list
+                },
                 headerStyle: (colum, colIndex) => {
                     return {width: '10%', textAlign: 'center'};
                 }
@@ -352,6 +472,10 @@ class CardOfProviderComponent extends Component {
             {
                 dataField: 'DeliveryType',
                 text: 'Тип поставки',
+                editor: {
+                    type: Type.SELECT,
+                    options: this.state.f_s_deliverytype_list
+                },
                 headerStyle: (colum, colIndex) => {
                     return {width: '10%', textAlign: 'center'};
                 }
