@@ -7,7 +7,7 @@ const port = 5000;
 const repository = new MyRepository();
 
 const types = require('pg').types;                              // подключаем pg types для обработки типов данных, считываемых из pg
-const moment = require('moment');                               // подключаем moment js для обработки дат
+// const moment = require('moment');                               // подключаем moment js для обработки дат
 
 var parseFn = function(val) {                                   // функция обработчик для обработки типов данных, считываемых из pg
     return val
@@ -78,10 +78,12 @@ for (let i = 0; i < 130; i++) {                                  // цикл, в
     app.route(`/api/pkuDataServerPKUTable/2/OMTS/${i}`)
         .get(async (req, res) => {
             const data = await repository.loadDataForTable(i, "ОМТС",2);
+            // console.log(data.rows);
             res.json(data.rows)
         })
         .post(async (req, res) => {
             const data = await repository.uploadDataForTable(i, "ОМТС", req.body.rowEdit, req.body.userId);
+            // console.log(data.rows);
             res.send(data);
     });
 
@@ -194,6 +196,14 @@ for (let i = 0; i < 130; i++) {                                  // цикл, в
         const data = await repository.loadDataForTable(i, "Отчеты2",3);
         res.json(data.rows);
     });
+    app.get(`/api/pkuDataServerPKUTable/2/Logs/${i}`, async (req, res) => {
+        const data = await repository.loadDataForTable(i, "Логи",2);
+        res.json(data.rows);
+    });
+    app.get(`/api/pkuDataServerPKUTable/3/Logs/${i}`, async (req, res) => {
+        const data = await repository.loadDataForTable(i, "Логи",3);
+        res.json(data.rows);
+    });
 }
 
 app.route(`/api/auth`) // эндпоинт для получения id пользователя, который логинится
@@ -205,10 +215,20 @@ app.route(`/api/auth`) // эндпоинт для получения id поль
             res.send(dbResponse);
     });
 
+app.route(`/api/changePassword`)
+    .post(async (req, res) => {
+        let data = req.body;
+        console.log(data);
+        const dbResponse = await repository.changePassword(data);
+        console.log(dbResponse);
+        // res.send(req.body);
+        res.send(dbResponse);
+    });
+
 app.route(`/api/auth/userRole`) // эндпоинт для получения номера роли пользователя, который залогинился
     .post(async (req, res) => {
-        let data = req.body
-        // console.log(data)
+        let data = req.body;
+        // console.log(data);
         const dbResponse = await repository.getUserRole(data);
         // res.send(req.body);
         res.send(dbResponse);
@@ -225,6 +245,118 @@ app.route(`/api/auth/userName`) // эндпоинт для получения и
 app.route(`/api/auth/perfName`) // эндпоинт для получения имени исполнителя
     .get(async (req, res) => {
         const dbResponse = await repository.getPerfName();
+        console.log(dbResponse.rows);
         // console.log(`В авторизовался пользователь ${dbResponse}`)
         res.send(dbResponse);
     });
+
+
+
+app.route(`/api/auth/factOfAgreement`) // эндпоинт для получения факта согласования
+    .get(async (req, res) => {
+        const dbResponse = await repository.getFactOfAgreement();
+        // console.log(dbResponse.rows);
+        // console.log(`В авторизовался пользователь ${dbResponse}`)
+        res.send(dbResponse);
+    });
+
+app.route(`/api/auth/providersList`) // эндпоинт для получения списка контрагентов
+    .get(async (req, res) => {
+        const dbResponse = await repository.getProvidersList();
+        // console.log(dbResponse.rows);
+        // console.log(`В авторизовался пользователь ${dbResponse}`)
+        res.send(dbResponse);
+    });
+
+    app.route('/api/OMTS/splitDelivery')
+        .post(async (req, res) => {
+            const data = req.body;
+            // console.log(req.body);
+            const dbResponse = await repository.splitDelivery(data);
+            // console.log(dbResponse.rows);
+            // console.log(`В авторизовался пользователь ${dbResponse}`)
+            res.send(dbResponse);
+        })
+
+    app.route('/api/cardOfProvider')
+        .post(async (req, res) => {
+            const data = req.body;
+            // console.log(req.body);
+            const dbResponse = await repository.getCardOfProvider(data);
+            // console.log(dbResponse.rows);
+            // console.log(`В авторизовался пользователь ${dbResponse}`)
+            res.json(dbResponse.rows)
+        })
+        .put(async (req, res) => {
+            const data = req.body;
+            console.log(req.body);
+            const dbResponse = await repository.updateCardOfProvider(data);
+            // console.log(dbResponse.rows);
+            // console.log(`В авторизовался пользователь ${dbResponse}`)
+            res.json(dbResponse.rows)
+        })
+
+    app.route('/api/selectProvidersDocuments')
+        .post(async (req, res) => {
+            const data = req.body;
+            // console.log(req.body);
+            const dbResponse = await repository.selectProvidersDocuments(data);
+            // console.log(dbResponse.rows);
+            res.json(dbResponse.rows)
+        })
+
+    app.route('/api/updateProvidersDocuments')
+        .post(async (req, res) => {
+            const rowEdit = req.body.rowEdit;
+            const userId = req.body.userId;
+            const routeNumber = req.body.routeNumber;
+            const providerId = req.body.providerId;
+            console.log(rowEdit, userId, routeNumber);
+            const dbResponse = await repository.updateProvidersDocuments(rowEdit, userId, routeNumber);
+            console.log(dbResponse.rows);
+            res.send(req.rows)
+        })
+
+app.route('/api/selectFromPkuByDeliveryId')
+    .post(async (req, res) => {
+        const data = req.body;
+        // console.log(req.body);
+        const dbResponse = await repository.selectFromPkuByDeliveryId(data);
+        // console.log(dbResponse.rows);
+        res.json(dbResponse.rows)
+    })
+
+
+app.route(`/api/f_s_docs_list`) // эндпоинт для получения факта согласования
+    .get(async (req, res) => {
+        const dbResponse = await repository.f_s_docs_list();
+        // console.log(dbResponse.rows);
+        // console.log(`В авторизовался пользователь ${dbResponse}`)
+        res.send(dbResponse);
+    });
+
+app.route(`/api/f_s_paymenttype_list`) // эндпоинт для получения факта согласования
+    .get(async (req, res) => {
+        const dbResponse = await repository.f_s_paymenttype_list();
+        // console.log(dbResponse.rows);
+        // console.log(`В авторизовался пользователь ${dbResponse}`)
+        res.send(dbResponse);
+    });
+
+app.route(`/api/f_s_deliverytype_list`) // эндпоинт для получения факта согласования
+    .get(async (req, res) => {
+        const dbResponse = await repository.f_s_deliverytype_list();
+        // console.log(dbResponse.rows);
+        // console.log(`В авторизовался пользователь ${dbResponse}`)
+        res.send(dbResponse);
+    });
+
+
+
+// app.route(`/api/auth/providersList`) // эндпоинт для получения списка контрагентов
+//     .get(async (req, res) => {
+//         const dbResponse = await repository.getProvidersList();
+//         // console.log(dbResponse.rows);
+//         // console.log(`В авторизовался пользователь ${dbResponse}`)
+//         res.send(dbResponse);
+//     });

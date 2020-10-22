@@ -12,6 +12,14 @@ code {
     monospace;
 }
 
+.progName {
+  font-size: 40px;
+  letter-spacing: 3px;
+  width: 100%;
+  color: rgb(3, 85, 150);
+
+}
+
 h1 {
   /*font-family: 'Merriweather', serif;*/
   font-size: 25px;
@@ -93,6 +101,35 @@ h1 {
   /*background-color: rgba(142, 238, 147, 0.61);*/
   background-color: rgb(65, 128, 177);}
 
+
+.button7 {
+  display: block;
+  background: #e0e0e0;
+  /*background: rgb(255, 255, 255);*/
+  color: #035594;
+  /*border-color: rgb(217, 13, 22);*/
+  border: #035594 2px solid;
+  /*color: white;*/
+  font-weight: 500;
+  text-decoration: none;
+  user-select: none;
+  padding: 4px 6px;
+  outline: none;
+  /*border-width: 2px;*/
+  /*border-radius: 300px;*/
+  transition: 0.2s;
+}
+
+.button7:hover { border: #ffffff 2px solid; background: #c4c4c4; color: rgb(255, 255, 255)
+}
+
+.buttonClose {
+  border: none;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
 .button8 {
   display: inline-block;
   background: rgb(255, 255, 255);
@@ -144,9 +181,16 @@ h1 {
     color: rgb(255, 255, 255);
 }
 
-
+/*.mainHeader {*/
+/*  font-size: 50px;*/
+/*}*/
 
 .btn1 {
   color: #a6f4fe;
+}
+
+.alert {
+  font-size: 12px;
+  padding: 2px;
 }
 

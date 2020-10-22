@@ -7,7 +7,7 @@
 }
 
 .auth {
-    margin-top: 20%;
+    margin-top: 15%;
 }
 
 /*.fixed-header {*/
@@ -48,8 +48,41 @@ th {
     /*background-color: #007bff !important;*/
 }
 
+.context_menu {
+    z-index: 1000;
+    border-color: #000000;
+    /*color: white;*/
+    /*font-weight: 500;*/
+    /*border-radius: 5px;*/
+    background-color: rgb(65, 128, 177);;
+    border-width: 2px;
+    padding: 3px;
+}
+
+.button7 {
+    display: block;
+    background: #e0e0e0;
+    /*background: rgb(255, 255, 255);*/
+    color: #035594;
+    /*border-color: rgb(217, 13, 22);*/
+    border: #035594 2px solid;
+    /*color: white;*/
+    font-weight: 500;
+    text-decoration: none;
+    user-select: none;
+    padding: 4px 6px;
+    outline: none;
+    /*border-width: 2px;*/
+    /*border-radius: 300px;*/
+    transition: 0.2s;
+}
+
+.button7:hover { border: #ffffff 2px solid; background: #c4c4c4; color: rgb(255, 255, 255)
+}
+
 .table-horiz-scroll {
-    height: 800px;
+    background-color: white;
+    height: 700px;
     width: 100%;
     /*align: center;*/
     overflow-x: auto;
@@ -64,6 +97,10 @@ th {
     margin-left: 15px;
 }
 
+.messageStyle {
+    color: #5e5e5e;
+    font-weight: 500;
+}
 
 .TableComp {
     width: 100%;
