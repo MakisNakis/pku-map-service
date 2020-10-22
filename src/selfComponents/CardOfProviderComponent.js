@@ -110,6 +110,7 @@ class CardOfProviderComponent extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.selectedProviderId !== prevProps.selectedProviderId) {
             this.fetchFromProviderApi(this.props.selectedProviderId);
+            this.fetchFromDocumentsApi(this.props.selectedProviderId);
             console.log(this.props.selectedProviderId);
 
 
@@ -301,25 +302,25 @@ class CardOfProviderComponent extends Component {
                 dataField: 'Name',
                 text: 'Номер договора',
                 headerStyle: (colum, colIndex) => {
-                    return {width: 200, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             },{
                 dataField: 'DocType',
                 text: 'Тип договора',
                 headerStyle: (colum, colIndex) => {
-                    return {width: 200, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             },{
                 dataField: 'ParentType',
                 text: 'Номер связанного договора',
                 headerStyle: (colum, colIndex) => {
-                    return {width: 200, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             },{
                 dataField: 'PaymentType',
                 text: 'Тип оплаты',
                 headerStyle: (colum, colIndex) => {
-                    return {width: 200, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             }, {
                 dataField: 'StartDate',
@@ -329,7 +330,7 @@ class CardOfProviderComponent extends Component {
                     defaultValue: Date.now()
                 },
                 headerStyle: (colum, colIndex) => {
-                    return {width: 100, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             }, {
                 dataField: 'EndDate',
@@ -339,27 +340,27 @@ class CardOfProviderComponent extends Component {
                     defaultValue: Date.now()
                 },
                 headerStyle: (colum, colIndex) => {
-                    return {width: 200, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             }, {
                 dataField: 'Way',
                 text: 'Путь до файла',
                 headerStyle: (colum, colIndex) => {
-                    return {width: 150, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             },
             {
                 dataField: 'DeliveryType',
                 text: 'Тип поставки',
                 headerStyle: (colum, colIndex) => {
-                    return {width: 150, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             },
             {
                 dataField: 'UserName',
                 text: 'Пользователь',
                 headerStyle: (colum, colIndex) => {
-                    return {width: 150, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             },
             {
@@ -367,7 +368,7 @@ class CardOfProviderComponent extends Component {
                 text: 'Дата внесения изменений',
                 editable: false,
                 headerStyle: (colum, colIndex) => {
-                    return {width: 150, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             },
         ];
@@ -493,7 +494,7 @@ class CardOfProviderComponent extends Component {
                     }}>
                         Добавить новый документ
                     </button>
-
+                        {/*</div>*/}
                 {/*<button onClick={() => this.props.closeWindowPortal()} >*/}
                 {/*    Close me!*/}
                 {/*</button>*/}
@@ -541,8 +542,8 @@ class CardOfProviderComponent extends Component {
                         <InsertNewDocumentModalComponent/>
                     }
                 </div>
-
                 </div>
+
                 </div>
             </div>
         )

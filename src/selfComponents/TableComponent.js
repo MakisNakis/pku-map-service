@@ -32,7 +32,10 @@ class TableComponent extends Component {
             modalWindowFocus: false,        // переменная, отвечающая за переведение фокуса на модальное окно
             selectPkuByDeliveryId: false,
             providersList: [],
+            childOpen: false
         };
+        this.openChild = this.openChild.bind(this) //
+        this.hideChild = this.hideChild.bind(this) //
         // переменная, для запуска приложения с разных ip
         this.url = window.location.href;
         // this.modalWindowRef = createRef();
@@ -82,6 +85,24 @@ class TableComponent extends Component {
 
         window.addEventListener('beforeunload', () => {
             this.closeWindowPortal();
+        });
+    }
+
+    openChild() {
+        const currentStateChild = this.state.childOpen;
+        this.setState(
+            {
+                childOpen: !currentStateChild
+            },
+            () => {
+                console.log("Child is opened " + this.state.childOpen);
+            }
+        );
+    }
+
+    hideChild() {
+        this.setState({
+            childOpen: false
         });
     }
 
