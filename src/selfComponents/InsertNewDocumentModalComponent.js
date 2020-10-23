@@ -1,23 +1,35 @@
 import React, { Component } from 'react';
 import logo from "../499486.jpg";
 
-// import './css/Template.css';
+import './css/TableComponent.css';
 
 class InsertNewDocumentModalComponent extends Component {
     constructor() {
         super();
-
+        this.state ={
+            documentName: null
+        }
     }
 
+    handleUserInput = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        this.setState({documentName: value});
+    }
 
-    // https://soundcloud.com/wannalearnguitar/all-star-smash-mouth
     render() {
         return (
             <div align={'center'}>
 
-                <img id="shrek" hidden={false} src={logo} width="1400px"/>
-                <audio ref="audio_tag" src="../Smash-Mouth-All-Star.mp3" controls={"controls"} autoPlay={"autoplay"}/>
+                <form>
+                    <div className={"inputFont"}>
+                        <label>Введите наименование нового документа </label>
+                    </div>
+                    <input className={"input"}></input>
+                </form>
 
+                <br/>
+                <button type={"submit"} className={"button7"} onChange={this.handleUserInput}>Добавить</button>
             </div>
         )
     }

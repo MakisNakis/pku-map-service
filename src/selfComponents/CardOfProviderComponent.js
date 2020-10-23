@@ -17,6 +17,7 @@ class CardOfProviderComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            buttonTitle: "Добавить новый документ",
             dataAboutProvider: {},
             dataAboutDocuments: [],
             documentsTableId: undefined,
@@ -186,9 +187,11 @@ class CardOfProviderComponent extends Component {
         switch (this.state.documentInsertModal){
             case true:
                 this.setState({documentInsertModal: false})
+                this.setState({buttonTitle: "Добавить новый документ"})
                 break
             case false:
                 this.setState({documentInsertModal: true})
+                this.setState({buttonTitle: "Показать список документов"})
                 break
         }
     }
@@ -622,14 +625,13 @@ class CardOfProviderComponent extends Component {
                         </div>
                         <div className="cardOfProvidersMargin">
 
-                    {/*    <button className="button9" onClick={() => {*/}
-                    {/*    // this.setState({documentInsertModal: true})*/}
-                    {/*   this.changeDocumentState()*/}
+                        <button className="button9" onClick={() => {
+                        // this.setState({documentInsertModal: true})
+                       this.changeDocumentState()
 
-                    {/*}}>*/}
-                    {/*    Добавить новый документ*/}
-                    {/*</button>*/}
-
+                    }}>
+                            {this.state.buttonTitle}
+                    </button>
                         {/*</div>*/}
                 {/*<button onClick={() => this.props.closeWindowPortal()} >*/}
                 {/*    Close me!*/}
