@@ -34,6 +34,7 @@ class TableComponent extends Component {
             providersList: [],
             childOpen: false
         };
+
         this.openChild = this.openChild.bind(this) //
         this.hideChild = this.hideChild.bind(this) //
         // переменная, для запуска приложения с разных ip
@@ -97,13 +98,17 @@ class TableComponent extends Component {
             () => {
                 console.log("Child is opened " + this.state.childOpen);
             }
+
         );
+
     }
 
     hideChild() {
         this.setState({
             childOpen: false
         });
+        this.body.style.overflow = '';
+
     }
 
     selectProviderId(prId) {
@@ -493,8 +498,6 @@ class TableComponent extends Component {
             });
         }
     }
-
-
     render() {
 
         // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
@@ -721,7 +724,7 @@ class TableComponent extends Component {
 
                     <div id="modalWindow">
                         {this.state.showWindowPortal && (
-                                <CardOfProviderComponent
+                            <CardOfProviderComponent
                                     selectedRowDeliveryId={this.state.selectedRowDeliveryId}
                                     selectedProviderId={this.state.selectedProviderId}
                                     userId={localStorage.getItem('userId')}

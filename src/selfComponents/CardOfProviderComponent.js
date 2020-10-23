@@ -413,18 +413,23 @@ class CardOfProviderComponent extends Component {
             {
                 dataField: 'Name',
                 text: 'Номер договора',
+                editable: false,
+
                 headerStyle: (colum, colIndex) => {
                     return {width: '10%', textAlign: 'center'};
                 }
             },{
                 dataField: 'DocType',
                 text: 'Тип договора',
+                editable: false,
+
                 headerStyle: (colum, colIndex) => {
                     return {width: '10%', textAlign: 'center'};
                 }
             },{
                 dataField: 'ParentType',
                 text: 'Номер связанного договора',
+                editable: false,
                 editor: {
                     type: Type.SELECT,
                     options: this.state.f_s_docs_list
@@ -435,6 +440,7 @@ class CardOfProviderComponent extends Component {
             },{
                 dataField: 'PaymentType',
                 text: 'Тип оплаты',
+                editable: false,
                 editor: {
                     type: Type.SELECT,
                     options: this.state.f_s_paymenttype_list
@@ -445,6 +451,7 @@ class CardOfProviderComponent extends Component {
             }, {
                 dataField: 'StartDate',
                 text: 'Дата заключения',
+                editable: false,
                 editor: {
                     type: Type.DATE,
                     defaultValue: Date.now()
@@ -455,6 +462,7 @@ class CardOfProviderComponent extends Component {
             }, {
                 dataField: 'EndDate',
                 text: 'Дата окончания',
+                editable: false,
                 editor: {
                     type: Type.DATE,
                     defaultValue: Date.now()
@@ -465,6 +473,7 @@ class CardOfProviderComponent extends Component {
             }, {
                 dataField: 'Way',
                 text: 'Путь до файла',
+                editable: false,
                 headerStyle: (colum, colIndex) => {
                     return {width: '10%', textAlign: 'center'};
                 }
@@ -472,6 +481,7 @@ class CardOfProviderComponent extends Component {
             {
                 dataField: 'DeliveryType',
                 text: 'Тип поставки',
+                editable: false,
                 editor: {
                     type: Type.SELECT,
                     options: this.state.f_s_deliverytype_list
@@ -483,6 +493,7 @@ class CardOfProviderComponent extends Component {
             {
                 dataField: 'UserName',
                 text: 'Пользователь',
+                editable: false,
                 headerStyle: (colum, colIndex) => {
                     return {width: '10%', textAlign: 'center'};
                 }
@@ -611,13 +622,14 @@ class CardOfProviderComponent extends Component {
                         </div>
                         <div className="cardOfProvidersMargin">
 
-                        <button className="button9" onClick={() => {
-                        // this.setState({documentInsertModal: true})
-                       this.changeDocumentState()
+                    {/*    <button className="button9" onClick={() => {*/}
+                    {/*    // this.setState({documentInsertModal: true})*/}
+                    {/*   this.changeDocumentState()*/}
 
-                    }}>
-                        Добавить новый документ
-                    </button>
+                    {/*}}>*/}
+                    {/*    Добавить новый документ*/}
+                    {/*</button>*/}
+
                         {/*</div>*/}
                 {/*<button onClick={() => this.props.closeWindowPortal()} >*/}
                 {/*    Close me!*/}
