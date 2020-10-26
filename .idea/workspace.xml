@@ -21,12 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/InsertNewDocumentModalComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/InsertNewDocumentModalComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/css/CardOfProviderComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/css/CardOfProviderComponent.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/css/ProfileComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/css/ProfileComponent.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/css/TableComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/css/TableComponent.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,7 +184,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -262,13 +260,7 @@
       <workItem from="1601628651359" duration="8311000" />
       <workItem from="1603123746791" duration="113000" />
       <workItem from="1603295896215" duration="809000" />
-    </task>
-    <task id="LOCAL-00048" summary="- изменил стили&#10;- добавил логотип АО &quot;ОМЕГА&quot;">
-      <created>1596184489544</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1596184489544</updated>
+      <workItem from="1603692685454" duration="11946000" />
     </task>
     <task id="LOCAL-00049" summary="- изменил стили&#10;- добавил логотип АО &quot;ОМЕГА&quot;">
       <created>1596186046272</created>
@@ -606,11 +598,18 @@
       <option name="project" value="LOCAL" />
       <updated>1603438714074</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="- inProcess: добавление новых документов">
+      <created>1603461611015</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1603461611015</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -626,7 +625,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="+ вернул сохранение данных нажатием на зону вне поля ввода" />
     <MESSAGE value="+ убрал баг отрисовки описания пку" />
     <MESSAGE value="+ Личный кабинет&#10;+ смена пароля" />
     <MESSAGE value="+ убрал ограничение по символам&#10;+ можно использовать цифры в пароле" />
@@ -651,7 +649,8 @@
     <MESSAGE value="+ test" />
     <MESSAGE value="- сделал выпадающие списки для таблицы документов" />
     <MESSAGE value="- временная версия для деплоя" />
-    <option name="LAST_COMMIT_MESSAGE" value="- временная версия для деплоя" />
+    <MESSAGE value="- inProcess: добавление новых документов" />
+    <option name="LAST_COMMIT_MESSAGE" value="- inProcess: добавление новых документов" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
@@ -667,10 +666,10 @@
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
     <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1598439326183" />
-    <state x="482" y="91" width="972" height="904" key="CommitChangelistDialog2" timestamp="1603438713918">
+    <state x="482" y="91" width="972" height="904" key="CommitChangelistDialog2" timestamp="1603461610852">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1603438713918" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1603461610852" />
     <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1601561957984" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
@@ -701,10 +700,10 @@
     </state>
     <state x="509" y="253" width="714" height="468" key="MultipleFileMergeDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596113405534" />
     <state x="558" y="252" width="728" height="475" key="MultipleFileMergeDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1601561973947" />
-    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1603439048303">
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2" timestamp="1603461614749">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1603439048303" />
+    <state x="452" y="211" width="802" height="523" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1603461614749" />
     <state x="503" y="215" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1068@67.27.1853.1068" timestamp="1601558000723" />
     <state x="167" y="125" width="1653" height="870" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1601625110938">
       <screen x="67" y="27" width="1853" height="1068" />

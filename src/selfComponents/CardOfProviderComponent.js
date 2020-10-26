@@ -12,6 +12,7 @@ import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.c
 
 import './css/CardOfProviderComponent.css';
 import {Link} from "react-scroll";
+import ChangePasswordComponent from "./ChangePasswordComponent";
 
 class CardOfProviderComponent extends Component {
     constructor(props) {
@@ -87,7 +88,7 @@ class CardOfProviderComponent extends Component {
 
 
     async fetchOnDocumentsApi(apiRoute, rowEdit) {
-        let jsonObj = {rowEdit: rowEdit, userId: localStorage.getItem('userId'), routeNumber: this.props.routeNumber, providerId: this.props.selectedProviderId}
+        let jsonObj = {userId: localStorage.getItem('userId'), routeNumber: this.props.routeNumber, providerId: this.props.selectedProviderId, rowEdit: rowEdit, updateOrInsert: 'Update'}
         // console.log(jsonObj)
         // console.log(apiRoute)
         // console.log(this.props.url)
@@ -677,7 +678,12 @@ class CardOfProviderComponent extends Component {
                 </ToolkitProvider>
                         }
                     {this.state.documentInsertModal === true &&
-                        <InsertNewDocumentModalComponent/>
+                        <InsertNewDocumentModalComponent
+                            providerId={this.props.selectedProviderId}
+                            userId={localStorage.getItem('userId')}
+                            routeNumber={this.props.routeNumber}
+                            url={this.props.url}
+                        />
                     }
                 </div>
                 </div>

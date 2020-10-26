@@ -375,20 +375,52 @@ class MyRepository {
         return query;
     }
 
-    async updateProvidersDocuments(rowEdit, userId, routeNumber, providerId) {
-        let query = this.client.query(`select * from f_u_docs(
-            ${this.convertToPG(rowEdit.ID)},
-            ${this.convertToPG(rowEdit.Name)},
-            'null',
-            ${this.convertToPG(providerId)},
-            ${this.convertToPG(rowEdit.StartDate)},
-            ${this.convertToPG(rowEdit.EndDate)},
-            ${this.convertToPG(rowEdit.Way)},
-            '1' //deliverytypeid,
-            ${this.convertToPG(userId)},
-            ${this.convertToPG(routeNumber)},
-            
+    async updateProvidersDocuments(rowEdit, userId, routeNumber, providerId, updateOrInsert) {
+
+        // if ( updateOrInsert === 'Insert') {
+
+        console.log(rowEdit)
+        console.log(typeof (rowEdit))
+
+            console.log(providerId)
+            console.log(typeof (providerId))
+
+            console.log(userId)
+            console.log(typeof (userId))
+
+            console.log(routeNumber)
+            console.log(typeof (routeNumber))
+
+            var query = this.client.query(`select * from f_u_docs(
+            0,
+            ${rowEdit},
+            null,
+            ${providerId},
+            null,
+            null,
+            null,
+            null,
+            null,
+            ${userId},
+            ${routeNumber},
         );`);
+        // }
+console.log(query)
+        // if ( updateOrInsert === 'Update') {
+        //     var query = this.client.query(`select * from f_u_docs(
+        //     ${this.convertToPG(rowEdit.ID)},
+        //     ${this.convertToPG(rowEdit.Name)},
+        //     'null',
+        //     ${this.convertToPG(providerId)},
+        //     ${this.convertToPG(rowEdit.StartDate)},
+        //     ${this.convertToPG(rowEdit.EndDate)},
+        //     ${this.convertToPG(rowEdit.Way)},
+        //     '1' //deliverytypeid,
+        //     ${this.convertToPG(userId)},
+        //     ${this.convertToPG(routeNumber)},
+        // );`);
+        // }
+        //
         return query;
     }
 

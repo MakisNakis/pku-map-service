@@ -311,10 +311,11 @@ app.route(`/api/auth/providersList`) // эндпоинт для получени
             const userId = req.body.userId;
             const routeNumber = req.body.routeNumber;
             const providerId = req.body.providerId;
-            console.log(rowEdit, userId, routeNumber);
-            const dbResponse = await repository.updateProvidersDocuments(rowEdit, userId, routeNumber);
-            console.log(dbResponse.rows);
-            res.send(req.rows)
+            const updateOrInsert = req.body.updateOrInsert;
+            // console.log(rowEdit, userId, routeNumber);
+            const dbResponse = await repository.updateProvidersDocuments(rowEdit, userId, routeNumber, providerId, updateOrInsert);
+            // console.log(dbResponse.rows);
+            res.send(dbResponse.rows)
         })
 
 app.route('/api/selectFromPkuByDeliveryId')

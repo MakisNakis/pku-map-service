@@ -72,6 +72,11 @@ th {
     font-size: 20px;
 }
 
+.inputFontErr {
+    font-family: 'Impact', 'fantasy';
+    font-size: 20px;
+    color: red;
+}
 .button7 {
 
     display: block;
