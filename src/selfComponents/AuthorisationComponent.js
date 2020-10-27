@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './css/AuthorisationComponent.css';
-
+// c
 class AuthorisationComponent extends Component {
     constructor() {
         super();
@@ -38,6 +38,3 @@ class AuthorisationComponent extends Component {
 
 
 export default AuthorisationComponent;
-
-
-
