@@ -36,6 +36,7 @@ class CardOfProviderComponent extends Component {
             INN: '',
         }
         this.appRoute = null;
+        this.documentInsertModalFunc =  this.documentInsertModalFunc.bind(this)
     }
 
     async fetchFromProviderApi(data) {
@@ -54,6 +55,7 @@ class CardOfProviderComponent extends Component {
                 this.setState({
                     dataAboutProvider: {},
                 });
+
             }
         }).catch((err) => {
             console.log(err, "cardOfProvider");
@@ -61,6 +63,7 @@ class CardOfProviderComponent extends Component {
     }
 
     async fetchFromDocumentsApi(providerId) {
+        console.log(providerId)
         await fetch('/api/selectProvidersDocuments', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
@@ -77,7 +80,7 @@ class CardOfProviderComponent extends Component {
             this.setState({
                 documentsTableId: documentsTableId,
             });
-
+            console.log(data)
             this.setState({
                 dataAboutDocuments: data,
             });
@@ -187,11 +190,11 @@ class CardOfProviderComponent extends Component {
     changeDocumentState(){
         switch (this.state.documentInsertModal){
             case true:
-                this.setState({documentInsertModal: false})
+                this.documentInsertModalFunc()
                 this.setState({buttonTitle: "Добавить новый документ"})
                 break
             case false:
-                this.setState({documentInsertModal: true})
+                this.documentInsertModalFunc()
                 this.setState({buttonTitle: "Показать список документов"})
                 break
         }
@@ -337,6 +340,17 @@ class CardOfProviderComponent extends Component {
             addProviderOn: !state.addProviderOn,
             // dataAboutProvider: this.emptyProvider
         }));
+    }
+
+    async documentInsertModalFunc(){
+        if (this.state.documentInsertModal === true){
+            // console.log("POSHEL NAHUI")
+            this.setState({documentInsertModal: false})
+            await this.fetchFromDocumentsApi(this.props.selectedProviderId)
+        }
+        else if (this.state.documentInsertModal === false){
+            this.setState({documentInsertModal: true})
+        }
     }
 
     editableTable(data, columns) {
@@ -683,6 +697,8 @@ class CardOfProviderComponent extends Component {
                             userId={localStorage.getItem('userId')}
                             routeNumber={this.props.routeNumber}
                             url={this.props.url}
+                            documentInsertModal={this.props.documentInsertModal}
+                            documentInsertModalFunc={this.documentInsertModalFunc}
                         />
                     }
                 </div>

@@ -19,13 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="- inProcess: добавление новых документов&#10;TODO: &#10;1 - отключить или обработать нажатие на Enter, когда фокус стоит на input&#10;2 - отладить ошибку на сервере, мешающую выполнить update/insert запрос для добавления нового документа">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/InsertNewDocumentModalComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/InsertNewDocumentModalComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selfComponents/css/TableComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/css/TableComponent.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,14 +258,8 @@
       <workItem from="1601628651359" duration="8311000" />
       <workItem from="1603123746791" duration="113000" />
       <workItem from="1603295896215" duration="809000" />
-      <workItem from="1603692685454" duration="11946000" />
-    </task>
-    <task id="LOCAL-00049" summary="- изменил стили&#10;- добавил логотип АО &quot;ОМЕГА&quot;">
-      <created>1596186046272</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1596186046272</updated>
+      <workItem from="1603692685454" duration="12965000" />
+      <workItem from="1604060595969" duration="5313000" />
     </task>
     <task id="LOCAL-00050" summary="- небольшие правки к стилям&#10;- изменил название выходного CSV файла">
       <created>1596187685038</created>
@@ -605,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603461611015</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="- inProcess: добавление новых документов&#10;TODO: &#10;1 - отключить или обработать нажатие на Enter, когда фокус стоит на input&#10;2 - отладить ошибку на сервере, мешающую выполнить update/insert запрос для добавления нового документа">
+      <created>1603724523054</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1603724523062</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,7 +624,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="+ убрал баг отрисовки описания пку" />
     <MESSAGE value="+ Личный кабинет&#10;+ смена пароля" />
     <MESSAGE value="+ убрал ограничение по символам&#10;+ можно использовать цифры в пароле" />
     <MESSAGE value="+ сообщения об ошибках пишутся красным цветом" />
@@ -650,7 +648,8 @@
     <MESSAGE value="- сделал выпадающие списки для таблицы документов" />
     <MESSAGE value="- временная версия для деплоя" />
     <MESSAGE value="- inProcess: добавление новых документов" />
-    <option name="LAST_COMMIT_MESSAGE" value="- inProcess: добавление новых документов" />
+    <MESSAGE value="- inProcess: добавление новых документов&#10;TODO: &#10;1 - отключить или обработать нажатие на Enter, когда фокус стоит на input&#10;2 - отладить ошибку на сервере, мешающую выполнить update/insert запрос для добавления нового документа" />
+    <option name="LAST_COMMIT_MESSAGE" value="- inProcess: добавление новых документов&#10;TODO: &#10;1 - отключить или обработать нажатие на Enter, когда фокус стоит на input&#10;2 - отладить ошибку на сервере, мешающую выполнить update/insert запрос для добавления нового документа" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
@@ -666,10 +665,10 @@
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
     <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1598439326183" />
-    <state x="482" y="91" width="972" height="904" key="CommitChangelistDialog2" timestamp="1603461610852">
+    <state x="482" y="91" width="972" height="904" key="CommitChangelistDialog2" timestamp="1604060981810">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1603461610852" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1604060981810" />
     <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1601561957984" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />
@@ -679,22 +678,18 @@
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state width="1807" height="283" key="GridCell.Tab.0.bottom/67.27.1853.1068@67.27.1853.1068" timestamp="1601562244335" />
-    <state width="1223" height="416" key="GridCell.Tab.0.bottom/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289991" />
     <state width="1807" height="283" key="GridCell.Tab.0.center" timestamp="1601562244334">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state width="1807" height="283" key="GridCell.Tab.0.center/67.27.1853.1068@67.27.1853.1068" timestamp="1601562244334" />
-    <state width="1223" height="416" key="GridCell.Tab.0.center/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289990" />
     <state width="1807" height="283" key="GridCell.Tab.0.left" timestamp="1601562244334">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state width="1807" height="283" key="GridCell.Tab.0.left/67.27.1853.1068@67.27.1853.1068" timestamp="1601562244334" />
-    <state width="1223" height="416" key="GridCell.Tab.0.left/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289989" />
     <state width="1807" height="283" key="GridCell.Tab.0.right" timestamp="1601562244335">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state width="1807" height="283" key="GridCell.Tab.0.right/67.27.1853.1068@67.27.1853.1068" timestamp="1601562244335" />
-    <state width="1223" height="416" key="GridCell.Tab.0.right/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289991" />
     <state x="558" y="252" width="728" height="475" key="MultipleFileMergeDialog" timestamp="1601561973947">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>

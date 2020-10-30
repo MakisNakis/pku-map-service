@@ -38,11 +38,11 @@ class InsertNewDocumentModalComponent extends Component {
                 mode: "cors",
                 body: JSON.stringify(jsonObj),
             }).then(results => {
-                return results.json();
+                this.props.documentInsertModalFunc()
+                // return results.json();
             }).catch((err) => {
                 console.log(`${err}. Ошибка при отправке запроса на /api/updateProvidersDocuments`);
             });
-
     }
 
     dbUpdateQuery = () => {
@@ -64,16 +64,20 @@ class InsertNewDocumentModalComponent extends Component {
         // console.log(this.props.routeNumber)
     }
 
+    // fuckOffEnter(event){
+    //     event.preventDefault()
+    // }
+
     render() {
         return (
             <div align={'center'}>
 
-                <form>
+                {/*<form>*/}
                     <div className={"inputFont"}>
                         <label>Введите наименование нового документа </label>
                     </div>
                     <input className={"input"} onChange={this.updateInputValue}/>
-                </form>
+                {/*</form>*/}
                 {this.state.errorAlert && (
                     <div className={"inputFontErr"}>Вы ввели пустое значение</div>
                 )
