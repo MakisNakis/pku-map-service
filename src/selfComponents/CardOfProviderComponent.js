@@ -31,6 +31,8 @@ class CardOfProviderComponent extends Component {
             INN: '',
         }
 
+
+        this.prevValueTable = '';
             // Object.freeze(this.emptyProvider)
         this.appRoute = null;
     }
@@ -257,66 +259,114 @@ class CardOfProviderComponent extends Component {
         }));
     }
 
+    editableTableJSX(columnName, dataAboutProvider, property) {
+        console.log(columnName, dataAboutProvider, property)
+        return (
+            <tr className="trMargin">
+                <td className="headerWidthCardOfProviders1">{columnName}:</td>
+                <td className="headerWidthCardOfProviders3">
+                    <input
+                        type="text"
+                        className="cardOfProvidersInput"
+                        ref={node => {
+                            this.editInput = node;
+                            if (this.editInput !== null) {
+                                this.editInput.focus();
+                            }
+                        }}
+                        onFocus={() => {
+                            this.prevValueTable = this.editInput.value;
+                            console.log(this.prevValueTable)
+                        }}
+                        onBlur={() => {
+                            if (this.prevValueTable !== this.editInput.value) {
+                                console.log(this.emptyProvider)
+                                dataAboutProvider[property] = this.editInput.value
+                                console.log(this.emptyProvider)
+                                this.fetchOnProviderApi(dataAboutProvider)
+                            } else {
+                                this.setState({
+                                    editableRow: null
+                                })
+                            }
+                        }}
+                        onKeyPress={(e) => {
+                            if (e.key === 'Enter') {
+                                if (this.prevValueTable !== this.editInput.value) {
+                                    dataAboutProvider[property] = this.editInput.value
+                                    this.fetchOnProviderApi(dataAboutProvider)
+                                } else {
+                                    this.setState({
+                                        editableRow: null
+                                    })
+                                }
+                            }
+                        }}
+                        defaultValue={dataAboutProvider[property]}
+                    />
+                </td>
+            </tr>
+        )
+    }
+
+    staticTableJSX(columnName, dataAboutProvider, property) {
+        // console.log(property)
+        return (
+            <tr className="trMargin">
+                <td className="headerWidthCardOfProviders1">{columnName}:</td>
+                <td className="headerWidthCardOfProviders2"
+                    onDoubleClick={() => {
+                        this.setState({
+                            editableRow: property,
+                        })
+                    }}
+                >{dataAboutProvider[property]}</td>
+            </tr>
+        )
+    }
+
     editableTable(data, columns) {
         let trs = [];
         let dataAboutProvider = data;
         let columnName = false;
         // console.log(dataAboutProvider)
-
-        for (const property in dataAboutProvider) {
-            // console.log(property, dataAboutProvider[property])
+        delete dataAboutProvider.Contact
+        if (this.state.addProviderOn) {
+            const property = "Name"
             columnName = this.selectHeaders(property, columns)
-            // console.log(columnName)
-            if (columnName) {
-                if (this.state.editableRow === property) {
-                    trs.push(
-                        <tr className="trMargin">
-                            <td className="headerWidthCardOfProviders1">{columnName}:</td>
-                            <input
-                                type="text"
-                                className="cardOfProvidersInput"
-                                ref={node => {
-                                    this.editInput = node;
-                                    if (this.editInput !== null) {
-                                        this.editInput.focus();
-                                    }
-                                }}
-                                onBlur={() => {
-                                    console.log(this.emptyProvider)
-                                    dataAboutProvider[property] = this.editInput.value
-                                    console.log(this.emptyProvider)
-                                    this.fetchOnProviderApi(dataAboutProvider)
-                                }
-                                }
-                                onKeyPress={(e) => {
-                                    if (e.key === 'Enter') {
-                                        dataAboutProvider[property] = this.editInput.value
-                                        this.fetchOnProviderApi(dataAboutProvider)
-                                    }
-                                }}
-                                defaultValue={dataAboutProvider[property]}
-                            />
-                        </tr>
-                    );
-                } else {
-                    trs.push(
-                        <tr className="trMargin">
-                            <td className="headerWidthCardOfProviders1">{columnName}:</td>
-                            <td className="headerWidthCardOfProviders2"
-                                onDoubleClick={() => {
-                                    this.setState({
-                                        editableRow: property,
-                                    })
-                                }}
-                            >{dataAboutProvider[property]}</td>
-                        </tr>
-                    );
+
+            if (this.state.editableRow === property) {
+                trs.push(
+                    this.editableTableJSX(columnName, dataAboutProvider, property)
+                );
+            } else {
+                trs.push(
+                    this.staticTableJSX(columnName, dataAboutProvider, property)
+                    // this.staticTableJSX('Name', {...this.emptyProvider})
+                );
+            }
+        } else {
+            for (const property in dataAboutProvider) {
+                // console.log(property)
+                columnName = this.selectHeaders(property, columns)
+                // console.log(columnName
+                if (columnName) {
+                    if (this.state.editableRow === property) {
+                        trs.push(
+                            this.editableTableJSX(columnName, dataAboutProvider, property)
+                        );
+                    } else {
+                        trs.push(
+                            this.staticTableJSX(columnName, dataAboutProvider, property)
+                        );
+                    }
                 }
             }
         }
-
         return trs;
     }
+
+
 
     render() {
         // заголовки для таблицы контрагента
@@ -421,7 +471,7 @@ class CardOfProviderComponent extends Component {
                         </div>
                         <div className="cardOfProvidersMargin">
 
-                            <table>
+                            <table width="100%">
                                 <tr>
                                     <td className="listOfProvidersTd">
                                         <table width="100%">
@@ -469,7 +519,7 @@ class CardOfProviderComponent extends Component {
                                     :
                                         <td className="cardComp">
                                             <div className="cardOfProviderDiv">
-                                                <div className="errText">
+                                                <div className="errText headerWidthCardOfProviders1">
                                                     Контрагент не выбран
                                                 </div>
                                             </div>
