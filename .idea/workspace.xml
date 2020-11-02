@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="- inProcess: добавление новых документов&#10;TODO: &#10;1 - отключить или обработать нажатие на Enter, когда фокус стоит на input&#10;2 - отладить ошибку на сервере, мешающую выполнить update/insert запрос для добавления нового документа">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/selfComponents/InsertNewDocumentModalComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/InsertNewDocumentModalComponent.js" afterDir="false" />
     </list>
@@ -260,6 +259,7 @@
       <workItem from="1603295896215" duration="809000" />
       <workItem from="1603692685454" duration="12965000" />
       <workItem from="1604060595969" duration="5313000" />
+      <workItem from="1604300823902" duration="4414000" />
     </task>
     <task id="LOCAL-00050" summary="- небольшие правки к стилям&#10;- изменил название выходного CSV файла">
       <created>1596187685038</created>
@@ -665,10 +665,10 @@
     </state>
     <state x="689" y="372" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596188972129" />
     <state x="732" y="358" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1068@67.27.1853.1068" timestamp="1598439326183" />
-    <state x="482" y="91" width="972" height="904" key="CommitChangelistDialog2" timestamp="1604060981810">
+    <state x="482" y="91" width="972" height="904" key="CommitChangelistDialog2" timestamp="1604304623836">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1604060981810" />
+    <state x="482" y="91" width="769" height="789" key="CommitChangelistDialog2/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1604304623836" />
     <state x="472" y="108" width="972" height="904" key="CommitChangelistDialog2/67.27.1853.1068@67.27.1853.1068" timestamp="1601561957984" />
     <state x="686" y="243" width="426" height="479" key="FileChooserDialogImpl" timestamp="1596200212735">
       <screen x="0" y="0" width="1920" height="1200" />

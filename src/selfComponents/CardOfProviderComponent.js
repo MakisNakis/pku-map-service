@@ -346,6 +346,7 @@ class CardOfProviderComponent extends Component {
         if (this.state.documentInsertModal === true){
             // console.log("POSHEL NAHUI")
             this.setState({documentInsertModal: false})
+            this.setState({buttonTitle: "Добавить новый документ"})
             await this.fetchFromDocumentsApi(this.props.selectedProviderId)
         }
         else if (this.state.documentInsertModal === false){

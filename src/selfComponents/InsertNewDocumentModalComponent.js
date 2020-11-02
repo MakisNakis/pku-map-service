@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from "../499486.jpg";
 
 import './css/TableComponent.css';
 
@@ -13,12 +12,6 @@ class InsertNewDocumentModalComponent extends Component {
         }
 
     }
-
-    // getInitialState = () => {
-    //     return {
-    //         : ''
-    //     };
-    // }
 
     updateInputValue = (evt) => {
         this.setState({
@@ -71,17 +64,15 @@ class InsertNewDocumentModalComponent extends Component {
     render() {
         return (
             <div align={'center'}>
-
-                {/*<form>*/}
-                    <div className={"inputFont"}>
+                 <div className={"inputFont"}>
                         <label>Введите наименование нового документа </label>
-                    </div>
+                 </div>
                     <input className={"input"} onChange={this.updateInputValue}/>
-                {/*</form>*/}
                 {this.state.errorAlert && (
                     <div className={"inputFontErr"}>Вы ввели пустое значение</div>
                 )
                 }
+                <br/>
                 <br/>
                 <button type={"submit"} className={"button7"} onClick={this.dbUpdateQuery}>Добавить</button>
             </div>
