@@ -46,7 +46,6 @@
 .tableProviderListScroll {
     overflow: auto;
     /*display: block;*/
-
     height: 100%;
 }
 
@@ -57,14 +56,20 @@
 }
 
 .cardOfProvidersTable {
-    margin: 10px;
+    /* margin: 10px 0 10px 0; */
     font-size: 20px;
     font-weight: 500;
     color: #383838;
+    width: 100%;
 }
 
 .trMargin {
     height: 4vh;
+}
+
+.headerWidthCardOfProviders1, .headerWidthCardOfProviders2, .headerWidthCardOfProviders3 {
+    padding: 10px;
+    height: 56px;
 }
 
 .errText {
@@ -81,11 +86,11 @@
 
 .cardOfProvidersInput {
     width: 100%;
+    border: 2px solid #035497;
 }
 
 .headerWidthCardOfProviders1 {
     width: 15vw;
-
 }
 
 .headerWidthCardOfProviders2 {

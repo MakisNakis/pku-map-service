@@ -38,6 +38,3 @@ class AuthorisationComponent extends Component {
 
 
 export default AuthorisationComponent;
-
-
-

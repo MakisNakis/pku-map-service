@@ -35,9 +35,14 @@ class CardOfProviderComponent extends Component {
             Contact: '',
             INN: '',
         }
+
+
+        this.prevValueTable = '';
+            // Object.freeze(this.emptyProvider)
         this.appRoute = null;
         this.documentInsertModalFunc =  this.documentInsertModalFunc.bind(this)
     }
+
 
     async fetchFromProviderApi(data) {
         await fetch('/api/cardOfProvider', {
@@ -47,6 +52,7 @@ class CardOfProviderComponent extends Component {
             body: JSON.stringify({ProviderId: data}),
         }).then(results => results.json()
         ).then(data => {
+            console.log(data[0])
             if (data[0] !== undefined) {
                 this.setState({
                     dataAboutProvider: data[0],
@@ -61,6 +67,44 @@ class CardOfProviderComponent extends Component {
             console.log(err, "cardOfProvider");
         });
     }
+
+    searchMaxProviderId(providers, property) {
+        let maxId = -1;
+        for (let provider of providers) {
+            if (provider[property] > maxId) {
+                maxId = provider[property];
+            }
+        }
+        return maxId;
+    }
+
+    async fetchOnProviderApi(data) {
+        this.updateCardOfComponent(data)
+        let dataObj = this.state.dataAboutProvider
+        dataObj.UserId = parseInt(this.props.userId)
+        console.log(dataObj)
+        await fetch('/api/cardOfProvider', {
+            method: 'PUT',
+            headers: {'content-type': 'application/json'},
+            mode: "cors",
+            body: JSON.stringify(dataObj),
+        }).then(results => results.json()
+    ).then(async data => {
+            console.log(data)
+            if(this.state.addProviderOn) {
+                let listOfProviders = await this.props.uploadProvidersList().then(result => result);
+                console.log(listOfProviders)
+                console.log(listOfProviders[listOfProviders.length - 1].value)
+                this.props.selectProviderId(this.searchMaxProviderId(listOfProviders, "value"))
+                this.addProvider()
+            } else {
+                this.fetchFromProviderApi(this.props.selectedProviderId)
+            }
+        }).catch((err) => {
+            console.log(err, "cardOfProvider");
+        });
+    }
+
 
     async fetchFromDocumentsApi(providerId) {
         console.log(providerId)
@@ -111,7 +155,7 @@ class CardOfProviderComponent extends Component {
 
     componentDidMount() {
         this.fetchFromProviderApi(this.props.selectedProviderId);
-        this.appRoute = document.getElementById('globalDiv');
+        // this.appRoute = document.getElementById('globalDiv');
         this.fetchFromDocumentsApi(this.props.selectedProviderId);
         console.log(this.state.f_s_docs_list)
 
@@ -143,7 +187,8 @@ class CardOfProviderComponent extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.props.selectedProviderId !== prevProps.selectedProviderId) { // если выбираешь другого контрагента
+
+        if (this.props.selectedProviderId !== prevProps.selectedProviderId) {
             this.fetchFromProviderApi(this.props.selectedProviderId);
             this.fetchFromDocumentsApi(this.props.selectedProviderId);
             console.log(this.props.selectedProviderId);
@@ -315,30 +360,22 @@ class CardOfProviderComponent extends Component {
         })
     }
 
-    async fetchOnProviderApi(data) {
-        this.updateCardOfComponent(data)
-        let dataObj = this.state.dataAboutProvider
-        dataObj.UserId = parseInt(this.props.userId)
-        console.log(dataObj)
-        await fetch('/api/cardOfProvider', {
-            method: 'PUT',
-            headers: {'content-type': 'application/json'},
-            mode: "cors",
-            body: JSON.stringify(dataObj),
-        }).then(results => results.json()
-        ).then(data => {
-            console.log(data)
-            this.fetchFromProviderApi(this.props.selectedProviderId)
-        }).catch((err) => {
-            console.log(err, "cardOfProvider");
-        });
-    }
+
 
     addProvider() {
+
+
+        if (this.state.addProviderOn) {
+            this.fetchFromProviderApi(this.props.selectedProviderId);
+        }
+        else {
+            this.setState({
+                dataAboutProvider: {...this.emptyProvider}
+            });
+        }
         this.setState(state => ({
             ...state,
-            addProviderOn: !state.addProviderOn,
-            // dataAboutProvider: this.emptyProvider
+            addProviderOn: !state.addProviderOn
         }));
     }
 
@@ -354,63 +391,116 @@ class CardOfProviderComponent extends Component {
         }
     }
 
+
+    editableTableJSX(columnName, dataAboutProvider, property) {
+        console.log(columnName, dataAboutProvider, property)
+        return (
+            <tr className="trMargin">
+                <td className="headerWidthCardOfProviders1">{columnName}:</td>
+                <td className="headerWidthCardOfProviders3">
+                    <input
+                        type="text"
+                        className="cardOfProvidersInput"
+                        ref={node => {
+                            this.editInput = node;
+                            if (this.editInput !== null) {
+                                this.editInput.focus();
+                            }
+                        }}
+                        onFocus={() => {
+                            this.prevValueTable = this.editInput.value;
+                            console.log(this.prevValueTable)
+                        }}
+                        onBlur={() => {
+                            if (this.prevValueTable !== this.editInput.value) {
+                                console.log(this.emptyProvider)
+                                dataAboutProvider[property] = this.editInput.value
+                                console.log(this.emptyProvider)
+                                this.fetchOnProviderApi(dataAboutProvider)
+                            } else {
+                                this.setState({
+                                    editableRow: null
+                                })
+                            }
+                        }}
+                        onKeyPress={(e) => {
+                            if (e.key === 'Enter') {
+                                if (this.prevValueTable !== this.editInput.value) {
+                                    dataAboutProvider[property] = this.editInput.value
+                                    this.fetchOnProviderApi(dataAboutProvider)
+                                } else {
+                                    this.setState({
+                                        editableRow: null
+                                    })
+                                }
+                            }
+                        }}
+                        defaultValue={dataAboutProvider[property]}
+                    />
+                </td>
+            </tr>
+        )
+    }
+
+    staticTableJSX(columnName, dataAboutProvider, property) {
+        // console.log(property)
+        return (
+            <tr className="trMargin">
+                <td className="headerWidthCardOfProviders1">{columnName}:</td>
+                <td className="headerWidthCardOfProviders2"
+                    onDoubleClick={() => {
+                        this.setState({
+                            editableRow: property,
+                        })
+                    }}
+                >{dataAboutProvider[property]}</td>
+            </tr>
+        )
+    }
+
+
     editableTable(data, columns) {
         let trs = [];
+        let dataAboutProvider = data;
         let columnName = false;
-        console.log(data)
-
-        for (const property in data) {
-            // console.log(property, data[property])
+        // console.log(dataAboutProvider)
+        delete dataAboutProvider.Contact
+        if (this.state.addProviderOn) {
+            const property = "Name"
             columnName = this.selectHeaders(property, columns)
-            console.log(columnName)
-            if (columnName) {
-                if (this.state.editableRow === property) {
-                    trs.push(
-                        <tr className="trMargin">
-                            <td className="headerWidthCardOfProviders1">{columnName}:</td>
-                            <input
-                                type="text"
-                                className="cardOfProvidersInput"
-                                ref={node => {
-                                    this.editInput = node;
-                                    if (this.editInput !== null) {
-                                        this.editInput.focus();
-                                    }
-                                }}
-                                onBlur={() => {
-                                    data[property] = this.editInput.value
-                                    this.fetchOnProviderApi(data)
-                                }
-                                }
-                                onKeyPress={(e) => {
-                                    if (e.key === 'Enter') {
-                                        data[property] = this.editInput.value
-                                        this.fetchOnProviderApi(data)
-                                    }
-                                }}
-                                defaultValue={data[property]}
-                            />
-                        </tr>
-                    );
-                } else {
-                    trs.push(
-                        <tr className="trMargin">
-                            <td className="headerWidthCardOfProviders1">{columnName}:</td>
-                            <td className="headerWidthCardOfProviders2"
-                                onDoubleClick={() => {
-                                    this.setState({
-                                        editableRow: property,
-                                    })
-                                }}
-                            >{data[property]}</td>
-                        </tr>
-                    );
+
+            if (this.state.editableRow === property) {
+                trs.push(
+                    this.editableTableJSX(columnName, dataAboutProvider, property)
+                );
+            } else {
+                trs.push(
+                    this.staticTableJSX(columnName, dataAboutProvider, property)
+                    // this.staticTableJSX('Name', {...this.emptyProvider})
+                );
+            }
+        } else {
+            for (const property in dataAboutProvider) {
+                // console.log(property)
+                columnName = this.selectHeaders(property, columns)
+                // console.log(columnName
+                if (columnName) {
+                    if (this.state.editableRow === property) {
+                        trs.push(
+                            this.editableTableJSX(columnName, dataAboutProvider, property)
+                        );
+                    } else {
+                        trs.push(
+                            this.staticTableJSX(columnName, dataAboutProvider, property)
+                        );
+                    }
                 }
             }
         }
-
         return trs;
     }
+
+
 
     render() {
         // заголовки для таблицы контрагента
@@ -552,32 +642,32 @@ class CardOfProviderComponent extends Component {
                         </div>
                         <div className="cardOfProvidersMargin">
 
-                            <table>
+                            <table width="100%">
                                 <tr>
                                     <td className="listOfProvidersTd">
                                         <table width="100%">
-                                            {/*<tr>*/}
-                                            {/*    <td>*/}
-                                            {/*        <div>*/}
-                                            {/*            <button*/}
-                                            {/*                className={"button9 btnPku"}*/}
-                                            {/*                name="addProvider"*/}
-                                            {/*                onClick={() => {*/}
-                                            {/*                    this.addProvider();*/}
-                                            {/*                }}*/}
-                                            {/*            >*/}
-                                            {/*                {(this.state.addProviderOn) ? 'Отменить' : 'Добавить контрагента'}*/}
-                                            {/*            </button>*/}
-                                            {/*        </div>*/}
-                                            {/*        <hr className="hrCardOfProvider"/>*/}
-                                            {/*    </td>*/}
-                                            {/*</tr>*/}
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <button
+                                                            className={"button9 btnPku"}
+                                                            name="addProvider"
+                                                            onClick={() => {
+                                                                this.addProvider();
+                                                            }}
+                                                        >
+                                                            {(this.state.addProviderOn) ? 'Список контрагентов' : 'Добавить контрагента'}
+                                                        </button>
+                                                    </div>
+                                                    {!this.state.addProviderOn && <hr className="hrCardOfProvider"/>}
+                                                </td>
+                                            </tr>
                                             <tr>
                                                 <td className={"cardComp"}>
                                                     <div id={"providerListCompDiv"}>
                                                         <div className={"tableProviderListScroll"}>
                                                             <table>
-                                                                {this.providersListGeneration(this.props.providersList)}
+                                                                {!this.state.addProviderOn && this.providersListGeneration(this.props.providersList)}
                                                             </table>
                                                         </div>
                                                     </div>
@@ -586,23 +676,26 @@ class CardOfProviderComponent extends Component {
                                         </table>
                                     </td>
 
-                                    {(Object.keys(this.state.dataAboutProvider).length > 0) ?
-                                    <td className="cardComp">
-                                        <div className="cardOfProviderDiv">
-                                            <table className="cardOfProvidersTable">
-                                                {this.editableTable(this.state.dataAboutProvider, ProviderColumnsFields)}
-                                                {/*{(this.state.addProviderOn) ? this.editableTable(this.emptyProvider, ProviderColumnsFields) : this.editableTable(this.state.dataAboutProvider, ProviderColumnsFields)}*/}
-                                            </table>
-                                        </div>
-                                    </td>
-                                    :
-                                    <td className="cardComp">
-                                        <div className="cardOfProviderDiv">
-                                            <div className="errText">
-                                                Контрагент не выбран
+                                    {
+                                      (Object.keys(this.state.dataAboutProvider).length > 0)
+                                    ?
+                                        <td className="cardComp">
+                                            <div className="cardOfProviderDiv">
+                                                <table className="cardOfProvidersTable">
+                                                    {this.editableTable(this.state.dataAboutProvider, ProviderColumnsFields)}
+                                                    {/*{(this.state.addProviderOn) ? this.editableTable(this.emptyProvider, ProviderColumnsFields) : this.editableTable(this.state.dataAboutProvider, ProviderColumnsFields)}*/}
+                                                </table>
                                             </div>
-                                        </div>
-                                    </td>}
+                                        </td>
+                                    :
+                                        <td className="cardComp">
+                                            <div className="cardOfProviderDiv">
+                                                <div className="errText headerWidthCardOfProviders1">
+                                                    Контрагент не выбран
+                                                </div>
+                                            </div>
+                                        </td>
+                                    }
                                 </tr>
                             </table>
                         </div>
@@ -704,7 +797,6 @@ class CardOfProviderComponent extends Component {
                     }
                 </div>
                 </div>
-
                 </div>
             </div>
         )

@@ -31,6 +31,3 @@ class ChangePasswordComponent extends Component {
 
 
 export default ChangePasswordComponent;
-
-
-

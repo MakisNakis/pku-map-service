@@ -9,6 +9,7 @@ import {ContextMenu, MenuItem, ContextMenuTrigger} from "react-contextmenu";
 import ModalWindow from './ModalWindow';
 import CardOfProviderComponent from './CardOfProviderComponent';
 import SelectPkuByDeliveryIdComponent from './SelectPkuByDeliveryIdComponent'
+
 import './css/TableComponent.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.css';
@@ -45,7 +46,7 @@ class TableComponent extends Component {
 
         this.performers = [];
         this.factOfAgreement = [];
-        this.providersList = [];
+        // this.providersList = [];
 
         this.handleClick = this.handleClick.bind(this);
         this.selectProviderId = this.selectProviderId.bind(this);
@@ -54,6 +55,7 @@ class TableComponent extends Component {
         this.closeWindowPortal = this.closeWindowPortal.bind(this);
         this.modalWindowFocusOn = this.modalWindowFocusOn.bind(this);
         this.modalWindowFocusOff = this.modalWindowFocusOff.bind(this);
+        this.uploadProvidersList = this.uploadProvidersList.bind(this);
         this.selectPkuByDeliveryId = this.selectPkuByDeliveryId.bind(this);
     }
 
@@ -73,11 +75,13 @@ class TableComponent extends Component {
                 console.log("Ошибка при асинхронном запросе для чтения факта согласования");
             });
 
+
         this.getProvidersList()
             .then(data => {
                 this.setState({
                     providersList: data
                 });
+                console.log(data)
             })
             .catch(() => {
                 console.log("Ошибка при асинхронном запросе для чтения списка контрагентов");
@@ -87,6 +91,22 @@ class TableComponent extends Component {
         window.addEventListener('beforeunload', () => {
             this.closeWindowPortal();
         });
+    }
+
+    async uploadProvidersList() {
+        let provListMas = await this.getProvidersList()
+            .then(data => {
+                this.setState({
+                    providersList: data
+                });
+                console.log(data)
+                return data;
+            })
+            .catch(() => {
+                console.log("Ошибка при асинхронном запросе для чтения списка контрагентов");
+            });
+        console.log(provListMas)
+        return provListMas;
     }
 
     openChild() {
@@ -733,6 +753,7 @@ class TableComponent extends Component {
                                     closeWindowPortal={this.closeWindowPortal}
                                     providersList={this.state.providersList}
                                     selectProviderId={this.selectProviderId}
+                                    uploadProvidersList={this.uploadProvidersList}
                                 >
                                 </CardOfProviderComponent>
                         )}
