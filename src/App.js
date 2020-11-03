@@ -388,7 +388,7 @@ class App extends React.Component {
                         </tr>
                     </table>
 
-                    <ButtonUpComponent />
+                    <ButtonUpComponent/>
                     {this.state.showChangePassForm &&
                         <ChangePasswordComponent
                             incorrectChangePass={this.state.incorrectChangePass}
@@ -396,6 +396,10 @@ class App extends React.Component {
                             closeChangePassWindow={this.closeChangePassWindow}
                         />
                     }
+
+                    {/*{this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Карабаш</h2></p>}*/}
+                    {/*{this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Башкултаево</h2></p>}*/}
+
                     <MapComponent
                         namePKU={this.gettingNamePKU}
                         routeNumber={this.state.routeNumber}
@@ -408,45 +412,60 @@ class App extends React.Component {
                     {/*    // authorisation={this.state.authorisation}*/}
                     {/*    logout={this.logout}*/}
                     {/*/>*/}
-                    <div id="start"></div>
-                    {localStorage.getItem('userRole') === '1' && <DepartmentsComponent
-                        show={this.state.show}
-                        hide={this.state.hide}
-                        idPKU={this.state.idPKU}
-                        depNameFunc={this.onClickDep}
-                        depName={this.state.depName}
-                    />
-                    }
 
-                    <TypeTableComponent
-                        show={this.state.show}
-                        hide={this.state.hide}
-                        idPKU={this.state.idPKU}
-                        typeTableFunc={this.onClickTypeTable}
-                        depName={this.state.depName}
-                        typeTable={this.state.typeTable}
-                        // routeNumber={this.state.routeNumber}
-                    />
 
+                    {this.state.idPKU && this.state.typeTable === "ОМТС" && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Перечень всего оборудования (Альметьевск - Карабаш) </h2></p>}
                     {this.state.idPKU && (this.state.typeTable === "Монтажники1" || this.state.typeTable === "ПТО1" ) && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Перечень работ на {this.state.markerName} (Альметьевск - Карабаш) </h2></p>}
                     {this.state.idPKU && (this.state.typeTable === "Монтажники2" || this.state.typeTable === "ПТО2") && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} (Альметьевск - Карабаш) </h2></p>}
-                    {this.state.idPKU && (this.state.typeTable === "ОМТС" || this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Карабаш</h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && this.state.routeNumber === 2 && <p className="Table-header"><h2 align="center">Полный отчет по объекту (Альметьевск - Карабаш) </h2></p>}
 
+                    {this.state.idPKU && this.state.typeTable === "ОМТС" && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Перечень всего оборудования (Альметьевск - Карабаш) </h2></p>}
                     {this.state.idPKU && (this.state.typeTable === "Монтажники1" || this.state.typeTable === "ПТО1" ) && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Перечень работ на {this.state.markerName} (Альметьевск - Башкултаево)</h2></p>}
                     {this.state.idPKU && (this.state.typeTable === "Монтажники2" || this.state.typeTable === "ПТО2") && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Перечень оборудования на {this.state.markerName} (Альметьевск - Башкултаево) </h2></p>}
-                    {this.state.idPKU && (this.state.typeTable === "ОМТС" || this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Маршрут Альметьевск - Башкултаево</h2></p>}
+                    {this.state.idPKU && (this.state.typeTable === "Отчеты1" || this.state.typeTable === "Отчеты2") && this.state.routeNumber === 3 && <p className="Table-header"><h2 align="center">Полный отчет по объекту (Альметьевск - Карабаш) </h2></p>}
+
+                    {this.state.idPKU && this.state.typeTable === "Логи" && <p className="Table-header"><h2 align="center">Журнал действий пользователей </h2></p>}
+
+                    <div id="start"></div>
+
+                    <table width="100%">
+                        <tr>
+                            {localStorage.getItem('userRole') === '1' && <td width="100%">
+                                <DepartmentsComponent
+                                    show={this.state.show}
+                                    hide={this.state.hide}
+                                    idPKU={this.state.idPKU}
+                                    depNameFunc={this.onClickDep}
+                                    depName={this.state.depName}
+                                />
+                            </td>}
+                            {this.state.depName !== "ОМТС" && this.state.depName !== "Логи" &&
+                            <td>
+                                 <TypeTableComponent
+                                    show={this.state.show}
+                                    hide={this.state.hide}
+                                    idPKU={this.state.idPKU}
+                                    typeTableFunc={this.onClickTypeTable}
+                                    depName={this.state.depName}
+                                    typeTable={this.state.typeTable}
+                                    // routeNumber={this.state.routeNumber}
+                                />
+                            </td>}
+                        </tr>
+                    </table>
+
 
 
                     <TableComponent
-                    show={this.state.show}
-                    hide={this.state.hide}
-                    idPKU={this.state.idPKU}
-                    depName={this.state.depName}
-                    typeTable={this.state.typeTable}
-                    markerName={this.state.markerName}
-                    routeNumber={this.state.routeNumber}
-                    // userRole={this.state.userRole}
-                    userName={this.state.userName}
+                        show={this.state.show}
+                        hide={this.state.hide}
+                        idPKU={this.state.idPKU}
+                        depName={this.state.depName}
+                        typeTable={this.state.typeTable}
+                        markerName={this.state.markerName}
+                        routeNumber={this.state.routeNumber}
+                        // userRole={this.state.userRole}
+                        userName={this.state.userName}
                     />
                     <br/>
                 </div>}

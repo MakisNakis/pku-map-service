@@ -40,7 +40,7 @@ class ProfileComponent extends Component {
                             </button>
                     </tr>
                     {this.state.showList &&
-                    <div className={"divList"} align={"center"}>
+                    <div className={"divList"} align={"right"}>
                         <tr >
                             <td>
                                 <button id={"changePassword"} className={"buttonList button7"} onClick={()=>{
@@ -70,6 +70,3 @@ class ProfileComponent extends Component {
 
 
 export default ProfileComponent;
-
-
-

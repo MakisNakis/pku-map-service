@@ -89,6 +89,7 @@ h1 {
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
+  white-space: nowrap;
   background-color: rgb(255, 255, 255);
   color: #000000;
   float: left;
@@ -104,6 +105,13 @@ h1 {
   /*background-color: rgba(142, 238, 147, 0.61);*/
   background-color: rgb(65, 128, 177);}
 
+#search-bar-0 {  /*класс поиска в таблице*/
+    height: 44px;
+}
+
+.search-label {
+    margin-bottom: 0;
+}
 
 .button7 {
   display: block;
@@ -196,4 +204,3 @@ h1 {
   font-size: 12px;
   padding: 2px;
 }
-
