@@ -330,7 +330,6 @@ class CardOfProviderComponent extends Component {
         let dataAboutProvider = data;
         let columnName = false;
         // console.log(dataAboutProvider)
-        delete dataAboutProvider.Contact
         if (this.state.addProviderOn) {
             const property = "Name"
             columnName = this.selectHeaders(property, columns)
