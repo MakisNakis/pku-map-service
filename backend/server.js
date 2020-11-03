@@ -311,16 +311,53 @@ app.route(`/api/auth/providersList`) // эндпоинт для получени
             const userId = req.body.userId;
             const routeNumber = req.body.routeNumber;
             const providerId = req.body.providerId;
-            console.log(rowEdit, userId, routeNumber);
-            const dbResponse = await repository.updateProvidersDocuments(rowEdit, userId, routeNumber);
-            console.log(dbResponse.rows);
-            res.send(req.rows)
+            const updateOrInsert = req.body.updateOrInsert;
+            // console.log(rowEdit, userId, routeNumber);
+            const dbResponse = await repository.updateProvidersDocuments(rowEdit, userId, routeNumber, providerId, updateOrInsert);
+            // console.log(dbResponse.rows);
+            res.send(dbResponse.rows)
         })
 
-        // .post(async (req, res) => {
-        //     // console.log(req.headers.origin);
-        //     // console.log( req.body.rowEdit);
-        //     // console.log(req.body.userId);
-        //     const data = await repository.uploadDataForTable(i, "ПТО1", req.body.rowEdit, req.body.userId);
-        //     res.send(data);
-        // });
+app.route('/api/selectFromPkuByDeliveryId')
+    .post(async (req, res) => {
+        const data = req.body;
+        // console.log(req.body);
+        const dbResponse = await repository.selectFromPkuByDeliveryId(data);
+        // console.log(dbResponse.rows);
+        res.json(dbResponse.rows)
+    })
+
+
+app.route(`/api/f_s_docs_list`) // эндпоинт для получения факта согласования
+    .get(async (req, res) => {
+        const dbResponse = await repository.f_s_docs_list();
+        // console.log(dbResponse.rows);
+        // console.log(`В авторизовался пользователь ${dbResponse}`)
+        res.send(dbResponse);
+    });
+
+app.route(`/api/f_s_paymenttype_list`) // эндпоинт для получения факта согласования
+    .get(async (req, res) => {
+        const dbResponse = await repository.f_s_paymenttype_list();
+        // console.log(dbResponse.rows);
+        // console.log(`В авторизовался пользователь ${dbResponse}`)
+        res.send(dbResponse);
+    });
+
+app.route(`/api/f_s_deliverytype_list`) // эндпоинт для получения факта согласования
+    .get(async (req, res) => {
+        const dbResponse = await repository.f_s_deliverytype_list();
+        // console.log(dbResponse.rows);
+        // console.log(`В авторизовался пользователь ${dbResponse}`)
+        res.send(dbResponse);
+    });
+
+
+
+// app.route(`/api/auth/providersList`) // эндпоинт для получения списка контрагентов
+//     .get(async (req, res) => {
+//         const dbResponse = await repository.getProvidersList();
+//         // console.log(dbResponse.rows);
+//         // console.log(`В авторизовался пользователь ${dbResponse}`)
+//         res.send(dbResponse);
+//     });

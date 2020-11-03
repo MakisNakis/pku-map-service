@@ -1,4 +1,6 @@
 .Table-header {
+    font-family: 'Impact', 'fantasy';
+    font-size: 20px;
     background-color: rgb(3, 85, 150);
     /*background-color: rgba(146, 255, 148, 0.57);*/
     color: #ffffff;
@@ -49,6 +51,7 @@ th {
 }
 
 .context_menu {
+
     z-index: 1000;
     border-color: #000000;
     /*color: white;*/
@@ -59,7 +62,23 @@ th {
     padding: 3px;
 }
 
+.input {
+    border: 3px solid #035594;
+    background-color: rgb(195, 210, 227);
+}
+
+.inputFont {
+    font-family: 'Impact', 'fantasy';
+    font-size: 20px;
+}
+
+.inputFontErr {
+    font-family: 'Impact', 'fantasy';
+    font-size: 20px;
+    color: red;
+}
 .button7 {
+
     display: block;
     background: #e0e0e0;
     /*background: rgb(255, 255, 255);*/

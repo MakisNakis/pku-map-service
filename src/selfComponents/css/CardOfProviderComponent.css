@@ -47,6 +47,7 @@
 .tableProviderListScroll {
     overflow: auto;
     /*display: block;*/
+
     height: 100%;
 }
 
@@ -75,7 +76,7 @@
 
 .errText {
     color: #424242;
-    /* margin: 5px; */
+    margin: 5px;
     font-size: 20px;
     font-weight: 500;
 }
@@ -91,6 +92,7 @@
 
 .headerWidthCardOfProviders1 {
     width: 15vw;
+
 }
 
 .headerWidthCardOfProviders2 {
@@ -100,6 +102,7 @@
 .headerCardOfProvider {
     color: #035497;
     margin: 5px;
+    font-family: 'Impact', 'fantasy';
     font-size: 40px;
     font-weight: 600;
 }

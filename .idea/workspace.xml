@@ -669,22 +669,18 @@
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state width="1807" height="283" key="GridCell.Tab.0.bottom/67.27.1853.1068@67.27.1853.1068" timestamp="1601562244335" />
-    <state width="1223" height="416" key="GridCell.Tab.0.bottom/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289991" />
     <state width="1807" height="283" key="GridCell.Tab.0.center" timestamp="1601562244334">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state width="1807" height="283" key="GridCell.Tab.0.center/67.27.1853.1068@67.27.1853.1068" timestamp="1601562244334" />
-    <state width="1223" height="416" key="GridCell.Tab.0.center/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289990" />
     <state width="1807" height="283" key="GridCell.Tab.0.left" timestamp="1601562244334">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state width="1807" height="283" key="GridCell.Tab.0.left/67.27.1853.1068@67.27.1853.1068" timestamp="1601562244334" />
-    <state width="1223" height="416" key="GridCell.Tab.0.left/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289989" />
     <state width="1807" height="283" key="GridCell.Tab.0.right" timestamp="1601562244335">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
     <state width="1807" height="283" key="GridCell.Tab.0.right/67.27.1853.1068@67.27.1853.1068" timestamp="1601562244335" />
-    <state width="1223" height="416" key="GridCell.Tab.0.right/67.27.2493.1469@67.27.2493.1469" timestamp="1594821289991" />
     <state x="558" y="252" width="728" height="475" key="MultipleFileMergeDialog" timestamp="1601561973947">
       <screen x="67" y="27" width="1853" height="1068" />
     </state>
@@ -709,10 +705,10 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="665" y="403" width="590" height="415" key="git4idea.merge.GitPullDialog/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1596184495430" />
-    <state x="657" y="257" width="672" height="677" key="run.anything.popup" timestamp="1598359246948">
-      <screen x="67" y="27" width="1853" height="1068" />
+    <state x="611" y="258" width="672" height="677" key="run.anything.popup" timestamp="1603368804275">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="611" y="258" key="run.anything.popup/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1597157485828" />
+    <state x="611" y="258" width="672" height="677" key="run.anything.popup/1920.0.1920.1200/0.0.1920.1200@0.0.1920.1200" timestamp="1603368804275" />
     <state x="657" y="257" width="672" height="677" key="run.anything.popup/67.27.1853.1068@67.27.1853.1068" timestamp="1598359246948" />
     <state x="656" y="261" width="672" height="678" key="search.everywhere.popup" timestamp="1601298844164">
       <screen x="67" y="27" width="1853" height="1068" />

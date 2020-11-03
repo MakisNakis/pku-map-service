@@ -150,12 +150,12 @@ class MyRepository {
                     Fact = 'null'}
                 else FactDoc = this.convertToPG(row.FactDoc);
                                                                  // запрос на внесение данных для отдела комплектации
-                query = this.client.query(`select * from f_u_equipment(        
-                    ${row.DeliveryID}, 
-                    ${DateContract}, 
-                    ${DatePlan}, 
-                    ${DateFact}, 
-                    ${row.Quantity}, 
+                query = this.client.query(`select * from f_u_equipment(
+                    ${row.DeliveryID},
+                    ${DateContract},
+                    ${DatePlan},
+                    ${DateFact},
+                    ${row.Quantity},
                     ${CommentOMTS},
                     ${userId},
                     ${row.ProviderName},
@@ -368,8 +368,34 @@ class MyRepository {
         return query;
     }
 
-    async updateProvidersDocuments(rowEdit, userId, routeNumber, providerId) {
-        let query = this.client.query(`select * from f_u_docs(
+    async selectFromPkuByDeliveryId(data) { // функция, возвращающая список пку по номеру поставки
+        let query = this.client.query(`select * from f_s_subject_deliveryid(
+            ${data.ProvidersId}
+        );`);
+        return query;
+    }
+
+    async updateProvidersDocuments(rowEdit, userId, routeNumber, providerId, updateOrInsert) {
+
+        if ( updateOrInsert === 'Insert') {
+            var query = this.client.query(`select * from f_u_docs(
+            null,
+            ${this.convertToPG(rowEdit)},
+            null,
+            ${providerId},
+            null,
+            null,
+            null,
+            null,
+            null,
+            ${userId},
+            ${routeNumber}
+        );`);
+        }
+console.log(query)
+
+        if ( updateOrInsert === 'Update') {
+            var query = this.client.query(`select * from f_u_docs(
             ${this.convertToPG(rowEdit.ID)},
             ${this.convertToPG(rowEdit.Name)},
             'null',
@@ -380,10 +406,29 @@ class MyRepository {
             '1' //deliverytypeid,
             ${this.convertToPG(userId)},
             ${this.convertToPG(routeNumber)},
-            
         );`);
+        }
+
+        return query;
+    }
+
+    async f_s_docs_list() {
+        let query = this.client.query(`select * from f_s_docs_list();`);
+        return query;
+    }
+
+    async f_s_paymenttype_list() {
+        let query = this.client.query(`select * from f_s_paymenttype_list();`);
+        return query;
+    }
+    async f_s_deliverytype_list() {
+        let query = this.client.query(`select * from f_s_deliverytype_list();`);
         return query;
     }
 }
+
+
+
+
 
 module.exports = MyRepository;

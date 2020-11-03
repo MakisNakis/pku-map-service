@@ -12,17 +12,22 @@ import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.c
 
 import './css/CardOfProviderComponent.css';
 import {Link} from "react-scroll";
+import ChangePasswordComponent from "./ChangePasswordComponent";
 
 class CardOfProviderComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            buttonTitle: "Добавить новый документ",
             dataAboutProvider: {},
             dataAboutDocuments: [],
             documentsTableId: undefined,
             editableRow: null,
             addProviderOn: false,
-            documentInsertModal: false // стейт, меняющийся на true при нажатии на карточке на кнопку добавить новый документ
+            documentInsertModal: false, // стейт, меняющийся на true при нажатии на карточке на кнопку добавить новый документ
+            f_s_docs_list: null,
+            f_s_paymenttype_list: null,
+            f_s_deliverytype_list: null
         }
         this.emptyProvider = {
             ID: null,
@@ -35,6 +40,7 @@ class CardOfProviderComponent extends Component {
         this.prevValueTable = '';
             // Object.freeze(this.emptyProvider)
         this.appRoute = null;
+        this.documentInsertModalFunc =  this.documentInsertModalFunc.bind(this)
     }
 
 
@@ -55,6 +61,7 @@ class CardOfProviderComponent extends Component {
                 this.setState({
                     dataAboutProvider: {},
                 });
+
             }
         }).catch((err) => {
             console.log(err, "cardOfProvider");
@@ -100,6 +107,7 @@ class CardOfProviderComponent extends Component {
 
 
     async fetchFromDocumentsApi(providerId) {
+        console.log(providerId)
         await fetch('/api/selectProvidersDocuments', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
@@ -116,7 +124,7 @@ class CardOfProviderComponent extends Component {
             this.setState({
                 documentsTableId: documentsTableId,
             });
-
+            console.log(data)
             this.setState({
                 dataAboutDocuments: data,
             });
@@ -127,7 +135,7 @@ class CardOfProviderComponent extends Component {
 
 
     async fetchOnDocumentsApi(apiRoute, rowEdit) {
-        let jsonObj = {rowEdit: rowEdit, userId: localStorage.getItem('userId'), routeNumber: this.props.routeNumber, providerId: this.props.selectedProviderId}
+        let jsonObj = {userId: localStorage.getItem('userId'), routeNumber: this.props.routeNumber, providerId: this.props.selectedProviderId, rowEdit: rowEdit, updateOrInsert: 'Update'}
         // console.log(jsonObj)
         // console.log(apiRoute)
         // console.log(this.props.url)
@@ -149,14 +157,64 @@ class CardOfProviderComponent extends Component {
         this.fetchFromProviderApi(this.props.selectedProviderId);
         // this.appRoute = document.getElementById('globalDiv');
         this.fetchFromDocumentsApi(this.props.selectedProviderId);
+        console.log(this.state.f_s_docs_list)
+
+        this.f_s_docs_list()
+            .then(data => {
+                this.state.f_s_docs_list = data;
+            })
+            .catch(() => {
+                console.log("Ошибка при асинхронном запросе для выполнения функции f_s_docs_list()");
+            });
+
+        console.log(this.state.f_s_docs_list)
+
+        this.f_s_paymenttype_list()
+            .then(data => {
+                this.state.f_s_paymenttype_list = data;
+            })
+            .catch(() => {
+                console.log("Ошибка при асинхронном запросе для выполнения функции f_s_paymenttype_list()");
+            });
+
+        this.f_s_deliverytype_list()
+            .then(data => {
+                this.state.f_s_deliverytype_list = data;
+            })
+            .catch(() => {
+                console.log("Ошибка при асинхронном запросе для выполнения функции f_s_deliverytype_list()");
+            });
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-
-        if (this.props.selectedProviderId !== prevProps.selectedProviderId) {
+        if (this.props.selectedProviderId !== prevProps.selectedProviderId) { // если выбираешь другого контрагента
             this.fetchFromProviderApi(this.props.selectedProviderId);
+            this.fetchFromDocumentsApi(this.props.selectedProviderId);
             console.log(this.props.selectedProviderId);
 
+            this.f_s_docs_list()
+                .then(data => {
+                    this.state.f_s_docs_list = data;
+                })
+                .catch(() => {
+                    console.log("Ошибка при асинхронном запросе для выполнения функции f_s_docs_list()");
+                });
+
+            this.f_s_paymenttype_list()
+                .then(data => {
+                    this.state.f_s_paymenttype_list = data;
+                })
+                .catch(() => {
+                    console.log("Ошибка при асинхронном запросе для выполнения функции f_s_paymenttype_list()");
+                });
+
+            this.f_s_deliverytype_list()
+                .then(data => {
+                    this.state.f_s_deliverytype_list = data;
+                })
+                .catch(() => {
+                    console.log("Ошибка при асинхронном запросе для выполнения функции f_s_deliverytype_list()");
+                });
         }
         if (this.state.dataAboutProvider !== prevState.dataAboutProvider) {
             // console.log(this.state.dataAboutProvider);
@@ -176,13 +234,74 @@ class CardOfProviderComponent extends Component {
     changeDocumentState(){
         switch (this.state.documentInsertModal){
             case true:
-                this.setState({documentInsertModal: false})
+                this.documentInsertModalFunc()
+                this.setState({buttonTitle: "Добавить новый документ"})
                 break
             case false:
-                this.setState({documentInsertModal: true})
+                this.documentInsertModalFunc()
+                this.setState({buttonTitle: "Показать список документов"})
                 break
         }
     }
+
+    //_-_-----------------------------__-_
+    async f_s_docs_list() {
+        const f_s_docs_list = [];
+        const f_s_docs_listMas = await fetch('/api/f_s_docs_list')
+            .then(result => result.json())
+            .then(data => {
+                const lenMas = data.rows.length;
+                for( let i = 0; i < lenMas; i++) {
+                    f_s_docs_list[i] = {
+                        label: data.rows[i].Name,
+                        value: data.rows[i].ID
+                    }
+                }
+                return f_s_docs_list;
+            }).catch(() => {
+                console.log('Ошибка на /api/f_s_docs_list');
+            });
+        return f_s_docs_listMas;
+    }
+
+    async f_s_paymenttype_list() {
+        const f_s_paymenttype_list = [];
+        const f_s_paymenttype_listMas = await fetch('/api/f_s_paymenttype_list')
+            .then(result => result.json())
+            .then(data => {
+                const lenMas = data.rows.length;
+                for( let i = 0; i < lenMas; i++) {
+                    f_s_paymenttype_list[i] = {
+                        label: data.rows[i].Name,
+                        value: data.rows[i].ID
+                    }
+                }
+                return f_s_paymenttype_list;
+            }).catch(() => {
+                console.log('Ошибка на /api/f_s_paymenttype_list');
+            });
+        return f_s_paymenttype_listMas;
+    }
+
+    async f_s_deliverytype_list() {
+        const f_s_deliverytype_list = [];
+        const f_s_deliverytype_listMas = await fetch('/api/f_s_deliverytype_list')
+            .then(result => result.json())
+            .then(data => {
+                const lenMas = data.rows.length;
+                for( let i = 0; i < lenMas; i++) {
+                    f_s_deliverytype_list[i] = {
+                        label: data.rows[i].Name,
+                        value: data.rows[i].ID
+                    }
+                }
+                return f_s_deliverytype_list;
+            }).catch(() => {
+                console.log('Ошибка на /api/f_s_deliverytype_list');
+            });
+        return f_s_deliverytype_listMas;
+    }
+    //_-_-----------------------------__-_
 
     providersListGeneration(providers) {
         let buttons = [];
@@ -325,6 +444,18 @@ class CardOfProviderComponent extends Component {
         )
     }
 
+    async documentInsertModalFunc(){
+        if (this.state.documentInsertModal === true){
+            // console.log("POSHEL NAHUI")
+            this.setState({documentInsertModal: false})
+            this.setState({buttonTitle: "Добавить новый документ"})
+            await this.fetchFromDocumentsApi(this.props.selectedProviderId)
+        }
+        else if (this.state.documentInsertModal === false){
+            this.setState({documentInsertModal: true})
+        }
+    }
+
     editableTable(data, columns) {
         let trs = [];
         let dataAboutProvider = data;
@@ -369,6 +500,7 @@ class CardOfProviderComponent extends Component {
 
     render() {
         // заголовки для таблицы контрагента
+
         const ProviderColumnsFields = [
         {
             dataField: 'Name',
@@ -386,61 +518,97 @@ class CardOfProviderComponent extends Component {
             {
                 dataField: 'Name',
                 text: 'Номер договора',
+                editable: false,
+
                 headerStyle: (colum, colIndex) => {
-                    return {width: 200, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
-            }, {
+            },{
+                dataField: 'DocType',
+                text: 'Тип договора',
+                editable: false,
+
+                headerStyle: (colum, colIndex) => {
+                    return {width: '10%', textAlign: 'center'};
+                }
+            },{
+                dataField: 'ParentType',
+                text: 'Номер связанного договора',
+                editable: false,
+                editor: {
+                    type: Type.SELECT,
+                    options: this.state.f_s_docs_list
+                },
+                headerStyle: (colum, colIndex) => {
+                    return {width: '10%', textAlign: 'center'};
+                }
+            },{
                 dataField: 'PaymentType',
                 text: 'Тип оплаты',
+                editable: false,
+                editor: {
+                    type: Type.SELECT,
+                    options: this.state.f_s_paymenttype_list
+                },
                 headerStyle: (colum, colIndex) => {
-                    return {width: 200, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             }, {
                 dataField: 'StartDate',
                 text: 'Дата заключения',
+                editable: false,
                 editor: {
                     type: Type.DATE,
                     defaultValue: Date.now()
                 },
                 headerStyle: (colum, colIndex) => {
-                    return {width: 100, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             }, {
                 dataField: 'EndDate',
                 text: 'Дата окончания',
+                editable: false,
                 editor: {
                     type: Type.DATE,
                     defaultValue: Date.now()
                 },
                 headerStyle: (colum, colIndex) => {
-                    return {width: 200, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             }, {
                 dataField: 'Way',
                 text: 'Путь до файла',
+                editable: false,
                 headerStyle: (colum, colIndex) => {
-                    return {width: 150, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             },
             {
                 dataField: 'DeliveryType',
                 text: 'Тип поставки',
+                editable: false,
+                editor: {
+                    type: Type.SELECT,
+                    options: this.state.f_s_deliverytype_list
+                },
                 headerStyle: (colum, colIndex) => {
-                    return {width: 150, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             },
             {
                 dataField: 'UserName',
                 text: 'Пользователь',
+                editable: false,
                 headerStyle: (colum, colIndex) => {
-                    return {width: 150, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             },
             {
                 dataField: 'DateUp',
                 text: 'Дата внесения изменений',
+                editable: false,
                 headerStyle: (colum, colIndex) => {
-                    return {width: 150, textAlign: 'center'};
+                    return {width: '10%', textAlign: 'center'};
                 }
             },
         ];
@@ -567,9 +735,9 @@ class CardOfProviderComponent extends Component {
                        this.changeDocumentState()
 
                     }}>
-                        Добавить новый документ
+                            {this.state.buttonTitle}
                     </button>
-
+                        {/*</div>*/}
                 {/*<button onClick={() => this.props.closeWindowPortal()} >*/}
                 {/*    Close me!*/}
                 {/*</button>*/}
@@ -614,11 +782,18 @@ class CardOfProviderComponent extends Component {
                 </ToolkitProvider>
                         }
                     {this.state.documentInsertModal === true &&
-                        <InsertNewDocumentModalComponent/>
+                        <InsertNewDocumentModalComponent
+                            providerId={this.props.selectedProviderId}
+                            userId={localStorage.getItem('userId')}
+                            routeNumber={this.props.routeNumber}
+                            url={this.props.url}
+                            documentInsertModal={this.props.documentInsertModal}
+                            documentInsertModalFunc={this.documentInsertModalFunc}
+                        />
                     }
                 </div>
-
                 </div>
+
                 </div>
             </div>
         )

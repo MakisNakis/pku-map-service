@@ -8,7 +8,7 @@ import {ColumnsData} from "../data/ColumnsData";
 import {ContextMenu, MenuItem, ContextMenuTrigger} from "react-contextmenu";
 import ModalWindow from './ModalWindow';
 import CardOfProviderComponent from './CardOfProviderComponent';
-
+import SelectPkuByDeliveryIdComponent from './SelectPkuByDeliveryIdComponent'
 import './css/TableComponent.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.css';
@@ -26,12 +26,17 @@ class TableComponent extends Component {
             selectedRowDeliveryId: null,
             selectedRowProvider: null,
             selectedProviderId: null,
+            selectedRowNomGroupName: null,
+            selectedRowHardwareModel: null,
             showWindowPortal: false,
             modalWindowFocus: false,        // переменная, отвечающая за переведение фокуса на модальное окно
-
-            // performers: this.getPerformers() // список всех исполнителей (монтажников)
+            selectPkuByDeliveryId: false,
             providersList: [],
+            childOpen: false
         };
+
+        this.openChild = this.openChild.bind(this) //
+        this.hideChild = this.hideChild.bind(this) //
         // переменная, для запуска приложения с разных ip
         this.url = window.location.href;
         // this.modalWindowRef = createRef();
@@ -50,6 +55,7 @@ class TableComponent extends Component {
         this.modalWindowFocusOn = this.modalWindowFocusOn.bind(this);
         this.modalWindowFocusOff = this.modalWindowFocusOff.bind(this);
         this.uploadProvidersList = this.uploadProvidersList.bind(this);
+        this.selectPkuByDeliveryId = this.selectPkuByDeliveryId.bind(this);
     }
 
     componentDidMount() {
@@ -101,6 +107,27 @@ class TableComponent extends Component {
         console.log(provListMas)
         return provListMas;
     }
+    openChild() {
+        const currentStateChild = this.state.childOpen;
+        this.setState(
+            {
+                childOpen: !currentStateChild
+            },
+            () => {
+                console.log("Child is opened " + this.state.childOpen);
+            }
+
+        );
+
+    }
+
+    hideChild() {
+        this.setState({
+            childOpen: false
+        });
+        this.body.style.overflow = '';
+
+    }
 
     selectProviderId(prId) {
         this.setState({
@@ -125,6 +152,15 @@ class TableComponent extends Component {
         }));
     }
 
+    selectPkuByDeliveryId() {
+        console.log(this.state.selectPkuByDeliveryId)
+
+        this.setState({
+            selectPkuByDeliveryId: true
+        });
+        console.log(this.state.selectPkuByDeliveryId)
+    }
+
     modalWindowFocusOn(e, data) {
         this.toggleWindowPortal(e, data).then(() => {
             this.setState({
@@ -139,6 +175,7 @@ class TableComponent extends Component {
 
     closeWindowPortal() {
         this.setState({ showWindowPortal: false })
+        this.setState({ selectPkuByDeliveryId: false })
     }
 
     async getPerformers() {
@@ -479,8 +516,6 @@ class TableComponent extends Component {
             });
         }
     }
-
-
     render() {
 
         // const tableHeaders = loadPerformers(); // подключаем заголовки таблиц из файла ../data/ColumnsData
@@ -540,14 +575,19 @@ class TableComponent extends Component {
                         console.log(row.DeliveryID);
                         this.setState({
                             selectedRowDeliveryId: row.DeliveryID,
-                            selectedRowProvider: row.ProviderName
+                            selectedRowProvider: row.ProviderName,
+                            selectedRowNomGroupName: row.NomGroupName,
+                            selectedRowHardwareModel: row.HardwareModel,
                         });
                         break;
                     }
                     default: {
                         this.setState({
                             selectedRowDeliveryId: null,
-                            selectedRowProvider: null
+                            selectedRowProvider: null,
+                            selectedRowNomGroupName: row.NomGroupName,
+                            selectedRowHardwareModel: row.HardwareModel,
+
                         });
                         break;
                     }
@@ -659,9 +699,9 @@ class TableComponent extends Component {
                                         <MenuItem data={{nameOfProvider: this.state.selectedRowProvider}} className="button7" onClick={this.modalWindowFocusOn}>
                                             Карточка контрагента
                                         </MenuItem>
-                                        {/*<MenuItem data={{foo: this.state.selectedRow}} className="button7" onClick={this.handleClick}>*/}
-                                        {/*    Добавить нового контрагента*/}
-                                        {/*</MenuItem>*/}
+                                        <MenuItem data={{deliveryId: this.state.selectedRowDeliveryId}} className="button7" onClick={this.selectPkuByDeliveryId}>
+                                            Список объектов, использующих данное оборудование
+                                        </MenuItem>
                                         {/*<MenuItem divider />*/}
                                         {/*<MenuItem data={{foo: 'bar'}} onClick={selectRow}>*/}
                                         {/*    ContextMenu Item 3*/}
@@ -702,12 +742,7 @@ class TableComponent extends Component {
 
                     <div id="modalWindow">
                         {this.state.showWindowPortal && (
-                            <ModalWindow
-                                modalWindowFocus={this.state.modalWindowFocus}
-                                closeWindowPortal={this.closeWindowPortal}
-                                modalWindowFocusOff={this.modalWindowFocusOff}
-                            >
-                                <CardOfProviderComponent
+                            <CardOfProviderComponent
                                     selectedRowDeliveryId={this.state.selectedRowDeliveryId}
                                     selectedProviderId={this.state.selectedProviderId}
                                     userId={localStorage.getItem('userId')}
@@ -719,7 +754,23 @@ class TableComponent extends Component {
                                     uploadProvidersList={this.uploadProvidersList}
                                 >
                                 </CardOfProviderComponent>
-                            </ModalWindow>
+                        )}
+                    </div>
+
+                    <div id="modalWindowDelivery">
+                        {this.state.selectPkuByDeliveryId && (
+                            <SelectPkuByDeliveryIdComponent
+                                selectedRowDeliveryId={this.state.selectedRowDeliveryId}
+                                selectedProviderId={this.state.selectedProviderId}
+                                selectedRowNomGroupName={this.state.selectedRowNomGroupName}
+                                selectedRowHardwareModel={this.state.selectedRowHardwareModel}
+
+                            userId={localStorage.getItem('userId')}
+                                routeNumber={this.props.routeNumber}
+                                url={this.url}
+                                closeWindowPortal={this.closeWindowPortal}
+                            >
+                            </SelectPkuByDeliveryIdComponent>
                         )}
                     </div>
                 </div>
