@@ -683,12 +683,10 @@ class TableComponent extends Component {
                                 <div>
                                     <table>
                                         <tr>
-                                    <td><MyExportCSV { ...props.csvProps } /></td>
-                                    {/*<ExportCSVButton className={"button8"} {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>*/}
-                                        <td>{this.props.depName === "Отчеты" && <button className="button9" style={{backgroundColor: this.state.filterColor}} onClick={filterColor}>Фильтр</button>}</td>
-                                    {/*<br/>*/}
-                                        <td ><SearchBar { ...props.searchProps } /></td>
-                                    {/*<hr />*/}
+                                            <td><MyExportCSV { ...props.csvProps } /></td>
+                                            {/*<ExportCSVButton className={"button8"} {...props.csvProps}>Экспортировать в CSV</ExportCSVButton>*/}
+                                            {this.props.depName === "Отчеты" && <td><button className="button9" style={{backgroundColor: this.state.filterColor}} onClick={filterColor}>Фильтр</button></td>}
+                                            <td ><SearchBar placeholder="Поиск" { ...props.searchProps } /></td>
                                         </tr>
                                     </table>
 

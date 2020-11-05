@@ -8,17 +8,18 @@ let appThis;
 
 window.addEventListener('scroll', function() {
     // console.log(window.scrollY, appThis.state.showButtonUp);
-    if (window.scrollY > appThis.offset && appThis.state.showButtonUp === false) {
-        // console.log(appThis);
-        appThis.setState({
-            showButtonUp: true
-        });
-    } else if (window.scrollY <= appThis.offset && appThis.state.showButtonUp === true) {
-        appThis.setState({
-            showButtonUp: false
-        });
+    if (this.props !== undefined) {
+        if (window.scrollY > appThis.offset && appThis.state.showButtonUp === false) {
+            // console.log(appThis);
+            appThis.setState({
+                showButtonUp: true
+            });
+        } else if (window.scrollY <= appThis.offset && appThis.state.showButtonUp === true) {
+            appThis.setState({
+                showButtonUp: false
+            });
+        }
     }
-
     // console.log(typeof(appThis.state.offset), appThis.state.offset);
 });
 

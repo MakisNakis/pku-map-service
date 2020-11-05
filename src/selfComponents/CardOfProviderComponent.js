@@ -136,7 +136,7 @@ class CardOfProviderComponent extends Component {
 
     async fetchOnDocumentsApi(apiRoute, rowEdit) {
         let jsonObj = {userId: localStorage.getItem('userId'), routeNumber: this.props.routeNumber, providerId: this.props.selectedProviderId, rowEdit: rowEdit, updateOrInsert: 'Update'}
-        console.log(jsonObj)
+        // console.log(jsonObj)
         // console.log(apiRoute)
         // console.log(this.props.url)
         await fetch(`${this.props.url}${apiRoute}`, {
@@ -457,6 +457,18 @@ class CardOfProviderComponent extends Component {
                 >{dataAboutProvider[property]}</td>
             </tr>
         )
+    }
+
+    async documentInsertModalFunc(){
+        if (this.state.documentInsertModal === true){
+            // console.log("POSHEL NAHUI")
+            this.setState({documentInsertModal: false})
+            this.setState({buttonTitle: "Добавить новый документ"})
+            await this.fetchFromDocumentsApi(this.props.selectedProviderId)
+        }
+        else if (this.state.documentInsertModal === false){
+            this.setState({documentInsertModal: true})
+        }
     }
 
 
@@ -798,6 +810,7 @@ class CardOfProviderComponent extends Component {
                     }
                 </div>
                 </div>
+
                 </div>
             </div>
         )

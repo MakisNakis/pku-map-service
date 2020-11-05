@@ -1,6 +1,6 @@
 const Client= require('pg').Client;                         // подключение модуля для соединения с БД
 
-const DBNAME = "PKU_MapService3";
+const DBNAME = "PKU_MapService";
 const DBLOG = "postgres";
 const DBPASS = "postgres";
 const DBPORT = "5432";
@@ -150,12 +150,12 @@ class MyRepository {
                     Fact = 'null'}
                 else FactDoc = this.convertToPG(row.FactDoc);
                                                                  // запрос на внесение данных для отдела комплектации
-                query = this.client.query(`select * from f_u_equipment(        
-                    ${row.DeliveryID}, 
-                    ${DateContract}, 
-                    ${DatePlan}, 
-                    ${DateFact}, 
-                    ${row.Quantity}, 
+                query = this.client.query(`select * from f_u_equipment(
+                    ${row.DeliveryID},
+                    ${DateContract},
+                    ${DatePlan},
+                    ${DateFact},
+                    ${row.Quantity},
                     ${CommentOMTS},
                     ${userId},
                     ${row.ProviderName},
