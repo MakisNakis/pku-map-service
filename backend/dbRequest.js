@@ -419,7 +419,6 @@ class MyRepository {
         let query = this.client.query(`select * from f_s_docs_list();`);
         return query;
     }
-
     async f_s_paymenttype_list() {
         let query = this.client.query(`select * from f_s_paymenttype_list();`);
         return query;
