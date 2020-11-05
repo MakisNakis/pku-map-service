@@ -377,7 +377,9 @@ class MyRepository {
 
     async updateProvidersDocuments(rowEdit, userId, routeNumber, providerId, updateOrInsert) {
 
+
         if ( updateOrInsert === 'Insert') {
+            console.log(userId)
             var query = this.client.query(`select * from f_u_docs(
             null,
             ${this.convertToPG(rowEdit)},
@@ -389,25 +391,26 @@ class MyRepository {
             null,
             null,
             ${userId},
-            ${routeNumber}
+            ${this.convertToPG(routeNumber)}
         );`);
         }
-console.log(query)
 
         if ( updateOrInsert === 'Update') {
             var query = this.client.query(`select * from f_u_docs(
             ${this.convertToPG(rowEdit.ID)},
             ${this.convertToPG(rowEdit.Name)},
-            'null',
+            ${this.convertToPG(rowEdit.ParentName)},
             ${this.convertToPG(providerId)},
+            ${this.convertToPG(rowEdit.PaymentType)},
             ${this.convertToPG(rowEdit.StartDate)},
             ${this.convertToPG(rowEdit.EndDate)},
             ${this.convertToPG(rowEdit.Way)},
-            '1' //deliverytypeid,
+            ${this.convertToPG(rowEdit.DeliveryType)},
             ${this.convertToPG(userId)},
             ${this.convertToPG(routeNumber)},
         );`);
         }
+        console.log(query)
 
         return query;
     }

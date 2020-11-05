@@ -136,7 +136,7 @@ class CardOfProviderComponent extends Component {
 
     async fetchOnDocumentsApi(apiRoute, rowEdit) {
         let jsonObj = {userId: localStorage.getItem('userId'), routeNumber: this.props.routeNumber, providerId: this.props.selectedProviderId, rowEdit: rowEdit, updateOrInsert: 'Update'}
-        // console.log(jsonObj)
+        console.log(jsonObj)
         // console.log(apiRoute)
         // console.log(this.props.url)
         await fetch(`${this.props.url}${apiRoute}`, {
@@ -162,6 +162,7 @@ class CardOfProviderComponent extends Component {
         this.f_s_docs_list()
             .then(data => {
                 this.state.f_s_docs_list = data;
+                console.log(this.state.f_s_docs_list)
             })
             .catch(() => {
                 console.log("Ошибка при асинхронном запросе для выполнения функции f_s_docs_list()");
@@ -464,7 +465,7 @@ class CardOfProviderComponent extends Component {
         let dataAboutProvider = data;
         let columnName = false;
         // console.log(dataAboutProvider)
-        delete dataAboutProvider.Contact
+        // delete dataAboutProvider.Contact
         if (this.state.addProviderOn) {
             const property = "Name"
             columnName = this.selectHeaders(property, columns)
@@ -522,7 +523,7 @@ class CardOfProviderComponent extends Component {
             {
                 dataField: 'Name',
                 text: 'Номер договора',
-                editable: false,
+                editable: true,
 
                 headerStyle: (colum, colIndex) => {
                     return {width: '10%', textAlign: 'center'};
@@ -530,15 +531,15 @@ class CardOfProviderComponent extends Component {
             },{
                 dataField: 'DocType',
                 text: 'Тип договора',
-                editable: false,
+                editable: true,
 
                 headerStyle: (colum, colIndex) => {
                     return {width: '10%', textAlign: 'center'};
                 }
             },{
-                dataField: 'ParentType',
+                dataField: 'ParentName',
                 text: 'Номер связанного договора',
-                editable: false,
+                editable: true,
                 editor: {
                     type: Type.SELECT,
                     options: this.state.f_s_docs_list
@@ -549,7 +550,7 @@ class CardOfProviderComponent extends Component {
             },{
                 dataField: 'PaymentType',
                 text: 'Тип оплаты',
-                editable: false,
+                editable: true,
                 editor: {
                     type: Type.SELECT,
                     options: this.state.f_s_paymenttype_list
@@ -560,7 +561,7 @@ class CardOfProviderComponent extends Component {
             }, {
                 dataField: 'StartDate',
                 text: 'Дата заключения',
-                editable: false,
+                editable: true,
                 editor: {
                     type: Type.DATE,
                     defaultValue: Date.now()
@@ -571,7 +572,7 @@ class CardOfProviderComponent extends Component {
             }, {
                 dataField: 'EndDate',
                 text: 'Дата окончания',
-                editable: false,
+                editable: true,
                 editor: {
                     type: Type.DATE,
                     defaultValue: Date.now()
@@ -582,7 +583,7 @@ class CardOfProviderComponent extends Component {
             }, {
                 dataField: 'Way',
                 text: 'Путь до файла',
-                editable: false,
+                editable: true,
                 headerStyle: (colum, colIndex) => {
                     return {width: '10%', textAlign: 'center'};
                 }
@@ -590,7 +591,7 @@ class CardOfProviderComponent extends Component {
             {
                 dataField: 'DeliveryType',
                 text: 'Тип поставки',
-                editable: false,
+                editable: true,
                 editor: {
                     type: Type.SELECT,
                     options: this.state.f_s_deliverytype_list
@@ -610,7 +611,7 @@ class CardOfProviderComponent extends Component {
             {
                 dataField: 'DateUp',
                 text: 'Дата внесения изменений',
-                editable: false,
+                editable: true,
                 headerStyle: (colum, colIndex) => {
                     return {width: '10%', textAlign: 'center'};
                 }
