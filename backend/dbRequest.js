@@ -1,6 +1,6 @@
 const Client= require('pg').Client;                         // подключение модуля для соединения с БД
 
-const DBNAME = "PKU_MapService";
+const DBNAME = "PKU_MapService3";
 const DBLOG = "postgres";
 const DBPASS = "postgres";
 const DBPORT = "5432";
@@ -377,10 +377,10 @@ class MyRepository {
 
     async updateProvidersDocuments(rowEdit, userId, routeNumber, providerId, updateOrInsert) {
 
-
+        let query = null;
         if ( updateOrInsert === 'Insert') {
             console.log(userId)
-            var query = this.client.query(`select * from f_u_docs(
+            query = this.client.query(`select * from f_u_docs(
             null,
             ${this.convertToPG(rowEdit)},
             null,
@@ -394,20 +394,26 @@ class MyRepository {
             ${this.convertToPG(routeNumber)}
         );`);
         }
-
+        console.log(rowEdit)
         if ( updateOrInsert === 'Update') {
-            var query = this.client.query(`select * from f_u_docs(
-            ${this.convertToPG(rowEdit.ID)},
-            ${this.convertToPG(rowEdit.Name)},
-            ${this.convertToPG(rowEdit.ParentName)},
-            ${this.convertToPG(providerId)},
-            ${this.convertToPG(rowEdit.PaymentType)},
-            ${this.convertToPG(rowEdit.StartDate)},
-            ${this.convertToPG(rowEdit.EndDate)},
-            ${this.convertToPG(rowEdit.Way)},
-            ${this.convertToPG(rowEdit.DeliveryType)},
-            ${this.convertToPG(userId)},
-            ${this.convertToPG(routeNumber)},
+
+            let DocumentName = (rowEdit.Name !== null) ? this.convertToPG(rowEdit.Name) : null
+            let DocumentStartDate = (rowEdit.StartDate !== null) ? this.convertToPG(rowEdit.StartDate) : null
+            let DocumentEndDate = (rowEdit.EndDate !== null) ? this.convertToPG(rowEdit.EndDate) : null
+            let DocumentWay = (rowEdit.Way !== null) ? this.convertToPG(rowEdit.Way) : null
+
+            query = this.client.query(`select * from f_u_docs(
+            ${rowEdit.ID},
+            ${DocumentName},
+            ${rowEdit.ParentName},
+            ${providerId},
+            ${rowEdit.PaymentType},
+            ${DocumentStartDate},
+            ${DocumentEndDate},
+            ${DocumentWay},
+            ${rowEdit.DeliveryType},
+            ${userId},
+            ${routeNumber}
         );`);
         }
         console.log(query)

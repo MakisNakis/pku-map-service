@@ -67,7 +67,17 @@ class InsertNewDocumentModalComponent extends Component {
                  <div className={"inputFont"}>
                         <label>Введите наименование нового документа </label>
                  </div>
-                    <input className={"input"} onChange={this.updateInputValue}/>
+                    <input
+                        type="text"
+                        className={"input"}
+                        onChange={this.updateInputValue}
+                        onKeyPress={(e) => {
+                            if (e.key === 'Enter') {
+                                this.dbUpdateQuery()
+                            }
+                        }}
+                    />
+
                 {this.state.errorAlert && (
                     <div className={"inputFontErr"}>Вы ввели пустое значение</div>
                 )

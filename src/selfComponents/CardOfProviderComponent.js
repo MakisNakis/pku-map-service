@@ -25,9 +25,9 @@ class CardOfProviderComponent extends Component {
             editableRow: null,
             addProviderOn: false,
             documentInsertModal: false, // стейт, меняющийся на true при нажатии на карточке на кнопку добавить новый документ
-            f_s_docs_list: null,
-            f_s_paymenttype_list: null,
-            f_s_deliverytype_list: null
+            f_s_docs_list: [],
+            f_s_paymenttype_list: [],
+            f_s_deliverytype_list: []
         }
         this.emptyProvider = {
             ID: null,
@@ -40,6 +40,7 @@ class CardOfProviderComponent extends Component {
         this.prevValueTable = '';
             // Object.freeze(this.emptyProvider)
         this.appRoute = null;
+        this.escFunction = this.escFunction.bind(this)
         this.documentInsertModalFunc =  this.documentInsertModalFunc.bind(this)
     }
 
@@ -133,6 +134,25 @@ class CardOfProviderComponent extends Component {
         });
     }
 
+    checkSelectorsCorrectForUpload(thisState, rowEditColumn){ // функция для замены лейбла селектора на его значение для успешного выполнения SQL - запроса
+        let editColumn = rowEditColumn;
+
+        console.log('sdsad')
+        console.log(thisState, editColumn)
+        for(let j = 0; j < thisState.length; j++) {
+            let thisStateJ = thisState[j];
+            switch (thisStateJ.label) {
+                case editColumn: {
+                    editColumn = thisStateJ.value;
+                    break;
+                }
+                default:
+                    break;
+            }
+
+        }
+        return editColumn
+    }
 
     async fetchOnDocumentsApi(apiRoute, rowEdit) {
         let jsonObj = {userId: localStorage.getItem('userId'), routeNumber: this.props.routeNumber, providerId: this.props.selectedProviderId, rowEdit: rowEdit, updateOrInsert: 'Update'}
@@ -146,6 +166,7 @@ class CardOfProviderComponent extends Component {
             mode: "cors",
             body: JSON.stringify(jsonObj),
         }).then(results => {
+            this.fetchFromDocumentsApi(this.props.selectedProviderId)
             return results.json();
         }).catch((err) => {
             console.log(`${err}. Ошибка при отправке запроса на ${apiRoute}`);
@@ -154,11 +175,7 @@ class CardOfProviderComponent extends Component {
 
 
     componentDidMount() {
-        this.fetchFromProviderApi(this.props.selectedProviderId);
-        // this.appRoute = document.getElementById('globalDiv');
-        this.fetchFromDocumentsApi(this.props.selectedProviderId);
-        console.log(this.state.f_s_docs_list)
-
+        document.addEventListener("keydown", this.escFunction, false);
         this.f_s_docs_list()
             .then(data => {
                 this.state.f_s_docs_list = data;
@@ -185,6 +202,12 @@ class CardOfProviderComponent extends Component {
             .catch(() => {
                 console.log("Ошибка при асинхронном запросе для выполнения функции f_s_deliverytype_list()");
             });
+
+        this.fetchFromProviderApi(this.props.selectedProviderId);
+        // this.appRoute = document.getElementById('globalDiv');
+        this.fetchFromDocumentsApi(this.props.selectedProviderId);
+        console.log(this.state.f_s_docs_list)
+
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -222,6 +245,10 @@ class CardOfProviderComponent extends Component {
             // console.log(this.state.dataAboutProvider);
             // console.log(this.state.dataAboutProvider);
         }
+    }
+
+    componentWillUnmount(){
+        document.removeEventListener("keydown", this.escFunction, false);
     }
 
     selectHeaders(colName, columns) {
@@ -513,7 +540,12 @@ class CardOfProviderComponent extends Component {
         return trs;
     }
 
-
+    escFunction(event){
+        if(event.keyCode === 27) {
+            //Do whatever when esc is pressed
+            this.props.closeWindowPortal();
+        }
+    }
 
     render() {
         // заголовки для таблицы контрагента
@@ -543,7 +575,7 @@ class CardOfProviderComponent extends Component {
             },{
                 dataField: 'DocType',
                 text: 'Тип договора',
-                editable: true,
+                editable: false,
 
                 headerStyle: (colum, colIndex) => {
                     return {width: '10%', textAlign: 'center'};
@@ -623,7 +655,7 @@ class CardOfProviderComponent extends Component {
             {
                 dataField: 'DateUp',
                 text: 'Дата внесения изменений',
-                editable: true,
+                editable: false,
                 headerStyle: (colum, colIndex) => {
                     return {width: '10%', textAlign: 'center'};
                 }
@@ -730,6 +762,7 @@ class CardOfProviderComponent extends Component {
                 {/*    </table>*/}
                 {/*</div>}*/}
 
+
                    <button className="buttonClose button7" onClick={() => {
                         this.props.closeWindowPortal();
                        // this.setState({documentInsertModal: false})
@@ -785,7 +818,13 @@ class CardOfProviderComponent extends Component {
                                     afterSaveCell: (oldValue, newValue, row, column) => {
 
                                         if (oldValue !== newValue) {
-                                            // console.log(row);
+                                            // console.log(this.state.f_s_docs_list)
+                                            // console.log(this.state.f_s_deliverytype_list)
+                                            // console.log(row)
+                                            // console.log(this.state.f_s_paymenttype_list)
+                                            row.ParentName = this.checkSelectorsCorrectForUpload(this.state.f_s_docs_list, row.ParentName)
+                                            row.DeliveryType = this.checkSelectorsCorrectForUpload(this.state.f_s_deliverytype_list, row.DeliveryType)
+                                            row.PaymentType = this.checkSelectorsCorrectForUpload(this.state.f_s_paymenttype_list, row.PaymentType)
                                             this.fetchOnDocumentsApi(`/api/updateProvidersDocuments`, row);
                                         }
                                     }

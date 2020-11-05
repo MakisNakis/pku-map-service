@@ -19,7 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="" />
+    <list default="true" id="c288868e-7c90-485e-a80b-fba9b508570b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/CardOfProviderComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfComponents/InsertNewDocumentModalComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfComponents/InsertNewDocumentModalComponent.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -615,7 +620,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="+ вернул сохранение данных нажатием на зону вне поля" />
     <MESSAGE value="+ вернул сохранение данных нажатием на зону вне поля ввода" />
     <MESSAGE value="+ убрал баг отрисовки описания пку" />
     <MESSAGE value="+ Личный кабинет&#10;+ смена пароля" />
@@ -640,7 +644,8 @@
     <MESSAGE value="+ стили для карточки контрагента" />
     <MESSAGE value="+ test" />
     <MESSAGE value="+ версия программы с просмотром карточки контрагента и с возможностью ее редактирования (без добавления)" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ версия программы с просмотром карточки контрагента и с возможностью ее редактирования (без добавления)" />
+    <MESSAGE value="- test" />
+    <option name="LAST_COMMIT_MESSAGE" value="- test" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597913959737">
